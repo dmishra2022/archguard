@@ -1,0 +1,21 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< example:clean >----------------------------
+[INFO] Building clean 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- archguard:0.1.0:check (default-cli) @ clean ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.444 s
+[INFO] Finished at: 2026-10-06T23:55:13+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.archguard:archguard-maven-plugin:0.1.0:check (default-cli) on project clean: Architecture analysis failed (not a policy pass): Missing compiled output: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/missing-output/target/classes. Compile all selected modules first. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

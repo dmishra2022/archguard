@@ -1,0 +1,48 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< example:clean >----------------------------
+[INFO] Building clean 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ clean ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ clean ---
+[INFO] skip non existing resourceDirectory /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/custom-consumer/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ clean ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 5 source files with javac [debug release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ clean ---
+[INFO] skip non existing resourceDirectory /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/custom-consumer/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ clean ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ clean ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ clean ---
+[INFO] Building jar: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/custom-consumer/target/clean-1.0.jar
+[INFO] 
+[INFO] --- archguard:0.1.0:check (default) @ clean ---
+[INFO] Detected Java version 17.0.20
+[INFO] ArchGuard 0.1.0: 5 classes, 25 dependencies, 1 findings
+ERROR COMPANY-001 [NEW] example.orders.application.Shutdown:1 — Application code terminates the JVM
+  Return a failure to the application boundary; let the process owner decide when to terminate.
+
+[INFO] Reports: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/custom-consumer/target/archguard
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.730 s
+[INFO] Finished at: 2026-10-06T23:55:32+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.archguard:archguard-maven-plugin:0.1.0:check (default) on project clean: Architecture policy violated. See /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/custom-consumer/target/archguard/index.html -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

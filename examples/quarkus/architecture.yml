@@ -1,0 +1,6 @@
+schemaVersion: 1
+roots: ["example.quarkus.."]
+profiles: [hexagonal]
+roles:
+  INBOUND_ADAPTER: ["example.quarkus.web.."]
+requireClassification: true

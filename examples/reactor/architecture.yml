@@ -1,0 +1,7 @@
+schemaVersion: 1
+roots: ["example.."]
+profiles: [hexagonal]
+roles:
+  DOMAIN: ["example.orders.domain.."]
+  APPLICATION: ["example.orders.application.."]
+requireClassification: true

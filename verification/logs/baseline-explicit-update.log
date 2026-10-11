@@ -1,0 +1,25 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< example:violating >--------------------------
+[INFO] Building violating 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- archguard:0.1.0:baseline (default-cli) @ violating ---
+[INFO] Detected Java version 17.0.20
+[INFO] Baseline written: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/violating/architecture-baseline.json
+[INFO] ArchGuard 0.1.0: 4 classes, 22 dependencies, 3 findings
+ERROR HEX-002 [NEW] example.orders.application.OrderService:0 — Application depends on a concrete outer component
+  Replace the concrete adapter dependency with an outbound port owned by the core. Implement the port in the adapter and wire it in the composition root.
+ERROR HEX-002 [NEW] example.orders.application.OrderService:11 — Application depends on a concrete outer component
+  Replace the concrete adapter dependency with an outbound port owned by the core. Implement the port in the adapter and wire it in the composition root.
+ERROR HEX-002 [NEW] example.orders.application.OrderService:0 — Application depends on a concrete outer component
+  Replace the concrete adapter dependency with an outbound port owned by the core. Implement the port in the adapter and wire it in the composition root.
+
+[INFO] Reports: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/violating/target/archguard
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.761 s
+[INFO] Finished at: 2026-10-06T23:55:04+08:00
+[INFO] ------------------------------------------------------------------------

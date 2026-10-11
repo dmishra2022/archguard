@@ -1,0 +1,44 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< example:spring-example >-----------------------
+[INFO] Building spring-example 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ spring-example ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ spring-example ---
+[INFO] skip non existing resourceDirectory /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/spring-boot/src/main/resources
+[INFO] skip non existing resourceDirectory /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/spring-boot/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ spring-example ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 2 source files with javac [debug parameters release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ spring-example ---
+[INFO] skip non existing resourceDirectory /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/spring-boot/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ spring-example ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.2:test (default-test) @ spring-example ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ spring-example ---
+[INFO] Building jar: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/spring-boot/target/spring-example-1.0.jar
+[INFO] 
+[INFO] --- spring-boot:3.4.3:repackage (repackage) @ spring-example ---
+[INFO] Replacing main artifact /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/spring-boot/target/spring-example-1.0.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/spring-boot/target/spring-example-1.0.jar.original
+[INFO] 
+[INFO] --- archguard:0.1.0:check (default) @ spring-example ---
+[INFO] Detected Java version 17.0.20
+[INFO] ArchGuard 0.1.0: 2 classes, 12 dependencies, 2 findings
+
+[INFO] Reports: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/spring-boot/target/archguard
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  28.595 s
+[INFO] Finished at: 2026-10-06T23:56:01+08:00
+[INFO] ------------------------------------------------------------------------

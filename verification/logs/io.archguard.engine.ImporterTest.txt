@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: io.archguard.engine.ImporterTest
+-------------------------------------------------------------------------------
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.710 s -- in io.archguard.engine.ImporterTest

@@ -1,0 +1,24 @@
+{
+  "schemaVersion" : "1",
+  "engineVersion" : "0.1.0",
+  "policyHash" : "becf11f3d3708c4d9f1aa0659da89ac1fce2865e4666e60000f1b3012e3c80ff",
+  "analyzedClasses" : 5,
+  "dependencies" : 25,
+  "findings" : [ {
+    "fingerprint" : "1fdf01df62763f27101fd08ef3116d34572639593a2a9147f6ab737b2a5c15f3",
+    "ruleId" : "COMPANY-001",
+    "severity" : "ERROR",
+    "message" : "Application code terminates the JVM",
+    "evidence" : "Method <example.orders.application.Shutdown.stop()> calls method <java.lang.System.exit(int)> in (Shutdown.java:1)",
+    "location" : {
+      "module" : "example:clean",
+      "path" : "src/main/java/example/orders/application/Shutdown.java",
+      "symbol" : "example.orders.application.Shutdown",
+      "line" : 1
+    },
+    "target" : "java.lang.System",
+    "remediation" : "Return a failure to the application boundary; let the process owner decide when to terminate.",
+    "status" : "NEW"
+  } ],
+  "diagnostics" : [ "Static dependencies only: reflection, dynamic DI, profiles and runtime paths are not resolved.", "Dependency metadata is resolved on demand from the explicit classpath; only owned root-matched classes are evaluated.", "Unclassified application classes: 0 / 5", "Scope: supplied compiled modules and root selectors only; external service behavior is not analyzed.", "Baseline entries no longer observed in this scope: 0 (baseline not modified)" ]
+}

@@ -1,0 +1,40 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< example:violating >--------------------------
+[INFO] Building violating 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ violating ---
+[INFO] skip non existing resourceDirectory /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/violating/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ violating ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 5 source files with javac [debug release 17] to target/classes
+[INFO] 
+[INFO] --- archguard:0.1.0:check (default-cli) @ violating ---
+[INFO] Detected Java version 17.0.20
+[INFO] ArchGuard 0.1.0: 5 classes, 25 dependencies, 4 findings
+ERROR HEX-002 [NEW] example.orders.application.AnotherService:0 — Application depends on a concrete outer component
+  Replace the concrete adapter dependency with an outbound port owned by the core. Implement the port in the adapter and wire it in the composition root.
+ERROR HEX-002 [EXISTING] example.orders.application.OrderService:0 — Application depends on a concrete outer component
+  Replace the concrete adapter dependency with an outbound port owned by the core. Implement the port in the adapter and wire it in the composition root.
+ERROR HEX-002 [EXISTING] example.orders.application.OrderService:11 — Application depends on a concrete outer component
+  Replace the concrete adapter dependency with an outbound port owned by the core. Implement the port in the adapter and wire it in the composition root.
+ERROR HEX-002 [EXISTING] example.orders.application.OrderService:0 — Application depends on a concrete outer component
+  Replace the concrete adapter dependency with an outbound port owned by the core. Implement the port in the adapter and wire it in the composition root.
+
+[INFO] Reports: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/violating/target/archguard
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.344 s
+[INFO] Finished at: 2026-10-06T23:55:08+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.archguard:archguard-maven-plugin:0.1.0:check (default-cli) on project violating: Architecture policy violated. See /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/violating/target/archguard/index.html -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

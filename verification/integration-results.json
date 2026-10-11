@@ -1,0 +1,164 @@
+[
+  {
+    "name": "clean-lifecycle",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 23.91
+  },
+  {
+    "name": "direct-goal",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 1.69
+  },
+  {
+    "name": "offline-goal",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 1.84
+  },
+  {
+    "name": "violation-fails-build",
+    "passed": true,
+    "exitCode": 1,
+    "seconds": 2.91
+  },
+  {
+    "name": "analyze-does-not-gate",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 1.7
+  },
+  {
+    "name": "baseline-create",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 1.76
+  },
+  {
+    "name": "baseline-overwrite-guard",
+    "passed": true,
+    "exitCode": 1,
+    "seconds": 1.69
+  },
+  {
+    "name": "baseline-explicit-update",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 1.79
+  },
+  {
+    "name": "baseline-new-only-pass",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 1.69
+  },
+  {
+    "name": "new-violation-not-baselined",
+    "passed": true,
+    "exitCode": 1,
+    "seconds": 2.28
+  },
+  {
+    "name": "baseline-still-does-not-mutate",
+    "passed": true,
+    "exitCode": 1,
+    "seconds": 1.71
+  },
+  {
+    "name": "invalid-policy-fails",
+    "passed": true,
+    "exitCode": 1,
+    "seconds": 1.89
+  },
+  {
+    "name": "missing-output-fails",
+    "passed": true,
+    "exitCode": 1,
+    "seconds": 1.32
+  },
+  {
+    "name": "reactor-parallel",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 2.25
+  },
+  {
+    "name": "reactor-partial-rejected",
+    "passed": true,
+    "exitCode": 1,
+    "seconds": 1.45
+  },
+  {
+    "name": "reactor-partial-acknowledged",
+    "passed": true,
+    "exitCode": 1,
+    "seconds": 1.61
+  },
+  {
+    "name": "reactor-partial-scoped",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 1.65
+  },
+  {
+    "name": "custom-rule-pack-build",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 8.85
+  },
+  {
+    "name": "custom-rule-spi-loaded",
+    "passed": true,
+    "exitCode": 1,
+    "seconds": 2.65
+  },
+  {
+    "name": "spring-boot-package-check",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 29.51
+  },
+  {
+    "name": "spring-boot-offline-check",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 2.14
+  },
+  {
+    "name": "quarkus-package-check",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 56.5
+  },
+  {
+    "name": "quarkus-offline-check",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 2.7
+  },
+  {
+    "name": "spring-boot-legacy-package-check",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 43.02
+  },
+  {
+    "name": "spring-boot-legacy-offline-check",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 2.0
+  },
+  {
+    "name": "quarkus-legacy-package-check",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 55.44
+  },
+  {
+    "name": "quarkus-legacy-offline-check",
+    "passed": true,
+    "exitCode": 0,
+    "seconds": 2.51
+  }
+]

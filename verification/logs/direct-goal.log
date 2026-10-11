@@ -1,0 +1,18 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< example:clean >----------------------------
+[INFO] Building clean 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- archguard:0.1.0:check (default-cli) @ clean ---
+[INFO] Detected Java version 17.0.20
+[INFO] ArchGuard 0.1.0: 4 classes, 22 dependencies, 0 findings
+
+[INFO] Reports: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/clean/target/archguard
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.777 s
+[INFO] Finished at: 2026-10-06T23:54:53+08:00
+[INFO] ------------------------------------------------------------------------

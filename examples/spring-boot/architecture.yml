@@ -1,0 +1,7 @@
+schemaVersion: 1
+roots: ["example.boot.."]
+profiles: [hexagonal]
+roles:
+  COMPOSITION_ROOT: ["example.boot.bootstrap.."]
+  INBOUND_ADAPTER: ["example.boot.web.."]
+requireClassification: true

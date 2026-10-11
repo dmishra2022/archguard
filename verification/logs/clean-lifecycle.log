@@ -1,0 +1,39 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< example:clean >----------------------------
+[INFO] Building clean 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ clean ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ clean ---
+[INFO] skip non existing resourceDirectory /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/clean/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ clean ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 4 source files with javac [debug release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ clean ---
+[INFO] skip non existing resourceDirectory /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/clean/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ clean ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ clean ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ clean ---
+[INFO] Building jar: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/clean/target/clean-1.0.jar
+[INFO] 
+[INFO] --- archguard:0.1.0:check (default) @ clean ---
+[INFO] Detected Java version 17.0.20
+[INFO] ArchGuard 0.1.0: 4 classes, 22 dependencies, 0 findings
+
+[INFO] Reports: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/clean/target/archguard
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  22.851 s
+[INFO] Finished at: 2026-10-06T23:54:51+08:00
+[INFO] ------------------------------------------------------------------------

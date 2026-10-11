@@ -1,0 +1,8 @@
+{
+  "classes": 2000,
+  "dependencies": 5999,
+  "compileSeconds": 2.657,
+  "analysisProcessSeconds": 2.243,
+  "maxRssKiB": null,
+  "note": "Synthetic sparse graph; includes Maven JVM startup; not an SLA or dense-graph benchmark."
+}

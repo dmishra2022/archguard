@@ -1,0 +1,42 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< example:quarkus-legacy-example >-------------------
+[INFO] Building quarkus-legacy-example 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-legacy-example ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-legacy-example ---
+[INFO] skip non existing resourceDirectory /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/quarkus-legacy/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ quarkus-legacy-example ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-legacy-example ---
+[INFO] skip non existing resourceDirectory /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/quarkus-legacy/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ quarkus-legacy-example ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ quarkus-legacy-example ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ quarkus-legacy-example ---
+[INFO] Building jar: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/quarkus-legacy/target/quarkus-legacy-example-1.0.jar
+[INFO] 
+[INFO] --- quarkus:2.16.12.Final:build (default) @ quarkus-legacy-example ---
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 918ms
+[INFO] 
+[INFO] --- archguard:0.1.0:check (default) @ quarkus-legacy-example ---
+[INFO] Detected Java version 17.0.20
+[INFO] ArchGuard 0.1.0: 1 classes, 5 dependencies, 1 findings
+
+[INFO] Reports: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/quarkus-legacy/target/archguard
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  54.493 s
+[INFO] Finished at: 2026-10-06T23:58:43+08:00
+[INFO] ------------------------------------------------------------------------

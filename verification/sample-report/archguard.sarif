@@ -1,0 +1,59 @@
+{
+  "version" : "2.1.0",
+  "runs" : [ {
+    "invocations" : [ {
+      "executionSuccessful" : true
+    } ],
+    "tool" : {
+      "driver" : {
+        "version" : "0.1.0",
+        "rules" : [ {
+          "id" : "COMPANY-001",
+          "shortDescription" : {
+            "text" : "COMPANY-001"
+          },
+          "help" : {
+            "text" : "Return a failure to the application boundary; let the process owner decide when to terminate."
+          }
+        } ],
+        "name" : "ArchGuard"
+      }
+    },
+    "results" : [ {
+      "ruleId" : "COMPANY-001",
+      "level" : "error",
+      "message" : {
+        "text" : "Application code terminates the JVM\nEvidence: Method <example.orders.application.Shutdown.stop()> calls method <java.lang.System.exit(int)> in (Shutdown.java:1)\nSuggested correction: Return a failure to the application boundary; let the process owner decide when to terminate."
+      },
+      "partialFingerprints" : {
+        "archguard/v1" : "1fdf01df62763f27101fd08ef3116d34572639593a2a9147f6ab737b2a5c15f3"
+      },
+      "baselineState" : "new",
+      "locations" : [ {
+        "logicalLocations" : [ {
+          "fullyQualifiedName" : "example.orders.application.Shutdown",
+          "kind" : "type"
+        } ],
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uriBaseId" : "%SRCROOT%",
+            "uri" : "src/main/java/example/orders/application/Shutdown.java"
+          },
+          "region" : {
+            "startLine" : 1
+          }
+        }
+      } ],
+      "properties" : {
+        "status" : "NEW",
+        "target" : "java.lang.System",
+        "module" : "example:clean"
+      }
+    } ],
+    "properties" : {
+      "diagnostics" : [ "Static dependencies only: reflection, dynamic DI, profiles and runtime paths are not resolved.", "Dependency metadata is resolved on demand from the explicit classpath; only owned root-matched classes are evaluated.", "Unclassified application classes: 0 / 5", "Scope: supplied compiled modules and root selectors only; external service behavior is not analyzed.", "Baseline entries no longer observed in this scope: 0 (baseline not modified)" ],
+      "policyHash" : "becf11f3d3708c4d9f1aa0659da89ac1fce2865e4666e60000f1b3012e3c80ff"
+    }
+  } ],
+  "$schema" : "https://json.schemastore.org/sarif-2.1.0.json"
+}

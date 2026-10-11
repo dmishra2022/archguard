@@ -1,0 +1,7 @@
+schemaVersion: 1
+roots: ["example.micronaut.."]
+profiles: [hexagonal]
+roles:
+  COMPOSITION_ROOT: ["example.micronaut.bootstrap.."]
+  INBOUND_ADAPTER: ["example.micronaut.web.."]
+requireClassification: true

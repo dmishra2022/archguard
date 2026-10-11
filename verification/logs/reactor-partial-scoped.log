@@ -1,0 +1,18 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< example:domain >---------------------------
+[INFO] Building domain 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- archguard:0.1.0:check-reactor (default-cli) @ domain ---
+[INFO] Detected Java version 17.0.20
+[INFO] ArchGuard 0.1.0: 1 classes, 7 dependencies, 0 findings
+
+[INFO] Reports: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/reactor/domain/target/archguard
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.769 s
+[INFO] Finished at: 2026-10-06T23:55:20+08:00
+[INFO] ------------------------------------------------------------------------

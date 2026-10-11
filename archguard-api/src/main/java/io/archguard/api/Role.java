@@ -1,0 +1,12 @@
+package io.archguard.api;
+
+public enum Role {
+  DOMAIN,
+  APPLICATION,
+  INBOUND_PORT,
+  OUTBOUND_PORT,
+  INBOUND_ADAPTER,
+  OUTBOUND_ADAPTER,
+  COMPOSITION_ROOT,
+  UNCLASSIFIED
+}

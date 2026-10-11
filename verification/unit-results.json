@@ -1,0 +1,26 @@
+[
+  {
+    "name": "io.archguard.engine.EngineTest",
+    "tests": "28",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "0.446"
+  },
+  {
+    "name": "io.archguard.engine.ImporterTest",
+    "tests": "16",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "1.71"
+  },
+  {
+    "name": "io.archguard.config.PolicyTest",
+    "tests": "12",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "0.051"
+  }
+]

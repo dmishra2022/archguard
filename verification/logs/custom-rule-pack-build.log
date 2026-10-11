@@ -1,0 +1,37 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< example:company-rules >------------------------
+[INFO] Building company-rules 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ company-rules ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ company-rules ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ company-rules ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ company-rules ---
+[INFO] skip non existing resourceDirectory /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/custom-rule/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ company-rules ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ company-rules ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ company-rules ---
+[INFO] Building jar: /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/custom-rule/target/company-rules-1.0.jar
+[INFO] 
+[INFO] --- install:3.1.2:install (default-install) @ company-rules ---
+[INFO] Installing /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/custom-rule/pom.xml to /workspace/scratch/924770d8d0b0/.tools/m2/example/company-rules/1.0/company-rules-1.0.pom
+[INFO] Installing /workspace/scratch/924770d8d0b0/archguard/.validation/integration-a9d4a1fd2dae/custom-rule/target/company-rules-1.0.jar to /workspace/scratch/924770d8d0b0/.tools/m2/example/company-rules/1.0/company-rules-1.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.001 s
+[INFO] Finished at: 2026-10-06T23:55:29+08:00
+[INFO] ------------------------------------------------------------------------
