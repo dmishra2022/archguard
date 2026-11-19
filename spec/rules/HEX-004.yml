@@ -1,0 +1,38 @@
+id: HEX-004
+title: Inbound and outbound adapters depend directly on each other
+category: boundary
+defaultSeverity: ERROR
+activation: profile
+message: Inbound and outbound adapters depend directly on each other
+remediation: >-
+  Route the operation through the application use case and its ports instead of coupling transport
+  directly to persistence or another outbound adapter.
+rationale: >-
+  A controller calling a repository directly bypasses use-case rules and transactions, and couples
+  the transport contract to the storage model. Dependencies between adapters of the same direction
+  are not covered; model those with constraints.
+languages: [java, python, typescript]
+examples:
+  java:
+    bad: |
+      package com.acme.orders.adapter.inbound.web;
+      import com.acme.orders.adapter.outbound.persistence.JpaOrderRepository;
+      @RestController class OrderController { JpaOrderRepository repo; }
+    good: |
+      package com.acme.orders.adapter.inbound.web;
+      import com.acme.orders.port.inbound.PlaceOrderUseCase;
+      @RestController class OrderController { PlaceOrderUseCase placeOrder; }
+  python:
+    bad: |
+      # orders/api/routes.py
+      from orders.infra.repository import OrderRepository
+    good: |
+      # orders/api/routes.py
+      from orders.application.place_order import PlaceOrder
+  typescript:
+    bad: |
+      // src/orders/api/order.controller.ts
+      import { OrderRepository } from "../infra/order.repository";
+    good: |
+      // src/orders/api/order.controller.ts
+      import { PlaceOrder } from "../application/place-order";

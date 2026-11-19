@@ -1,0 +1,21 @@
+id: layered
+title: Classic layered architecture
+description: >-
+  Presentation (INBOUND_ADAPTER) -> business (APPLICATION, ports, DOMAIN) -> persistence and
+  integration (OUTBOUND_ADAPTER). Lower layers never depend on higher layers, and presentation
+  does not bypass the business layer. Unlike hexagonal, the business layer may use persistence
+  directly and the domain may depend on infrastructure APIs.
+activates: [LAYER-001, LAYER-002]
+roleRules:
+  - rule: LAYER-001
+    from: [DOMAIN]
+    forbiddenRoles: [APPLICATION, INBOUND_PORT, INBOUND_ADAPTER, COMPOSITION_ROOT]
+  - rule: LAYER-001
+    from: [APPLICATION, INBOUND_PORT, OUTBOUND_PORT]
+    forbiddenRoles: [INBOUND_ADAPTER, COMPOSITION_ROOT]
+  - rule: LAYER-001
+    from: [OUTBOUND_ADAPTER]
+    forbiddenRoles: [APPLICATION, INBOUND_PORT, INBOUND_ADAPTER, COMPOSITION_ROOT]
+  - rule: LAYER-002
+    from: [INBOUND_ADAPTER]
+    forbiddenRoles: [OUTBOUND_ADAPTER]

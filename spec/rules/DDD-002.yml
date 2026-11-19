@@ -1,0 +1,34 @@
+id: DDD-002
+title: Cycle among bounded contexts
+category: cycle
+defaultSeverity: ERROR
+activation: profile
+message: "Dependency cycle among bounded contexts: {component}"
+evidence: "Strongly connected bounded contexts: {edges}"
+remediation: >-
+  Break at least one dependency in this component. Move a shared contract to an appropriate owner
+  or invert a dependency through a port; verify that the full cycle is eliminated.
+placeholders:
+  component: Sorted member list rendered as [a, b]
+  edges: Internal edges "x -> y" joined by ", " (see FINGERPRINT.md)
+rationale: >-
+  Mutually dependent contexts cannot be released, scaled or owned independently and usually
+  indicate a misplaced concept.
+languages: [java, python, typescript]
+examples:
+  java:
+    bad: |
+      // orders uses billing.api.Invoice and billing uses orders.api.OrderSummary
+    good: |
+      // billing depends on orders.api; orders publishes an OrderPlaced event instead of calling billing
+  python:
+    bad: |
+      # orders/application/x.py: from billing.api import Invoice
+      # billing/application/y.py: from orders.api import OrderSummary
+    good: |
+      # orders publishes events consumed by billing; only billing imports orders.api
+  typescript:
+    bad: |
+      // src/orders/... imports src/billing/api and src/billing/... imports src/orders/api
+    good: |
+      // only src/billing imports src/orders/api; orders emits domain events

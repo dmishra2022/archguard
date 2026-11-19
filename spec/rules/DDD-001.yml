@@ -1,0 +1,37 @@
+id: DDD-001
+title: Cross-context access to a non-exposed package
+category: context
+defaultSeverity: ERROR
+activation: profile
+message: "Cross-context access to internal type in {targetContext}"
+remediation: >-
+  Use an explicitly exposed API or integration contract of {targetContext}. Keep its domain
+  internals private to that context.
+placeholders:
+  targetContext: ID of the bounded context that owns the target
+rationale: >-
+  Bounded contexts evolve independently only when other contexts depend on their published
+  contract, not on their internals.
+languages: [java, python, typescript]
+examples:
+  java:
+    bad: |
+      package com.acme.billing.application;
+      import com.acme.orders.domain.Order;          // orders internals
+    good: |
+      package com.acme.billing.application;
+      import com.acme.orders.api.OrderSummary;      // orders exposedPackages
+  python:
+    bad: |
+      # billing/application/invoice.py
+      from orders.domain.order import Order
+    good: |
+      # billing/application/invoice.py
+      from orders.api import OrderSummary
+  typescript:
+    bad: |
+      // src/billing/application/invoice.ts
+      import { Order } from "../../orders/domain/order";
+    good: |
+      // src/billing/application/invoice.ts
+      import type { OrderSummary } from "../../orders/api";

@@ -1,0 +1,23 @@
+id: hexagonal
+title: Hexagonal (ports and adapters)
+description: >-
+  The core (DOMAIN, APPLICATION, ports) owns its contracts and never depends on adapters,
+  the composition root or infrastructure APIs. Adapters implement ports and are wired in the
+  composition root. Inbound and outbound adapters do not call each other directly.
+activates: [HEX-001, HEX-002, HEX-003, HEX-004]
+roleRules:
+  - rule: HEX-001
+    from: [DOMAIN]
+    forbiddenRoles: [APPLICATION, INBOUND_ADAPTER, OUTBOUND_ADAPTER, COMPOSITION_ROOT]
+    forbidInfrastructure: true
+  - rule: HEX-002
+    from: [APPLICATION]
+    forbiddenRoles: [INBOUND_ADAPTER, OUTBOUND_ADAPTER, COMPOSITION_ROOT]
+  - rule: HEX-003
+    from: [INBOUND_PORT, OUTBOUND_PORT]
+    forbiddenRoles: [INBOUND_ADAPTER, OUTBOUND_ADAPTER, COMPOSITION_ROOT]
+    forbidInfrastructure: true
+  - rule: HEX-004
+    from: [INBOUND_ADAPTER, OUTBOUND_ADAPTER]
+    forbiddenRoles: [INBOUND_ADAPTER, OUTBOUND_ADAPTER]
+    crossRoleOnly: true

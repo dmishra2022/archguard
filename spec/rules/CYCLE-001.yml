@@ -1,0 +1,33 @@
+id: CYCLE-001
+title: Cycle among packages
+category: cycle
+defaultSeverity: ERROR
+activation: optIn
+message: "Dependency cycle among packages: {component}"
+evidence: "Strongly connected packages: {edges}"
+remediation: >-
+  Break at least one dependency in this component. Move a shared contract to an appropriate owner
+  or invert a dependency through a port; verify that the full cycle is eliminated.
+placeholders:
+  component: Sorted member list rendered as [a, b]
+  edges: Internal edges "x -> y" joined by ", " (see FINGERPRINT.md)
+rationale: >-
+  Package (Java), package/module (Python) or directory (TypeScript) cycles make code impossible to
+  layer, split or understand in isolation. One finding is reported per strongly connected component.
+languages: [java, python, typescript]
+examples:
+  java:
+    bad: |
+      // com.acme.a.X uses com.acme.b.Y and com.acme.b.Y uses com.acme.a.Z
+    good: |
+      // extract the shared type to com.acme.shared, or invert one edge through an interface
+  python:
+    bad: |
+      # pkg/a/x.py: from pkg.b import y ; pkg/b/y.py: from pkg.a import x
+    good: |
+      # move the shared code into pkg/common and import it from both
+  typescript:
+    bad: |
+      // src/a/x.ts imports ../b/y and src/b/y.ts imports ../a/x
+    good: |
+      // move the shared type to src/shared and import it from both

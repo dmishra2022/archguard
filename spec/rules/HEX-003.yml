@@ -1,0 +1,41 @@
+id: HEX-003
+title: Port depends on an infrastructure or transport type
+category: boundary
+defaultSeverity: ERROR
+activation: profile
+message: Port depends on an infrastructure or transport type
+remediation: >-
+  Change the port contract to core-owned inputs and outputs. Map persistence, transport and vendor
+  types inside the adapter.
+rationale: >-
+  Ports are the core's contracts. Leaking adapter, framework or persistence types into them makes
+  every caller and implementation depend on that technology.
+languages: [java, python, typescript]
+examples:
+  java:
+    bad: |
+      package com.acme.orders.port.outbound;
+      import org.springframework.data.domain.Page;
+      public interface OrderStore { Page<Order> findAll(); }
+    good: |
+      package com.acme.orders.port.outbound;
+      public interface OrderStore { List<Order> findAll(int offset, int limit); }
+  python:
+    bad: |
+      # orders/ports/order_store.py
+      from sqlalchemy.orm import Session
+      class OrderStore(Protocol):
+          def find(self, session: Session, id: int): ...
+    good: |
+      # orders/ports/order_store.py
+      class OrderStore(Protocol):
+          def find(self, id: int) -> Order | None: ...
+  typescript:
+    bad: |
+      // src/orders/ports/order-store.ts
+      import type { Repository } from "typeorm";
+      export interface OrderStore { repo(): Repository<OrderEntity>; }
+    good: |
+      // src/orders/ports/order-store.ts
+      import type { Order } from "../domain/order";
+      export interface OrderStore { find(id: string): Promise<Order | undefined>; }

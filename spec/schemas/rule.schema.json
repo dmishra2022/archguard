@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://archguard.io/spec/2.0/rule.schema.json",
+  "title": "ArchGuard rule catalog entry",
+  "description": "Messages and remediations may contain placeholders in braces, documented per rule under placeholders. They are reproduced verbatim in reports, so wording changes are visible to users but never change fingerprints.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[A-Z][A-Z0-9]*-[0-9]{3}$" },
+    "title": { "type": "string", "minLength": 1 },
+    "category": { "enum": ["boundary", "context", "cycle", "framework", "model"] },
+    "defaultSeverity": { "enum": ["INFO", "WARNING", "ERROR"] },
+    "activation": {
+      "description": "profile: on when a profile that activates it is selected; always: on unless disabled; optIn: off unless enabled; requireClassification: follows the policy flag.",
+      "enum": ["profile", "always", "optIn", "requireClassification"]
+    },
+    "message": { "type": "string", "minLength": 1 },
+    "evidence": {
+      "description": "Template for evidence when the rule synthesizes it. Omitted when evidence is the raw dependency evidence.",
+      "type": "string"
+    },
+    "remediation": { "type": "string", "minLength": 1 },
+    "rationale": { "type": "string", "minLength": 1 },
+    "placeholders": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "languages": {
+      "type": "array",
+      "items": { "enum": ["java", "python", "typescript"] },
+      "minItems": 1
+    },
+    "examples": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "java": { "$ref": "#/$defs/example" },
+        "python": { "$ref": "#/$defs/example" },
+        "typescript": { "$ref": "#/$defs/example" }
+      }
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "category",
+    "defaultSeverity",
+    "activation",
+    "message",
+    "remediation",
+    "rationale",
+    "languages",
+    "examples"
+  ],
+  "$defs": {
+    "example": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "bad": { "type": "string", "minLength": 1 },
+        "good": { "type": "string", "minLength": 1 }
+      },
+      "required": ["bad", "good"]
+    }
+  }
+}

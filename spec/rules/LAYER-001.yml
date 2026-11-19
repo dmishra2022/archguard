@@ -1,0 +1,36 @@
+id: LAYER-001
+title: Lower layer depends on a higher layer
+category: boundary
+defaultSeverity: ERROR
+activation: profile
+message: Lower layer depends on a higher layer
+remediation: >-
+  Invert the dependency: define the needed abstraction in the lower layer, or move the code into
+  the layer that owns the behavior. Lower layers must never call presentation or wiring code.
+rationale: >-
+  In a layered architecture dependencies point downward only (presentation, then business, then
+  persistence and integration). Upward dependencies create hidden cycles and block replacing a
+  layer.
+languages: [java, python, typescript]
+examples:
+  java:
+    bad: |
+      package com.acme.orders.persistence;
+      import com.acme.orders.service.OrderService;     // persistence -> business
+    good: |
+      package com.acme.orders.service;
+      import com.acme.orders.persistence.OrderDao;     // business -> persistence
+  python:
+    bad: |
+      # orders/persistence/dao.py
+      from orders.service.order_service import OrderService
+    good: |
+      # orders/service/order_service.py
+      from orders.persistence.dao import OrderDao
+  typescript:
+    bad: |
+      // src/orders/persistence/order.dao.ts
+      import { OrderService } from "../service/order.service";
+    good: |
+      // src/orders/service/order.service.ts
+      import { OrderDao } from "../persistence/order.dao";

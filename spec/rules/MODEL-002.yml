@@ -1,0 +1,31 @@
+id: MODEL-002
+title: Framework classification signals
+category: model
+defaultSeverity: INFO
+activation: always
+message: "Framework classification signals: {tags}"
+evidence: "Static framework metadata: {tags}"
+remediation: >-
+  Review these signals when declaring roles. They do not prove active beans or runtime wiring.
+placeholders:
+  tags: Sorted framework tags rendered as [a, b]
+rationale: >-
+  Framework annotations and base classes hint at a unit's intended role (endpoint, repository,
+  entity). They are informational and never remap declared roles.
+languages: [java, python, typescript]
+examples:
+  java:
+    bad: |
+      @Repository class JpaOrders   // tag spring.repository; INFO only
+    good: |
+      // map com.acme.orders.adapter.outbound.. to OUTBOUND_ADAPTER so the signal agrees with the role
+  python:
+    bad: |
+      class OrderModel(Base): ...   # tag persistence.entity; INFO only
+    good: |
+      # map orders.infra.** to OUTBOUND_ADAPTER
+  typescript:
+    bad: |
+      @Entity() export class OrderEntity {}   // tag persistence.entity; INFO only
+    good: |
+      // map src/orders/infra/** to OUTBOUND_ADAPTER

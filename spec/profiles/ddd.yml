@@ -1,0 +1,6 @@
+id: ddd
+title: Domain-driven design bounded contexts
+description: >-
+  Declared bounded contexts may only use each other's explicitly exposed packages, and the
+  context dependency graph must be acyclic. Contexts are declared in the policy, never inferred.
+activates: [DDD-001, DDD-002]

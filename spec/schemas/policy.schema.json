@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://archguard.io/spec/2.0/policy.schema.json",
+  "title": "ArchGuard policy (architecture.yml), schemaVersion 1 and 2",
+  "description": "Runtime analyzers additionally perform semantic checks that JSON Schema cannot express: selector matching, role/context overlap, rule ID existence and extends resolution. Extends precedence: parents are applied in list order, then the local file. Maps merge by key, lists of objects merge by id (child replaces parent entry with the same id), lists of strings and scalars are replaced. A rule setting with locked: true in a parent cannot be changed by any child.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "enum": [1, 2] },
+    "kind": {
+      "description": "project (default) is an analyzable policy; preset is a reusable parent for extends and does not require roots.",
+      "enum": ["project", "preset"]
+    },
+    "language": { "enum": ["java", "python", "typescript"] },
+    "extends": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(org:[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+@[0-9][A-Za-z0-9.+-]*|classpath:[^\\s]+|\\.{1,2}/[^\\s]+|/[^\\s]+)$"
+      }
+    },
+    "roots": { "$ref": "#/$defs/selectors" },
+    "sourceRoots": {
+      "description": "Python and TypeScript: directories (relative to the project root) that contain analyzed sources.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1, "maxLength": 512 },
+      "minItems": 1
+    },
+    "profiles": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "roles": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "DOMAIN": { "$ref": "#/$defs/selectors" },
+        "APPLICATION": { "$ref": "#/$defs/selectors" },
+        "INBOUND_PORT": { "$ref": "#/$defs/selectors" },
+        "OUTBOUND_PORT": { "$ref": "#/$defs/selectors" },
+        "INBOUND_ADAPTER": { "$ref": "#/$defs/selectors" },
+        "OUTBOUND_ADAPTER": { "$ref": "#/$defs/selectors" },
+        "COMPOSITION_ROOT": { "$ref": "#/$defs/selectors" }
+      }
+    },
+    "contexts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "packages": { "$ref": "#/$defs/selectors" },
+          "exposedPackages": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/selector" }
+          }
+        },
+        "required": ["id", "packages"]
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "from": { "$ref": "#/$defs/selectors" },
+          "forbidden": { "$ref": "#/$defs/selectors" },
+          "severity": { "$ref": "#/$defs/severity" },
+          "rationale": { "type": "string", "minLength": 1 },
+          "remediation": { "type": "string", "minLength": 1 }
+        },
+        "required": ["id", "from", "forbidden", "rationale", "remediation"]
+      }
+    },
+    "rules": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/id" },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "enabled": { "type": "boolean" },
+          "severity": { "$ref": "#/$defs/severity" },
+          "locked": { "type": "boolean" }
+        }
+      }
+    },
+    "typeOnlyImports": {
+      "description": "Python (TYPE_CHECKING blocks) and TypeScript (import type): whether type-only imports count as dependencies.",
+      "enum": ["count", "ignore"]
+    },
+    "unresolvedImports": {
+      "description": "Python and TypeScript: behavior when an import of an owned module cannot be resolved. Java always fails.",
+      "enum": ["fail", "warn"]
+    },
+    "failOn": { "$ref": "#/$defs/severity" },
+    "newOnly": { "type": "boolean" },
+    "requireClassification": { "type": "boolean" },
+    "allowEmptySelectors": { "type": "boolean" },
+    "allowEmptyAnalysis": { "type": "boolean" }
+  },
+  "required": ["schemaVersion"],
+  "allOf": [
+    {
+      "if": { "properties": { "schemaVersion": { "const": 1 } } },
+      "then": {
+        "required": ["roots"],
+        "properties": {
+          "profiles": { "items": { "enum": ["hexagonal", "ddd"] } },
+          "rules": { "additionalProperties": { "properties": { "locked": false } } }
+        },
+        "not": {
+          "anyOf": [
+            { "required": ["kind"] },
+            { "required": ["language"] },
+            { "required": ["extends"] },
+            { "required": ["sourceRoots"] },
+            { "required": ["typeOnlyImports"] },
+            { "required": ["unresolvedImports"] }
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "schemaVersion": { "const": 2 } },
+        "not": { "properties": { "kind": { "const": "preset" } }, "required": ["kind"] }
+      },
+      "then": { "required": ["roots", "language"] }
+    }
+  ],
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$" },
+    "selector": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "selectors": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/selector" },
+      "minItems": 1
+    },
+    "severity": { "enum": ["INFO", "WARNING", "ERROR"] }
+  }
+}

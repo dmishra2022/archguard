@@ -1,0 +1,36 @@
+id: FW-002
+title: HTTP contract exposes a persistence entity
+category: framework
+defaultSeverity: ERROR
+activation: always
+message: HTTP contract exposes a persistence entity
+evidence: "HTTP method <{method}> exposes persistence entity <{entity}>"
+remediation: >-
+  Introduce a transport DTO for this endpoint signature and map to/from the entity inside the
+  adapter or application boundary. Update the documented API contract and its tests.
+placeholders:
+  method: Fully qualified endpoint method or function
+  entity: Fully qualified persistence entity type
+rationale: >-
+  Returning or accepting persistence entities couples the public API to the storage schema, risks
+  leaking fields and lazy-loading state, and blocks independent evolution of either side. Generic
+  type arguments are included; nested DTO fields are not inspected recursively.
+languages: [java, python, typescript]
+examples:
+  java:
+    bad: |
+      @GetMapping("/orders/{id}") public OrderEntity get(@PathVariable long id) { ... }
+    good: |
+      @GetMapping("/orders/{id}") public OrderResponse get(@PathVariable long id) { ... }
+  python:
+    bad: |
+      @router.get("/orders/{id}")
+      def get(id: int) -> OrderModel: ...          # SQLAlchemy / Django model
+    good: |
+      @router.get("/orders/{id}")
+      def get(id: int) -> OrderResponse: ...       # Pydantic DTO
+  typescript:
+    bad: |
+      @Get(":id") get(@Param("id") id: string): Promise<OrderEntity> { ... }   // TypeORM entity
+    good: |
+      @Get(":id") get(@Param("id") id: string): Promise<OrderResponseDto> { ... }

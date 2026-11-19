@@ -1,0 +1,35 @@
+id: LAYER-002
+title: Presentation bypasses the business layer
+category: boundary
+defaultSeverity: ERROR
+activation: profile
+message: Presentation layer bypasses the business layer
+remediation: >-
+  Call an application service from the presentation layer and let it use persistence or
+  integration code. Keep transport handlers free of data-access logic.
+rationale: >-
+  Presentation code that talks to persistence directly skips business rules, validation and
+  transaction boundaries.
+languages: [java, python, typescript]
+examples:
+  java:
+    bad: |
+      package com.acme.orders.web;
+      import com.acme.orders.persistence.OrderDao;
+    good: |
+      package com.acme.orders.web;
+      import com.acme.orders.service.OrderService;
+  python:
+    bad: |
+      # orders/web/views.py
+      from orders.persistence.dao import OrderDao
+    good: |
+      # orders/web/views.py
+      from orders.service.order_service import OrderService
+  typescript:
+    bad: |
+      // src/orders/web/orders.controller.ts
+      import { OrderDao } from "../persistence/order.dao";
+    good: |
+      // src/orders/web/orders.controller.ts
+      import { OrderService } from "../service/order.service";

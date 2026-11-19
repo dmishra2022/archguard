@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://archguard.io/spec/2.0/suppressions.schema.json",
+  "title": "ArchGuard reviewed suppressions",
+  "description": "Expired entries (UTC calendar date, valid through the stated day), duplicate fingerprints, and missing owner or reason are analysis errors. Suppressed findings remain visible in reports.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "owner": { "type": "string", "minLength": 1, "pattern": "\\S" },
+          "reason": { "type": "string", "minLength": 1, "pattern": "\\S" },
+          "expires": { "type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+        },
+        "required": ["fingerprint", "owner", "reason", "expires"]
+      }
+    }
+  },
+  "required": ["schemaVersion", "entries"]
+}
