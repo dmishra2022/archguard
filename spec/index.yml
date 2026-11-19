@@ -1,0 +1,7 @@
+# Machine-readable index of the spec catalog. Analyzers load spec files through this index because
+# classpath and package resources cannot be listed reliably. scripts/spec_check.py verifies that it
+# matches the directory contents.
+specVersion: 2.0.0
+profiles: [clean, ddd, hexagonal, layered, modular-monolith]
+rules: [CYCLE-001, DDD-001, DDD-002, FW-001, FW-002, HEX-001, HEX-002, HEX-003, HEX-004, LAYER-001, LAYER-002, MODEL-001, MODEL-002]
+infrastructure: [java, python, typescript]

@@ -1,9 +1,14 @@
 package io.archguard.config;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.archguard.api.*;
 import java.util.*;
 
-/** Strictly decoded YAML. Collections default only when omitted, not when structurally invalid. */
+/**
+ * Strictly decoded YAML. Collections default only when omitted, not when structurally invalid.
+ * Components after {@code allowEmptyAnalysis} exist only in schemaVersion 2 and are null or empty
+ * for schemaVersion 1 policies.
+ */
 public record Policy(
     int schemaVersion,
     List<String> roots,
@@ -16,7 +21,16 @@ public record Policy(
     boolean newOnly,
     boolean requireClassification,
     boolean allowEmptySelectors,
-    boolean allowEmptyAnalysis) {
+    boolean allowEmptyAnalysis,
+    String kind,
+    String language,
+    @JsonProperty("extends") List<String> parents,
+    List<String> sourceRoots,
+    String typeOnlyImports,
+    String unresolvedImports) {
+  public static final String KIND_PROJECT = "project";
+  public static final String KIND_PRESET = "preset";
+
   public Policy {
     roots = roots == null ? List.of() : List.copyOf(roots);
     profiles = profiles == null ? Set.of() : Set.copyOf(profiles);
@@ -27,6 +41,47 @@ public record Policy(
     constraints = constraints == null ? List.of() : List.copyOf(constraints);
     rules = rules == null ? Map.of() : Map.copyOf(rules);
     failOn = failOn == null ? Severity.ERROR : failOn;
+    parents = parents == null ? List.of() : List.copyOf(parents);
+    sourceRoots = sourceRoots == null ? List.of() : List.copyOf(sourceRoots);
+  }
+
+  /** schemaVersion 1 constructor. */
+  public Policy(
+      int schemaVersion,
+      List<String> roots,
+      Set<String> profiles,
+      Map<Role, List<String>> roles,
+      List<Context> contexts,
+      List<Constraint> constraints,
+      Map<String, RuleSetting> rules,
+      Severity failOn,
+      boolean newOnly,
+      boolean requireClassification,
+      boolean allowEmptySelectors,
+      boolean allowEmptyAnalysis) {
+    this(
+        schemaVersion,
+        roots,
+        profiles,
+        roles,
+        contexts,
+        constraints,
+        rules,
+        failOn,
+        newOnly,
+        requireClassification,
+        allowEmptySelectors,
+        allowEmptyAnalysis,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null);
+  }
+
+  public boolean preset() {
+    return KIND_PRESET.equals(kind);
   }
 
   public record Context(String id, List<String> packages, List<String> exposedPackages) {
@@ -50,5 +105,10 @@ public record Policy(
     }
   }
 
-  public record RuleSetting(Boolean enabled, Severity severity) {}
+  /** {@code locked} (schemaVersion 2): a child policy using {@code extends} cannot change it. */
+  public record RuleSetting(Boolean enabled, Severity severity, Boolean locked) {
+    public RuleSetting(Boolean enabled, Severity severity) {
+      this(enabled, severity, null);
+    }
+  }
 }

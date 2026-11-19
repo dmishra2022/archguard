@@ -1,8 +1,10 @@
 package io.archguard.engine;
 
 import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.archguard.api.*;
 import io.archguard.config.*;
+import io.archguard.spec.SpecCatalog;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -10,6 +12,8 @@ import java.util.*;
 
 public final class ArchitectureEngine {
     public static final String VERSION = "0.1.0";
+    private static final List<String> V2_FIELDS =
+            List.of("kind", "language", "extends", "sourceRoots", "typeOnlyImports", "unresolvedImports");
 
     public AnalysisResult evaluate(
             ArchitectureModel model, Policy policy, List<ArchitectureRule> extensions) {
@@ -17,9 +21,12 @@ public final class ArchitectureEngine {
         Set<String> ids = new HashSet<>(BuiltinRules.IDS);
         for (var c : policy.constraints())
             if (!ids.add(c.id())) throw new IllegalArgumentException("Duplicate rule ID: " + c.id());
-        for (var rule : extensions)
+        for (var rule : extensions) {
             if (rule.id() == null || rule.id().isBlank() || !ids.add(rule.id()))
                 throw new IllegalArgumentException("Invalid/duplicate custom rule ID: " + rule.id());
+            if (!rule.id().equals(rule.descriptor().id()))
+                throw new IllegalArgumentException("Custom rule descriptor ID differs: " + rule.id());
+        }
         for (String configured : policy.rules().keySet())
             if (!ids.contains(configured))
                 throw new IllegalArgumentException("Unknown rule ID: " + configured);
@@ -54,7 +61,9 @@ public final class ArchitectureEngine {
                 model.types().size(),
                 model.dependencies().size(),
                 findings,
-                diagnostics);
+                diagnostics,
+                SpecCatalog.get().specVersion(),
+                Policies.LANGUAGE);
     }
 
     public AnalysisResult analyze(
@@ -66,6 +75,17 @@ public final class ArchitectureEngine {
         return evaluate(new ModelImporter().read(modules, classpath, policy), policy, extensions);
     }
 
+    /** Built-in rule descriptors from the spec catalog followed by the extensions' descriptors. */
+    public List<RuleDescriptor> describe(List<ArchitectureRule> extensions) {
+        List<RuleDescriptor> out = new ArrayList<>(SpecCatalog.get().descriptors(Policies.LANGUAGE));
+        extensions.forEach(r -> out.add(r.descriptor()));
+        return List.copyOf(out);
+    }
+
+    /**
+     * Canonical policy hash bound into baselines. schemaVersion 1 policies hash exactly as in 0.1.0,
+     * so their baselines remain valid.
+     */
     public static String hash(Policy p) {
         try {
             var mapper =
@@ -73,9 +93,12 @@ public final class ArchitectureEngine {
                             .enable(
                                     SerializationFeature
                                             .ORDER_MAP_ENTRIES_BY_KEYS); // sort unordered sets through a canonical tree
-            JsonNode tree = mapper.valueToTree(p);
-            ((com.fasterxml.jackson.databind.node.ObjectNode) tree)
-                    .set("profiles", mapper.valueToTree(new TreeSet<>(p.profiles())));
+            ObjectNode tree = mapper.valueToTree(p);
+            tree.set("profiles", mapper.valueToTree(new TreeSet<>(p.profiles())));
+            if (p.schemaVersion() == 1) {
+                tree.remove(V2_FIELDS);
+                tree.path("rules").forEach(r -> ((ObjectNode) r).remove("locked"));
+            }
             return HexFormat.of()
                     .formatHex(
                             MessageDigest.getInstance("SHA-256")

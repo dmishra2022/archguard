@@ -13,6 +13,8 @@ public final class Debt {
 
   public static final ObjectMapper JSON =
       new ObjectMapper()
+          .setDefaultPropertyInclusion(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
           .enable(SerializationFeature.INDENT_OUTPUT)
           .enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
           .enable(DeserializationFeature.FAIL_ON_TRAILING_TOKENS)
@@ -76,8 +78,10 @@ public final class Debt {
       findings.add(
           f.withStatus(
               ignored.containsKey(f.fingerprint())
-                  ? "SUPPRESSED"
-                  : accepted.contains(f.fingerprint()) ? "EXISTING" : "NEW"));
+                  ? Finding.Status.SUPPRESSED
+                  : accepted.contains(f.fingerprint())
+                      ? Finding.Status.EXISTING
+                      : Finding.Status.NEW));
     List<String> diagnostics = new ArrayList<>(r.diagnostics());
     Set<String> current = new HashSet<>();
     findings.forEach(f -> current.add(f.fingerprint()));
@@ -94,13 +98,6 @@ public final class Debt {
               + s.expires()
               + " reason="
               + s.reason());
-    return new AnalysisResult(
-        r.schemaVersion(),
-        r.engineVersion(),
-        r.policyHash(),
-        r.analyzedClasses(),
-        r.dependencies(),
-        findings,
-        diagnostics);
+    return r.withFindingsAndDiagnostics(findings, diagnostics);
   }
 }

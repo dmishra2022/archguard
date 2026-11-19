@@ -16,6 +16,10 @@ The compiler's debug metadata governs line accuracy. Missing lines remain 0. Mis
 
 The importer rejects duplicate owned class names, missing outputs, unreadable in-scope class files and unresolved direct application dependency metadata. Dependency resources are resolved on demand through a thread-local, closeable URL classloader with the platform classloader as parent. It reads class resources and does not initialize application classes. Framework metadata farther than the dependency import traversal can still be incomplete; this release does not claim full DI resolution.
 
+## Spec-driven rules
+
+`archguard-core` bundles the language-neutral [ArchGuard Spec](../spec/README.md) under `META-INF/archguard/spec/` and loads it through `io.archguard.spec.SpecCatalog`. Rule titles, messages, remediations, default severities and activation come from `spec/rules`. Role-boundary rules are evaluated generically from every profile's role matrix in `spec/profiles`, and HEX-001/003 infrastructure prefixes come from `spec/infrastructure/java.yml`. Bounded-context, cycle and framework detection remain code because they depend on the Java model. `SpecParityTest` checks every role pair against the profile data, and the cross-language conformance suite in `spec/conformance` runs against the built plugin.
+
 ## Rules and policy
 
 Declared roles and contexts are authoritative. Overlaps fail instead of selecting whichever pattern appears first. Framework signals never silently remap roles. Rules evaluate immutable graph data; custom rules must be deterministic and read-only. A rule exception aborts evaluation. Java SPI providers are trusted build code, not sandboxed scripts.
@@ -46,4 +50,8 @@ Analysis failures replace the report files with explicit failure outputs. Policy
 
 Framework classifiers and ModelImporter are internal implementation components. Future adapters can add Quarkus post-synthesis metadata, Spring AOT/context metadata, AST evidence or service contracts, but must label evidence source and environment. Future policy inheritance needs explicit precedence and lock semantics. No stub for these features is advertised as working functionality in this release.
 
-The API is versioned 0.1.0 and may evolve before a 1.0 compatibility commitment. Keep implementation-specific ArchUnit objects out of custom rule contracts.
+## API stability policy
+
+`archguard-api` is the only compatibility surface for rule packs and SDK users. Before 1.0, a minor release may make source-incompatible changes, listed in the release notes. Patch releases never do. From 1.0, binary-incompatible API changes require a major release, and a japicmp check against the previous release enforces this. That check is added with the first published release, because it needs a released artifact to compare against. `archguard-core` packages other than `io.archguard.config`, `io.archguard.engine.ArchitectureEngine`, `io.archguard.engine.ModuleInput`, `io.archguard.report.Reports` and `io.archguard.spec.SpecCatalog` are internal. Keep implementation-specific ArchUnit objects out of custom rule contracts.
+
+Changes since 0.1.0: `Finding.status()` is the enum `Finding.Status` (JSON output is unchanged), `ArchitectureRule.descriptor()` and `RuleDescriptor` were added, and `AnalysisResult` gained optional `specVersion` and `language`.

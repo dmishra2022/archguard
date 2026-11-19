@@ -44,7 +44,7 @@ class SpecParityTest {
         new ArchitectureModel(types, List.of(EngineTest.edge(origin.name(), target)), List.of());
     Set<String> ids = new TreeSet<>();
     for (var f : BuiltinRules.evaluate(model, policy(profiles, false)))
-      if (f.ruleId().startsWith("HEX-")) ids.add(f.ruleId());
+      if (f.ruleId().startsWith("HEX-") || f.ruleId().startsWith("LAYER-")) ids.add(f.ruleId());
     return ids;
   }
 
@@ -72,6 +72,17 @@ class SpecParityTest {
         assertEquals(
             predicted(hexagonal, from, to, false),
             fired(from, "example.b.Target", to, Set.of("hexagonal")),
+            from + " -> " + to);
+  }
+
+  @Test
+  void layeredRoleMatrixMatchesEngineForEveryRolePair() throws IOException {
+    JsonNode layered = yaml("profiles/layered.yml");
+    for (Role from : Role.values())
+      for (Role to : Role.values())
+        assertEquals(
+            predicted(layered, from, to, false),
+            fired(from, "example.b.Target", to, Set.of("layered")),
             from + " -> " + to);
   }
 

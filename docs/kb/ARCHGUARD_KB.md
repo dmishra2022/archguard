@@ -60,7 +60,7 @@ flowchart LR
 
 ## Built-in rules (where they live)
 
-All in `BuiltinRules.evaluate`; activation in `BuiltinRules.active`.
+Detection is in `BuiltinRules.evaluate`, activation in `BuiltinRules.active`. Both are driven by the spec catalog (`io.archguard.spec.SpecCatalog`, which loads `spec/` bundled into the core jar). Role-boundary rules (HEX, LAYER) are evaluated generically from every profile's `roleRules`. Activation comes from the selected profiles (with `includes`) and each rule's `activation` mode. Titles, messages and remediations are catalog templates.
 
 | ID | Trigger | Activation |
 |---|---|---|
@@ -68,6 +68,8 @@ All in `BuiltinRules.evaluate`; activation in `BuiltinRules.active`.
 | HEX-002 | APPLICATION -> adapters/COMPOSITION_ROOT | `hexagonal` profile |
 | HEX-003 | ports -> adapters/COMPOSITION_ROOT or infrastructure prefix | `hexagonal` profile |
 | HEX-004 | inbound adapter <-> outbound adapter | `hexagonal` profile |
+| LAYER-001 | lower layer -> higher layer | `layered` profile |
+| LAYER-002 | INBOUND_ADAPTER -> OUTBOUND_ADAPTER | `layered` profile |
 | DDD-001 | cross-context access to a non-exposed package | `ddd` profile |
 | DDD-002 | cycle among bounded contexts | `ddd` profile |
 | CYCLE-001 | cycle among packages | opt-in |
@@ -77,7 +79,7 @@ All in `BuiltinRules.evaluate`; activation in `BuiltinRules.active`.
 | MODEL-002 | framework classification signals (INFO) | on |
 | custom | `constraints[]` in policy: `from` packages must not depend on `forbidden` packages | always when declared |
 
-Infrastructure prefixes for HEX-001/003 are the hardcoded list in `BuiltinRules.isInfrastructure`. Framework tags come from `FrameworkClassifier.tags` (Spring, JAX-RS, CDI, JPA javax/jakarta, Panache, Micronaut).
+Infrastructure prefixes for HEX-001/003 come from `spec/infrastructure/java.yml`. Framework tags come from `FrameworkClassifier.tags` (Spring, JAX-RS, CDI, JPA javax/jakarta, Panache, Micronaut).
 
 ## Invariants (do not break)
 
@@ -99,11 +101,15 @@ Infrastructure prefixes for HEX-001/003 are the hardcoded list in `BuiltinRules.
 
 ## Known limits
 
-Static structural analysis only: no runtime DI, profiles, reflection, synthetic beans, call paths or dataflow. HTTP entity checks cover annotated methods declared on recognized endpoint classes. No incremental cache, no policy inheritance, no Gradle plugin and no standalone CLI in 0.1.0.
+Static structural analysis only: no runtime DI, profiles, reflection, synthetic beans, call paths or dataflow. HTTP entity checks cover annotated methods declared on recognized endpoint classes. No incremental cache and no Gradle plugin.
+
+## Policy loading (schemaVersion 1 and 2)
+
+`Policies.read` resolves `extends` before decoding. Parents may be relative files, `classpath:` resources or `org:<org>/<name>@<version>` (`META-INF/archguard/presets/...` on the analyzer classpath). Maps merge by key, lists of objects merge by `id`, and `locked` rules cannot be changed. Glob selectors are converted to ArchUnit syntax by `Policies.toArchUnit`. `ArchitectureEngine.hash` strips v2-only keys for schemaVersion 1 so 0.1.0 baselines remain valid; `SpecDrivenEngineTest` pins the hash of `examples/clean/architecture.yml`.
 
 ## Verified baseline (this branch)
 
-On macOS with OpenJDK 17.0.21 and Maven 3.9.11: `mvn -B clean install` succeeds with 63 unit tests (PolicyTest 12, EngineTest 30, ImporterTest 21) and `scripts/integration_test.py` passes 29 Maven integration scenarios. Treat these counts as the regression floor for later refactors.
+Before the spec refactor, on macOS with OpenJDK 17.0.21 and Maven 3.9.11, `mvn -B clean install` passed 63 unit tests and `scripts/integration_test.py` passed 29 Maven integration scenarios. After the refactor: 86 unit tests (PolicyTest 21, EngineTest 30, ImporterTest 21, SpecDrivenEngineTest 8, SpecParityTest 6), the same 29 integration scenarios, and 8/8 Java conformance cases pass. All 12 integration reports were compared with pre-refactor reports and are identical in policy hash, fingerprints, messages, evidence, locations and diagnostics; only `specVersion` and `language` were added.
 
 ## Standardisation roadmap
 

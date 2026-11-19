@@ -13,7 +13,15 @@ public record Finding(
     Location location,
     String target,
     String remediation,
-    String status) {
+    Status status) {
+
+  /** Debt state after baseline and suppressions are applied; serialized by name. */
+  public enum Status {
+    NEW,
+    EXISTING,
+    SUPPRESSED
+  }
+
   public static Finding create(
       String rule, Severity severity, String message, Dependency d, String remediation) {
     // Source line movement does not create new debt; distinct semantic accesses remain distinct.
@@ -41,15 +49,21 @@ public record Finding(
           d.location(),
           d.target(),
           remediation,
-          "NEW");
+          Status.NEW);
     } catch (NoSuchAlgorithmException e) {
       throw new IllegalStateException(e);
     }
   }
 
-  public Finding withStatus(String s) {
+  public Finding withStatus(Status s) {
     return new Finding(
         fingerprint, ruleId, severity, message, evidence, location, target, remediation, s);
+  }
+
+  /** @deprecated use {@link #withStatus(Status)}. */
+  @Deprecated
+  public Finding withStatus(String s) {
+    return withStatus(Status.valueOf(s));
   }
 
   public Finding withSeverity(Severity s) {

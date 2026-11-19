@@ -90,6 +90,8 @@ SDK calls throw when analysis cannot be completed. The Maven adapter converts th
 ## What is implemented
 
 - Direct compiled-code dependency checks, including generic type dependencies.
+- Language-neutral [ArchGuard Spec 2.0](spec/README.md): schemaVersion 2 policies, glob selectors, data-driven profiles (`hexagonal`, `ddd`, `layered`, `clean`, `modular-monolith`), a rule catalog with examples, and a cross-language conformance suite.
+- Policy presets with `extends` (file, classpath or `org:` artifact), merge-by-id and locked rules.
 - Configurable hexagonal role boundaries and DDD bounded-context boundaries.
 - Package and bounded-context strongly connected components with concrete evidence.
 - Spring stereotypes/composed stereotypes, Spring Data repository ancestry, JAX-RS endpoints, CDI bean signals, JPA entities in both namespaces, and Panache ancestry signals.
@@ -104,7 +106,7 @@ SDK calls throw when analysis cannot be completed. The Maven adapter converts th
 
 This release performs **static structural analysis**. It does not resolve active Spring profiles, conditional beans, synthetic Quarkus beans, actual DI wiring, reflection targets, runtime call paths, API traffic, or database access. It does not prove business invariants, infer correct aggregate boundaries, or prescribe that all domain models must use one persistence style. Framework classification is informational until a declared boundary or directly observed violation applies.
 
-The DDD pack checks bounded-context coupling and cycles; it is not an aggregate/invariant verifier. HTTP entity checks inspect annotated methods declared on recognized endpoint classes, not inherited or dynamically registered routes. Source-level AST/dataflow analysis and cross-repository service contracts are not implemented. Neither persistent incremental caching nor organization policy inheritance is implemented in 0.1.0. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for their extension points.
+The DDD pack checks bounded-context coupling and cycles; it is not an aggregate/invariant verifier. HTTP entity checks inspect annotated methods declared on recognized endpoint classes, not inherited or dynamically registered routes. Source-level AST/dataflow analysis and cross-repository service contracts are not implemented. Persistent incremental caching is not implemented. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for their extension points.
 
 Java 17 is the build baseline. See the tested compatibility matrix in the verification report. Future Java class-file formats are not automatically supported merely because they are newer than 17. Unsupported or unreadable application classes must fail analysis.
 

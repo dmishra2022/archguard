@@ -57,3 +57,4 @@ The runner copies each case to a temporary directory, so the suite never writes 
 | http-entity | endpoint returns a persistence entity; endpoint declared in the application role | FW-002, FW-001 |
 | unclassified | a unit under roots has no role, classification required | MODEL-001 |
 | invalid-policy | policy contains an unknown key | analysis error, exit 2 |
+| layered | schemaVersion 2, glob selectors, layered profile: persistence calls business, presentation calls persistence | LAYER-001, LAYER-002 |

@@ -8,6 +8,24 @@
   </parent>
   <artifactId>archguard-core</artifactId>
   <packaging>jar</packaging>
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>${project.basedir}/../spec</directory>
+        <targetPath>META-INF/archguard/spec</targetPath>
+        <includes>
+          <include>index.yml</include>
+          <include>profiles/*.yml</include>
+          <include>rules/*.yml</include>
+          <include>infrastructure/*.yml</include>
+          <include>schemas/*.json</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
   <dependencies>
     <dependency>
       <groupId>io.archguard</groupId>

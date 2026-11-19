@@ -144,31 +144,28 @@ positive = {
 for label, document in positive.items():
     validate(schemas['policy.schema.json'], document, f'positive case {label}')
 
-# Java parity: catalog text and lists must match the current Java engine
-engine = ROOT / 'archguard-core/src/main/java/io/archguard/engine'
-java = (engine / 'BuiltinRules.java').read_text(encoding='utf-8')
-joined = re.sub(r'"\s*\+\s*"', '', java + (engine / 'ModelImporter.java').read_text(encoding='utf-8'))
-ids_block = re.search(r'IDS\s*=\s*Set\.of\(([^;]*)\);', java, re.S)
-java_ids = set(re.findall(r'"([A-Z]+-[0-9]{3})"', ids_block.group(1))) if ids_block else set()
-catalog_java = {r['id'] for r in rules.values() if 'java' in r['languages'] and not r['id'].startswith('LAYER-')}
-if java_ids != catalog_java:
-    fail(f'Java built-in IDs {sorted(java_ids)} differ from catalog {sorted(catalog_java)}')
-infra_block = re.search(r'isInfrastructure\(String n\)\s*\{\s*return List\.of\(([^)]*)\)', java, re.S)
-java_infra = re.findall(r'"([^"]+)"', infra_block.group(1)) if infra_block else []
-if java_infra != infrastructure.get('java', {}).get('entries'):
-    fail(f'Java infrastructure list differs from spec/infrastructure/java.yml: {java_infra}')
-for rule_id in sorted(java_ids):
-    rule = rules[rule_id]
+# Index must list exactly the catalog files (analyzers load the catalog through it)
+index = load_yaml(SPEC / 'index.yml')
+for key, found in (('profiles', profiles), ('rules', rules), ('infrastructure', infrastructure)):
+    if sorted(index.get(key, [])) != sorted(found):
+        fail(f'spec/index.yml {key} {sorted(index.get(key, []))} differs from files {sorted(found)}')
+if not re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', str(index.get('specVersion', ''))):
+    fail('spec/index.yml specVersion must be MAJOR.MINOR.PATCH')
+
+# Placeholders used in templates must be documented
+for rule in rules.values():
+    used = set()
     for field in ('message', 'remediation', 'evidence'):
-        text = rule.get(field)
-        if not text:
-            continue
-        for piece in re.split(r'\{[A-Za-z]+\}', text):
-            piece = piece.strip()
-            if rule_id in ('DDD-002', 'CYCLE-001') and field in ('message', 'evidence'):
-                piece = piece.replace('bounded contexts', '').replace('packages', '').strip(' :')
-            if piece and piece not in joined:
-                fail(f'{rule_id}.{field}: text not found in the Java engine: {piece!r}')
+        used |= set(re.findall(r'\{([A-Za-z]+)\}', rule.get(field, '')))
+    undocumented = used - set(rule.get('placeholders', {}))
+    if undocumented:
+        fail(f'{rule["id"]}: undocumented placeholders {sorted(undocumented)}')
+
+# The editor schema shipped in docs/ must be the spec policy schema
+if (ROOT / 'docs/architecture.schema.json').read_text(encoding='utf-8') != (
+    SPEC / 'schemas/policy.schema.json'
+).read_text(encoding='utf-8'):
+    fail('docs/architecture.schema.json must be a copy of spec/schemas/policy.schema.json')
 
 if problems:
     print('Spec check FAILED:')

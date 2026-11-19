@@ -136,15 +136,7 @@ public abstract class AbstractArchitectureMojo extends AbstractMojo {
                 + allowPartialReactor
                 + ", excludedModules="
                 + excludedModules);
-        result =
-            new AnalysisResult(
-                result.schemaVersion(),
-                result.engineVersion(),
-                result.policyHash(),
-                result.analyzedClasses(),
-                result.dependencies(),
-                result.findings(),
-                diagnostics);
+        result = result.withFindingsAndDiagnostics(result.findings(), diagnostics);
       }
       if (captureBaseline()) {
         if (baselineOutput.exists() && !overwriteBaseline)

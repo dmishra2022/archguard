@@ -2,6 +2,7 @@ package io.archguard.report;
 
 import io.archguard.api.*;
 import io.archguard.engine.Debt;
+import io.archguard.spec.SpecCatalog;
 import java.io.*;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
@@ -73,14 +74,16 @@ public final class Reports {
   private static Map<String, Object> sarif(AnalysisResult r) {
     Map<String, Map<String, Object>> rules = new TreeMap<>();
     List<Object> results = new ArrayList<>();
+    var catalog = SpecCatalog.get().rules();
     for (var f : r.findings()) {
+      var spec = catalog.get(f.ruleId());
       rules.putIfAbsent(
           f.ruleId(),
           Map.of(
               "id",
               f.ruleId(),
               "shortDescription",
-              Map.of("text", f.ruleId()),
+              Map.of("text", spec == null ? f.ruleId() : spec.title()),
               "help",
               Map.of("text", f.remediation())));
       Map<String, Object> entry = new LinkedHashMap<>();
@@ -102,7 +105,7 @@ public final class Reports {
                   + "\nSuggested correction: "
                   + f.remediation()));
       entry.put("partialFingerprints", Map.of("archguard/v1", f.fingerprint()));
-      entry.put("baselineState", f.status().equals("EXISTING") ? "unchanged" : "new");
+      entry.put("baselineState", f.status() == Finding.Status.EXISTING ? "unchanged" : "new");
       Map<String, Object> location = new LinkedHashMap<>();
       location.put(
           "logicalLocations",
@@ -118,8 +121,9 @@ public final class Reports {
       entry.put("locations", List.of(location));
       entry.put(
           "properties",
-          Map.of("module", f.location().module(), "target", f.target(), "status", f.status()));
-      if (f.status().equals("SUPPRESSED"))
+          Map.of(
+              "module", f.location().module(), "target", f.target(), "status", f.status().name()));
+      if (f.status() == Finding.Status.SUPPRESSED)
         entry.put(
             "suppressions",
             List.of(
@@ -155,7 +159,13 @@ public final class Reports {
                 "invocations",
                 List.of(Map.of("executionSuccessful", true)),
                 "properties",
-                Map.of("policyHash", r.policyHash(), "diagnostics", r.diagnostics()))));
+                Map.of(
+                    "policyHash",
+                    r.policyHash(),
+                    "diagnostics",
+                    r.diagnostics(),
+                    "specVersion",
+                    r.specVersion() == null ? SpecCatalog.get().specVersion() : r.specVersion()))));
   }
 
   private static String uri(String path) {
@@ -200,7 +210,7 @@ public final class Reports {
           .append(" · ")
           .append(f.severity())
           .append(" · ")
-          .append(escape(f.status()))
+          .append(escape(f.status().name()))
           .append("</small><h2>")
           .append(escape(f.message()))
           .append("</h2><p><code>")
