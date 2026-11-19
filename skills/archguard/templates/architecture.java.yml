@@ -1,0 +1,24 @@
+# ArchGuard starter policy for a Java service (hexagonal + DDD).
+# Replace com.acme.orders with your base package. Every analyzed class should match one role;
+# run `archguard analyze` first and adjust selectors until MODEL-001 (unclassified) is gone.
+# Selectors: `**` matches any number of package segments, `*` exactly one.
+schemaVersion: 2
+language: java
+# extends: ["org:acme/base@1"]        # optional organisation preset
+roots: ["com.acme.orders.**"]
+profiles: [hexagonal, ddd]           # or: layered | clean | modular-monolith
+roles:
+  DOMAIN: ["com.acme.orders.domain.**"]
+  APPLICATION: ["com.acme.orders.application.**"]
+  INBOUND_PORT: ["com.acme.orders.port.inbound.**"]
+  OUTBOUND_PORT: ["com.acme.orders.port.outbound.**"]
+  INBOUND_ADAPTER: ["com.acme.orders.adapter.inbound.**"]
+  OUTBOUND_ADAPTER: ["com.acme.orders.adapter.outbound.**"]
+  COMPOSITION_ROOT: ["com.acme.orders.config.**"]  # selectors match packages, not classes
+contexts:
+  - id: orders
+    packages: ["com.acme.orders.**"]
+    exposedPackages: ["com.acme.orders.port.inbound.**"]
+requireClassification: true
+failOn: ERROR
+newOnly: true                        # gate only new findings; commit a reviewed baseline

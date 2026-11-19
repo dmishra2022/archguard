@@ -167,6 +167,17 @@ if (ROOT / 'docs/architecture.schema.json').read_text(encoding='utf-8') != (
 ).read_text(encoding='utf-8'):
     fail('docs/architecture.schema.json must be a copy of spec/schemas/policy.schema.json')
 
+# Generated skill reference must match the catalog
+sys.path.insert(0, str(ROOT / 'scripts'))
+import gen_skill_reference  # noqa: E402
+
+if gen_skill_reference.TARGET.is_file() and gen_skill_reference.TARGET.read_text(
+    encoding='utf-8'
+) != gen_skill_reference.generate():
+    fail('skills/archguard/reference/rules.md is stale; run python3 scripts/gen_skill_reference.py')
+elif not gen_skill_reference.TARGET.is_file():
+    fail('skills/archguard/reference/rules.md is missing; run python3 scripts/gen_skill_reference.py')
+
 if problems:
     print('Spec check FAILED:')
     for p in problems:
