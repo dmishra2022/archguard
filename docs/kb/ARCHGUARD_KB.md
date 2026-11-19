@@ -1,0 +1,110 @@
+# ArchGuard knowledge base
+
+Curated companion to the generated code graph in `docs/kb/graphify-out/`. The graph gives structure (who calls or references what); this document gives intent (why, invariants, extension points). Keep both in sync: regenerate the graph after code changes and update this file when a responsibility, invariant or contract changes.
+
+## Querying the graph
+
+```bash
+uv tool install graphifyy                      # provides the `graphify` CLI
+G=docs/kb/graphify-out/graph.json
+graphify query "how are findings fingerprinted" --graph $G
+graphify explain "BuiltinRules" --graph $G
+graphify path "AbstractArchitectureMojo" "Finding" --graph $G
+graphify affected "Policy" --graph $G         # what breaks if Policy changes
+graphify god-nodes --graph $G
+```
+
+Regenerate after code changes (local AST only, no LLM, no API key):
+
+```bash
+graphify extract . --code-only --out docs/kb
+graphify cluster-only docs/kb --no-label
+```
+
+`docs/kb/graphify-out/graph.html` is an interactive view; `GRAPH_REPORT.md` lists hubs and communities. Ignored inputs are listed in `.graphifyignore`.
+
+## What ArchGuard is
+
+Offline, static architecture-conformance analysis for Java. It imports compiled bytecode, classifies classes into declared architectural roles and bounded contexts from `architecture.yml`, evaluates boundary/cycle/framework rules, applies baseline and suppressions, and writes JSON, SARIF and HTML reports. It never modifies source and makes no network or AI calls during analysis.
+
+## Modules and responsibilities
+
+| Module | Responsibility | Must not contain |
+|---|---|---|
+| `archguard-api` | Immutable records (`ArchitectureModel`, `TypeInfo`, `Dependency`, `Finding`, `Location`, `AnalysisResult`, `Role`, `Severity`) and the `ArchitectureRule` SPI | Maven, framework or ArchUnit types |
+| `archguard-core` | Policy decoding/validation (`config`), bytecode import (`engine.ModelImporter`), framework signals (`framework`), rules (`engine.BuiltinRules`, `engine.Cycles`), debt (`engine.Debt`), reports (`report.Reports`) | Maven lifecycle code |
+| `archguard-maven-plugin` | Mojos `check`, `analyze`, `check-reactor`, `baseline`; reactor and classpath adaptation | Analysis logic |
+
+## Data flow
+
+```mermaid
+flowchart LR
+  Yml["architecture.yml"] --> Policies["Policies.read + validate"]
+  Classes["target/classes + classpath"] --> Importer["ModelImporter.read"]
+  Policies --> Importer
+  Importer --> Model["ArchitectureModel: types + dependencies"]
+  Model --> Engine["ArchitectureEngine.evaluate"]
+  Policies --> Engine
+  SPI["Custom ArchitectureRule SPI"] --> Engine
+  Engine --> Result["AnalysisResult: sorted, deduplicated findings"]
+  Result --> Debt["Debt.apply: baseline + suppressions -> status"]
+  Debt --> Reports["Reports.write: json, sarif, html"]
+  Debt --> Gate["AnalysisResult.fails failOn, newOnly"]
+```
+
+1. `Policies.read` strictly decodes YAML (duplicate keys, unknown properties, nulls, trailing documents and scalar coercion all fail) and `validate` checks semantics (schemaVersion, known profiles, selector syntax, unique IDs, constraint rationale and remediation).
+2. `ModelImporter.read` walks each module's class directory, rejects duplicate class ownership, imports bytecode through ArchUnit with a thread-local `URLClassLoader` (`AnalysisClassResolver`), assigns exactly one role and at most one context per class (overlaps fail), tags framework signals, extracts direct dependencies and HTTP entity exposure edges, and fails on unresolved direct dependencies or empty selectors.
+3. `ArchitectureEngine.evaluate` validates rule ID uniqueness (built-in, constraint and SPI), runs `BuiltinRules.evaluate` and custom rules, deduplicates by fingerprint, sorts deterministically and attaches the canonical policy hash.
+4. `Debt.apply` marks findings `NEW`, `EXISTING` (in baseline) or `SUPPRESSED` (reviewed suppression with owner, reason, unexpired date).
+5. `Reports.write` atomically writes each report file; the Mojo then gates on `failOn` and `newOnly`.
+
+## Built-in rules (where they live)
+
+All in `BuiltinRules.evaluate`; activation in `BuiltinRules.active`.
+
+| ID | Trigger | Activation |
+|---|---|---|
+| HEX-001 | DOMAIN -> APPLICATION/adapters/COMPOSITION_ROOT or infrastructure prefix | `hexagonal` profile |
+| HEX-002 | APPLICATION -> adapters/COMPOSITION_ROOT | `hexagonal` profile |
+| HEX-003 | ports -> adapters/COMPOSITION_ROOT or infrastructure prefix | `hexagonal` profile |
+| HEX-004 | inbound adapter <-> outbound adapter | `hexagonal` profile |
+| DDD-001 | cross-context access to a non-exposed package | `ddd` profile |
+| DDD-002 | cycle among bounded contexts | `ddd` profile |
+| CYCLE-001 | cycle among packages | opt-in |
+| FW-001 | HTTP endpoint class outside INBOUND_ADAPTER | on |
+| FW-002 | endpoint method signature exposes a persistence entity | on |
+| MODEL-001 | class under roots has no role | `requireClassification: true` |
+| MODEL-002 | framework classification signals (INFO) | on |
+| custom | `constraints[]` in policy: `from` packages must not depend on `forbidden` packages | always when declared |
+
+Infrastructure prefixes for HEX-001/003 are the hardcoded list in `BuiltinRules.isInfrastructure`. Framework tags come from `FrameworkClassifier.tags` (Spring, JAX-RS, CDI, JPA javax/jakarta, Panache, Micronaut).
+
+## Invariants (do not break)
+
+- **Analysis errors are never passes.** Invalid policy, missing outputs, unreadable classes, unresolved direct dependencies, empty selectors, rule exceptions, null rule results and rule ID collisions all throw. The Maven adapter writes explicit FAILED reports and raises `MojoExecutionException`, distinct from a policy failure (`MojoFailureException`).
+- **Source is read-only.** Nothing writes under source roots.
+- **Determinism.** Findings are deduplicated by fingerprint and sorted by rule, module, symbol and fingerprint. Policy hashing is canonical across map and set order.
+- **Stable fingerprints.** `sha256(rule \n module \n origin \n target \n evidence-with-(File.java:N)-stripped)`. Line movement does not create new debt.
+- **Baselines never grow during checks.** Only the explicit `baseline` goal writes one, and overwriting requires `archguard.overwriteBaseline=true`. Baselines bind to engine version plus policy hash.
+- **Suppressions** require a 64-hex fingerprint, owner, reason and an unexpired UTC date. Duplicates fail.
+- **Declared roles are authoritative.** Framework signals never remap roles. Overlapping role or context selectors fail.
+- **Global goals** (`check-reactor`, `baseline`) must be invoked explicitly after compilation, never lifecycle-bound. Partial reactors require explicit acknowledgement.
+
+## Extension points
+
+- **Custom rules:** implement `io.archguard.api.ArchitectureRule`, register in `META-INF/services/io.archguard.api.ArchitectureRule`, add as a plugin dependency. Use `Finding.create` for stable fingerprints. Rules must be deterministic, read-only and thread-safe.
+- **Declarative constraints:** `constraints[]` in `architecture.yml` for forbidden package dependencies with rationale and remediation.
+- **Rule overrides:** `rules.<ID>.enabled` / `rules.<ID>.severity`.
+- **Internal (not public API):** `FrameworkClassifier`, `ModelImporter`.
+
+## Known limits
+
+Static structural analysis only: no runtime DI, profiles, reflection, synthetic beans, call paths or dataflow. HTTP entity checks cover annotated methods declared on recognized endpoint classes. No incremental cache, no policy inheritance, no Gradle plugin and no standalone CLI in 0.1.0.
+
+## Verified baseline (this branch)
+
+On macOS with OpenJDK 17.0.21 and Maven 3.9.11: `mvn -B clean install` succeeds with 63 unit tests (PolicyTest 12, EngineTest 30, ImporterTest 21) and `scripts/integration_test.py` passes 29 Maven integration scenarios. Treat these counts as the regression floor for later refactors.
+
+## Standardisation roadmap
+
+See the polyglot standardisation plan: a language-neutral spec in `spec/` (policy schema v2, data-driven profiles, rule catalog, findings contract, conformance suite), a standalone CLI, native Python and TypeScript analyzers, an agent skill in `skills/archguard/`, and a generic CI gate with a GitHub Action.

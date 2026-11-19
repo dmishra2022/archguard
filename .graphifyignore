@@ -1,0 +1,6 @@
+.validation/
+verification/logs/
+verification/sample-report/
+**/target/
+.idea/
+docs/kb/graphify-out/
