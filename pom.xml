@@ -12,6 +12,7 @@
         <module>archguard-api</module>
         <module>archguard-core</module>
         <module>archguard-maven-plugin</module>
+        <module>archguard-cli</module>
     </modules>
     <properties>
         <maven.compiler.release>17</maven.compiler.release>

@@ -90,7 +90,57 @@ def run_java_maven(case, expected, work):
     return code, work / 'target' / 'archguard' / 'archguard.json', output
 
 
-ENGINES = {('java', 'maven'): run_java_maven}
+CLI_JAR = ROOT / 'archguard-cli' / 'target' / f'archguard-cli-{VERSION}.jar'
+AGENT_SCHEMA = Draft202012Validator(
+    json.loads((ROOT / 'spec/schemas/agent-finding.schema.json').read_text(encoding='utf-8'))
+)
+
+
+def maven_artifact(coordinate):
+    group, artifact, version = coordinate.split(':')
+    jar = (
+        Path.home() / '.m2' / 'repository' / Path(*group.split('.')) / artifact / version
+        / f'{artifact}-{version}.jar'
+    )
+    if not jar.is_file():
+        subprocess.run(
+            ['mvn', '-B', '-q', '-ntp', 'dependency:get', f'-Dartifact={coordinate}'],
+            check=True, capture_output=True,
+        )
+    return jar
+
+
+def run_java_cli(case, expected, work):
+    """Compile with javac and run the shaded CLI jar; the exit code is used as-is."""
+    if not CLI_JAR.is_file():
+        raise RuntimeError(f'{CLI_JAR} missing; run mvn install first')
+    deps = [str(maven_artifact(c)) for c in expected.get('java', {}).get('dependencies', [])]
+    sources = sorted(str(p) for p in (work / 'src/main/java').rglob('*.java'))
+    classes = work / 'target' / 'classes'
+    javac = ['javac', '-g', '--release', '17', '-d', str(classes)]
+    if deps:
+        javac += ['-cp', os.pathsep.join(deps)]
+    subprocess.run(javac + sources, check=True, capture_output=True, text=True)
+    command = [
+        'java', '-jar', str(CLI_JAR), 'check', '--project', str(work),
+        '--classes', str(classes), '--source-root', str(work / 'src/main/java'),
+        '--format', 'json,sarif,html,agent',
+    ]
+    if deps:
+        command += ['--classpath', os.pathsep.join(deps)]
+    process = subprocess.run(command, cwd=work, text=True, capture_output=True)
+    lines = [json.loads(line) for line in process.stdout.splitlines() if line.strip()]
+    for line in lines:
+        errors = [e.message for e in AGENT_SCHEMA.iter_errors(line)]
+        if errors:
+            raise RuntimeError(f'agent line violates schema: {line}: {errors}')
+    want = {0: 'PASSED', 1: 'FAILED', 2: 'ERROR'}.get(process.returncode)
+    if not lines or lines[-1].get('summary') is not True or lines[-1]['status'] != want:
+        raise RuntimeError(f'agent summary does not match exit code {process.returncode}')
+    return process.returncode, work / 'target' / 'archguard' / 'archguard.json', process.stderr
+
+
+ENGINES = {('java', 'maven'): run_java_maven, ('java', 'cli'): run_java_cli}
 
 
 def origin(finding):

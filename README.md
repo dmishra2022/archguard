@@ -91,6 +91,7 @@ SDK calls throw when analysis cannot be completed. The Maven adapter converts th
 
 - Direct compiled-code dependency checks, including generic type dependencies.
 - Language-neutral [ArchGuard Spec 2.0](spec/README.md): schemaVersion 2 policies, glob selectors, data-driven profiles (`hexagonal`, `ddd`, `layered`, `clean`, `modular-monolith`), a rule catalog with examples, and a cross-language conformance suite.
+- A build-tool-independent [command line](docs/CLI.md) (`archguard-cli` runnable jar) with exit codes 0/1/2/64, an `agent` JSON-lines format for coding agents, and `--changed-files` scoping. `mvn archguard:classpath` writes its input file.
 - Policy presets with `extends` (file, classpath or `org:` artifact), merge-by-id and locked rules.
 - Configurable hexagonal role boundaries and DDD bounded-context boundaries.
 - Package and bounded-context strongly connected components with concrete evidence.

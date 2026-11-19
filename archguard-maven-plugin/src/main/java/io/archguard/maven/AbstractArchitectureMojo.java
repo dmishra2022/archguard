@@ -162,7 +162,7 @@ public abstract class AbstractArchitectureMojo extends AbstractMojo {
       throw e;
     } catch (Exception | ServiceConfigurationError e) {
       try {
-        writeFailure(output, e);
+        Reports.writeFailure(output, e, Set.of());
       } catch (IOException reporting) {
         e.addSuppressed(reporting);
       }
@@ -174,35 +174,5 @@ public abstract class AbstractArchitectureMojo extends AbstractMojo {
   private boolean excluded(MavenProject p) {
     return excludedModules != null
         && excludedModules.contains(p.getGroupId() + ":" + p.getArtifactId());
-  }
-
-  private void writeFailure(Path output, Throwable error) throws IOException {
-    Reports.atomic(
-        output.resolve("archguard.json"),
-        Debt.JSON.writeValueAsBytes(
-            Map.of(
-                "schemaVersion",
-                "1",
-                "analysisStatus",
-                "FAILED",
-                "error",
-                String.valueOf(error.getMessage()))));
-    var notification =
-        Map.of("level", "error", "message", Map.of("text", String.valueOf(error.getMessage())));
-    var invocation =
-        Map.of("executionSuccessful", false, "toolExecutionNotifications", List.of(notification));
-    var run =
-        Map.of(
-            "tool",
-            Map.of("driver", Map.of("name", "ArchGuard")),
-            "invocations",
-            List.of(invocation));
-    Reports.atomic(
-        output.resolve("archguard.sarif"),
-        Debt.JSON.writeValueAsBytes(Map.of("version", "2.1.0", "runs", List.of(run))));
-    Reports.atomic(
-        output.resolve("index.html"),
-        "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>ArchGuard analysis failed</title><h1>Analysis failed</h1><p>No compliance result is available. See archguard.json and the Maven log for the error.</p></html>"
-            .getBytes(java.nio.charset.StandardCharsets.UTF_8));
   }
 }

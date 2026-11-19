@@ -33,7 +33,8 @@ Offline, static architecture-conformance analysis for Java. It imports compiled 
 |---|---|---|
 | `archguard-api` | Immutable records (`ArchitectureModel`, `TypeInfo`, `Dependency`, `Finding`, `Location`, `AnalysisResult`, `Role`, `Severity`) and the `ArchitectureRule` SPI | Maven, framework or ArchUnit types |
 | `archguard-core` | Policy decoding/validation (`config`), bytecode import (`engine.ModelImporter`), framework signals (`framework`), rules (`engine.BuiltinRules`, `engine.Cycles`), debt (`engine.Debt`), reports (`report.Reports`) | Maven lifecycle code |
-| `archguard-maven-plugin` | Mojos `check`, `analyze`, `check-reactor`, `baseline`; reactor and classpath adaptation | Analysis logic |
+| `archguard-maven-plugin` | Mojos `check`, `analyze`, `check-reactor`, `baseline`, `classpath` (writes the CLI classpath file); reactor and classpath adaptation | Analysis logic |
+| `archguard-cli` | Shaded runnable jar: `io.archguard.cli.Main` (commands, exit codes 0/1/2/64), `Inputs` (classes, source roots, classpath files), `ChangedFiles` (scope filter) | Analysis logic |
 
 ## Data flow
 
@@ -109,7 +110,7 @@ Static structural analysis only: no runtime DI, profiles, reflection, synthetic 
 
 ## Verified baseline (this branch)
 
-Before the spec refactor, on macOS with OpenJDK 17.0.21 and Maven 3.9.11, `mvn -B clean install` passed 63 unit tests and `scripts/integration_test.py` passed 29 Maven integration scenarios. After the refactor: 86 unit tests (PolicyTest 21, EngineTest 30, ImporterTest 21, SpecDrivenEngineTest 8, SpecParityTest 6), the same 29 integration scenarios, and 8/8 Java conformance cases pass. All 12 integration reports were compared with pre-refactor reports and are identical in policy hash, fingerprints, messages, evidence, locations and diagnostics; only `specVersion` and `language` were added.
+Before the spec refactor, on macOS with OpenJDK 17.0.21 and Maven 3.9.11, `mvn -B clean install` passed 63 unit tests and `scripts/integration_test.py` passed 29 Maven integration scenarios. After the refactor: 86 unit tests (PolicyTest 21, EngineTest 30, ImporterTest 21, SpecDrivenEngineTest 8, SpecParityTest 6), the same 29 integration scenarios, and 8/8 Java conformance cases pass. The CLI adds 12 tests, passes the same 8 conformance cases (`--engine cli`), and produces fingerprints and policy hashes identical to the Maven plugin on the `violating`, `clean`, `spring-boot` and `reactor` examples. All 12 integration reports were compared with pre-refactor reports and are identical in policy hash, fingerprints, messages, evidence, locations and diagnostics; only `specVersion` and `language` were added.
 
 ## Standardisation roadmap
 
