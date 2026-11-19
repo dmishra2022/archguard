@@ -1,0 +1,24 @@
+# Dogfoods the action as a real pull-request gate on examples/clean: a PR that introduces a
+# violation there (for example OrderService importing SqlOrderStore) fails with an inline
+# annotation and a code-scanning alert; a compliant PR passes.
+name: archguard-pr
+on:
+  pull_request:
+    paths: ["examples/clean/**", "action/**"]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  architecture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./action
+        with:
+          working-directory: examples/clean
+          changed-files-only: "true"
+          upload-sarif: ${{ github.event.pull_request.head.repo.full_name == github.repository }}

@@ -1,0 +1,50 @@
+name: action-e2e
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  examples:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { example: clean, config: architecture.yml, expect: "0" }
+          - { example: violating, config: architecture.yml, expect: "1" }
+          - { example: reactor, config: architecture.yml, expect: "0" }
+          - { example: clean, config: missing.yml, expect: "2" }
+    steps:
+      - uses: actions/checkout@v4
+      - id: archguard
+        uses: ./action
+        continue-on-error: true
+        with:
+          working-directory: examples/${{ matrix.example }}
+          config: ${{ matrix.config }}
+          upload-sarif: "false"
+          artifact-name: archguard-${{ matrix.example }}-${{ matrix.expect }}
+      - name: Assert exit code and reports
+        shell: bash
+        env:
+          CODE: ${{ steps.archguard.outputs.exit-code }}
+          OUTCOME: ${{ steps.archguard.outcome }}
+          SARIF: ${{ steps.archguard.outputs.sarif }}
+          EXPECT: ${{ matrix.expect }}
+        run: |
+          echo "exit-code=$CODE outcome=$OUTCOME"
+          test "$CODE" = "$EXPECT"
+          if [ "$EXPECT" = 0 ]; then test "$OUTCOME" = success; else test "$OUTCOME" = failure; fi
+          if [ "$EXPECT" = 1 ]; then
+            python3 - "$SARIF" <<'EOF'
+          import json, sys
+          run = json.load(open(sys.argv[1]))['runs'][0]
+          hits = [r for r in run['results'] if r['ruleId'] == 'HEX-002']
+          uris = {l['physicalLocation']['artifactLocation']['uri'] for r in hits for l in r['locations']}
+          assert hits, 'no HEX-002 result in SARIF'
+          assert 'examples/violating/src/main/java/example/orders/application/OrderService.java' in uris, uris
+          assert any(l['physicalLocation'].get('region', {}).get('startLine') for r in hits for l in r['locations'])
+          print(f'SARIF ok: {len(hits)} HEX-002 results on {sorted(uris)}')
+          EOF
+          fi

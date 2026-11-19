@@ -104,6 +104,20 @@ Infrastructure prefixes for HEX-001/003 come from `spec/infrastructure/java.yml`
 
 Static structural analysis only: no runtime DI, profiles, reflection, synthetic beans, call paths or dataflow. HTTP entity checks cover annotated methods declared on recognized endpoint classes. No incremental cache and no Gradle plugin.
 
+## CI integration
+
+The composite Action is `action/` (`action.yml`, `detect.sh`, `run.sh`, `summary.py`):
+- It gets the CLI from Maven Central, or builds it from the Action's own source while the version is unpublished.
+- It runs the `archguard:classpath` goal, then `check` with `--project` set to the repo root, so SARIF and annotation paths are repo-relative.
+- `summary.py` writes the job summary, `::error` annotations and the `new-findings` output.
+- A final step gates on exit 1 or 2 after the uploads.
+
+Workflows:
+- `.github/workflows/action-e2e.yml`: clean, violating, reactor and missing-policy cases, plus a SARIF assertion.
+- `.github/workflows/archguard-pr.yml`: a real PR gate on `examples/clean`.
+
+`docs/CI.md` has recipes for other CI systems. Verified locally with simulated GitHub environment files (outputs, summary, annotations, the source-build fallback, PR changed-files scoping) and with actionlint.
+
 ## Agent skill
 
 `skills/archguard/` (install into `.cursor/skills/archguard/`):

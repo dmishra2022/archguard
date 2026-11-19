@@ -92,6 +92,7 @@ SDK calls throw when analysis cannot be completed. The Maven adapter converts th
 - Direct compiled-code dependency checks, including generic type dependencies.
 - Language-neutral [ArchGuard Spec 2.0](spec/README.md): schemaVersion 2 policies, glob selectors, data-driven profiles (`hexagonal`, `ddd`, `layered`, `clean`, `modular-monolith`), a rule catalog with examples, and a cross-language conformance suite.
 - A build-tool-independent [command line](docs/CLI.md) (`archguard-cli` runnable jar) with exit codes 0/1/2/64, an `agent` JSON-lines format for coding agents, and `--changed-files` scoping. `mvn archguard:classpath` writes its input file.
+- A [GitHub Action](action/action.yml) and generic [CI recipes](docs/CI.md) (GitHub, GitLab, Jenkins, Azure). Exit 1 means a policy violation and exit 2 means a broken pipeline. The Action adds PR annotations, a job summary, SARIF upload and changed-files scoping.
 - An optional [agent skill](skills/archguard/SKILL.md) for AI coding agents. It covers a placement workflow, role matrices and a rules reference generated from the spec, a check script, a starter policy, and an example Cursor hook. ArchGuard works the same for code written by people; the skill only helps agents place code correctly up front.
 - Policy presets with `extends` (file, classpath or `org:` artifact), merge-by-id and locked rules.
 - Configurable hexagonal role boundaries and DDD bounded-context boundaries.

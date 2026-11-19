@@ -1,81 +1,31 @@
 {
   "communities": {
     "0": [
-      "api",
-      "archconfiguration",
-      "archguard_api_src_main_java_io_archguard_api_finding",
-      "archguard_cli_src_main_java_io_archguard_cli_changedfiles",
-      "archguard_cli_src_main_java_io_archguard_cli_inputs",
-      "archguard_cli_src_main_java_io_archguard_cli_main",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest",
-      "archguard_core_src_main_java_io_archguard_config_policies",
-      "archguard_core_src_main_java_io_archguard_config_policy",
-      "archguard_core_src_main_java_io_archguard_engine_analysisclassresolver",
-      "archguard_core_src_main_java_io_archguard_engine_analysisclassresolver_analysisclassresolver",
-      "archguard_core_src_main_java_io_archguard_engine_analysisclassresolver_analysisclassresolver_analysisclassresolver",
-      "archguard_core_src_main_java_io_archguard_engine_analysisclassresolver_analysisclassresolver_setclassuriimporter",
-      "archguard_core_src_main_java_io_archguard_engine_analysisclassresolver_analysisclassresolver_tryresolve",
-      "archguard_core_src_main_java_io_archguard_engine_analysisclassresolver_java_override",
-      "archguard_core_src_main_java_io_archguard_engine_architectureengine",
-      "archguard_core_src_main_java_io_archguard_engine_builtinrules",
-      "archguard_core_src_main_java_io_archguard_engine_cycles",
-      "archguard_core_src_main_java_io_archguard_engine_cycles_cycles",
-      "archguard_core_src_main_java_io_archguard_engine_cycles_cycles_cycles",
-      "archguard_core_src_main_java_io_archguard_engine_debt",
-      "archguard_core_src_main_java_io_archguard_engine_modelimporter",
-      "archguard_core_src_main_java_io_archguard_framework_frameworkclassifier",
-      "archguard_core_src_main_java_io_archguard_framework_frameworkclassifier_frameworkclassifier",
-      "archguard_core_src_main_java_io_archguard_framework_frameworkclassifier_frameworkclassifier_frameworkclassifier",
-      "archguard_core_src_main_java_io_archguard_framework_frameworkclassifier_frameworkclassifier_has",
-      "archguard_core_src_main_java_io_archguard_framework_frameworkclassifier_frameworkclassifier_tags",
-      "archguard_core_src_main_java_io_archguard_report_reports",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog",
-      "archguard_core_src_test_java_io_archguard_config_policytest",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest",
-      "archguard_core_src_test_java_io_archguard_engine_importertest",
-      "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo",
-      "assertions",
-      "classfileimporter",
-      "classloader",
-      "classuriimporter",
-      "clock",
-      "com_fasterxml_jackson_databind_node_objectnode",
-      "com_fasterxml_jackson_dataformat_yaml_yamlmapper",
-      "com_tngtech_archunit_core_domain_javaclass",
-      "com_tngtech_archunit_core_importer_resolvers_classresolver",
-      "config",
-      "core",
-      "databind",
-      "domain",
-      "engine",
-      "file",
-      "io",
-      "ioexception",
-      "jsonproperty",
-      "messagedigest",
-      "mojoexecutionexception",
-      "net",
-      "node",
-      "org_apache_maven_execution_mavensession",
-      "org_apache_maven_plugin_mojoexecution",
-      "packagematcher",
-      "parameter",
-      "plugin",
-      "security",
-      "standardcharsets",
-      "stream",
-      "tempdir",
-      "uri",
-      "url",
-      "urlclassloader",
-      "util"
-    ],
-    "1": [
+      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult",
+      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult_analysisresult",
       "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult_fails",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_read",
+      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult_withfindingsanddiagnostics",
+      "archguard_api_src_main_java_io_archguard_api_architecturemodel_architecturemodel",
+      "archguard_api_src_main_java_io_archguard_api_architecturerule_architecturerule_evaluate",
+      "archguard_api_src_main_java_io_archguard_api_dependency",
+      "archguard_api_src_main_java_io_archguard_api_dependency_dependency",
+      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_dependency",
+      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_kind",
+      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_kind_http_entity_exposure",
+      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_kind_static",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_create",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_status",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_status_existing",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_status_new",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_status_suppressed",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_withstatus",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_withstatus_3df63b",
+      "archguard_api_src_main_java_io_archguard_api_location",
+      "archguard_api_src_main_java_io_archguard_api_location_location",
+      "archguard_api_src_main_java_io_archguard_api_typeinfo",
+      "archguard_api_src_main_java_io_archguard_api_typeinfo_typeinfo",
+      "archguard_core_src_main_java_io_archguard_config_policy_policy_constraint",
       "archguard_core_src_main_java_io_archguard_engine_architectureengine_architectureengine",
       "archguard_core_src_main_java_io_archguard_engine_architectureengine_architectureengine_evaluate",
       "archguard_core_src_main_java_io_archguard_engine_architectureengine_architectureengine_hash",
@@ -88,6 +38,7 @@
       "archguard_core_src_main_java_io_archguard_engine_debt_debt_suppressions",
       "archguard_core_src_main_java_io_archguard_engine_debt_debt_writebaseline",
       "archguard_core_src_main_java_io_archguard_engine_debt_java_objectmapper",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_write",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_acycliccontextspass",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_adapterbypassfails",
@@ -101,9 +52,16 @@
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_crosscontextinternalsfail",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulecannotshadowbuiltin",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulecannotshadowbuiltin_object_architecturerule_l411",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulecannotshadowbuiltin_object_architecturerule_l411_evaluate",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulecannotshadowbuiltin_object_architecturerule_l411_id",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses_object_architecturerule_l389",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses_object_architecturerule_l389_evaluate",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses_object_architecturerule_l389_id",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulesrun",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulesrun_object_architecturerule_l362",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulesrun_object_architecturerule_l362_evaluate",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulesrun_object_architecturerule_l362_id",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_deterministicoutput",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_disabledruledoesnotemit",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_domaintoadapterfails",
@@ -132,17 +90,27 @@
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_customdescriptormustmatchid",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_customdescriptormustmatchid_object_architecturerule_l117",
+      "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_customdescriptormustmatchid_object_architecturerule_l117_evaluate",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_customdescriptormustmatchid_object_architecturerule_l117_id",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_describelistscatalogandcustomrules",
+      "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_describelistscatalogandcustomrules_object_architecturerule_l96_evaluate",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_globselectorsinconstraintsmatch",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_includedprofilesactivatetheirrules",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_layeredallowsbusinesstopersistencewhichhexagonalforbids",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_layeredprofilereportsupwarddependencywithcatalogtexts",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_v1policyhashisunchangedsobaselinesstayvalid",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_v2",
-      "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_v2hashincludesv2settings"
+      "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_v2hashincludesv2settings",
+      "deprecated",
+      "examples_custom_rule_src_main_java_example_rules_nosystemexit_nosystemexit_evaluate",
+      "set"
     ],
-    "2": [
+    "1": [
+      "action_summary",
+      "action_summary_cell",
+      "action_summary_escape",
+      "action_summary_main",
+      "action_summary_rationale_2",
       "argparse",
       "atexit",
       "hashlib",
@@ -203,58 +171,11 @@
       "yaml",
       "zipfile"
     ],
-    "3": [
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_adapter_sqlorderstore",
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_adapter_sqlorderstore_java_override",
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_adapter_sqlorderstore_sqlorderstore",
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_adapter_sqlorderstore_sqlorderstore_save",
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_application_placeorder",
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_application_placeorder_placeorder",
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_application_placeorder_placeorder_place",
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_domain_order",
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_domain_order_order",
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_domain_order_order_id",
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_domain_order_order_order",
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_port_orderstore",
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_port_orderstore_orderstore",
-      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_port_orderstore_orderstore_save",
-      "order",
-      "spec_conformance_clean_java_src_main_java_conf_orders_adapter_sqlorderstore",
-      "spec_conformance_clean_java_src_main_java_conf_orders_adapter_sqlorderstore_java_override",
-      "spec_conformance_clean_java_src_main_java_conf_orders_adapter_sqlorderstore_sqlorderstore",
-      "spec_conformance_clean_java_src_main_java_conf_orders_adapter_sqlorderstore_sqlorderstore_save",
-      "spec_conformance_clean_java_src_main_java_conf_orders_application_placeorder",
-      "spec_conformance_clean_java_src_main_java_conf_orders_application_placeorder_placeorder",
-      "spec_conformance_clean_java_src_main_java_conf_orders_application_placeorder_placeorder_place",
-      "spec_conformance_clean_java_src_main_java_conf_orders_application_placeorder_placeorder_placeorder",
-      "spec_conformance_clean_java_src_main_java_conf_orders_domain_order",
-      "spec_conformance_clean_java_src_main_java_conf_orders_domain_order_order",
-      "spec_conformance_clean_java_src_main_java_conf_orders_port_orderstore",
-      "spec_conformance_clean_java_src_main_java_conf_orders_port_orderstore_orderstore",
-      "spec_conformance_clean_java_src_main_java_conf_orders_port_orderstore_orderstore_save",
-      "spec_conformance_ddd_001_java_src_main_java_conf_billing_application_invoicing",
-      "spec_conformance_ddd_001_java_src_main_java_conf_billing_application_invoicing_invoicing",
-      "spec_conformance_ddd_001_java_src_main_java_conf_billing_application_invoicing_invoicing_invoicefor",
-      "spec_conformance_ddd_001_java_src_main_java_conf_orders_domain_order",
-      "spec_conformance_ddd_001_java_src_main_java_conf_orders_domain_order_order",
-      "spec_conformance_hex_002_java_src_main_java_conf_orders_adapter_sqlorderstore",
-      "spec_conformance_hex_002_java_src_main_java_conf_orders_adapter_sqlorderstore_java_override",
-      "spec_conformance_hex_002_java_src_main_java_conf_orders_adapter_sqlorderstore_sqlorderstore",
-      "spec_conformance_hex_002_java_src_main_java_conf_orders_adapter_sqlorderstore_sqlorderstore_save",
-      "spec_conformance_hex_002_java_src_main_java_conf_orders_application_placeorder",
-      "spec_conformance_hex_002_java_src_main_java_conf_orders_application_placeorder_placeorder",
-      "spec_conformance_hex_002_java_src_main_java_conf_orders_application_placeorder_placeorder_place",
-      "spec_conformance_hex_002_java_src_main_java_conf_orders_domain_order",
-      "spec_conformance_hex_002_java_src_main_java_conf_orders_domain_order_order",
-      "spec_conformance_hex_002_java_src_main_java_conf_orders_port_orderstore",
-      "spec_conformance_hex_002_java_src_main_java_conf_orders_port_orderstore_orderstore",
-      "spec_conformance_hex_002_java_src_main_java_conf_orders_port_orderstore_orderstore_save",
-      "spec_conformance_invalid_policy_java_src_main_java_conf_orders_domain_order",
-      "spec_conformance_invalid_policy_java_src_main_java_conf_orders_domain_order_order",
-      "spec_conformance_unclassified_java_src_main_java_conf_orders_domain_order",
-      "spec_conformance_unclassified_java_src_main_java_conf_orders_domain_order_order"
-    ],
-    "4": [
+    "2": [
+      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles",
+      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles_changedfiles",
+      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles_normalize",
+      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles_restrict",
       "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs",
       "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_dependency",
       "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_module",
@@ -285,6 +206,24 @@
       "archguard_cli_src_main_java_io_archguard_cli_main_main_usageexception_usageexception",
       "archguard_cli_src_main_java_io_archguard_cli_main_main_validate",
       "archguard_core_src_main_java_io_archguard_engine_moduleinput",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_agent",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_agenterror",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_atomic",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_compact",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_console",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_escape",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_html",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_reports",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_sarif",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_uri",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_write_b67bbe",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_writefailure",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_get",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rules",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_specversion",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_classpathmojo_execute",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_java_override",
       "architecturerule",
       "examples_custom_rule_src_main_java_example_rules_nosystemexit",
       "examples_custom_rule_src_main_java_example_rules_nosystemexit_nosystemexit",
@@ -292,9 +231,205 @@
       "io_archguard_engine_moduleinput",
       "java_net_urlclassloader",
       "list",
+      "objectmapper",
       "path"
     ],
+    "3": [
+      "archguard_core_src_main_java_io_archguard_config_policies_java_classloader",
+      "archguard_core_src_main_java_io_archguard_config_policies_java_jsonnode",
+      "archguard_core_src_main_java_io_archguard_config_policies_java_objectmapper",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_byid",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_id",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_merge",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_mergebyid",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_parentsource",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_pattern",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_patterns",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_policies",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_read",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_read_1b8dd2",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_rejectlockedchanges",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_rejectnulls",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_resolve",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_source",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_source_bytes",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_source_file",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_source_relative",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_source_resource",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_toarchunit",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_validate",
+      "archguard_core_src_main_java_io_archguard_config_policy_policy_preset",
+      "archguard_core_src_test_java_io_archguard_config_policytest_java_test",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_constraintwithoutguidancefails",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_duplicatekeyfails",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_emptyrootsfail",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_explicitnullfails",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_extendsmergesparentandchild",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_extendsrejectsnonpresetcyclesandmissingfiles",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_extradocumentfails",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_globconversion",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_invalidprofilefails",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_invalidseverityfails",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_lockedrulecannotbechanged",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_missingschemafails",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_organdclasspathpresetsresolvefromclassloader",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_patternrespectspackageboundaries",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_presetcannotbeanalyzeddirectly",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_quotedbooleanfails",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_read",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_readat",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_unknownpropertyfails",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_v1rejectsv2keys",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_v2policywithglobselectors",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_v2requiresjavalanguageandknownprofiles",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_validminimalpolicy",
+      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_write",
+      "arraynode",
+      "objectnode"
+    ],
+    "4": [
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_withseverity",
+      "archguard_api_src_main_java_io_archguard_api_role",
+      "archguard_api_src_main_java_io_archguard_api_role_role",
+      "archguard_api_src_main_java_io_archguard_api_role_role_application",
+      "archguard_api_src_main_java_io_archguard_api_role_role_composition_root",
+      "archguard_api_src_main_java_io_archguard_api_role_role_domain",
+      "archguard_api_src_main_java_io_archguard_api_role_role_inbound_adapter",
+      "archguard_api_src_main_java_io_archguard_api_role_role_inbound_port",
+      "archguard_api_src_main_java_io_archguard_api_role_role_outbound_adapter",
+      "archguard_api_src_main_java_io_archguard_api_role_role_outbound_port",
+      "archguard_api_src_main_java_io_archguard_api_role_role_unclassified",
+      "archguard_api_src_main_java_io_archguard_api_severity",
+      "archguard_api_src_main_java_io_archguard_api_severity_severity",
+      "archguard_api_src_main_java_io_archguard_api_severity_severity_atleast",
+      "archguard_api_src_main_java_io_archguard_api_severity_severity_error",
+      "archguard_api_src_main_java_io_archguard_api_severity_severity_info",
+      "archguard_api_src_main_java_io_archguard_api_severity_severity_warning",
+      "archguard_core_src_main_java_io_archguard_config_policies_policies_matches",
+      "archguard_core_src_main_java_io_archguard_config_policy_policy",
+      "archguard_core_src_main_java_io_archguard_config_policy_policy_context",
+      "archguard_core_src_main_java_io_archguard_config_policy_policy_policy",
+      "archguard_core_src_main_java_io_archguard_config_policy_policy_rulesetting",
+      "archguard_core_src_main_java_io_archguard_config_policy_policy_rulesetting_rulesetting",
+      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules",
+      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_active",
+      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_add",
+      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_add_778abf",
+      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_builtinrules",
+      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_contextfor",
+      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_cyclefindings",
+      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_evaluate",
+      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_isinfrastructure",
+      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_packagename",
+      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_rolefor",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rule",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_evidence",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_fill",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_message",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_remediation",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_java_test",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_catalogactivationmatchesengine",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_catalogdefaultseveritiesmatchengine",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_fired",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_hexagonalrolematrixmatchesengineforeveryrolepair",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_javainfrastructurelistmatchesengine",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_layeredrolematrixmatchesengineforeveryrolepair",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_policy",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_predicted",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_profilerulesareinactivewithouttheprofile",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_yaml"
+    ],
     "5": [
+      "action_action_annotations_default",
+      "action_action_annotations_description",
+      "action_action_archguard_version_default",
+      "action_action_archguard_version_description",
+      "action_action_artifact_name_default",
+      "action_action_artifact_name_description",
+      "action_action_baseline_default",
+      "action_action_baseline_description",
+      "action_action_changed_files_only_default",
+      "action_action_changed_files_only_description",
+      "action_action_cli_jar_default",
+      "action_action_cli_jar_description",
+      "action_action_config_default",
+      "action_action_config_description",
+      "action_action_fail_on_default",
+      "action_action_fail_on_description",
+      "action_action_inputs",
+      "action_action_inputs_annotations",
+      "action_action_inputs_archguard_version",
+      "action_action_inputs_artifact_name",
+      "action_action_inputs_baseline",
+      "action_action_inputs_changed_files_only",
+      "action_action_inputs_cli_jar",
+      "action_action_inputs_config",
+      "action_action_inputs_fail_on",
+      "action_action_inputs_java_version",
+      "action_action_inputs_language",
+      "action_action_inputs_setup_java",
+      "action_action_inputs_suppressions",
+      "action_action_inputs_upload_artifact",
+      "action_action_inputs_upload_sarif",
+      "action_action_inputs_working_directory",
+      "action_action_java_version_default",
+      "action_action_java_version_description",
+      "action_action_language_default",
+      "action_action_language_description",
+      "action_action_setup_java_default",
+      "action_action_setup_java_description",
+      "action_action_suppressions_default",
+      "action_action_suppressions_description",
+      "action_action_upload_artifact_default",
+      "action_action_upload_artifact_description",
+      "action_action_upload_sarif_default",
+      "action_action_upload_sarif_description",
+      "action_action_working_directory_default",
+      "action_action_working_directory_description"
+    ],
+    "6": [
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_agentformatprintsfindingsandsummary",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_analysis",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_analyzenevergates",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_baselineacceptsexistingdebtandrefusessilentoverwrite",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_changedfilesscopereportsonlylistedfiles",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_checkfailswithexitoneandwritesallreports",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_classpathfiledefinesmodules",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_failonoverridechangesthegate",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_findfirst",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_invalidpolicyisananalysiserrorwithfailurereports",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_missingclassesisananalysiserror",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_policy",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_report",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_run",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_run_a1fffa",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_symlinkedprojectstillmapssourcefiles",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_usageerrorsexitsixtyfour",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_validateandrules",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_java_classloader",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_activatedby",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_expand",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_infrastructure",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_load",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_profile",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_profiles",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_read",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rolerule",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rolerule_forbids",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rolerules",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_roles",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_speccatalog",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_strings",
+      "com_fasterxml_jackson_databind_jsonnode",
+      "org_junit_jupiter_api_test"
+    ],
+    "7": [
       "archguard_core_src_main_java_io_archguard_engine_architectureengine_architectureengine_analyze",
       "archguard_core_src_main_java_io_archguard_engine_modelimporter_java_javaclass",
       "archguard_core_src_main_java_io_archguard_engine_modelimporter_modelimporter",
@@ -332,90 +467,107 @@
       "beforeall",
       "javamethod"
     ],
-    "6": [
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_matches",
-      "archguard_core_src_test_java_io_archguard_config_policytest_java_test",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_constraintwithoutguidancefails",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_duplicatekeyfails",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_emptyrootsfail",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_explicitnullfails",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_extendsmergesparentandchild",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_extendsrejectsnonpresetcyclesandmissingfiles",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_extradocumentfails",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_globconversion",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_invalidprofilefails",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_invalidseverityfails",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_lockedrulecannotbechanged",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_missingschemafails",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_organdclasspathpresetsresolvefromclassloader",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_patternrespectspackageboundaries",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_presetcannotbeanalyzeddirectly",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_quotedbooleanfails",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_read",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_readat",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_unknownpropertyfails",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_v1rejectsv2keys",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_v2policywithglobselectors",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_v2requiresjavalanguageandknownprofiles",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_validminimalpolicy",
-      "archguard_core_src_test_java_io_archguard_config_policytest_policytest_write"
-    ],
-    "7": [
-      "archguard_core_src_main_java_io_archguard_config_policies_java_classloader",
-      "archguard_core_src_main_java_io_archguard_config_policies_java_jsonnode",
-      "archguard_core_src_main_java_io_archguard_config_policies_java_objectmapper",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_byid",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_id",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_merge",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_mergebyid",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_parentsource",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_pattern",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_patterns",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_policies",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_read_1b8dd2",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_rejectlockedchanges",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_rejectnulls",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_resolve",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_source",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_source_bytes",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_source_file",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_source_relative",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_source_resource",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_toarchunit",
-      "archguard_core_src_main_java_io_archguard_config_policies_policies_validate",
-      "archguard_core_src_main_java_io_archguard_config_policy_policy_preset",
-      "arraynode",
-      "objectnode"
-    ],
     "8": [
-      "archguard_api_src_main_java_io_archguard_api_architecturemodel",
-      "archguard_api_src_main_java_io_archguard_api_architecturemodel_architecturemodel",
-      "archguard_api_src_main_java_io_archguard_api_architecturerule",
-      "archguard_api_src_main_java_io_archguard_api_architecturerule_architecturerule",
-      "archguard_api_src_main_java_io_archguard_api_architecturerule_architecturerule_evaluate",
-      "archguard_api_src_main_java_io_archguard_api_architecturerule_architecturerule_id",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_create",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_status",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_status_existing",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_status_new",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_status_suppressed",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_withstatus",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_withstatus_3df63b",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulecannotshadowbuiltin_object_architecturerule_l411_evaluate",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses_object_architecturerule_l389",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses_object_architecturerule_l389_evaluate",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses_object_architecturerule_l389_id",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulesrun_object_architecturerule_l362",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulesrun_object_architecturerule_l362_evaluate",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulesrun_object_architecturerule_l362_id",
-      "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_customdescriptormustmatchid_object_architecturerule_l117_evaluate",
-      "deprecated",
-      "examples_custom_rule_src_main_java_example_rules_nosystemexit_nosystemexit_evaluate"
+      "order",
+      "spec_conformance_clean_java_src_main_java_conf_orders_adapter_sqlorderstore",
+      "spec_conformance_clean_java_src_main_java_conf_orders_adapter_sqlorderstore_java_override",
+      "spec_conformance_clean_java_src_main_java_conf_orders_adapter_sqlorderstore_sqlorderstore",
+      "spec_conformance_clean_java_src_main_java_conf_orders_adapter_sqlorderstore_sqlorderstore_save",
+      "spec_conformance_clean_java_src_main_java_conf_orders_application_placeorder",
+      "spec_conformance_clean_java_src_main_java_conf_orders_application_placeorder_placeorder",
+      "spec_conformance_clean_java_src_main_java_conf_orders_application_placeorder_placeorder_place",
+      "spec_conformance_clean_java_src_main_java_conf_orders_application_placeorder_placeorder_placeorder",
+      "spec_conformance_clean_java_src_main_java_conf_orders_domain_order",
+      "spec_conformance_clean_java_src_main_java_conf_orders_domain_order_order",
+      "spec_conformance_clean_java_src_main_java_conf_orders_port_orderstore",
+      "spec_conformance_clean_java_src_main_java_conf_orders_port_orderstore_orderstore",
+      "spec_conformance_clean_java_src_main_java_conf_orders_port_orderstore_orderstore_save",
+      "spec_conformance_ddd_001_java_src_main_java_conf_billing_application_invoicing",
+      "spec_conformance_ddd_001_java_src_main_java_conf_billing_application_invoicing_invoicing",
+      "spec_conformance_ddd_001_java_src_main_java_conf_billing_application_invoicing_invoicing_invoicefor",
+      "spec_conformance_ddd_001_java_src_main_java_conf_orders_domain_order",
+      "spec_conformance_ddd_001_java_src_main_java_conf_orders_domain_order_order",
+      "spec_conformance_hex_002_java_src_main_java_conf_orders_adapter_sqlorderstore",
+      "spec_conformance_hex_002_java_src_main_java_conf_orders_adapter_sqlorderstore_java_override",
+      "spec_conformance_hex_002_java_src_main_java_conf_orders_adapter_sqlorderstore_sqlorderstore",
+      "spec_conformance_hex_002_java_src_main_java_conf_orders_adapter_sqlorderstore_sqlorderstore_save",
+      "spec_conformance_hex_002_java_src_main_java_conf_orders_application_placeorder",
+      "spec_conformance_hex_002_java_src_main_java_conf_orders_application_placeorder_placeorder",
+      "spec_conformance_hex_002_java_src_main_java_conf_orders_application_placeorder_placeorder_place",
+      "spec_conformance_hex_002_java_src_main_java_conf_orders_domain_order",
+      "spec_conformance_hex_002_java_src_main_java_conf_orders_domain_order_order",
+      "spec_conformance_hex_002_java_src_main_java_conf_orders_port_orderstore",
+      "spec_conformance_hex_002_java_src_main_java_conf_orders_port_orderstore_orderstore",
+      "spec_conformance_hex_002_java_src_main_java_conf_orders_port_orderstore_orderstore_save",
+      "spec_conformance_invalid_policy_java_src_main_java_conf_orders_domain_order",
+      "spec_conformance_invalid_policy_java_src_main_java_conf_orders_domain_order_order",
+      "spec_conformance_unclassified_java_src_main_java_conf_orders_domain_order",
+      "spec_conformance_unclassified_java_src_main_java_conf_orders_domain_order_order"
     ],
     "9": [
+      "github_workflows_action_e2e",
+      "github_workflows_action_e2e_env_code",
+      "github_workflows_action_e2e_env_expect",
+      "github_workflows_action_e2e_env_outcome",
+      "github_workflows_action_e2e_env_sarif",
+      "github_workflows_action_e2e_examples_runs_on",
+      "github_workflows_action_e2e_examples_steps",
+      "github_workflows_action_e2e_examples_strategy",
+      "github_workflows_action_e2e_include_config",
+      "github_workflows_action_e2e_include_example",
+      "github_workflows_action_e2e_include_expect",
+      "github_workflows_action_e2e_jobs",
+      "github_workflows_action_e2e_jobs_examples",
+      "github_workflows_action_e2e_matrix_include",
+      "github_workflows_action_e2e_name",
+      "github_workflows_action_e2e_on",
+      "github_workflows_action_e2e_on_pull_request",
+      "github_workflows_action_e2e_on_push",
+      "github_workflows_action_e2e_on_workflow_dispatch",
+      "github_workflows_action_e2e_steps_continue_on_error",
+      "github_workflows_action_e2e_steps_env",
+      "github_workflows_action_e2e_steps_id",
+      "github_workflows_action_e2e_steps_name",
+      "github_workflows_action_e2e_steps_run",
+      "github_workflows_action_e2e_steps_shell",
+      "github_workflows_action_e2e_steps_uses",
+      "github_workflows_action_e2e_steps_with",
+      "github_workflows_action_e2e_strategy_fail_fast",
+      "github_workflows_action_e2e_strategy_matrix",
+      "github_workflows_action_e2e_with_artifact_name",
+      "github_workflows_action_e2e_with_config",
+      "github_workflows_action_e2e_with_upload_sarif",
+      "github_workflows_action_e2e_with_working_directory"
+    ],
+    "10": [
+      "annotations",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo_analyzemojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo_analyzemojo_enforce",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo_analyzemojo_reactor",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo_java_mojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo_java_override",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo_baselinemojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo_baselinemojo_capturebaseline",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo_baselinemojo_enforce",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo_baselinemojo_reactor",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo_java_mojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo_java_override",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_checkmojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_checkmojo_checkmojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_checkmojo_checkmojo_enforce",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_checkmojo_checkmojo_reactor",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_checkmojo_java_mojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_checkmojo_java_override",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo_java_mojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo_java_override",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo_reactormojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo_reactormojo_enforce",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo_reactormojo_reactor"
+    ],
+    "11": [
       "archguard_core_src_test_java_io_archguard_fixtures_domain_jpaentity",
       "archguard_core_src_test_java_io_archguard_fixtures_domain_jpaentity_jpaentity",
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_webendpoint",
@@ -441,7 +593,7 @@
       "spec_conformance_http_entity_java_src_main_java_conf_shop_web_productresource_productresource",
       "spec_conformance_http_entity_java_src_main_java_conf_shop_web_productresource_productresource_get"
     ],
-    "10": [
+    "12": [
       "spec_rules_cycle_001",
       "spec_rules_cycle_001_activation",
       "spec_rules_cycle_001_category",
@@ -467,7 +619,7 @@
       "spec_rules_cycle_001_typescript_bad",
       "spec_rules_cycle_001_typescript_good"
     ],
-    "11": [
+    "13": [
       "spec_rules_ddd_002",
       "spec_rules_ddd_002_activation",
       "spec_rules_ddd_002_category",
@@ -493,7 +645,7 @@
       "spec_rules_ddd_002_typescript_bad",
       "spec_rules_ddd_002_typescript_good"
     ],
-    "12": [
+    "14": [
       "spec_rules_fw_002",
       "spec_rules_fw_002_activation",
       "spec_rules_fw_002_category",
@@ -519,7 +671,7 @@
       "spec_rules_fw_002_typescript_bad",
       "spec_rules_fw_002_typescript_good"
     ],
-    "13": [
+    "15": [
       "spec_rules_fw_001",
       "spec_rules_fw_001_activation",
       "spec_rules_fw_001_category",
@@ -544,7 +696,7 @@
       "spec_rules_fw_001_typescript_bad",
       "spec_rules_fw_001_typescript_good"
     ],
-    "14": [
+    "16": [
       "spec_rules_model_001",
       "spec_rules_model_001_activation",
       "spec_rules_model_001_category",
@@ -569,7 +721,7 @@
       "spec_rules_model_001_typescript_bad",
       "spec_rules_model_001_typescript_good"
     ],
-    "15": [
+    "17": [
       "spec_rules_model_002",
       "spec_rules_model_002_activation",
       "spec_rules_model_002_category",
@@ -594,7 +746,7 @@
       "spec_rules_model_002_typescript_bad",
       "spec_rules_model_002_typescript_good"
     ],
-    "16": [
+    "18": [
       "spec_rules_ddd_001",
       "spec_rules_ddd_001_activation",
       "spec_rules_ddd_001_category",
@@ -617,51 +769,6 @@
       "spec_rules_ddd_001_title",
       "spec_rules_ddd_001_typescript_bad",
       "spec_rules_ddd_001_typescript_good"
-    ],
-    "17": [
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_java_classloader",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_activatedby",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_expand",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_infrastructure",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_load",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_profile",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_profiles",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_read",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rolerule",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rolerule_forbids",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rolerules",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_roles",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_evidence",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_fill",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_message",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_remediation",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_speccatalog",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_strings",
-      "com_fasterxml_jackson_databind_jsonnode"
-    ],
-    "18": [
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_agentformatprintsfindingsandsummary",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_analysis",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_analyzenevergates",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_baselineacceptsexistingdebtandrefusessilentoverwrite",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_changedfilesscopereportsonlylistedfiles",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_checkfailswithexitoneandwritesallreports",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_classpathfiledefinesmodules",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_failonoverridechangesthegate",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_findfirst",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_invalidpolicyisananalysiserrorwithfailurereports",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_missingclassesisananalysiserror",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_policy",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_report",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_run",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_run_a1fffa",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_symlinkedprojectstillmapssourcefiles",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_usageerrorsexitsixtyfour",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_validateandrules",
-      "org_junit_jupiter_api_test"
     ],
     "19": [
       "github_workflows_verify",
@@ -840,25 +947,24 @@
       "spec_rules_layer_002_typescript_good"
     ],
     "27": [
-      "archguard_api_src_main_java_io_archguard_api_analysisresult",
-      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_agent",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_agenterror",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_atomic",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_compact",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_console",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_escape",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_html",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_reports",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_sarif",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_uri",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_write",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_write_b67bbe",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_writefailure",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rules",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_specversion",
-      "objectmapper"
+      "github_workflows_archguard_pr",
+      "github_workflows_archguard_pr_architecture_runs_on",
+      "github_workflows_archguard_pr_architecture_steps",
+      "github_workflows_archguard_pr_jobs",
+      "github_workflows_archguard_pr_jobs_architecture",
+      "github_workflows_archguard_pr_name",
+      "github_workflows_archguard_pr_on",
+      "github_workflows_archguard_pr_on_pull_request",
+      "github_workflows_archguard_pr_permissions",
+      "github_workflows_archguard_pr_permissions_contents",
+      "github_workflows_archguard_pr_permissions_security_events",
+      "github_workflows_archguard_pr_pull_request_paths",
+      "github_workflows_archguard_pr_steps_uses",
+      "github_workflows_archguard_pr_steps_with",
+      "github_workflows_archguard_pr_with_changed_files_only",
+      "github_workflows_archguard_pr_with_fetch_depth",
+      "github_workflows_archguard_pr_with_upload_sarif",
+      "github_workflows_archguard_pr_with_working_directory"
     ],
     "28": [
       "examples_clean_architecture",
@@ -897,22 +1003,73 @@
       "examples_violating_architecture_schemaversion"
     ],
     "30": [
+      "abstractmojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_capturebaseline",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_enforce",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_excluded",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_execute",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_reactor",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_java_override",
+      "clock",
+      "engine",
+      "org_apache_maven_execution_mavensession",
+      "org_apache_maven_plugin_mojoexecution",
+      "parameter",
+      "plugin"
+    ],
+    "31": [
+      "api",
+      "archguard_api_src_main_java_io_archguard_api_analysisresult",
+      "archguard_api_src_main_java_io_archguard_api_architecturemodel",
+      "archguard_cli_src_main_java_io_archguard_cli_changedfiles",
+      "archguard_cli_src_main_java_io_archguard_cli_main",
+      "archguard_core_src_main_java_io_archguard_config_policy",
+      "archguard_core_src_main_java_io_archguard_engine_builtinrules",
+      "archguard_core_src_main_java_io_archguard_engine_debt",
+      "archguard_core_src_main_java_io_archguard_report_reports",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog",
+      "com_fasterxml_jackson_dataformat_yaml_yamlmapper",
+      "io",
+      "jsonproperty",
+      "uri",
+      "util"
+    ],
+    "32": [
+      "archguard_api_src_main_java_io_archguard_api_architecturerule",
+      "archguard_api_src_main_java_io_archguard_api_architecturerule_architecturerule",
       "archguard_api_src_main_java_io_archguard_api_architecturerule_architecturerule_descriptor",
+      "archguard_api_src_main_java_io_archguard_api_architecturerule_architecturerule_id",
       "archguard_api_src_main_java_io_archguard_api_ruledescriptor",
       "archguard_api_src_main_java_io_archguard_api_ruledescriptor_ruledescriptor",
       "archguard_api_src_main_java_io_archguard_api_ruledescriptor_ruledescriptor_of",
       "archguard_core_src_main_java_io_archguard_engine_architectureengine_architectureengine_describe",
       "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_descriptors",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_get",
       "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_ruleids",
       "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_descriptor",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_customdescriptormustmatchid_object_architecturerule_l117_descriptor",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_describelistscatalogandcustomrules_object_architecturerule_l96",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_describelistscatalogandcustomrules_object_architecturerule_l96_descriptor",
-      "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_describelistscatalogandcustomrules_object_architecturerule_l96_evaluate",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_describelistscatalogandcustomrules_object_architecturerule_l96_id"
     ],
-    "31": [
+    "33": [
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_adapter_sqlorderstore",
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_adapter_sqlorderstore_java_override",
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_adapter_sqlorderstore_sqlorderstore",
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_adapter_sqlorderstore_sqlorderstore_save",
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_application_placeorder",
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_application_placeorder_placeorder",
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_application_placeorder_placeorder_place",
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_domain_order",
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_domain_order_order",
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_domain_order_order_id",
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_domain_order_order_order",
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_port_orderstore",
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_port_orderstore_orderstore",
+      "archguard_cli_src_test_java_io_archguard_cli_fixtures_orders_port_orderstore_orderstore_save"
+    ],
+    "34": [
       "archguard_core_src_test_java_io_archguard_fixtures_domain_micronautentity",
       "archguard_core_src_test_java_io_archguard_fixtures_domain_micronautentity_micronautentity",
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_micronautendpoint",
@@ -928,7 +1085,7 @@
       "io_micronaut_data_annotation_mappedentity",
       "io_micronaut_http_annotation_post"
     ],
-    "32": [
+    "35": [
       "spec_conformance_clean_java_architecture",
       "spec_conformance_clean_java_architecture_contexts",
       "spec_conformance_clean_java_architecture_contexts_exposedpackages",
@@ -944,7 +1101,7 @@
       "spec_conformance_clean_java_architecture_roots",
       "spec_conformance_clean_java_architecture_schemaversion"
     ],
-    "33": [
+    "36": [
       "spec_conformance_hex_002_java_architecture",
       "spec_conformance_hex_002_java_architecture_contexts",
       "spec_conformance_hex_002_java_architecture_contexts_exposedpackages",
@@ -960,63 +1117,50 @@
       "spec_conformance_hex_002_java_architecture_roots",
       "spec_conformance_hex_002_java_architecture_schemaversion"
     ],
-    "34": [
-      "archguard_core_src_main_java_io_archguard_config_policy_policy",
-      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules",
-      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_active",
-      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_add",
-      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_add_778abf",
-      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_builtinrules",
-      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_contextfor",
-      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_cyclefindings",
-      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_evaluate",
-      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_isinfrastructure",
-      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_packagename",
-      "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_rolefor",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rule"
-    ],
-    "35": [
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_withseverity",
-      "archguard_api_src_main_java_io_archguard_api_severity",
-      "archguard_api_src_main_java_io_archguard_api_severity_severity",
-      "archguard_api_src_main_java_io_archguard_api_severity_severity_atleast",
-      "archguard_api_src_main_java_io_archguard_api_severity_severity_error",
-      "archguard_api_src_main_java_io_archguard_api_severity_severity_info",
-      "archguard_api_src_main_java_io_archguard_api_severity_severity_warning",
-      "archguard_core_src_main_java_io_archguard_config_policy_policy_constraint",
-      "archguard_core_src_main_java_io_archguard_config_policy_policy_context",
-      "archguard_core_src_main_java_io_archguard_config_policy_policy_policy",
-      "archguard_core_src_main_java_io_archguard_config_policy_policy_rulesetting",
-      "archguard_core_src_main_java_io_archguard_config_policy_policy_rulesetting_rulesetting"
-    ],
-    "36": [
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_java_test",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_catalogactivationmatchesengine",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_catalogdefaultseveritiesmatchengine",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_fired",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_hexagonalrolematrixmatchesengineforeveryrolepair",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_javainfrastructurelistmatchesengine",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_layeredrolematrixmatchesengineforeveryrolepair",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_policy",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_predicted",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_profilerulesareinactivewithouttheprofile",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_yaml"
-    ],
     "37": [
-      "archguard_api_src_main_java_io_archguard_api_dependency",
-      "archguard_api_src_main_java_io_archguard_api_dependency_dependency",
-      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_dependency",
-      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_kind",
-      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_kind_http_entity_exposure",
-      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_kind_static",
-      "archguard_api_src_main_java_io_archguard_api_location",
-      "archguard_api_src_main_java_io_archguard_api_location_location",
-      "archguard_api_src_main_java_io_archguard_api_typeinfo",
-      "archguard_api_src_main_java_io_archguard_api_typeinfo_typeinfo",
-      "set"
+      "archconfiguration",
+      "archguard_core_src_main_java_io_archguard_engine_modelimporter",
+      "archguard_core_src_main_java_io_archguard_framework_frameworkclassifier",
+      "archguard_core_src_main_java_io_archguard_framework_frameworkclassifier_frameworkclassifier",
+      "archguard_core_src_main_java_io_archguard_framework_frameworkclassifier_frameworkclassifier_frameworkclassifier",
+      "archguard_core_src_main_java_io_archguard_framework_frameworkclassifier_frameworkclassifier_has",
+      "archguard_core_src_main_java_io_archguard_framework_frameworkclassifier_frameworkclassifier_tags",
+      "classfileimporter",
+      "com_tngtech_archunit_core_domain_javaclass",
+      "domain",
+      "stream",
+      "url",
+      "urlclassloader"
     ],
     "38": [
+      "action_action_env_archguard_language",
+      "action_action_env_code",
+      "action_action_env_input_annotations",
+      "action_action_env_input_archguard_version",
+      "action_action_env_input_baseline",
+      "action_action_env_input_changed_files_only",
+      "action_action_env_input_cli_jar",
+      "action_action_env_input_config",
+      "action_action_env_input_fail_on",
+      "action_action_env_input_language",
+      "action_action_env_input_suppressions",
+      "action_action_steps_env"
+    ],
+    "39": [
+      "archguard_cli_src_main_java_io_archguard_cli_inputs",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest",
+      "archguard_core_src_test_java_io_archguard_config_policytest",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest",
+      "archguard_core_src_test_java_io_archguard_engine_importertest",
+      "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest",
+      "assertions",
+      "config",
+      "file",
+      "ioexception",
+      "tempdir"
+    ],
+    "40": [
       "spec_conformance_cycles_java_architecture",
       "spec_conformance_cycles_java_architecture_contexts",
       "spec_conformance_cycles_java_architecture_contexts_exposedpackages",
@@ -1029,7 +1173,7 @@
       "spec_conformance_cycles_java_architecture_rules_cycle_001",
       "spec_conformance_cycles_java_architecture_schemaversion"
     ],
-    "39": [
+    "41": [
       "spec_profiles_hexagonal",
       "spec_profiles_hexagonal_activates",
       "spec_profiles_hexagonal_description",
@@ -1042,19 +1186,31 @@
       "spec_profiles_hexagonal_rolerules_rule",
       "spec_profiles_hexagonal_title"
     ],
-    "40": [
-      "archguard_api_src_main_java_io_archguard_api_role",
-      "archguard_api_src_main_java_io_archguard_api_role_role",
-      "archguard_api_src_main_java_io_archguard_api_role_role_application",
-      "archguard_api_src_main_java_io_archguard_api_role_role_composition_root",
-      "archguard_api_src_main_java_io_archguard_api_role_role_domain",
-      "archguard_api_src_main_java_io_archguard_api_role_role_inbound_adapter",
-      "archguard_api_src_main_java_io_archguard_api_role_role_inbound_port",
-      "archguard_api_src_main_java_io_archguard_api_role_role_outbound_adapter",
-      "archguard_api_src_main_java_io_archguard_api_role_role_outbound_port",
-      "archguard_api_src_main_java_io_archguard_api_role_role_unclassified"
+    "42": [
+      "action_action_exit_code_description",
+      "action_action_exit_code_value",
+      "action_action_new_findings_description",
+      "action_action_new_findings_value",
+      "action_action_outputs",
+      "action_action_outputs_exit_code",
+      "action_action_outputs_new_findings",
+      "action_action_outputs_sarif",
+      "action_action_sarif_description",
+      "action_action_sarif_value"
     ],
-    "41": [
+    "43": [
+      "archguard_core_src_main_java_io_archguard_engine_analysisclassresolver",
+      "archguard_core_src_main_java_io_archguard_engine_analysisclassresolver_analysisclassresolver",
+      "archguard_core_src_main_java_io_archguard_engine_analysisclassresolver_analysisclassresolver_analysisclassresolver",
+      "archguard_core_src_main_java_io_archguard_engine_analysisclassresolver_analysisclassresolver_setclassuriimporter",
+      "archguard_core_src_main_java_io_archguard_engine_analysisclassresolver_analysisclassresolver_tryresolve",
+      "archguard_core_src_main_java_io_archguard_engine_analysisclassresolver_java_override",
+      "classloader",
+      "classuriimporter",
+      "com_tngtech_archunit_core_importer_resolvers_classresolver",
+      "net"
+    ],
+    "44": [
       "spec_conformance_layered_java_architecture",
       "spec_conformance_layered_java_architecture_language",
       "spec_conformance_layered_java_architecture_profiles",
@@ -1066,7 +1222,7 @@
       "spec_conformance_layered_java_architecture_roots",
       "spec_conformance_layered_java_architecture_schemaversion"
     ],
-    "42": [
+    "45": [
       "spec_conformance_layered_java_src_main_java_conf_shop_persistence_orderdao",
       "spec_conformance_layered_java_src_main_java_conf_shop_persistence_orderdao_orderdao",
       "spec_conformance_layered_java_src_main_java_conf_shop_persistence_orderdao_orderdao_owner",
@@ -1078,18 +1234,18 @@
       "spec_conformance_layered_java_src_main_java_conf_shop_web_ordercontroller_ordercontroller",
       "spec_conformance_layered_java_src_main_java_conf_shop_web_ordercontroller_ordercontroller_count"
     ],
-    "43": [
-      "abstractmojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_capturebaseline",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_enforce",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_excluded",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_execute",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_reactor",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_java_override",
-      "org_apache_maven_project_mavenproject"
+    "46": [
+      "archguard_api_src_main_java_io_archguard_api_finding",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_classpathmojo",
+      "mojo",
+      "mojoexecutionexception",
+      "org_apache_maven_plugin_abstractmojo",
+      "org_apache_maven_project_mavenproject",
+      "security",
+      "standardcharsets"
     ],
-    "44": [
+    "47": [
       "examples_clean_src_main_java_example_orders_adapter_sqlorderstore",
       "examples_clean_src_main_java_example_orders_adapter_sqlorderstore_java_order",
       "examples_clean_src_main_java_example_orders_adapter_sqlorderstore_sqlorderstore",
@@ -1100,7 +1256,7 @@
       "examples_violating_src_main_java_example_orders_adapter_sqlorderstore_sqlorderstore_load",
       "orderstore"
     ],
-    "45": [
+    "48": [
       "spec_profiles_layered",
       "spec_profiles_layered_activates",
       "spec_profiles_layered_description",
@@ -1111,17 +1267,37 @@
       "spec_profiles_layered_rolerules_rule",
       "spec_profiles_layered_title"
     ],
-    "46": [
-      "annotations",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo_java_mojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo_java_override",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo_reactormojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo_reactormojo_enforce",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo_reactormojo_reactor"
+    "49": [
+      "action_action",
+      "action_action_branding",
+      "action_action_branding_color",
+      "action_action_branding_icon",
+      "action_action_description",
+      "action_action_name",
+      "action_action_runs",
+      "action_action_runs_using"
     ],
-    "47": [
+    "50": [
+      "action_action_steps_with",
+      "action_action_with_category",
+      "action_action_with_distribution",
+      "action_action_with_if_no_files_found",
+      "action_action_with_java_version",
+      "action_action_with_name",
+      "action_action_with_path",
+      "action_action_with_sarif_file"
+    ],
+    "51": [
+      "archguard_core_src_main_java_io_archguard_config_policies",
+      "archguard_core_src_main_java_io_archguard_engine_architectureengine",
+      "com_fasterxml_jackson_databind_node_objectnode",
+      "core",
+      "databind",
+      "messagedigest",
+      "node",
+      "packagematcher"
+    ],
+    "52": [
       "examples_micronaut_architecture",
       "examples_micronaut_architecture_profiles",
       "examples_micronaut_architecture_requireclassification",
@@ -1131,7 +1307,7 @@
       "examples_micronaut_architecture_roots",
       "examples_micronaut_architecture_schemaversion"
     ],
-    "48": [
+    "53": [
       "examples_reactor_architecture",
       "examples_reactor_architecture_profiles",
       "examples_reactor_architecture_requireclassification",
@@ -1141,7 +1317,7 @@
       "examples_reactor_architecture_roots",
       "examples_reactor_architecture_schemaversion"
     ],
-    "49": [
+    "54": [
       "examples_spring_boot_architecture",
       "examples_spring_boot_architecture_profiles",
       "examples_spring_boot_architecture_requireclassification",
@@ -1151,7 +1327,7 @@
       "examples_spring_boot_architecture_roots",
       "examples_spring_boot_architecture_schemaversion"
     ],
-    "50": [
+    "55": [
       "examples_spring_boot_legacy_architecture",
       "examples_spring_boot_legacy_architecture_profiles",
       "examples_spring_boot_legacy_architecture_requireclassification",
@@ -1161,7 +1337,7 @@
       "examples_spring_boot_legacy_architecture_roots",
       "examples_spring_boot_legacy_architecture_schemaversion"
     ],
-    "51": [
+    "56": [
       "spec_conformance_ddd_001_java_architecture",
       "spec_conformance_ddd_001_java_architecture_contexts",
       "spec_conformance_ddd_001_java_architecture_contexts_exposedpackages",
@@ -1171,7 +1347,16 @@
       "spec_conformance_ddd_001_java_architecture_roots",
       "spec_conformance_ddd_001_java_architecture_schemaversion"
     ],
-    "52": [
+    "57": [
+      "action_action_runs_steps",
+      "action_action_steps_id",
+      "action_action_steps_if",
+      "action_action_steps_run",
+      "action_action_steps_shell",
+      "action_action_steps_uses",
+      "action_action_steps_working_directory"
+    ],
+    "58": [
       "examples_quarkus_architecture",
       "examples_quarkus_architecture_profiles",
       "examples_quarkus_architecture_requireclassification",
@@ -1180,7 +1365,7 @@
       "examples_quarkus_architecture_roots",
       "examples_quarkus_architecture_schemaversion"
     ],
-    "53": [
+    "59": [
       "examples_quarkus_legacy_architecture",
       "examples_quarkus_legacy_architecture_profiles",
       "examples_quarkus_legacy_architecture_requireclassification",
@@ -1189,7 +1374,7 @@
       "examples_quarkus_legacy_architecture_roots",
       "examples_quarkus_legacy_architecture_schemaversion"
     ],
-    "54": [
+    "60": [
       "spec_conformance_http_entity_java_architecture",
       "spec_conformance_http_entity_java_architecture_profiles",
       "spec_conformance_http_entity_java_architecture_roles",
@@ -1198,7 +1383,7 @@
       "spec_conformance_http_entity_java_architecture_roots",
       "spec_conformance_http_entity_java_architecture_schemaversion"
     ],
-    "55": [
+    "61": [
       "spec_conformance_invalid_policy_java_architecture",
       "spec_conformance_invalid_policy_java_architecture_profiles",
       "spec_conformance_invalid_policy_java_architecture_roles",
@@ -1207,7 +1392,7 @@
       "spec_conformance_invalid_policy_java_architecture_schemaversion",
       "spec_conformance_invalid_policy_java_architecture_unknownkey"
     ],
-    "56": [
+    "62": [
       "spec_conformance_unclassified_java_architecture",
       "spec_conformance_unclassified_java_architecture_profiles",
       "spec_conformance_unclassified_java_architecture_requireclassification",
@@ -1216,7 +1401,7 @@
       "spec_conformance_unclassified_java_architecture_roots",
       "spec_conformance_unclassified_java_architecture_schemaversion"
     ],
-    "57": [
+    "63": [
       "verification_benchmark",
       "verification_benchmark_analysisprocessseconds",
       "verification_benchmark_classes",
@@ -1225,15 +1410,7 @@
       "verification_benchmark_maxrsskib",
       "verification_benchmark_note"
     ],
-    "58": [
-      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult_analysisresult",
-      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult_withfindingsanddiagnostics",
-      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles",
-      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles_changedfiles",
-      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles_normalize",
-      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles_restrict"
-    ],
-    "59": [
+    "64": [
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_composedendpoint",
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_composedendpoint_composedendpoint",
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_customendpoint",
@@ -1241,31 +1418,7 @@
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_customendpoint_java_org_springframework_web_bind_annotation_restcontroller",
       "java_lang_annotation_retention"
     ],
-    "60": [
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo_analyzemojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo_analyzemojo_enforce",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo_analyzemojo_reactor",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo_java_mojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo_java_override"
-    ],
-    "61": [
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo_baselinemojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo_baselinemojo_capturebaseline",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo_baselinemojo_enforce",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo_baselinemojo_reactor",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo_java_mojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_baselinemojo_java_override"
-    ],
-    "62": [
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_checkmojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_checkmojo_checkmojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_checkmojo_checkmojo_enforce",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_checkmojo_checkmojo_reactor",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_checkmojo_java_mojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_checkmojo_java_override"
-    ],
-    "63": [
+    "65": [
       "examples_clean_src_main_java_example_orders_application_orderservice",
       "examples_clean_src_main_java_example_orders_application_orderservice_java_order",
       "examples_clean_src_main_java_example_orders_application_orderservice_java_orderstore",
@@ -1273,7 +1426,7 @@
       "examples_clean_src_main_java_example_orders_application_orderservice_orderservice_load",
       "examples_clean_src_main_java_example_orders_application_orderservice_orderservice_orderservice"
     ],
-    "64": [
+    "66": [
       "examples_violating_src_main_java_example_orders_application_orderservice",
       "examples_violating_src_main_java_example_orders_application_orderservice_java_order",
       "examples_violating_src_main_java_example_orders_application_orderservice_orderservice",
@@ -1281,7 +1434,7 @@
       "examples_violating_src_main_java_example_orders_application_orderservice_orderservice_orderservice",
       "sqlorderstore"
     ],
-    "65": [
+    "67": [
       "spec_conformance_cycles_java_src_main_java_conf_billing_api_billingapi",
       "spec_conformance_cycles_java_src_main_java_conf_billing_api_billingapi_billingapi",
       "spec_conformance_cycles_java_src_main_java_conf_billing_api_billingapi_billingapi_invoice",
@@ -1289,7 +1442,7 @@
       "spec_conformance_cycles_java_src_main_java_conf_orders_api_orderapi_orderapi",
       "spec_conformance_cycles_java_src_main_java_conf_orders_api_orderapi_orderapi_markpaid"
     ],
-    "66": [
+    "68": [
       "spec_profiles_clean",
       "spec_profiles_clean_activates",
       "spec_profiles_clean_description",
@@ -1297,7 +1450,7 @@
       "spec_profiles_clean_includes",
       "spec_profiles_clean_title"
     ],
-    "67": [
+    "69": [
       "spec_profiles_modular_monolith",
       "spec_profiles_modular_monolith_activates",
       "spec_profiles_modular_monolith_description",
@@ -1305,219 +1458,238 @@
       "spec_profiles_modular_monolith_includes",
       "spec_profiles_modular_monolith_title"
     ],
-    "68": [
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_classpathmojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_classpathmojo_execute",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_java_override",
-      "mojo",
-      "org_apache_maven_plugin_abstractmojo"
+    "70": [
+      "action_run",
+      "action_run_endgroup",
+      "action_run_finish",
+      "action_run_group",
+      "action_run_sh__entry"
     ],
-    "69": [
+    "71": [
       "examples_micronaut_src_main_java_example_micronaut_web_ordercontroller",
       "examples_micronaut_src_main_java_example_micronaut_web_ordercontroller_java_io_micronaut_http_annotation_controller",
       "examples_micronaut_src_main_java_example_micronaut_web_ordercontroller_java_io_micronaut_http_annotation_get",
       "examples_micronaut_src_main_java_example_micronaut_web_ordercontroller_ordercontroller",
       "examples_micronaut_src_main_java_example_micronaut_web_ordercontroller_ordercontroller_orders"
     ],
-    "70": [
+    "72": [
       "examples_quarkus_legacy_src_main_java_example_quarkus_web_orderresource",
       "examples_quarkus_legacy_src_main_java_example_quarkus_web_orderresource_orderresource",
       "examples_quarkus_legacy_src_main_java_example_quarkus_web_orderresource_orderresource_orders",
       "javax_ws_rs_get",
       "javax_ws_rs_path"
     ],
-    "71": [
+    "73": [
       "examples_spring_boot_legacy_src_main_java_example_boot_web_ordercontroller",
       "examples_spring_boot_legacy_src_main_java_example_boot_web_ordercontroller_java_org_springframework_web_bind_annotation_getmapping",
       "examples_spring_boot_legacy_src_main_java_example_boot_web_ordercontroller_java_org_springframework_web_bind_annotation_restcontroller",
       "examples_spring_boot_legacy_src_main_java_example_boot_web_ordercontroller_ordercontroller",
       "examples_spring_boot_legacy_src_main_java_example_boot_web_ordercontroller_ordercontroller_orders"
     ],
-    "72": [
+    "74": [
       "examples_spring_boot_src_main_java_example_boot_web_ordercontroller",
       "examples_spring_boot_src_main_java_example_boot_web_ordercontroller_java_org_springframework_web_bind_annotation_getmapping",
       "examples_spring_boot_src_main_java_example_boot_web_ordercontroller_java_org_springframework_web_bind_annotation_restcontroller",
       "examples_spring_boot_src_main_java_example_boot_web_ordercontroller_ordercontroller",
       "examples_spring_boot_src_main_java_example_boot_web_ordercontroller_ordercontroller_orders"
     ],
-    "73": [
+    "75": [
       "pkg_example_company_rules",
       "pkg_io_archguard_archguard_api",
       "pkg_io_archguard_archguard_cli",
       "pkg_io_archguard_archguard_core",
       "pkg_io_archguard_archguard_maven_plugin"
     ],
-    "74": [
+    "76": [
       "spec_index",
       "spec_index_infrastructure",
       "spec_index_profiles",
       "spec_index_rules",
       "spec_index_specversion"
     ],
-    "75": [
+    "77": [
       "spec_infrastructure_java",
       "spec_infrastructure_java_description",
       "spec_infrastructure_java_entries",
       "spec_infrastructure_java_language",
       "spec_infrastructure_java_matching"
     ],
-    "76": [
+    "78": [
       "spec_infrastructure_python",
       "spec_infrastructure_python_description",
       "spec_infrastructure_python_entries",
       "spec_infrastructure_python_language",
       "spec_infrastructure_python_matching"
     ],
-    "77": [
+    "79": [
       "spec_infrastructure_typescript",
       "spec_infrastructure_typescript_description",
       "spec_infrastructure_typescript_entries",
       "spec_infrastructure_typescript_language",
       "spec_infrastructure_typescript_matching"
     ],
-    "78": [
+    "80": [
       "spec_profiles_ddd",
       "spec_profiles_ddd_activates",
       "spec_profiles_ddd_description",
       "spec_profiles_ddd_id",
       "spec_profiles_ddd_title"
     ],
-    "79": [
+    "81": [
       "archguard_core_src_test_java_io_archguard_fixtures_domain_order",
       "archguard_core_src_test_java_io_archguard_fixtures_domain_order_order",
       "archguard_core_src_test_java_io_archguard_fixtures_out_jpaadapter",
       "archguard_core_src_test_java_io_archguard_fixtures_out_jpaadapter_jpaadapter"
     ],
-    "80": [
+    "82": [
       "archguard_core_src_test_java_io_archguard_fixtures_port_leakyport",
       "archguard_core_src_test_java_io_archguard_fixtures_port_leakyport_leakyport",
       "archguard_core_src_test_java_io_archguard_fixtures_port_leakyport_leakyport_load",
       "entitymanager"
     ],
-    "81": [
+    "83": [
       "examples_clean_src_main_java_example_orders_port_orderstore",
       "examples_clean_src_main_java_example_orders_port_orderstore_java_order",
       "examples_clean_src_main_java_example_orders_port_orderstore_orderstore",
       "examples_clean_src_main_java_example_orders_port_orderstore_orderstore_load"
     ],
-    "82": [
+    "84": [
       "examples_reactor_application_src_main_java_example_orders_application_orderservice",
       "examples_reactor_application_src_main_java_example_orders_application_orderservice_java_order",
       "examples_reactor_application_src_main_java_example_orders_application_orderservice_orderservice",
       "examples_reactor_application_src_main_java_example_orders_application_orderservice_orderservice_load"
     ],
-    "83": [
+    "85": [
       "examples_spring_boot_legacy_src_main_java_example_boot_bootstrap_application",
       "examples_spring_boot_legacy_src_main_java_example_boot_bootstrap_application_application",
       "examples_spring_boot_legacy_src_main_java_example_boot_bootstrap_application_application_main",
       "examples_spring_boot_legacy_src_main_java_example_boot_bootstrap_application_java_org_springframework_boot_autoconfigure_springbootapplication"
     ],
-    "84": [
+    "86": [
       "examples_spring_boot_src_main_java_example_boot_bootstrap_application",
       "examples_spring_boot_src_main_java_example_boot_bootstrap_application_application",
       "examples_spring_boot_src_main_java_example_boot_bootstrap_application_application_main",
       "examples_spring_boot_src_main_java_example_boot_bootstrap_application_java_org_springframework_boot_autoconfigure_springbootapplication"
     ],
-    "85": [
+    "87": [
       "examples_violating_src_main_java_example_orders_port_orderstore",
       "examples_violating_src_main_java_example_orders_port_orderstore_java_order",
       "examples_violating_src_main_java_example_orders_port_orderstore_orderstore",
       "examples_violating_src_main_java_example_orders_port_orderstore_orderstore_load"
     ],
-    "86": [
+    "88": [
       "spec_conformance_unclassified_java_src_main_java_conf_orders_util_helper",
       "spec_conformance_unclassified_java_src_main_java_conf_orders_util_helper_helper",
       "spec_conformance_unclassified_java_src_main_java_conf_orders_util_helper_helper_helper",
       "spec_conformance_unclassified_java_src_main_java_conf_orders_util_helper_helper_normalize"
     ],
-    "87": [
+    "89": [
+      "action_action_outputs_report_dir",
+      "action_action_report_dir_description",
+      "action_action_report_dir_value"
+    ],
+    "90": [
+      "action_action_outputs_status",
+      "action_action_status_description",
+      "action_action_status_value"
+    ],
+    "91": [
+      "archguard_core_src_main_java_io_archguard_engine_cycles",
+      "archguard_core_src_main_java_io_archguard_engine_cycles_cycles",
+      "archguard_core_src_main_java_io_archguard_engine_cycles_cycles_cycles"
+    ],
+    "92": [
       "archguard_core_src_test_java_io_archguard_fixtures_domain_legacyentity",
       "archguard_core_src_test_java_io_archguard_fixtures_domain_legacyentity_legacyentity",
       "javax_persistence_entity"
     ],
-    "88": [
+    "93": [
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_restresource",
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_restresource_java_jakarta_ws_rs_path",
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_restresource_restresource"
     ],
-    "89": [
+    "94": [
       "examples_micronaut_src_main_java_example_micronaut_bootstrap_application",
       "examples_micronaut_src_main_java_example_micronaut_bootstrap_application_application",
       "examples_micronaut_src_main_java_example_micronaut_bootstrap_application_application_main"
     ],
-    "90": [
+    "95": [
       "skills_archguard_scripts_check",
       "skills_archguard_scripts_check_error",
       "skills_archguard_scripts_check_sh__entry"
     ],
-    "91": [
+    "96": [
+      "action_detect",
+      "action_detect_sh__entry"
+    ],
+    "97": [
       "examples_clean_src_main_java_example_orders_domain_order",
       "examples_clean_src_main_java_example_orders_domain_order_order"
     ],
-    "92": [
+    "98": [
       "examples_reactor_domain_src_main_java_example_orders_domain_order",
       "examples_reactor_domain_src_main_java_example_orders_domain_order_order"
     ],
-    "93": [
+    "99": [
       "examples_violating_src_main_java_example_orders_domain_order",
       "examples_violating_src_main_java_example_orders_domain_order_order"
     ],
-    "94": [
+    "100": [
       "pkg_example_application",
       "pkg_example_domain"
     ],
-    "95": [
+    "101": [
       "spec_conformance_ddd_001_java_src_main_java_conf_orders_api_ordersummary",
       "spec_conformance_ddd_001_java_src_main_java_conf_orders_api_ordersummary_ordersummary"
     ],
-    "96": [
+    "102": [
       "pkg_example_clean"
     ],
-    "97": [
+    "103": [
       "pkg_example_micronaut_example"
     ],
-    "98": [
+    "104": [
       "pkg_example_quarkus_example"
     ],
-    "99": [
+    "105": [
       "pkg_example_quarkus_legacy_example"
     ],
-    "100": [
+    "106": [
       "pkg_example_reactor"
     ],
-    "101": [
+    "107": [
       "pkg_example_spring_example"
     ],
-    "102": [
+    "108": [
       "pkg_example_spring_legacy_example"
     ],
-    "103": [
+    "109": [
       "pkg_example_violating"
     ],
-    "104": [
+    "110": [
       "pkg_io_archguard_archguard_parent"
     ]
   },
   "cohesion": {
-    "0": 0.06116700201207243,
-    "1": 0.09859791949344188,
-    "2": 0.06312098188194039,
-    "3": 0.0858843537414966,
-    "4": 0.10953058321479374,
-    "5": 0.1492063492063492,
-    "6": 0.19943019943019943,
-    "7": 0.15384615384615385,
-    "8": 0.11594202898550725,
-    "9": 0.11231884057971014,
-    "10": 0.08333333333333333,
-    "11": 0.08333333333333333,
+    "0": 0.056158385684370836,
+    "1": 0.05853174603174603,
+    "2": 0.06557377049180328,
+    "3": 0.08925979680696662,
+    "4": 0.08446455505279035,
+    "5": 0.043478260869565216,
+    "6": 0.15714285714285714,
+    "7": 0.1492063492063492,
+    "8": 0.13277310924369748,
+    "9": 0.06060606060606061,
+    "10": 0.09230769230769231,
+    "11": 0.11231884057971014,
     "12": 0.08333333333333333,
-    "13": 0.08695652173913043,
-    "14": 0.08695652173913043,
+    "13": 0.08333333333333333,
+    "14": 0.08333333333333333,
     "15": 0.08695652173913043,
-    "16": 0.09090909090909091,
-    "17": 0.18571428571428572,
-    "18": 0.35789473684210527,
+    "16": 0.08695652173913043,
+    "17": 0.08695652173913043,
+    "18": 0.09090909090909091,
     "19": 0.1,
     "20": 0.1,
     "21": 0.1,
@@ -1526,50 +1698,50 @@
     "24": 0.1,
     "25": 0.1,
     "26": 0.1,
-    "27": 0.2046783625730994,
+    "27": 0.1111111111111111,
     "28": 0.125,
     "29": 0.125,
-    "30": 0.18681318681318682,
-    "31": 0.15384615384615385,
-    "32": 0.14285714285714285,
-    "33": 0.14285714285714285,
-    "34": 0.4358974358974359,
-    "35": 0.21212121212121213,
-    "36": 0.45454545454545453,
-    "37": 0.2,
-    "38": 0.18181818181818182,
-    "39": 0.18181818181818182,
-    "40": 0.2,
-    "41": 0.2,
-    "42": 0.4,
-    "43": 0.3611111111111111,
-    "44": 0.2222222222222222,
-    "45": 0.2222222222222222,
-    "46": 0.2857142857142857,
-    "47": 0.25,
-    "48": 0.25,
+    "30": 0.19047619047619047,
+    "31": 0.2571428571428571,
+    "32": 0.17142857142857143,
+    "33": 0.23076923076923078,
+    "34": 0.15384615384615385,
+    "35": 0.14285714285714285,
+    "36": 0.14285714285714285,
+    "37": 0.20512820512820512,
+    "38": 0.16666666666666666,
+    "39": 0.36363636363636365,
+    "40": 0.18181818181818182,
+    "41": 0.18181818181818182,
+    "42": 0.2,
+    "43": 0.26666666666666666,
+    "44": 0.2,
+    "45": 0.4,
+    "46": 0.2777777777777778,
+    "47": 0.2222222222222222,
+    "48": 0.2222222222222222,
     "49": 0.25,
     "50": 0.25,
     "51": 0.25,
-    "52": 0.2857142857142857,
-    "53": 0.2857142857142857,
-    "54": 0.2857142857142857,
-    "55": 0.2857142857142857,
-    "56": 0.2857142857142857,
+    "52": 0.25,
+    "53": 0.25,
+    "54": 0.25,
+    "55": 0.25,
+    "56": 0.25,
     "57": 0.2857142857142857,
-    "58": 0.4,
-    "59": 0.3333333333333333,
-    "60": 0.4,
-    "61": 0.4666666666666667,
-    "62": 0.4,
-    "63": 0.4,
-    "64": 0.4,
-    "65": 0.5333333333333333,
-    "66": 0.3333333333333333,
-    "67": 0.3333333333333333,
-    "68": 0.4,
-    "69": 0.4,
-    "70": 0.4,
+    "58": 0.2857142857142857,
+    "59": 0.2857142857142857,
+    "60": 0.2857142857142857,
+    "61": 0.2857142857142857,
+    "62": 0.2857142857142857,
+    "63": 0.2857142857142857,
+    "64": 0.3333333333333333,
+    "65": 0.4,
+    "66": 0.4,
+    "67": 0.5333333333333333,
+    "68": 0.3333333333333333,
+    "69": 0.3333333333333333,
+    "70": 0.7,
     "71": 0.4,
     "72": 0.4,
     "73": 0.4,
@@ -1578,22 +1750,22 @@
     "76": 0.4,
     "77": 0.4,
     "78": 0.4,
-    "79": 0.5,
-    "80": 0.5,
+    "79": 0.4,
+    "80": 0.4,
     "81": 0.5,
     "82": 0.5,
     "83": 0.5,
     "84": 0.5,
     "85": 0.5,
     "86": 0.5,
-    "87": 0.6666666666666666,
-    "88": 0.6666666666666666,
+    "87": 0.5,
+    "88": 0.5,
     "89": 0.6666666666666666,
-    "90": 1.0,
-    "91": 1.0,
-    "92": 1.0,
-    "93": 1.0,
-    "94": 1.0,
+    "90": 0.6666666666666666,
+    "91": 0.6666666666666666,
+    "92": 0.6666666666666666,
+    "93": 0.6666666666666666,
+    "94": 0.6666666666666666,
     "95": 1.0,
     "96": 1.0,
     "97": 1.0,
@@ -1603,7 +1775,13 @@
     "101": 1.0,
     "102": 1.0,
     "103": 1.0,
-    "104": 1.0
+    "104": 1.0,
+    "105": 1.0,
+    "106": 1.0,
+    "107": 1.0,
+    "108": 1.0,
+    "109": 1.0,
+    "110": 1.0
   },
   "gods": [
     {
@@ -1659,18 +1837,7 @@
   ],
   "surprises": [
     {
-      "source": "Policy",
-      "target": "Role",
-      "source_files": [
-        "archguard-core/src/main/java/io/archguard/config/Policy.java",
-        "archguard-api/src/main/java/io/archguard/api/Role.java"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "why": "connects across different repos/directories; bridges separate communities"
-    },
-    {
-      "source": "Policy",
+      "source": "Constraint",
       "target": "Severity",
       "source_files": [
         "archguard-core/src/main/java/io/archguard/config/Policy.java",
@@ -1692,17 +1859,6 @@
       "why": "connects across different repos/directories; bridges separate communities"
     },
     {
-      "source": "RuleSpec",
-      "target": "Severity",
-      "source_files": [
-        "archguard-core/src/main/java/io/archguard/spec/SpecCatalog.java",
-        "archguard-api/src/main/java/io/archguard/api/Severity.java"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "why": "connects across different repos/directories; bridges separate communities"
-    },
-    {
       "source": "Options",
       "target": "Severity",
       "source_files": [
@@ -1712,43 +1868,65 @@
       "confidence": "EXTRACTED",
       "relation": "references",
       "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "ImporterTest",
+      "target": "ArchitectureModel",
+      "source_files": [
+        "archguard-core/src/test/java/io/archguard/engine/ImporterTest.java",
+        "archguard-api/src/main/java/io/archguard/api/ArchitectureModel.java"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "Policy",
+      "target": "Role",
+      "source_files": [
+        "archguard-core/src/main/java/io/archguard/config/Policy.java",
+        "archguard-api/src/main/java/io/archguard/api/Role.java"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
     }
   ],
   "questions": [
     {
       "type": "bridge_node",
-      "question": "Why does `Policy` connect `Community 34` to `Community 0`, `Community 1`, `Community 35`, `Community 36`, `Community 5`, `Community 6`, `Community 7`, `Community 40`?",
-      "why": "High betweenness centrality (0.025) - this node is a cross-community bridge."
+      "question": "Why does `Policy` connect `Community 4` to `Community 0`, `Community 3`, `Community 7`, `Community 31`?",
+      "why": "High betweenness centrality (0.021) - this node is a cross-community bridge."
     },
     {
       "type": "isolated_nodes",
-      "question": "What connects `example:reactor`, `example:spring-example`, `example:spring-legacy-example` to the rest of the system?",
+      "question": "What connects `HTTP_ENTITY_EXPOSURE`, `STATIC`, `EXISTING` to the rest of the system?",
       "why": "30 weakly-connected nodes found - possible missing edges."
     },
     {
       "type": "low_cohesion",
       "question": "Should `Community 0` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.06116700201207243 - nodes in this community are weakly interconnected."
+      "why": "Cohesion score 0.056158385684370836 - nodes in this community are weakly interconnected."
     },
     {
       "type": "bridge_node",
-      "question": "Why does `Policies` connect `Community 7` to `Community 0`, `Community 1`, `Community 6`?",
-      "why": "High betweenness centrality (0.020) - this node is a cross-community bridge."
+      "question": "Why does `EngineTest` connect `Community 0` to `Community 39`?",
+      "why": "High betweenness centrality (0.017) - this node is a cross-community bridge."
     },
     {
       "type": "low_cohesion",
       "question": "Should `Community 1` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.09859791949344188 - nodes in this community are weakly interconnected."
+      "why": "Cohesion score 0.05853174603174603 - nodes in this community are weakly interconnected."
     },
     {
       "type": "bridge_node",
-      "question": "Why does `EngineTest` connect `Community 1` to `Community 0`?",
-      "why": "High betweenness centrality (0.020) - this node is a cross-community bridge."
+      "question": "Why does `Policies` connect `Community 3` to `Community 51`, `Community 4`?",
+      "why": "High betweenness centrality (0.014) - this node is a cross-community bridge."
     },
     {
       "type": "low_cohesion",
       "question": "Should `Community 2` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.06312098188194039 - nodes in this community are weakly interconnected."
+      "why": "Cohesion score 0.06557377049180328 - nodes in this community are weakly interconnected."
     }
   ]
 }
