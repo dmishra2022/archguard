@@ -1,0 +1,20 @@
+{
+  "case": "cycles",
+  "description": "The public APIs of orders and billing depend on each other: a bounded-context cycle and a package cycle. Exposed packages only, so no DDD-001.",
+  "status": "FAILED",
+  "exitCode": 1,
+  "findings": [
+    {
+      "rule": "DDD-002",
+      "severity": "ERROR",
+      "origin": { "java": "conf.billing.api.BillingApi" },
+      "target": { "java": "conf.orders.api.OrderApi" }
+    },
+    {
+      "rule": "CYCLE-001",
+      "severity": "ERROR",
+      "origin": { "java": "conf.billing.api.BillingApi" },
+      "target": { "java": "conf.orders.api.OrderApi" }
+    }
+  ]
+}

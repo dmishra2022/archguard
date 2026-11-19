@@ -1,0 +1,14 @@
+{
+  "case": "hex-002",
+  "description": "The application use case depends on a concrete outbound adapter instead of the core-owned port.",
+  "status": "FAILED",
+  "exitCode": 1,
+  "findings": [
+    {
+      "rule": "HEX-002",
+      "severity": "ERROR",
+      "origin": { "java": "conf.orders.application.PlaceOrder" },
+      "target": { "java": "conf.orders.adapter.SqlOrderStore" }
+    }
+  ]
+}

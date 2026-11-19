@@ -1,0 +1,10 @@
+schemaVersion: 1
+roots: ["conf.."]
+profiles: [ddd]
+contexts:
+  - id: orders
+    packages: ["conf.orders.."]
+    exposedPackages: ["conf.orders.api.."]
+  - id: billing
+    packages: ["conf.billing.."]
+    exposedPackages: ["conf.billing.api.."]

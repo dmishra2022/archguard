@@ -1,0 +1,7 @@
+{
+  "case": "invalid-policy",
+  "description": "The policy contains an unknown key. Analysis must fail with exit code 2 and a failure report, never a pass.",
+  "status": "ERROR",
+  "exitCode": 2,
+  "findings": []
+}
