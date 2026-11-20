@@ -1,0 +1,21 @@
+language: java
+description: >-
+  Infrastructure, framework, persistence and transport APIs forbidden by profile rules with
+  forbidInfrastructure (HEX-001, HEX-003). Matching is a plain string prefix on the fully
+  qualified target class name. Add vendor SDKs through policy constraints.
+matching: prefix
+entries:
+  - org.springframework.
+  - io.quarkus.
+  - io.micronaut.
+  - jakarta.persistence.
+  - javax.persistence.
+  - jakarta.ws.rs.
+  - javax.ws.rs.
+  - jakarta.enterprise.
+  - javax.enterprise.
+  - jakarta.servlet.
+  - javax.servlet.
+  - org.hibernate.
+  - java.sql.
+  - javax.sql.

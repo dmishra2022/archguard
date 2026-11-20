@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://archguard.io/spec/2.0/profile.schema.json",
+  "title": "ArchGuard architecture profile",
+  "description": "A profile changes default rule activation and contributes role-matrix rules. All profiles' roleRules are always loaded; activation only decides whether a rule runs when the policy does not set rules.<ID>.enabled.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$" },
+    "title": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "includes": {
+      "description": "Other profiles whose activation is inherited.",
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$" }
+    },
+    "activates": {
+      "description": "Rule IDs enabled by default when this profile is selected.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/ruleId" }
+    },
+    "roleRules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "rule": { "$ref": "#/$defs/ruleId" },
+          "from": { "type": "array", "items": { "$ref": "#/$defs/role" }, "minItems": 1 },
+          "forbiddenRoles": { "type": "array", "items": { "$ref": "#/$defs/role" } },
+          "forbidInfrastructure": {
+            "description": "Also forbid dependencies on the language's infrastructure list.",
+            "type": "boolean"
+          },
+          "crossRoleOnly": {
+            "description": "Ignore edges whose target role equals the origin role.",
+            "type": "boolean"
+          }
+        },
+        "required": ["rule", "from"]
+      }
+    }
+  },
+  "required": ["id", "title", "description"],
+  "$defs": {
+    "ruleId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$" },
+    "role": {
+      "enum": [
+        "DOMAIN",
+        "APPLICATION",
+        "INBOUND_PORT",
+        "OUTBOUND_PORT",
+        "INBOUND_ADAPTER",
+        "OUTBOUND_ADAPTER",
+        "COMPOSITION_ROOT"
+      ]
+    }
+  }
+}

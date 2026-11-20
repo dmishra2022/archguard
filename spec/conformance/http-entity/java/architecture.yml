@@ -1,0 +1,6 @@
+schemaVersion: 1
+roots: ["conf.."]
+profiles: [hexagonal]
+roles:
+  INBOUND_ADAPTER: ["conf.shop.web.."]
+  APPLICATION: ["conf.shop.application.."]

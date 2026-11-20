@@ -1,0 +1,28 @@
+# ArchGuard starter policy for a Python service (hexagonal + DDD).
+# Replace `orders` with your top-level package. Every analyzed module should match one role;
+# run `archguard analyze` first and adjust selectors until MODEL-001 (unclassified) is gone.
+# Selectors match dotted module names under the source root: `**` matches any number of
+# segments, `*` exactly one; a selector without `**` matches that module only.
+# For a layered Django or FastAPI project, see examples/python-django/architecture.yml.
+schemaVersion: 2
+language: python
+# extends: ["org:acme/base@1"]        # optional organisation preset (package acme_archguard_presets)
+# sourceRoots: ["src"]                # default: src when it holds Python files, otherwise .
+roots: ["orders.**"]
+profiles: [hexagonal, ddd]           # or: layered | clean | modular-monolith
+roles:
+  DOMAIN: ["orders.domain.**"]
+  APPLICATION: ["orders.application.**"]
+  INBOUND_PORT: ["orders.ports.inbound.**"]
+  OUTBOUND_PORT: ["orders.ports", "orders.ports.outbound.**"]   # orders.ports = ports/__init__.py
+  INBOUND_ADAPTER: ["orders.web.**"]
+  OUTBOUND_ADAPTER: ["orders.infrastructure.**"]
+  COMPOSITION_ROOT: ["orders", "orders.main", "orders.settings"]
+contexts:
+  - id: orders
+    packages: ["orders.**"]
+    exposedPackages: ["orders.ports.**"]
+requireClassification: true
+# unresolvedImports: fail             # or warn while generated code is not available
+failOn: ERROR
+newOnly: true                        # gate only new findings; commit a reviewed baseline

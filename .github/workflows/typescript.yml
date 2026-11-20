@@ -1,0 +1,53 @@
+name: typescript
+on:
+  push:
+    paths: ["typescript/**", "spec/**", ".github/workflows/typescript.yml"]
+  pull_request:
+    paths: ["typescript/**", "spec/**", ".github/workflows/typescript.yml"]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["18", "20", "22", "24"]
+    defaults:
+      run:
+        working-directory: typescript/archguard-ts
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+          cache-dependency-path: typescript/archguard-ts/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - run: npm run lint
+      - run: npm test
+
+  package:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: typescript/archguard-ts
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "20"
+      - run: npm ci --no-audit --no-fund
+      - run: npm pack
+      - name: Install the tarball in an empty project and run it outside the repository
+        run: |
+          mkdir /tmp/consumer && cd /tmp/consumer && npm init -y > /dev/null
+          npm install --no-audit --no-fund "$GITHUB_WORKSPACE"/typescript/archguard-ts/archguard-cli-*.tgz
+          npx archguard --version | grep -q "typescript analyzer"
+          cp -r "$GITHUB_WORKSPACE/examples/typescript-violating" /tmp/violating
+          set +e; npx archguard check --project /tmp/violating; code=$?; set -e
+          test "$code" = 1
+      - uses: actions/upload-artifact@v7
+        with:
+          name: archguard-cli-typescript
+          path: typescript/archguard-ts/archguard-cli-*.tgz

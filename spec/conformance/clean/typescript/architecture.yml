@@ -1,0 +1,14 @@
+schemaVersion: 2
+language: typescript
+roots: ["src/**"]
+profiles: [hexagonal, ddd]
+roles:
+  DOMAIN: ["src/orders/domain/**"]
+  APPLICATION: ["src/orders/application/**"]
+  OUTBOUND_PORT: ["src/orders/port/**"]
+  OUTBOUND_ADAPTER: ["src/orders/adapter/**"]
+contexts:
+  - id: orders
+    packages: ["src/orders/**"]
+    exposedPackages: ["src/orders/port/**"]
+requireClassification: true

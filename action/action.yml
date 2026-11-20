@@ -1,0 +1,164 @@
+name: ArchGuard architecture check
+description: >-
+  Check a project against its ArchGuard architecture policy (architecture.yml). Fails on policy
+  violations (exit 1) and on analysis errors (exit 2), annotates pull requests and uploads SARIF.
+branding:
+  icon: shield
+  color: blue
+
+inputs:
+  language:
+    description: "java, typescript, python or auto (the policy's language key, else detected from pom.xml/build.gradle, tsconfig.json/package.json, pyproject.toml/setup.py)"
+    default: auto
+  working-directory:
+    description: Project directory containing architecture.yml (and, for Java, the build file)
+    default: "."
+  config:
+    description: Policy file, relative to working-directory
+    default: architecture.yml
+  baseline:
+    description: Baseline file, relative to working-directory. Default uses architecture-baseline.json when it exists
+    default: ""
+  suppressions:
+    description: Suppressions file, relative to working-directory. Default uses architecture-suppressions.json when it exists
+    default: ""
+  fail-on:
+    description: Override the policy failOn severity (INFO, WARNING, ERROR)
+    default: ""
+  changed-files-only:
+    description: On pull requests, report and gate only findings in files changed by the PR (the whole project is still analyzed)
+    default: "false"
+  annotations:
+    description: Emit workflow annotations for NEW findings (works without code scanning)
+    default: "true"
+  upload-sarif:
+    description: Upload archguard.sarif to GitHub code scanning (needs security-events write; private repos need code scanning enabled)
+    default: "true"
+  upload-artifact:
+    description: Upload the report directory as a workflow artifact
+    default: "true"
+  artifact-name:
+    description: Name of the uploaded report artifact (must be unique within a workflow run)
+    default: archguard-report
+  java-version:
+    description: JDK used for the build and the analyzer (Java)
+    default: "17"
+  setup-java:
+    description: Install the JDK with actions/setup-java (set false if the job already did)
+    default: "true"
+  node-version:
+    description: Node.js used for the TypeScript analyzer
+    default: "20"
+  setup-node:
+    description: Install Node.js with actions/setup-node (set false if the job already did)
+    default: "true"
+  python-version:
+    description: Python used for the Python analyzer. It must parse the project's syntax, so use the project's newest supported version
+    default: "3.x"
+  setup-python:
+    description: Install Python with actions/setup-python (set false if the job already did)
+    default: "true"
+  archguard-version:
+    description: Java analyzer version. If it is not on Maven Central, the analyzer is built from this action's source
+    default: "0.1.0"
+  cli-jar:
+    description: Use this archguard-cli jar instead of downloading or building one (Java)
+    default: ""
+  extensions:
+    description: >-
+      Org presets and rule packs, one per line. Java: jar paths relative to working-directory, passed as
+      --extension. Python: pip requirements installed next to the analyzer (for example
+      acme-archguard-presets==1.0.0). TypeScript resolves presets from the project's node_modules, so run
+      npm ci before this action instead
+    default: ""
+  cli-command:
+    description: >-
+      Run this analyzer command instead of the default (for example `npx archguard` or `.venv/bin/archguard`).
+      By default TypeScript uses the project's node_modules/.bin/archguard and Python an archguard on PATH,
+      when they are the ArchGuard analyzer, otherwise the analyzer is built from this action's source
+    default: ""
+
+outputs:
+  exit-code:
+    description: 0 pass, 1 policy violation, 2 analysis error
+    value: ${{ steps.check.outputs.exit-code }}
+  status:
+    description: passed, failed or error
+    value: ${{ steps.check.outputs.status }}
+  new-findings:
+    description: Number of NEW findings at or above WARNING
+    value: ${{ steps.check.outputs.new-findings }}
+  report-dir:
+    description: Directory with archguard.json, archguard.sarif and index.html
+    value: ${{ steps.check.outputs.report-dir }}
+  sarif:
+    description: Path of archguard.sarif
+    value: ${{ steps.check.outputs.sarif }}
+
+runs:
+  using: composite
+  steps:
+    - id: detect
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      env:
+        INPUT_LANGUAGE: ${{ inputs.language }}
+        INPUT_CONFIG: ${{ inputs.config }}
+      run: bash "$GITHUB_ACTION_PATH/detect.sh"
+
+    - if: steps.detect.outputs.language == 'java' && inputs.setup-java == 'true'
+      uses: actions/setup-java@v6
+      with:
+        distribution: temurin
+        java-version: ${{ inputs.java-version }}
+
+    - if: steps.detect.outputs.language == 'typescript' && inputs.setup-node == 'true'
+      uses: actions/setup-node@v7
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - if: steps.detect.outputs.language == 'python' && inputs.setup-python == 'true'
+      uses: actions/setup-python@v7
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - id: check
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      env:
+        ARCHGUARD_LANGUAGE: ${{ steps.detect.outputs.language }}
+        INPUT_CONFIG: ${{ inputs.config }}
+        INPUT_BASELINE: ${{ inputs.baseline }}
+        INPUT_SUPPRESSIONS: ${{ inputs.suppressions }}
+        INPUT_FAIL_ON: ${{ inputs.fail-on }}
+        INPUT_CHANGED_FILES_ONLY: ${{ inputs.changed-files-only }}
+        INPUT_ANNOTATIONS: ${{ inputs.annotations }}
+        INPUT_ARCHGUARD_VERSION: ${{ inputs.archguard-version }}
+        INPUT_CLI_JAR: ${{ inputs.cli-jar }}
+        INPUT_CLI_COMMAND: ${{ inputs.cli-command }}
+        INPUT_EXTENSIONS: ${{ inputs.extensions }}
+      run: bash "$GITHUB_ACTION_PATH/run.sh"
+
+    - if: always() && inputs.upload-sarif == 'true' && steps.check.outputs.sarif != ''
+      uses: github/codeql-action/upload-sarif@v4
+      with:
+        sarif_file: ${{ steps.check.outputs.sarif }}
+        category: archguard-${{ inputs.working-directory }}
+
+    - if: always() && inputs.upload-artifact == 'true' && steps.check.outputs.report-dir != ''
+      uses: actions/upload-artifact@v7
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: ${{ steps.check.outputs.report-dir }}
+        if-no-files-found: ignore
+
+    - if: always()
+      shell: bash
+      env:
+        CODE: ${{ steps.check.outputs.exit-code }}
+      run: |
+        case "$CODE" in
+          0) echo "ArchGuard: architecture policy satisfied" ;;
+          1) echo "::error title=ArchGuard::Architecture policy violated (exit 1). See the job summary and annotations."; exit 1 ;;
+          *) echo "::error title=ArchGuard::Architecture analysis failed (exit ${CODE:-2}); this is not a pass."; exit 2 ;;
+        esac

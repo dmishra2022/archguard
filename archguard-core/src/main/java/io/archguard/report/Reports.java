@@ -2,6 +2,7 @@ package io.archguard.report;
 
 import io.archguard.api.*;
 import io.archguard.engine.Debt;
+import io.archguard.spec.SpecCatalog;
 import java.io.*;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
@@ -11,12 +12,109 @@ import java.util.*;
 public final class Reports {
   private Reports() {}
 
+  public static final Set<String> FORMATS = Set.of("json", "sarif", "html", "agent", "console");
+  public static final String AGENT_FILE = "archguard.agent.jsonl";
+
   public static void write(Path directory, AnalysisResult result) throws IOException {
-    Files.createDirectories(directory);
-    atomic(directory.resolve("archguard.json"), Debt.JSON.writeValueAsBytes(result));
-    atomic(directory.resolve("archguard.sarif"), Debt.JSON.writeValueAsBytes(sarif(result)));
-    atomic(directory.resolve("index.html"), html(result).getBytes(StandardCharsets.UTF_8));
+    write(directory, result, Set.of("json", "sarif", "html"), false);
   }
+
+  /** Writes the selected file formats; {@code gateFailed} feeds the agent summary line. */
+  public static void write(
+      Path directory, AnalysisResult result, Set<String> formats, boolean gateFailed)
+      throws IOException {
+    Files.createDirectories(directory);
+    if (formats.contains("json"))
+      atomic(directory.resolve("archguard.json"), Debt.JSON.writeValueAsBytes(result));
+    if (formats.contains("sarif"))
+      atomic(directory.resolve("archguard.sarif"), Debt.JSON.writeValueAsBytes(sarif(result)));
+    if (formats.contains("html"))
+      atomic(directory.resolve("index.html"), html(result).getBytes(StandardCharsets.UTF_8));
+    if (formats.contains("agent"))
+      atomic(
+          directory.resolve(AGENT_FILE),
+          agent(result, gateFailed).getBytes(StandardCharsets.UTF_8));
+  }
+
+  /**
+   * Overwrites the report set with explicit failure outputs so a stale pass is never left behind.
+   */
+  public static void writeFailure(Path directory, Throwable error, Set<String> formats)
+      throws IOException {
+    String message = String.valueOf(error.getMessage());
+    Map<String, Object> failed = new LinkedHashMap<>();
+    failed.put("schemaVersion", "1");
+    failed.put("specVersion", SpecCatalog.get().specVersion());
+    failed.put("analysisStatus", "FAILED");
+    failed.put("error", message);
+    atomic(directory.resolve("archguard.json"), Debt.JSON.writeValueAsBytes(failed));
+    var notification = Map.of("level", "error", "message", Map.of("text", message));
+    var invocation =
+        Map.of("executionSuccessful", false, "toolExecutionNotifications", List.of(notification));
+    var run =
+        Map.of(
+            "tool",
+            Map.of("driver", Map.of("name", "ArchGuard")),
+            "invocations",
+            List.of(invocation));
+    atomic(
+        directory.resolve("archguard.sarif"),
+        Debt.JSON.writeValueAsBytes(Map.of("version", "2.1.0", "runs", List.of(run))));
+    atomic(
+        directory.resolve("index.html"),
+        "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>ArchGuard analysis failed</title><h1>Analysis failed</h1><p>No compliance result is available. See archguard.json and the build log for the error.</p></html>"
+            .getBytes(StandardCharsets.UTF_8));
+    if (formats.contains("agent"))
+      atomic(directory.resolve(AGENT_FILE), agentError(message).getBytes(StandardCharsets.UTF_8));
+  }
+
+  /** One JSON object per non-INFO finding, then a summary line (spec/CLI.md, agent format). */
+  public static String agent(AnalysisResult r, boolean gateFailed) {
+    StringBuilder s = new StringBuilder();
+    Map<Finding.Status, Integer> counts = new EnumMap<>(Finding.Status.class);
+    for (var f : r.findings()) {
+      if (f.severity() == Severity.INFO) continue;
+      counts.merge(f.status(), 1, Integer::sum);
+      Map<String, Object> line = new LinkedHashMap<>();
+      line.put("rule", f.ruleId());
+      line.put("severity", f.severity().name());
+      line.put("status", f.status().name());
+      line.put("file", f.location().path());
+      line.put("line", f.location().line());
+      line.put("symbol", f.location().symbol());
+      line.put("target", f.target());
+      line.put("message", f.message());
+      line.put("fix", f.remediation());
+      line.put("fingerprint", f.fingerprint());
+      s.append(compact(line)).append('\n');
+    }
+    Map<String, Object> summary = new LinkedHashMap<>();
+    summary.put("summary", true);
+    summary.put("status", gateFailed ? "FAILED" : "PASSED");
+    summary.put("new", counts.getOrDefault(Finding.Status.NEW, 0));
+    summary.put("existing", counts.getOrDefault(Finding.Status.EXISTING, 0));
+    summary.put("suppressed", counts.getOrDefault(Finding.Status.SUPPRESSED, 0));
+    return s.append(compact(summary)).append('\n').toString();
+  }
+
+  public static String agentError(String message) {
+    Map<String, Object> summary = new LinkedHashMap<>();
+    summary.put("summary", true);
+    summary.put("status", "ERROR");
+    summary.put("error", message);
+    return compact(summary) + "\n";
+  }
+
+  private static String compact(Map<String, Object> value) {
+    try {
+      return COMPACT.writeValueAsString(value);
+    } catch (IOException e) {
+      throw new UncheckedIOException(e);
+    }
+  }
+
+  private static final com.fasterxml.jackson.databind.ObjectMapper COMPACT =
+      new com.fasterxml.jackson.databind.ObjectMapper();
 
   public static void atomic(Path path, byte[] bytes) throws IOException {
     Path absolute = path.toAbsolutePath();
@@ -38,7 +136,17 @@ public final class Reports {
     }
   }
 
-  public static String console(AnalysisResult r) {
+  public static String summary(AnalysisResult r) {
+    int fresh = 0, existing = 0, suppressed = 0, info = 0;
+    for (var f : r.findings()) {
+      if (f.severity() == Severity.INFO) info++;
+      else
+        switch (f.status()) {
+          case NEW -> fresh++;
+          case EXISTING -> existing++;
+          case SUPPRESSED -> suppressed++;
+        }
+    }
     StringBuilder s =
         new StringBuilder(
             "ArchGuard "
@@ -49,7 +157,25 @@ public final class Reports {
                 + r.dependencies()
                 + " dependencies, "
                 + r.findings().size()
-                + " findings\n");
+                + " findings ("
+                + fresh
+                + " new, "
+                + existing
+                + " existing, "
+                + suppressed
+                + " suppressed, "
+                + info
+                + " info)");
+    for (String d : r.diagnostics()) {
+      String value = d.contains(": ") ? d.substring(d.indexOf(": ") + 2) : "";
+      if (d.startsWith("Unclassified application") && !value.startsWith("0 "))
+        s.append("; unclassified ").append(value);
+    }
+    return s.toString();
+  }
+
+  public static String console(AnalysisResult r) {
+    StringBuilder s = new StringBuilder(summary(r)).append('\n');
     for (var f : r.findings()) {
       if (f.severity() == Severity.INFO) continue;
       s.append(f.severity())
@@ -73,14 +199,16 @@ public final class Reports {
   private static Map<String, Object> sarif(AnalysisResult r) {
     Map<String, Map<String, Object>> rules = new TreeMap<>();
     List<Object> results = new ArrayList<>();
+    var catalog = SpecCatalog.get().rules();
     for (var f : r.findings()) {
+      var spec = catalog.get(f.ruleId());
       rules.putIfAbsent(
           f.ruleId(),
           Map.of(
               "id",
               f.ruleId(),
               "shortDescription",
-              Map.of("text", f.ruleId()),
+              Map.of("text", spec == null ? f.ruleId() : spec.title()),
               "help",
               Map.of("text", f.remediation())));
       Map<String, Object> entry = new LinkedHashMap<>();
@@ -102,7 +230,7 @@ public final class Reports {
                   + "\nSuggested correction: "
                   + f.remediation()));
       entry.put("partialFingerprints", Map.of("archguard/v1", f.fingerprint()));
-      entry.put("baselineState", f.status().equals("EXISTING") ? "unchanged" : "new");
+      entry.put("baselineState", f.status() == Finding.Status.EXISTING ? "unchanged" : "new");
       Map<String, Object> location = new LinkedHashMap<>();
       location.put(
           "logicalLocations",
@@ -118,8 +246,9 @@ public final class Reports {
       entry.put("locations", List.of(location));
       entry.put(
           "properties",
-          Map.of("module", f.location().module(), "target", f.target(), "status", f.status()));
-      if (f.status().equals("SUPPRESSED"))
+          Map.of(
+              "module", f.location().module(), "target", f.target(), "status", f.status().name()));
+      if (f.status() == Finding.Status.SUPPRESSED)
         entry.put(
             "suppressions",
             List.of(
@@ -155,7 +284,13 @@ public final class Reports {
                 "invocations",
                 List.of(Map.of("executionSuccessful", true)),
                 "properties",
-                Map.of("policyHash", r.policyHash(), "diagnostics", r.diagnostics()))));
+                Map.of(
+                    "policyHash",
+                    r.policyHash(),
+                    "diagnostics",
+                    r.diagnostics(),
+                    "specVersion",
+                    r.specVersion() == null ? SpecCatalog.get().specVersion() : r.specVersion()))));
   }
 
   private static String uri(String path) {
@@ -200,7 +335,7 @@ public final class Reports {
           .append(" · ")
           .append(f.severity())
           .append(" · ")
-          .append(escape(f.status()))
+          .append(escape(f.status().name()))
           .append("</small><h2>")
           .append(escape(f.message()))
           .append("</h2><p><code>")

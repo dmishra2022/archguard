@@ -1,0 +1,7 @@
+{
+  "case": "clean",
+  "description": "Hexagonal and DDD compliant: application uses a core-owned port implemented by an outbound adapter.",
+  "status": "PASSED",
+  "exitCode": 0,
+  "findings": []
+}

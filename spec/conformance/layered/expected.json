@@ -1,0 +1,20 @@
+{
+  "case": "layered",
+  "description": "schemaVersion 2 policy with glob selectors and the layered profile. Business may use persistence; persistence calling business (LAYER-001) and presentation calling persistence (LAYER-002) are violations.",
+  "status": "FAILED",
+  "exitCode": 1,
+  "findings": [
+    {
+      "rule": "LAYER-001",
+      "severity": "ERROR",
+      "origin": { "java": "conf.shop.persistence.OrderDao", "typescript": "src/shop/persistence/order-dao", "python": "conf.shop.persistence.order_dao" },
+      "target": { "java": "conf.shop.service.OrderService", "typescript": "src/shop/service/order-service", "python": "conf.shop.service.order_service" }
+    },
+    {
+      "rule": "LAYER-002",
+      "severity": "ERROR",
+      "origin": { "java": "conf.shop.web.OrderController", "typescript": "src/shop/web/order-controller", "python": "conf.shop.web.order_controller" },
+      "target": { "java": "conf.shop.persistence.OrderDao", "typescript": "src/shop/persistence/order-dao", "python": "conf.shop.persistence.order_dao" }
+    }
+  ]
+}

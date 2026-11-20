@@ -1,0 +1,12 @@
+[project]
+name = "orders-fastapi"
+version = "1.0.0"
+description = "Hexagonal FastAPI order service used as an ArchGuard example"
+requires-python = ">=3.9"
+dependencies = ["fastapi>=0.110", "sqlalchemy>=2.0", "pydantic>=2.0"]
+
+[project.optional-dependencies]
+test = ["httpx", "pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

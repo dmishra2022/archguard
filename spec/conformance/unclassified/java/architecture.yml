@@ -1,0 +1,6 @@
+schemaVersion: 1
+roots: ["conf.."]
+profiles: [hexagonal]
+roles:
+  DOMAIN: ["conf.orders.domain.."]
+requireClassification: true

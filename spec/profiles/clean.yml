@@ -1,0 +1,9 @@
+id: clean
+title: Clean architecture
+description: >-
+  Same dependency rule as hexagonal, using the standard role vocabulary (entities = DOMAIN,
+  use cases = APPLICATION plus ports, interface adapters = INBOUND/OUTBOUND_ADAPTER,
+  frameworks and drivers = COMPOSITION_ROOT plus infrastructure). Additionally forbids package
+  cycles inside the analyzed code.
+includes: [hexagonal]
+activates: [CYCLE-001]

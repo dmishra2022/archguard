@@ -1,0 +1,48 @@
+language: typescript
+description: >-
+  Infrastructure, framework, persistence and transport packages forbidden by profile rules with
+  forbidInfrastructure (HEX-001, HEX-003). Matching is by package specifier: the import specifier
+  equals an entry or starts with entry + "/". Entries ending in "/*" match any package in that
+  npm scope. Add vendor SDKs through policy constraints.
+matching: module
+entries:
+  # web and transport frameworks
+  - express
+  - fastify
+  - koa
+  - "@nestjs/*"
+  - next
+  - "@hapi/*"
+  - "@grpc/grpc-js"
+  # persistence and data stores
+  - typeorm
+  - "@prisma/client"
+  - prisma
+  - mongoose
+  - sequelize
+  - knex
+  - drizzle-orm
+  - "@mikro-orm/*"
+  - pg
+  - mysql2
+  - redis
+  - ioredis
+  # messaging
+  - kafkajs
+  - amqplib
+  # cloud and HTTP clients
+  - aws-sdk
+  - "@aws-sdk/*"
+  - axios
+  - node-fetch
+  # Node.js I/O built-ins
+  - fs
+  - node:fs
+  - http
+  - node:http
+  - https
+  - node:https
+  - net
+  - node:net
+  - child_process
+  - node:child_process

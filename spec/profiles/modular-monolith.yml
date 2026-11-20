@@ -1,0 +1,8 @@
+id: modular-monolith
+title: Modular monolith
+description: >-
+  Each module is a declared bounded context with an explicit public API (exposedPackages).
+  Modules may only use each other's public API, module dependencies must be acyclic, and
+  package cycles are forbidden. Combine with hexagonal or layered for rules inside a module.
+includes: [ddd]
+activates: [CYCLE-001]

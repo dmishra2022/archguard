@@ -1,0 +1,7 @@
+schemaVersion: 2
+language: python
+roots: ["conf.**"]
+profiles: [hexagonal]
+roles:
+  DOMAIN: ["conf.orders.domain.**"]
+requireClassification: true

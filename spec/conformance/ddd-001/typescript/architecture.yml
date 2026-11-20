@@ -1,0 +1,11 @@
+schemaVersion: 2
+language: typescript
+roots: ["src/**"]
+profiles: [ddd]
+contexts:
+  - id: orders
+    packages: ["src/orders/**"]
+    exposedPackages: ["src/orders/api/**"]
+  - id: billing
+    packages: ["src/billing/**"]
+    exposedPackages: ["src/billing/api/**"]

@@ -1,0 +1,40 @@
+id: FW-001
+title: HTTP endpoint outside an inbound adapter
+category: framework
+defaultSeverity: ERROR
+activation: always
+message: HTTP endpoint is outside an inbound adapter
+evidence: "Declared architectural role: {role}"
+remediation: >-
+  Move transport handling to an inbound adapter and delegate use-case execution through the
+  application boundary.
+placeholders:
+  role: The unit's declared role
+rationale: >-
+  Transport concerns (routing, status codes, serialization) belong to inbound adapters. Unclassified
+  endpoints are not reported here; MODEL-001 can require their classification.
+languages: [java, python, typescript]
+examples:
+  java:
+    bad: |
+      package com.acme.orders.application;
+      @RestController public class OrderService { @GetMapping("/orders") List<Order> all() {...} }
+    good: |
+      package com.acme.orders.adapter.inbound.web;
+      @RestController class OrderController { private final ListOrders listOrders; }
+  python:
+    bad: |
+      # orders/application/service.py
+      @router.get("/orders")
+      def list_orders(): ...
+    good: |
+      # orders/api/routes.py (INBOUND_ADAPTER)
+      @router.get("/orders")
+      def list_orders(use_case: ListOrders = Depends(...)): return use_case.run()
+  typescript:
+    bad: |
+      // src/orders/application/orders.service.ts
+      @Controller("orders") export class OrdersService { @Get() all() {} }
+    good: |
+      // src/orders/api/orders.controller.ts (INBOUND_ADAPTER)
+      @Controller("orders") export class OrdersController { constructor(private listOrders: ListOrders) {} }

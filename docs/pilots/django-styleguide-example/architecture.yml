@@ -1,0 +1,42 @@
+schemaVersion: 2
+language: python
+sourceRoots: ["."]
+roots: ["styleguide_example.**", "config.**"]
+profiles: [layered]
+roles:
+  INBOUND_ADAPTER:
+    - "styleguide_example.**.apis"
+    - "styleguide_example.**.views"
+    - "styleguide_example.**.urls"
+    - "styleguide_example.**.admin"
+    - "styleguide_example.**.tasks"
+    - "styleguide_example.api.exception_handlers"
+    - "styleguide_example.api.mixins"
+    - "styleguide_example.api.pagination"
+    - "styleguide_example.api.utils"
+    - "styleguide_example.custom_admin.sites"
+  APPLICATION:
+    - "styleguide_example.**.services"
+    - "styleguide_example.**.services.**"
+    - "styleguide_example.**.service"
+    - "styleguide_example.**.selectors"
+    - "styleguide_example.**.selectors.**"
+    - "styleguide_example.**.filters"
+  DOMAIN:
+    - "styleguide_example.**.models"
+    - "styleguide_example.**.enums"
+    - "styleguide_example.**.db_functions"
+    - "styleguide_example.core.exceptions"
+    - "styleguide_example.common.types"
+  OUTBOUND_ADAPTER:
+    - "styleguide_example.integrations.aws.**"
+  COMPOSITION_ROOT:
+    - "config.**"
+    - "styleguide_example"
+    - "styleguide_example.**.apps"
+    - "styleguide_example.tasks.management.**"
+    - "styleguide_example.tasks.celery"
+rules:
+  CYCLE-001:
+    enabled: true
+newOnly: true

@@ -1,0 +1,47 @@
+# Builds the documentation site strictly (broken links and missing pages fail) on every change, and
+# publishes it to GitHub Pages from main. Pages must be set to "GitHub Actions" in the repository settings.
+name: docs
+on:
+  push:
+    branches: [main]
+    paths: ["docs/**", "zensical.toml", "scripts/docs_links.py", ".github/workflows/docs.yml"]
+  pull_request:
+    paths: ["docs/**", "zensical.toml", "scripts/docs_links.py", ".github/workflows/docs.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q -r docs/requirements.txt
+      - run: python3 scripts/docs_links.py
+      - run: zensical build --strict
+      - if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,14 @@
+{
+  "case": "unclassified",
+  "description": "Classification is required and one unit under roots matches no role selector.",
+  "status": "FAILED",
+  "exitCode": 1,
+  "findings": [
+    {
+      "rule": "MODEL-001",
+      "severity": "ERROR",
+      "origin": { "java": "conf.orders.util.Helper", "typescript": "src/orders/util/helper", "python": "conf.orders.util.helper" },
+      "target": { "java": "conf.orders.util.Helper", "typescript": "src/orders/util/helper", "python": "conf.orders.util.helper" }
+    }
+  ]
+}

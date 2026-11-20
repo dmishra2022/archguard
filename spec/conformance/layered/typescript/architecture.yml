@@ -1,0 +1,9 @@
+schemaVersion: 2
+language: typescript
+roots: ["src/**"]
+profiles: [layered]
+roles:
+  INBOUND_ADAPTER: ["src/shop/web/**"]
+  APPLICATION: ["src/shop/service/**"]
+  OUTBOUND_ADAPTER: ["src/shop/persistence/**"]
+requireClassification: true

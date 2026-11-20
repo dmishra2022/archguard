@@ -1,0 +1,30 @@
+// Gradle init script: adds an `archguardClasspath` task to every Java project. It writes
+// build/archguard.classpath for `archguard check --classpath-file`, without editing the build.
+//
+//   gradle -I archguard.init.gradle classes archguardClasspath
+allprojects {
+    plugins.withId('java') {
+        tasks.register('archguardClasspath') {
+            dependsOn 'classes'
+            outputs.upToDateWhen { false }
+            doLast {
+                def main = project.sourceSets.main
+                def classesDir = main.java.destinationDirectory.get().asFile
+                def owned = main.output.files
+                def lines = ['# ArchGuard classpath file v1',
+                             "module=${project.group}:${project.name}",
+                             "classes=${classesDir.absolutePath}"]
+                main.java.srcDirs.findAll { it.directory }.each { lines << "source=${it.absolutePath}" }
+                def deps = new LinkedHashSet<File>()
+                deps.addAll(main.compileClasspath.files)
+                deps.addAll(main.runtimeClasspath.files)
+                deps.findAll { (it.directory || it.name.endsWith('.jar')) && !owned.contains(it) && it.exists() }
+                    .each { lines << "classpath=${it.absolutePath}" }
+                def out = project.layout.buildDirectory.file('archguard.classpath').get().asFile
+                out.parentFile.mkdirs()
+                out.text = lines.join('\n') + '\n'
+                logger.lifecycle("ArchGuard classpath file: ${out}")
+            }
+        }
+    }
+}

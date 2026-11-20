@@ -1,0 +1,21 @@
+# The graphify code graph in docs/kb must match the sources. Refresh it with
+# `python3 scripts/kb_check.py --update` and review docs/kb/ARCHGUARD_KB.md in the same pull request.
+name: kb
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Install the graphify version recorded in the committed graph
+        run: |
+          version=$(python -c "import json; print(json.load(open('docs/kb/graphify-out/graph.json'))['graph']['graphify_version'])")
+          python -m pip install -q "graphifyy==$version"
+      - run: python scripts/kb_check.py

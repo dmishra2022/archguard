@@ -1,0 +1,43 @@
+language: python
+description: >-
+  Infrastructure, framework, persistence and transport modules forbidden by profile rules with
+  forbidInfrastructure (HEX-001, HEX-003). Matching is by module: the imported module equals an
+  entry or is a submodule of it (entry + "."). Add vendor SDKs through policy constraints.
+matching: module
+entries:
+  # web and transport frameworks
+  - django
+  - flask
+  - fastapi
+  - starlette
+  - aiohttp
+  - tornado
+  - grpc
+  # persistence and data stores
+  - sqlalchemy
+  - alembic
+  - peewee
+  - tortoise
+  - psycopg
+  - psycopg2
+  - asyncpg
+  - pymysql
+  - sqlite3
+  - pymongo
+  - motor
+  - redis
+  - elasticsearch
+  # messaging
+  - celery
+  - kafka
+  - confluent_kafka
+  - pika
+  # cloud and HTTP clients
+  - boto3
+  - botocore
+  - requests
+  - httpx
+  - urllib3
+  - http.client
+  - urllib.request
+  - socket

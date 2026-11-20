@@ -1,0 +1,26 @@
+{
+  "case": "http-entity",
+  "description": "An inbound adapter endpoint returns a persistence entity (FW-002), and an HTTP endpoint is declared in the application role (FW-001). The entity lives in an unclassified package so no HEX boundary rule applies.",
+  "status": "FAILED",
+  "exitCode": 1,
+  "findings": [
+    {
+      "rule": "FW-002",
+      "severity": "ERROR",
+      "origin": { "java": "conf.shop.web.ProductResource", "typescript": "src/shop/web/product-resource", "python": "conf.shop.web.product_resource" },
+      "target": { "java": "conf.shop.model.ProductEntity", "typescript": "src/shop/model/product-entity", "python": "conf.shop.model.product_entity" }
+    },
+    {
+      "rule": "FW-001",
+      "severity": "ERROR",
+      "origin": { "java": "conf.shop.application.AdminResource", "typescript": "src/shop/application/admin-resource", "python": "conf.shop.application.admin_resource" },
+      "target": { "java": "conf.shop.application.AdminResource", "typescript": "src/shop/application/admin-resource", "python": "conf.shop.application.admin_resource" }
+    }
+  ],
+  "java": {
+    "dependencies": [
+      "jakarta.persistence:jakarta.persistence-api:3.1.0",
+      "jakarta.ws.rs:jakarta.ws.rs-api:3.1.0"
+    ]
+  }
+}

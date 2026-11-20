@@ -1,0 +1,30 @@
+# ArchGuard starter policy for a TypeScript service (hexagonal + DDD), for example NestJS.
+# Replace `orders` with your feature or bounded-context directory. Every analyzed file should sit
+# in a directory that matches one role; run `npx archguard analyze` first and adjust selectors
+# until MODEL-001 (unclassified) is gone.
+# Selectors match directories relative to the project root: `**` matches any number of segments,
+# `*` exactly one; a selector without `**` matches that directory only. In a monorepo a selector
+# may start with a workspace package name (`@acme/orders-domain/**`).
+schemaVersion: 2
+language: typescript
+# extends: ["org:acme/base@1"]        # optional organisation preset (package @acme/archguard-presets)
+# sourceRoots: ["src"]                # default: src when it exists, otherwise .
+roots: ["src/**"]
+profiles: [hexagonal, ddd]           # or: layered | clean | modular-monolith
+roles:
+  DOMAIN: ["src/orders/domain/**"]
+  APPLICATION: ["src/orders/application"]
+  INBOUND_PORT: ["src/orders/application/ports/inbound/**"]
+  OUTBOUND_PORT: ["src/orders/application/ports", "src/orders/application/ports/outbound/**"]
+  INBOUND_ADAPTER: ["src/orders/web/**"]
+  OUTBOUND_ADAPTER: ["src/orders/infrastructure/**"]
+  COMPOSITION_ROOT: ["src", "src/orders"]   # main.ts, app.module.ts, orders.module.ts
+contexts:
+  - id: orders
+    packages: ["src/orders/**"]
+    exposedPackages: ["src/orders/application/ports/**"]
+requireClassification: true
+# typeOnlyImports: count              # or ignore to skip `import type` edges
+# unresolvedImports: fail             # or warn while generated code is not available
+failOn: ERROR
+newOnly: true                        # gate only new findings; commit a reviewed baseline

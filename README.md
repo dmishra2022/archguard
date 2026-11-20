@@ -4,6 +4,8 @@ Offline Java architecture analysis with a Java SDK and Maven plugin. Java 17 byt
 
 ArchGuard reports structural deviations, source locations when available, evidence, and suggested corrections. It **never modifies application source** and makes **no AI/network calls during analysis**. Maven may download build dependencies unless you use an already provisioned offline repository.
 
+**Adopting ArchGuard in a Java, TypeScript or Python project?** Read the [documentation site](https://dmishra2022.github.io/archguard/) (source in [docs/](docs/index.md)): 10-minute quickstarts, the [onboarding guide](docs/ONBOARDING.md), an [adoption playbook](docs/guides/adoption-playbook.md) for rolling it out across teams, [troubleshooting](docs/troubleshooting.md) and an [FAQ](docs/faq.md).
+
 ## Build and test
 
 Requirements: JDK 17+, Maven 3.9.x, Python 3 for the Maven integration suite.
@@ -90,6 +92,12 @@ SDK calls throw when analysis cannot be completed. The Maven adapter converts th
 ## What is implemented
 
 - Direct compiled-code dependency checks, including generic type dependencies.
+- Language-neutral [ArchGuard Spec 2.0](spec/README.md): schemaVersion 2 policies, glob selectors, data-driven profiles (`hexagonal`, `ddd`, `layered`, `clean`, `modular-monolith`), a rule catalog with examples, and a cross-language conformance suite.
+- A build-tool-independent [command line](docs/CLI.md) (`archguard-cli` runnable jar) with exit codes 0/1/2/64, an `agent` JSON-lines format for coding agents, and `--changed-files` scoping. `mvn archguard:classpath` writes its input file.
+- Native analyzers for [TypeScript/JavaScript](typescript/archguard-ts/README.md) and [Python](python/archguard-py/README.md), both distributed as `archguard-cli`. They use the same policy, rule catalog, fingerprints, report formats and exit codes, and pass the same conformance suite.
+- A [GitHub Action](action/action.yml) and generic [CI recipes](docs/CI.md) (GitHub, GitLab, Jenkins, Azure) for all three languages, with language auto-detection. Exit 1 means a policy violation and exit 2 means a broken pipeline. The Action adds PR annotations, a job summary, SARIF upload and changed-files scoping.
+- An optional [agent skill](skills/archguard/SKILL.md) for AI coding agents. It covers a placement workflow, Java, TypeScript and Python placement guides, role matrices and a rules reference generated from the spec, a language-aware check script, starter policies per language, and an example Cursor hook. ArchGuard works the same for code written by people; the skill only helps agents place code correctly up front.
+- Policy presets with `extends` (file, classpath or `org:` artifact), merge-by-id and locked rules.
 - Configurable hexagonal role boundaries and DDD bounded-context boundaries.
 - Package and bounded-context strongly connected components with concrete evidence.
 - Spring stereotypes/composed stereotypes, Spring Data repository ancestry, JAX-RS endpoints, CDI bean signals, JPA entities in both namespaces, and Panache ancestry signals.
@@ -104,7 +112,7 @@ SDK calls throw when analysis cannot be completed. The Maven adapter converts th
 
 This release performs **static structural analysis**. It does not resolve active Spring profiles, conditional beans, synthetic Quarkus beans, actual DI wiring, reflection targets, runtime call paths, API traffic, or database access. It does not prove business invariants, infer correct aggregate boundaries, or prescribe that all domain models must use one persistence style. Framework classification is informational until a declared boundary or directly observed violation applies.
 
-The DDD pack checks bounded-context coupling and cycles; it is not an aggregate/invariant verifier. HTTP entity checks inspect annotated methods declared on recognized endpoint classes, not inherited or dynamically registered routes. Source-level AST/dataflow analysis and cross-repository service contracts are not implemented. Neither persistent incremental caching nor organization policy inheritance is implemented in 0.1.0. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for their extension points.
+The DDD pack checks bounded-context coupling and cycles; it is not an aggregate/invariant verifier. HTTP entity checks inspect annotated methods declared on recognized endpoint classes, not inherited or dynamically registered routes. Source-level AST/dataflow analysis and cross-repository service contracts are not implemented. Persistent incremental caching is not implemented. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for their extension points.
 
 Java 17 is the build baseline. See the tested compatibility matrix in the verification report. Future Java class-file formats are not automatically supported merely because they are newer than 17. Unsupported or unreadable application classes must fail analysis.
 

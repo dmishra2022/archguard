@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "archguard-cli"
+version = "0.1.0"
+description = "ArchGuard architecture conformance analyzer for Python projects"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Dharmendra Mishra" }]
+requires-python = ">=3.9"
+dependencies = ["PyYAML>=5.4", "jsonschema>=4.0"]
+keywords = ["architecture", "hexagonal", "clean-architecture", "ddd", "layered", "lint", "conformance", "static-analysis"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.urls]
+Homepage = "https://dmishra2022.github.io/archguard/"
+Documentation = "https://dmishra2022.github.io/archguard/getting-started/python/"
+Source = "https://github.com/dmishra2022/archguard"
+Issues = "https://github.com/dmishra2022/archguard/issues"
+Changelog = "https://github.com/dmishra2022/archguard/blob/main/CHANGELOG.md"
+
+[project.scripts]
+archguard = "archguard.cli:main"
+archguard-pre-commit = "archguard.precommit:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+archguard = ["spec/**/*"]

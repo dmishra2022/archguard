@@ -1,0 +1,17 @@
+schemaVersion: 2
+language: python
+roots: ["orders.**"]
+profiles: [hexagonal, ddd]
+roles:
+  DOMAIN: ["orders.domain.**"]
+  APPLICATION: ["orders.application.**"]
+  OUTBOUND_PORT: ["orders.ports.**"]
+  INBOUND_ADAPTER: ["orders.web.**"]
+  OUTBOUND_ADAPTER: ["orders.infrastructure.**"]
+  COMPOSITION_ROOT: ["orders", "orders.main"]
+contexts:
+  - id: orders
+    packages: ["orders.**"]
+    exposedPackages: ["orders.ports.**"]
+requireClassification: true
+failOn: ERROR

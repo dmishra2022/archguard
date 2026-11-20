@@ -1,0 +1,40 @@
+id: HEX-002
+title: Application depends on a concrete outer component
+category: boundary
+defaultSeverity: ERROR
+activation: profile
+message: Application depends on a concrete outer component
+remediation: >-
+  Replace the concrete adapter dependency with an outbound port owned by the core. Implement the
+  port in the adapter and wire it in the composition root.
+rationale: >-
+  Use cases must depend on abstractions they own. Depending on a concrete adapter couples
+  business flow to a specific technology and prevents substitution in tests.
+languages: [java, python, typescript]
+examples:
+  java:
+    bad: |
+      package com.acme.orders.application;
+      import com.acme.orders.adapter.outbound.SqlOrderStore;
+      public class PlaceOrder { private final SqlOrderStore store; }
+    good: |
+      package com.acme.orders.application;
+      import com.acme.orders.port.outbound.OrderStore;   // core-owned port
+      public class PlaceOrder { private final OrderStore store; }
+  python:
+    bad: |
+      # orders/application/place_order.py
+      from orders.infra.sql_order_store import SqlOrderStore
+    good: |
+      # orders/application/place_order.py
+      from orders.ports.order_store import OrderStore     # Protocol owned by the core
+      class PlaceOrder:
+          def __init__(self, store: OrderStore): self.store = store
+  typescript:
+    bad: |
+      // src/orders/application/place-order.ts
+      import { SqlOrderStore } from "../infra/sql-order-store";
+    good: |
+      // src/orders/application/place-order.ts
+      import type { OrderStore } from "../ports/order-store";   // interface owned by the core
+      export class PlaceOrder { constructor(private readonly store: OrderStore) {} }

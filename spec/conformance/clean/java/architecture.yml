@@ -1,0 +1,13 @@
+schemaVersion: 1
+roots: ["conf.."]
+profiles: [hexagonal, ddd]
+roles:
+  DOMAIN: ["conf.orders.domain.."]
+  APPLICATION: ["conf.orders.application.."]
+  OUTBOUND_PORT: ["conf.orders.port.."]
+  OUTBOUND_ADAPTER: ["conf.orders.adapter.."]
+contexts:
+  - id: orders
+    packages: ["conf.orders.."]
+    exposedPackages: ["conf.orders.port.."]
+requireClassification: true

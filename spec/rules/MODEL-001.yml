@@ -1,0 +1,35 @@
+id: MODEL-001
+title: Unit under roots has no declared role
+category: model
+defaultSeverity: ERROR
+activation: requireClassification
+message: Application class has no declared architectural role
+evidence: "Declared architectural role: {role}"
+remediation: >-
+  Map this package to a role in architecture.yml, or explicitly exclude it from analysis roots.
+placeholders:
+  role: Always UNCLASSIFIED for this rule
+rationale: >-
+  Boundary rules can only protect code whose role is known. Requiring classification prevents new
+  code from silently escaping the architecture.
+languages: [java, python, typescript]
+examples:
+  java:
+    bad: |
+      package com.acme.orders.util;   // matches roots, no role selector covers it
+    good: |
+      # architecture.yml
+      roles:
+        DOMAIN: ["com.acme.orders.domain..", "com.acme.orders.util.."]
+  python:
+    bad: |
+      # orders/helpers.py exists but no role selector covers orders.helpers
+    good: |
+      roles:
+        APPLICATION: ["orders.application.**", "orders.helpers"]
+  typescript:
+    bad: |
+      // src/orders/utils/x.ts exists but no role selector covers src/orders/utils
+    good: |
+      roles:
+        DOMAIN: ["src/orders/domain/**", "src/orders/utils/**"]

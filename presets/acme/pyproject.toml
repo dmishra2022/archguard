@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "acme-archguard-presets"
+version = "1.0.0"
+description = "Acme organisation presets for ArchGuard (org:acme/<name>@<version>)"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.9"
+
+# The analyzer resolves org:acme/<name>@<version> to acme_archguard_presets/presets/<name>/<version>.yml.
+[tool.setuptools]
+packages = ["acme_archguard_presets"]
+package-dir = { "acme_archguard_presets" = "." }
+
+[tool.setuptools.package-data]
+acme_archguard_presets = ["presets/*/*.yml"]

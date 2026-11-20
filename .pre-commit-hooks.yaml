@@ -1,0 +1,8 @@
+- id: archguard-check
+  name: ArchGuard architecture check (Python)
+  description: Checks staged Python files against architecture.yml. Requires the archguard distribution in the environment.
+  entry: archguard-pre-commit
+  language: system
+  files: '(\.py|architecture\.yml)$'
+  pass_filenames: true
+  require_serial: true

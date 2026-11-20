@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://archguard.io/spec/2.0/findings.schema.json",
+  "title": "ArchGuard report (archguard.json)",
+  "description": "analyzedClasses counts analyzed units: classes (Java) or modules (Python, TypeScript). The name is kept for compatibility with schemaVersion 1 reports.",
+  "oneOf": [{ "$ref": "#/$defs/completed" }, { "$ref": "#/$defs/failed" }],
+  "$defs": {
+    "severity": { "enum": ["INFO", "WARNING", "ERROR"] },
+    "completed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": { "const": "1" },
+        "specVersion": { "type": "string" },
+        "language": { "enum": ["java", "python", "typescript"] },
+        "engineVersion": { "type": "string", "minLength": 1 },
+        "policyHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "analyzedClasses": { "type": "integer", "minimum": 0 },
+        "dependencies": { "type": "integer", "minimum": 0 },
+        "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+        "diagnostics": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": [
+        "schemaVersion",
+        "engineVersion",
+        "policyHash",
+        "analyzedClasses",
+        "dependencies",
+        "findings",
+        "diagnostics"
+      ]
+    },
+    "failed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": { "const": "1" },
+        "specVersion": { "type": "string" },
+        "analysisStatus": { "const": "FAILED" },
+        "error": { "type": "string" }
+      },
+      "required": ["schemaVersion", "analysisStatus", "error"]
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "ruleId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$" },
+        "severity": { "$ref": "#/$defs/severity" },
+        "message": { "type": "string" },
+        "evidence": { "type": "string" },
+        "location": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "module": { "type": "string" },
+            "path": { "type": "string", "description": "Project-relative POSIX path, empty when unavailable" },
+            "symbol": { "type": "string" },
+            "line": { "type": "integer", "minimum": 0, "description": "0 means unavailable" }
+          },
+          "required": ["module", "path", "symbol", "line"]
+        },
+        "target": { "type": "string" },
+        "remediation": { "type": "string" },
+        "status": { "enum": ["NEW", "EXISTING", "SUPPRESSED"] }
+      },
+      "required": [
+        "fingerprint",
+        "ruleId",
+        "severity",
+        "message",
+        "evidence",
+        "location",
+        "target",
+        "remediation",
+        "status"
+      ]
+    }
+  }
+}

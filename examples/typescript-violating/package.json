@@ -1,0 +1,12 @@
+{
+  "name": "@examples/orders-nest-violating",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NestJS orders service with deliberate HEX-001, HEX-002, HEX-004 and FW-002 violations (ArchGuard example)",
+  "dependencies": {
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/typeorm": "^11.0.0",
+    "typeorm": "^0.3.20"
+  }
+}

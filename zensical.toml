@@ -1,0 +1,106 @@
+[project]
+site_name = "ArchGuard"
+site_description = "Architecture conformance checks for Java, TypeScript/JavaScript and Python"
+site_url = "https://dmishra2022.github.io/archguard/"
+repo_url = "https://github.com/dmishra2022/archguard"
+repo_name = "dmishra2022/archguard"
+edit_uri = "edit/main/docs/"
+copyright = "Apache-2.0"
+docs_dir = "docs"
+site_dir = "site"
+# Repository files that are not pages. Links to them use repository URLs (scripts/docs_links.py).
+exclude_docs = """
+kb/
+requirements.txt
+pilots/*/
+architecture.schema.json
+"""
+
+nav = [
+  { "Home" = "index.md" },
+  { "Get started" = [
+    { "Java" = "getting-started/java.md" },
+    { "TypeScript / JavaScript" = "getting-started/typescript.md" },
+    { "Python" = "getting-started/python.md" },
+  ] },
+  { "Guides" = [
+    { "Onboarding a project" = "ONBOARDING.md" },
+    { "Adoption playbook" = "guides/adoption-playbook.md" },
+    { "Baselines and suppressions" = "guides/baselines-and-suppressions.md" },
+    { "CI integration" = "CI.md" },
+    { "AI coding agents" = "guides/ai-agents.md" },
+    { "Organisation presets" = "guides/org-presets.md" },
+  ] },
+  { "Concepts" = [
+    { "How ArchGuard works" = "concepts/how-it-works.md" },
+  ] },
+  { "Reference" = [
+    { "Rules" = "RULES.md" },
+    { "Policy configuration" = "CONFIGURATION.md" },
+    { "Command line (Java)" = "CLI.md" },
+    { "Custom rules (Java)" = "CUSTOM_RULES.md" },
+    { "SDK architecture" = "ARCHITECTURE.md" },
+    { "Compatibility and versioning" = "reference/compatibility.md" },
+  ] },
+  { "Help" = [
+    { "Troubleshooting" = "troubleshooting.md" },
+    { "FAQ" = "faq.md" },
+    { "Getting support" = "support.md" },
+  ] },
+  { "Case studies" = [
+    { "Java pilots" = "pilots/PILOT_REPORT.md" },
+    { "TypeScript pilots" = "pilots/TYPESCRIPT_PILOT.md" },
+    { "Python pilots" = "pilots/PYTHON_PILOT.md" },
+  ] },
+  { "Maintainers" = [
+    { "Releasing to PyPI and npm" = "maintainers/releasing.md" },
+  ] },
+]
+
+[project.theme]
+variant = "modern"
+language = "en"
+features = [
+  "content.action.edit",
+  "content.code.copy",
+  "content.tabs.link",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.path",
+  "navigation.sections",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to system preference"
+
+[project.markdown_extensions]
+admonition = {}
+attr_list = {}
+tables = {}
+toc.permalink = true
+pymdownx.details = {}
+pymdownx.highlight.anchor_linenums = true
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+pymdownx.tabbed.alternate_style = true

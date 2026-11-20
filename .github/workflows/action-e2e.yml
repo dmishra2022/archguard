@@ -1,0 +1,82 @@
+name: action-e2e
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  examples:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { example: clean, language: java, config: architecture.yml, expect: "0" }
+          - { example: violating, language: java, config: architecture.yml, expect: "1",
+              rule: HEX-002, uri: examples/violating/src/main/java/example/orders/application/OrderService.java }
+          - { example: reactor, language: java, config: architecture.yml, expect: "0" }
+          - { example: clean, language: java, config: missing.yml, expect: "2" }
+          - { example: typescript-clean, language: typescript, config: architecture.yml, expect: "0" }
+          - { example: typescript-violating, language: typescript, config: architecture.yml, expect: "1",
+              rule: HEX-002, uri: examples/typescript-violating/src/orders/application/place-order.ts }
+          - { example: typescript-clean, language: typescript, config: missing.yml, expect: "2" }
+          - { example: python-clean, language: python, config: architecture.yml, expect: "0" }
+          - { example: python-violating, language: python, config: architecture.yml, expect: "1",
+              rule: HEX-002, uri: examples/python-violating/src/orders/application/place_order.py }
+          - { example: python-django, language: python, config: architecture.yml, expect: "0" }
+          - { example: python-clean, language: python, config: missing.yml, expect: "2" }
+    name: ${{ matrix.example }} (${{ matrix.config }}, expect ${{ matrix.expect }})
+    steps:
+      - uses: actions/checkout@v7
+      - id: archguard
+        uses: ./action
+        continue-on-error: true
+        with:
+          working-directory: examples/${{ matrix.example }}
+          config: ${{ matrix.config }}
+          upload-sarif: "false"
+          artifact-name: archguard-${{ matrix.example }}-${{ matrix.expect }}
+      - name: Assert language, exit code and reports
+        shell: bash
+        env:
+          CODE: ${{ steps.archguard.outputs.exit-code }}
+          OUTCOME: ${{ steps.archguard.outcome }}
+          SARIF: ${{ steps.archguard.outputs.sarif }}
+          EXPECT: ${{ matrix.expect }}
+          RULE: ${{ matrix.rule }}
+          URI: ${{ matrix.uri }}
+          LANGUAGE: ${{ matrix.language }}
+        run: |
+          echo "exit-code=$CODE outcome=$OUTCOME"
+          test "$CODE" = "$EXPECT"
+          if [ "$EXPECT" = 0 ]; then test "$OUTCOME" = success; else test "$OUTCOME" = failure; fi
+          if [ "$EXPECT" != 2 ]; then
+            report="$(dirname "$SARIF")/archguard.json"
+            python3 -c "import json,sys; d=json.load(open(sys.argv[1])); assert d['language'] == sys.argv[2], d.get('language')" "$report" "$LANGUAGE"
+          fi
+          if [ "$EXPECT" = 1 ]; then
+            python3 - "$SARIF" "$RULE" "$URI" <<'EOF'
+          import json, sys
+          path, rule, uri = sys.argv[1:4]
+          run = json.load(open(path))['runs'][0]
+          hits = [r for r in run['results'] if r['ruleId'] == rule]
+          uris = {l['physicalLocation']['artifactLocation']['uri'] for r in hits for l in r['locations']}
+          assert hits, f'no {rule} result in SARIF'
+          assert uri in uris, uris
+          assert any(l['physicalLocation'].get('region', {}).get('startLine') for r in hits for l in r['locations'])
+          print(f'SARIF ok: {len(hits)} {rule} results on {sorted(uris)}')
+          EOF
+          fi
+
+  pull-request-scope:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "20"
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: changed-files-only reports only findings in files changed since the base branch
+        run: bash action/tests/local_e2e.sh changed

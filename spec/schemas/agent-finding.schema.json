@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://archguard.io/spec/2.0/agent-finding.schema.json",
+  "title": "ArchGuard agent format line",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rule": { "type": "string" },
+        "severity": { "enum": ["WARNING", "ERROR"] },
+        "status": { "enum": ["NEW", "EXISTING", "SUPPRESSED"] },
+        "file": { "type": "string" },
+        "line": { "type": "integer", "minimum": 0 },
+        "symbol": { "type": "string" },
+        "target": { "type": "string" },
+        "message": { "type": "string" },
+        "fix": { "type": "string" },
+        "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      },
+      "required": ["rule", "severity", "status", "file", "line", "symbol", "target", "message", "fix", "fingerprint"]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "summary": { "const": true },
+        "status": { "enum": ["PASSED", "FAILED", "ERROR"] },
+        "new": { "type": "integer", "minimum": 0 },
+        "existing": { "type": "integer", "minimum": 0 },
+        "suppressed": { "type": "integer", "minimum": 0 },
+        "error": { "type": "string" }
+      },
+      "required": ["summary", "status"]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "case": "ddd-001",
+  "description": "The billing context uses an internal domain type of the orders context instead of its exposed API.",
+  "status": "FAILED",
+  "exitCode": 1,
+  "findings": [
+    {
+      "rule": "DDD-001",
+      "severity": "ERROR",
+      "origin": { "java": "conf.billing.application.Invoicing", "typescript": "src/billing/application/invoicing", "python": "conf.billing.application.invoicing" },
+      "target": { "java": "conf.orders.domain.Order", "typescript": "src/orders/domain/order", "python": "conf.orders.domain.order" }
+    }
+  ]
+}

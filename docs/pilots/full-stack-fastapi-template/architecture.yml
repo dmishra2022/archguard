@@ -1,0 +1,14 @@
+schemaVersion: 2
+language: python
+sourceRoots: ["backend"]
+roots: ["app.**"]
+profiles: [layered]
+roles:
+  INBOUND_ADAPTER: ["app.api.routes.**", "app.api.deps"]
+  APPLICATION: ["app.crud", "app.core.security"]
+  DOMAIN: ["app.models"]
+  OUTBOUND_ADAPTER: ["app.core.db", "app.utils", "app.alembic.**"]
+  COMPOSITION_ROOT: ["app", "app.main", "app.api", "app.api.main", "app.core", "app.initial_data", "app.backend_pre_start", "app.tests_pre_start"]
+rules:
+  CYCLE-001:
+    enabled: true

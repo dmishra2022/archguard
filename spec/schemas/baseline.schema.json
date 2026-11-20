@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://archguard.io/spec/2.0/baseline.schema.json",
+  "title": "ArchGuard baseline (architecture-baseline.json)",
+  "description": "Fingerprints of accepted non-INFO findings. Bound to the analyzer engine version and policy hash; a mismatch is an analysis error. Checks never modify a baseline.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "policyHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "fingerprints": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+      "uniqueItems": true
+    }
+  },
+  "required": ["schemaVersion", "policyHash", "fingerprints"]
+}

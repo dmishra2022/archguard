@@ -4,3 +4,10 @@
 .DS_Store
 .validation/
 .example/
+docs/kb/graphify-out/cache/
+docs/kb/graphify-out/manifest.json
+docs/kb/graphify-out/.graphify_root
+docs/kb/graphify-out/.graphify_build.json
+__pycache__/
+/site/
+/.cache/

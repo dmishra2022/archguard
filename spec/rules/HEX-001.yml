@@ -1,0 +1,43 @@
+id: HEX-001
+title: Domain depends on an outer layer or framework
+category: boundary
+defaultSeverity: ERROR
+activation: profile
+message: Domain depends on an outer layer or framework
+remediation: >-
+  Remove this dependency from the domain. Move integration or orchestration outward; keep domain
+  behavior in domain types and pass domain-oriented values.
+rationale: >-
+  The domain model must be independent of use-case orchestration, adapters, wiring and
+  infrastructure so it can be tested, reasoned about and reused without frameworks.
+languages: [java, python, typescript]
+examples:
+  java:
+    bad: |
+      package com.acme.orders.domain;
+      import jakarta.persistence.Entity;          // infrastructure API in the domain
+      @Entity public class Order { }
+    good: |
+      package com.acme.orders.domain;
+      public final class Order { /* pure domain state and behavior */ }
+      // JPA mapping lives in com.acme.orders.adapter.outbound.persistence.OrderEntity
+  python:
+    bad: |
+      # orders/domain/order.py
+      from sqlalchemy.orm import Mapped            # infrastructure in the domain
+      class Order(Base): id: Mapped[int]
+    good: |
+      # orders/domain/order.py
+      from dataclasses import dataclass
+      @dataclass(frozen=True)
+      class Order: id: int
+      # ORM model lives in orders/infra/persistence/models.py
+  typescript:
+    bad: |
+      // src/orders/domain/order.ts
+      import { Entity, Column } from "typeorm";    // infrastructure in the domain
+      @Entity() export class Order { @Column() id!: string; }
+    good: |
+      // src/orders/domain/order.ts
+      export class Order { constructor(readonly id: string) {} }
+      // TypeORM entity lives in src/orders/infra/persistence/order.entity.ts

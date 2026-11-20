@@ -1,6 +1,74 @@
 # Configuration
 
-`architecture.yml` uses schemaVersion 1. An editor schema is available in `docs/architecture.schema.json`; the runtime also performs semantic checks that JSON Schema cannot express. Keys and enum values are case-sensitive. Unknown properties, duplicate YAML keys, trailing YAML documents, explicit null values, unknown rule IDs, duplicate IDs, conflicting mappings and invalid selectors fail analysis.
+`architecture.yml` uses schemaVersion 1 (original format) or schemaVersion 2 (the language-neutral ArchGuard Spec 2.0 format, see [spec/README.md](https://github.com/dmishra2022/archguard/blob/main/spec/README.md)). The editor schema `docs/architecture.schema.json` is a copy of [spec/schemas/policy.schema.json](https://github.com/dmishra2022/archguard/blob/main/spec/schemas/policy.schema.json) and covers both versions; the runtime also performs semantic checks that JSON Schema cannot express. Keys and enum values are case-sensitive. Unknown properties, duplicate YAML keys, trailing YAML documents, explicit null values, unknown rule IDs, duplicate IDs, conflicting mappings and invalid selectors fail analysis.
+
+## schemaVersion 2
+
+schemaVersion 2 is a superset of version 1. Existing version 1 files keep working unchanged, keep their policy hash, and therefore keep their baselines valid. Version 2 adds:
+
+| Key | Meaning |
+|---|---|
+| `language: java \| typescript \| python` | Required. Each analyzer rejects a policy written for another language. |
+| `kind: project \| preset` | `preset` files are reusable parents for `extends` and cannot be analyzed directly. |
+| `extends: [...]` | Parent presets, applied in order before the local file (see below). |
+| `profiles` | Any spec profile: `hexagonal`, `ddd`, `layered`, `clean`, `modular-monolith`. |
+| `rules.<ID>.locked` | In a preset: children cannot change this rule's settings. |
+| `sourceRoots`, `typeOnlyImports`, `unresolvedImports` | Used by the Python and TypeScript analyzers; ignored by Java. See the [TypeScript](https://github.com/dmishra2022/archguard/blob/main/typescript/archguard-ts/README.md) and [Python](https://github.com/dmishra2022/archguard/blob/main/python/archguard-py/README.md) analyzer READMEs. |
+
+Selectors depend on the language: Java selectors match packages, TypeScript selectors match directories relative to the project root, and Python selectors match dotted module names under the source root. The rest of this page uses Java examples; apart from the three keys above, every key works the same in all three languages.
+
+`exposedPackages: []` is valid: the context exposes nothing, so any import of it from another context is a DDD-001 finding. Code outside every context is not checked by the DDD rules.
+
+Selectors accept the neutral glob syntax in both versions: `com.acme.**` equals `com.acme..`, `**.domain.**` equals `..domain..`, `*` is one segment. Prefer globs in policies shared with other languages. See [spec/SELECTORS.md](https://github.com/dmishra2022/archguard/blob/main/spec/SELECTORS.md).
+
+```yaml
+schemaVersion: 2
+language: java
+extends: ["org:acme/base@1.0.0"]
+roots: ["com.acme.**"]
+profiles: [hexagonal, ddd]
+roles:
+  DOMAIN: ["com.acme.orders.domain.**"]
+  APPLICATION: ["com.acme.orders.application.**"]
+  OUTBOUND_PORT: ["com.acme.orders.port.**"]
+  OUTBOUND_ADAPTER: ["com.acme.orders.adapter.**"]
+```
+
+### Profiles
+
+Profiles are data in [spec/profiles](https://github.com/dmishra2022/archguard/blob/main/spec/profiles). A profile sets which rules are on by default and contributes a role matrix. All matrices are always loaded, so `rules.<ID>.enabled: true` turns on a rule even without its profile.
+
+| Profile | Activates | Summary |
+|---|---|---|
+| hexagonal | HEX-001..004 | Core never depends on adapters, wiring or infrastructure; adapters do not call each other across directions |
+| ddd | DDD-001, DDD-002 | Contexts use each other's exposed packages only; no context cycles |
+| layered | LAYER-001, LAYER-002 | Dependencies point downward; presentation does not bypass the business layer; business may use persistence |
+| clean | hexagonal + CYCLE-001 | Hexagonal dependency rule plus no package cycles |
+| modular-monolith | ddd + CYCLE-001 | Modules use public APIs only, no module or package cycles |
+
+### extends and presets
+
+```yaml
+# acme-base.yml (published by the architecture team)
+schemaVersion: 2
+kind: preset
+language: java
+profiles: [hexagonal]
+rules:
+  HEX-001: { severity: ERROR, locked: true }
+constraints:
+  - id: ACME-001
+    from: ["**.domain.**"]
+    forbidden: ["com.vendor.**"]
+    rationale: "Vendor SDKs stay in adapters."
+    remediation: "Wrap the SDK in an outbound adapter behind a core-owned port."
+```
+
+References: `./file.yml` or `../file.yml` (relative to the referencing file), `/absolute.yml`, `classpath:path/in/jar.yml`, or `org:<org>/<name>@<version>`, which loads `META-INF/archguard/presets/<org>/<name>/<version>.yml` from the analyzer classpath. For Maven, add the preset artifact as a **plugin dependency**, exactly like a custom rule pack.
+
+Merge rules: parents are applied in order, then the local file. Maps merge by key (`roles`, `rules`), lists of objects merge by `id` (`contexts`, `constraints`), and other lists and scalars are replaced. A parent rule marked `locked: true` cannot be changed by any child. Extended files must be `schemaVersion: 2` with `kind: preset`. Cycles, missing presets and language mismatches fail analysis. The policy hash covers the fully merged policy, so changing a preset version requires a reviewed baseline regeneration.
+
+## schemaVersion 1
 
 Package selectors use ArchUnit's package matcher: `example.orders..` includes the package and descendants; `..domain..` matches a domain segment; `*` matches a segment. Selectors apply to **package names**, not filesystem paths or class simple names. Use narrow roots. Dependency targets outside roots remain visible to boundary rules; roots control which origins are evaluated.
 

@@ -1,0 +1,17 @@
+name: Question
+description: How to model an architecture, configure a policy, or integrate with CI
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: Please check the [troubleshooting guide](https://dmishra2022.github.io/archguard/troubleshooting/) and [FAQ](https://dmishra2022.github.io/archguard/faq/) first.
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations: { required: true }
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Language, framework, project layout, and the relevant part of architecture.yml

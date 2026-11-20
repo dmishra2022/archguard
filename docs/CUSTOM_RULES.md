@@ -37,6 +37,8 @@ Then add the rule pack as a **plugin dependency** in the consuming project:
 
 For SDK embedding, pass explicit rule instances to `ArchitectureEngine.analyze`. The SDK does not automatically scan the embedding application's classloader.
 
+Optionally override `descriptor()` to return a `RuleDescriptor` with a human title, default severity and help URI; reports and SARIF use it. Its ID must equal `id()`. Use an organisation prefix (for example `ACME-`); the prefixes `HEX-`, `DDD-`, `LAYER-`, `CYCLE-`, `FW-` and `MODEL-` are reserved for built-in rules.
+
 Use `Finding.create(...)` to generate stable fingerprints and provide concrete remediation. Avoid source-line-dependent custom evidence text unless intentional: the normalizer only strips conventional `(File.java:line)` locations. Use unique, stable IDs; version published rule packs. Do not overwrite released rule-pack artifacts.
 
 The model provides direct structural dependencies. A custom rule cannot conclude that a missing runtime edge does not exist. Do not interpret informational framework tags as active bean registrations. If a rule requires unavailable evidence, fail the analysis explicitly rather than returning an empty findings list.
