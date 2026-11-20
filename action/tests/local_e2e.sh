@@ -105,5 +105,69 @@ if [ -z "$FILTER" ] || [[ "changed" == *"$FILTER"* ]]; then
   done
 fi
 
+# Organisation preset: each clean example extends org:acme/base@1.0.0 from presets/acme, packaged the
+# way that ecosystem consumes it.
+preset_case() {
+  local name="$1" workdir="$2" extensions="$3" expect="$4"
+  [ -n "$FILTER" ] && [[ "$name" != *"$FILTER"* ]] && return
+  local run_dir code
+  run_dir="$(mktemp -d)"
+  export GITHUB_ACTION_PATH="$REPO/action" RUNNER_TEMP="$run_dir" GITHUB_OUTPUT="$run_dir/output" \
+    GITHUB_STEP_SUMMARY="$run_dir/summary"
+  : > "$GITHUB_OUTPUT"
+  (
+    cd "$REPO/$workdir" || exit 3
+    bash "$GITHUB_ACTION_PATH/detect.sh" > "$run_dir/detect.log" 2>&1 || exit 3
+    ARCHGUARD_LANGUAGE="$(sed -n 's/^language=//p' "$GITHUB_OUTPUT")" INPUT_EXTENSIONS="$extensions" \
+      bash "$GITHUB_ACTION_PATH/run.sh" > "$run_dir/run.log" 2>&1
+  )
+  code="$(sed -n 's/^exit-code=//p' "$GITHUB_OUTPUT")"
+  if [ "$code" = "$expect" ] && grep -q '"org:acme/base@1.0.0"' "$REPO/$workdir/architecture.yml"; then
+    echo "ok   $name (exit $code)"
+  else
+    echo "FAIL $name: exit '$code', expected $expect (logs in $run_dir)"
+    failures=$((failures + 1))
+  fi
+}
+extend_policy() {
+  python3 - "$1" "$2" <<'EOF'
+import sys
+path, language = sys.argv[1:3]
+lines = open(path).read().splitlines()
+body = [l for l in lines if not l.startswith(('schemaVersion:', 'language:'))]
+open(path, 'w').write('\n'.join(['schemaVersion: 2', f'language: {language}', 'extends: ["org:acme/base@1.0.0"]'] + body) + '\n')
+EOF
+}
+if [ -z "$FILTER" ] || [[ "$FILTER" == preset* ]]; then
+  for language in python typescript java; do
+    [[ -n "$FILTER" && "$FILTER" != preset && "$FILTER" != "preset-$language"* ]] && continue
+    case "$language" in
+      python)
+        extend_policy "$REPO/examples/python-clean/architecture.yml" python
+        extend_policy "$REPO/examples/python-violating/architecture.yml" python
+        preset_case preset-python-clean examples/python-clean "../../presets/acme" 0
+        preset_case preset-python-violating examples/python-violating "../../presets/acme" 1
+        preset_case preset-python-not-installed examples/python-clean "" 2 ;;
+      typescript)
+        extend_policy "$REPO/examples/typescript-clean/architecture.yml" typescript
+        tarball="$(cd "$SCRATCH" && npm pack --silent "$REPO/presets/acme" | tail -1)"
+        preset_case preset-typescript-not-installed examples/typescript-clean "" 2
+        # The layout `npm install @acme/archguard-presets` produces, without installing the example's NestJS dependencies.
+        mkdir -p "$REPO/examples/typescript-clean/node_modules/@acme/archguard-presets"
+        tar -xzf "$SCRATCH/$tarball" --strip-components=1 -C "$REPO/examples/typescript-clean/node_modules/@acme/archguard-presets" \
+          || { echo "FAIL preset-typescript: could not unpack the preset"; failures=$((failures + 1)); }
+        preset_case preset-typescript-clean examples/typescript-clean "" 0 ;;
+      java)
+        extend_policy "$REPO/examples/clean/architecture.yml" java
+        if mvn -B -q -ntp -f "$REPO/presets/acme/pom.xml" package > "$SCRATCH/preset-jar.log" 2>&1; then
+          preset_case preset-java-clean examples/clean "../../presets/acme/target/archguard-presets-1.0.0.jar" 0
+          preset_case preset-java-not-installed examples/clean "" 2
+        else
+          echo "FAIL preset-java: preset jar build failed ($SCRATCH/preset-jar.log)"; failures=$((failures + 1))
+        fi ;;
+    esac
+  done
+fi
+
 echo "$failures failure(s); scratch repository $SCRATCH"
 [ "$failures" -eq 0 ]

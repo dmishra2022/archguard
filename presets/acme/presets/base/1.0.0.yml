@@ -1,0 +1,16 @@
+# org:acme/base@1.0.0 - the Acme organisation's baseline for every service, in any language.
+# Projects extend it and add their own language, roots, roles and contexts. Locked rules cannot be
+# changed by projects; changing them is a new preset version reviewed by the architecture owners.
+schemaVersion: 2
+kind: preset
+requireClassification: true
+failOn: ERROR
+newOnly: true
+rules:
+  FW-002: { severity: ERROR, locked: true }
+  HEX-001: { severity: ERROR, locked: true }
+  HEX-002: { severity: ERROR, locked: true }
+  DDD-001: { severity: ERROR, locked: true }
+  DDD-002: { severity: ERROR, locked: true }
+  LAYER-001: { severity: ERROR, locked: true }
+  CYCLE-001: { enabled: true, severity: WARNING }

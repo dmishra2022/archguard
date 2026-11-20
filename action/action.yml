@@ -64,6 +64,13 @@ inputs:
   cli-jar:
     description: Use this archguard-cli jar instead of downloading or building one (Java)
     default: ""
+  extensions:
+    description: >-
+      Org presets and rule packs, one per line. Java: jar paths relative to working-directory, passed as
+      --extension. Python: pip requirements installed next to the analyzer (for example
+      acme-archguard-presets==1.0.0). TypeScript resolves presets from the project's node_modules, so run
+      npm ci before this action instead
+    default: ""
   cli-command:
     description: >-
       Run this analyzer command instead of the default (for example `npx archguard` or `.venv/bin/archguard`).
@@ -129,6 +136,7 @@ runs:
         INPUT_ARCHGUARD_VERSION: ${{ inputs.archguard-version }}
         INPUT_CLI_JAR: ${{ inputs.cli-jar }}
         INPUT_CLI_COMMAND: ${{ inputs.cli-command }}
+        INPUT_EXTENSIONS: ${{ inputs.extensions }}
       run: bash "$GITHUB_ACTION_PATH/run.sh"
 
     - if: always() && inputs.upload-sarif == 'true' && steps.check.outputs.sarif != ''

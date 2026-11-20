@@ -60,6 +60,12 @@ is_archguard() { "$@" --version 2>/dev/null | grep -q "($LANGUAGE analyzer"; }
 
 cli=()
 [ -n "${INPUT_CLI_COMMAND:-}" ] && read -r -a cli <<< "$INPUT_CLI_COMMAND"
+extensions=()
+while IFS= read -r line; do
+  line="${line#"${line%%[![:space:]]*}"}"
+  line="${line%"${line##*[![:space:]]}"}"
+  [ -n "$line" ] && extensions+=("$line")
+done <<< "${INPUT_EXTENSIONS:-}"
 args=(check --config "$WORKDIR/$CONFIG" --out "$OUT" --format json,sarif,html,console)
 
 case "$LANGUAGE" in
@@ -104,6 +110,11 @@ case "$LANGUAGE" in
     fi
     endgroup
     args+=(--project "$ROOT")
+    for extension in ${extensions[@]+"${extensions[@]}"}; do
+      case "$extension" in /*) ;; *) extension="$WORKDIR/$extension" ;; esac
+      [ -e "$extension" ] || finish 2 "Extension not found: $extension"
+      args+=(--extension "$extension")
+    done
     while IFS= read -r file; do
       args+=(--classpath-file "$file")
     done < <(find . \( -path '*/target/archguard.classpath' -o -path '*/build/archguard.classpath' \) -not -path '*/node_modules/*' | sort)
@@ -121,6 +132,8 @@ case "$LANGUAGE" in
       endgroup
       cli=(node "$SOURCE_DIR/typescript/archguard-ts/dist/cli.js")
     fi
+    [ ${#extensions[@]} -eq 0 ] \
+      || echo "::warning title=ArchGuard::'extensions' is ignored for TypeScript; presets resolve from the project's node_modules (run npm ci first)."
     args+=(--project "$WORKDIR")
     ;;
 
@@ -136,8 +149,14 @@ case "$LANGUAGE" in
         && python3 "$SOURCE_DIR/python/archguard-py/scripts/copy_spec.py" \
         && retry "$venv/bin/python" -m pip install -q --disable-pip-version-check "$SOURCE_DIR/python/archguard-py"; } \
         || { endgroup; finish 2 "Could not install the Python analyzer."; }
+      if [ ${#extensions[@]} -gt 0 ]; then
+        retry "$venv/bin/python" -m pip install -q --disable-pip-version-check "${extensions[@]}" \
+          || { endgroup; finish 2 "Could not install extensions: ${extensions[*]}"; }
+      fi
       endgroup
       cli=("$venv/bin/archguard")
+    elif [ ${#extensions[@]} -gt 0 ]; then
+      echo "::warning title=ArchGuard::'extensions' is ignored when the job provides the Python analyzer; install them in that environment."
     fi
     args+=(--project "$WORKDIR")
     ;;

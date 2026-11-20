@@ -25,9 +25,21 @@ graphify cluster-only docs/kb --no-label
 
 ## What ArchGuard is
 
-Offline, static architecture-conformance analysis for Java. It imports compiled bytecode, classifies classes into declared architectural roles and bounded contexts from `architecture.yml`, evaluates boundary/cycle/framework rules, applies baseline and suppressions, and writes JSON, SARIF and HTML reports. It never modifies source and makes no network or AI calls during analysis.
+Offline, static architecture-conformance analysis for Java, TypeScript/JavaScript and Python. Each analyzer reads its language natively: compiled bytecode for Java, source through the TypeScript compiler API, and source through the Python `ast` module. It classifies units into declared architectural roles and bounded contexts from `architecture.yml`, evaluates boundary, cycle and framework rules, applies baseline and suppressions, and writes JSON, SARIF and HTML reports. It never modifies source and makes no network or AI calls during analysis. All three analyzers implement one language-neutral contract in `spec/`. The contract covers the policy schema, profiles, rule catalog, fingerprints, report formats, exit codes and CLI, and the shared conformance suite checks it.
 
 ## Modules and responsibilities
+
+| Area | Responsibility |
+|---|---|
+| `spec/` | The contract: `schemas/` (policy, findings, baseline, suppressions), `profiles/` (role matrices), `rules/` (catalog with per-language examples), `infrastructure/<lang>.yml`, `languages/<lang>.md` (normative bindings), `conformance/` (cases plus `expected.json` for every analyzer) |
+| `typescript/archguard-ts` | TypeScript/JavaScript analyzer, npm `archguard-cli` (`policy`, `importer`, `frameworks`, `rules`, `debt`, `reports`, `cli`) |
+| `python/archguard-py` | Python analyzer, PyPI `archguard-cli`, import name `archguard` (`policy`, `project`, `index`, `importer`, `frameworks`, `rules`, `debt`, `reports`, `cli`, `precommit`) |
+| `action/` | Composite GitHub Action for all three languages; `tests/local_e2e.sh` runs it outside GitHub |
+| `skills/archguard/` | Agent skill: workflow, placement guides and templates per language, generated rules reference, check script, optional hook |
+| `presets/acme/` | Organisation preset template, published as a Maven jar, an npm package and a Python package |
+| `scripts/` | `spec_check`, `conformance`, `preset_check`, `gen_skill_reference`, `release_check`, `kb_check`, `integration_test` |
+
+Java modules:
 
 | Module | Responsibility | Must not contain |
 |---|---|---|
@@ -106,24 +118,34 @@ Static structural analysis only: no runtime DI, profiles, reflection, synthetic 
 
 ## CI integration
 
-The composite Action is `action/` (`action.yml`, `detect.sh`, `run.sh`, `summary.py`):
-- It gets the CLI from Maven Central, or builds it from the Action's own source while the version is unpublished.
-- It runs the `archguard:classpath` goal, then `check` with `--project` set to the repo root, so SARIF and annotation paths are repo-relative.
-- `summary.py` writes the job summary, `::error` annotations and the `new-findings` output.
-- A final step gates on exit 1 or 2 after the uploads.
+The composite Action is `action/` (`action.yml`, `detect.sh`, `run.sh`, `summary.py`, `rebase_sarif.py`):
+- `detect.sh` picks the language: the input, then the policy's `language:`, then the build files.
+- Java: it gets the CLI from Maven Central or builds it from the Action's own source, runs `archguard:classpath`, then runs `check` with `--project` set to the repo root.
+- TypeScript and Python: it uses the project's own analyzer when its `--version` identifies the ArchGuard analyzer for that language. Otherwise it builds or installs the analyzer from the Action's source; it never uses the public `@archguard/cli` or `archguard` packages, which are unrelated projects. It runs `check` with `--project` set to the working directory. `rebase_sarif.py` and `ARCHGUARD_PATH_PREFIX` in `summary.py` make SARIF and annotation paths repo-relative. Changed files are passed as absolute paths.
+- `extensions` passes org presets: Java jars as `--extension`, Python pip requirements into the analyzer venv. TypeScript uses the project's `node_modules`.
+- `summary.py` writes the job summary, `::error` annotations and the `new-findings` output. A final step gates on exit 1 or 2 after the uploads.
 
 Workflows:
-- `.github/workflows/action-e2e.yml`: clean, violating, reactor and missing-policy cases, plus a SARIF assertion.
-- `.github/workflows/archguard-pr.yml`: a real PR gate on `examples/clean`.
 
-`docs/CI.md` has recipes for other CI systems. Verified locally with simulated GitHub environment files (outputs, summary, annotations, the source-build fallback, PR changed-files scoping) and with actionlint.
+| Workflow | What it proves |
+|---|---|
+| `verify.yml` | Java build and tests on JDK 17/21/25, and the Maven integration suite |
+| `python.yml`, `typescript.yml` | Analyzer tests on Python 3.9 to 3.14 and Node 18 to 24; the packaged wheel or tarball works outside the repo |
+| `conformance.yml` | Spec catalog and every policy validate; the skill reference is current; versions agree; all four engines pass the conformance suite; the org preset works in all three analyzers |
+| `action-e2e.yml` | The Action on the clean, violating and missing-policy examples for every language (plus Django and reactor), and the pull-request scope |
+| `archguard-pr.yml` | A real PR gate on the clean example of each language |
+| `kb.yml` | `docs/kb/graphify-out/graph.json` matches the sources (`scripts/kb_check.py`) |
+| `release.yml` | On a `v*` tag: build, verify, publish to configured Maven/npm/PyPI registries, GitHub release |
+
+`docs/CI.md` has recipes for other CI systems. `action/tests/local_e2e.sh` runs every Action case locally, including org presets and the PR scope.
 
 ## Agent skill
 
 `skills/archguard/` (install into `.cursor/skills/archguard/`):
-- `SKILL.md` gives the workflow: read the policy, map files to roles, place code, run `scripts/check.sh [--changed]`, fix NEW findings, and never edit the policy, baseline or suppressions.
+- `SKILL.md` gives the workflow: read the policy (including `language`), map files to roles, place code, run `scripts/check.sh [--changed]`, fix NEW findings, and never edit the policy, baseline or suppressions.
+- `scripts/check.sh` takes the language from the policy. It compiles Java first. For TypeScript and Python it uses the project's analyzer, checked by `--version`.
 - `reference/rules.md` is generated by `scripts/gen_skill_reference.py`; `spec_check` fails when it is stale.
-- `reference/java-placement.md` and `templates/architecture.java.yml` cover placement and onboarding.
+- `reference/{java,typescript,python}-placement.md` and `templates/architecture.{java,typescript,python}.yml` cover placement and onboarding.
 - `hooks/` has an optional Cursor `stop` hook.
 
 Contributors working on ArchGuard itself use `.cursor/skills/archguard-dev/SKILL.md`, which points to this KB and the graphify graph.
@@ -138,6 +160,11 @@ Verified by dry run on copies of `examples/clean` and `examples/violating`. In `
 
 Before the spec refactor, on macOS with OpenJDK 17.0.21 and Maven 3.9.11, `mvn -B clean install` passed 63 unit tests and `scripts/integration_test.py` passed 29 Maven integration scenarios. After the refactor: 86 unit tests (PolicyTest 21, EngineTest 30, ImporterTest 21, SpecDrivenEngineTest 8, SpecParityTest 6), the same 29 integration scenarios, and 8/8 Java conformance cases pass. The CLI adds 12 tests, passes the same 8 conformance cases (`--engine cli`), and produces fingerprints and policy hashes identical to the Maven plugin on the `violating`, `clean`, `spring-boot` and `reactor` examples. All 12 integration reports were compared with pre-refactor reports and are identical in policy hash, fingerprints, messages, evidence, locations and diagnostics; only `specVersion` and `language` were added.
 
-## Standardisation roadmap
+## Adoption and organisation presets
 
-See the polyglot standardisation plan: a language-neutral spec in `spec/` (policy schema v2, data-driven profiles, rule catalog, findings contract, conformance suite), a standalone CLI, native Python and TypeScript analyzers, an agent skill in `skills/archguard/`, and a generic CI gate with a GitHub Action.
+`docs/ONBOARDING.md` is the guide for consuming projects in any language: install the analyzer, write the policy from a template, run report-only, baseline, gate locally and in CI, and protect the policy with CODEOWNERS. `org:<org>/<name>@<version>` presets resolve to:
+- Java: `META-INF/archguard/presets/<org>/<name>/<version>.yml` on the analyzer classpath (Maven plugin dependency or `--extension`);
+- TypeScript: `@<org>/archguard-presets/presets/<name>/<version>.yml` from the project's `node_modules`;
+- Python: `<org>_archguard_presets/presets/<name>/<version>.yml` from an importable package.
+
+`presets/acme` publishes one YAML tree all three ways. The policy hash covers the `extends` references, so changing a preset reference or version always changes the hash and calls for a reviewed baseline regeneration.

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The analyzer resolves org:acme/<name>@<version> to META-INF/archguard/presets/acme/<name>/<version>.yml
+     on its classpath: a Maven plugin dependency, or `archguard-cli check -\-extension <this jar>`. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.acme.architecture</groupId>
+  <artifactId>archguard-presets</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  <name>Acme ArchGuard presets</name>
+  <description>Acme organisation presets for ArchGuard (org:acme/&lt;name&gt;@&lt;version&gt;)</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.outputTimestamp>2026-01-01T00:00:00Z</project.build.outputTimestamp>
+  </properties>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>presets</directory>
+        <targetPath>META-INF/archguard/presets/acme</targetPath>
+        <includes>
+          <include>*/*.yml</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
+</project>

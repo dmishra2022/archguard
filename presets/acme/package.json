@@ -1,0 +1,13 @@
+{
+  "name": "@acme/archguard-presets",
+  "version": "1.0.0",
+  "description": "Acme organisation presets for ArchGuard (org:acme/<name>@<version>)",
+  "license": "Apache-2.0",
+  "files": [
+    "presets"
+  ],
+  "keywords": [
+    "archguard",
+    "architecture"
+  ]
+}

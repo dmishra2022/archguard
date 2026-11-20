@@ -1,0 +1,18 @@
+# Changes to the architecture contract need review by its owners. Consuming projects should protect
+# their own policy files the same way (see docs/ONBOARDING.md).
+
+# Language-neutral spec: schemas, profiles, rule catalog, infrastructure lists, conformance suite
+/spec/                              @dmishra2022
+# Organisation preset template
+/presets/                           @dmishra2022
+# CI gate and agent skill used by consuming projects
+/action/                            @dmishra2022
+/skills/                            @dmishra2022
+/.github/workflows/                 @dmishra2022
+
+# Policy, baseline and suppression files anywhere in the repository
+architecture.yml                    @dmishra2022
+architecture-baseline.json          @dmishra2022
+architecture-suppressions.json      @dmishra2022
+
+/.github/CODEOWNERS                 @dmishra2022
