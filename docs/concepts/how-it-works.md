@@ -64,7 +64,7 @@ Arrows show allowed directions. Everything pointing from the core outwards is a 
 | `INBOUND_PORT`, `OUTBOUND_PORT` | adapters, composition root, infrastructure APIs | HEX-003 |
 | `INBOUND_ADAPTER` ↔ `OUTBOUND_ADAPTER` | each other | HEX-004 |
 
-The infrastructure API lists per language are in [`spec/infrastructure`](../../spec/infrastructure) (for example `org.springframework.`, `sqlalchemy`, `@nestjs/*`).
+The infrastructure API lists per language are in [`spec/infrastructure`](https://github.com/dmishra2022/archguard/blob/main/spec/infrastructure) (for example `org.springframework.`, `sqlalchemy`, `@nestjs/*`).
 
 ### Contexts
 
@@ -80,7 +80,7 @@ With `ddd` or `modular-monolith`, each bounded context lists its `packages` and 
 | Dependencies | Every type reference in bytecode, including generics | `import`, `import type`, `export from`, `require`, literal `import()` | `import` and `from ... import` at any level, literal `importlib.import_module` |
 | Framework signals | Spring, Quarkus, Micronaut, JAX-RS, CDI, JPA | NestJS, Express, Fastify, Koa, Hono, Next.js, TypeORM, Prisma, Mongoose... | FastAPI, Flask, Django, Django Ninja, SQLAlchemy, Django ORM... |
 
-All three analyzers produce the same findings for the same architecture. They pass a shared [conformance suite](../../spec/conformance/README.md) and use the same rule catalog, fingerprints and report formats.
+All three analyzers produce the same findings for the same architecture. They pass a shared [conformance suite](https://github.com/dmishra2022/archguard/blob/main/spec/conformance/README.md) and use the same rule catalog, fingerprints and report formats.
 
 ## Gating
 
@@ -95,7 +95,7 @@ Exit codes are the same for every analyzer: `0` pass, `1` policy violation, `2` 
 | Format | File | Use |
 |---|---|---|
 | `console` | stdout | Developers, CI logs |
-| `json` | `archguard.json` | Source of truth; dashboards and tooling ([schema](../../spec/schemas/findings.schema.json)) |
+| `json` | `archguard.json` | Source of truth; dashboards and tooling ([schema](https://github.com/dmishra2022/archguard/blob/main/spec/schemas/findings.schema.json)) |
 | `sarif` | `archguard.sarif` | GitHub code scanning and other SARIF viewers |
 | `html` | `index.html` | Human review, CI artifacts |
 | `agent` | `archguard.agent.jsonl` and stdout | AI coding agents |

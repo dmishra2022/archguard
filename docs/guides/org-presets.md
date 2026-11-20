@@ -32,7 +32,7 @@ Rules marked `locked: true` cannot be changed by a service; trying to fails anal
 
 ## Publish it
 
-One set of YAML files is published three ways, so every language resolves `org:<org>/<name>@<version>` to the same file. [`presets/acme`](../../presets/acme/README.md) is a complete template with all three packaging files:
+One set of YAML files is published three ways, so every language resolves `org:<org>/<name>@<version>` to the same file. [`presets/acme`](https://github.com/dmishra2022/archguard/blob/main/presets/acme/README.md) is a complete template with all three packaging files:
 
 | Language | Package | File location inside the package |
 |---|---|---|

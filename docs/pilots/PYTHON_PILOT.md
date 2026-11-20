@@ -29,7 +29,7 @@ The pre-commit hook was run end to end with `pre-commit` against a git repositor
 
 ## Public hexagonal project: [cosmicpython/code](https://github.com/cosmicpython/code) (commit 14c8479)
 
-This is the reference application of *Architecture Patterns with Python*: Flask, SQLAlchemy classical mapping, Redis, a message bus and a unit of work. The policy is in [cosmicpython/architecture.yml](cosmicpython/architecture.yml) and follows the book's own layering. `domain` is DOMAIN, `service_layer` and `views` are APPLICATION, `adapters` are OUTBOUND_ADAPTER, `entrypoints` are INBOUND_ADAPTER, and `bootstrap` and `config` are the COMPOSITION_ROOT. CYCLE-001 is on.
+This is the reference application of *Architecture Patterns with Python*: Flask, SQLAlchemy classical mapping, Redis, a message bus and a unit of work. The policy is in [cosmicpython/architecture.yml](https://github.com/dmishra2022/archguard/blob/main/docs/pilots/cosmicpython/architecture.yml) and follows the book's own layering. `domain` is DOMAIN, `service_layer` and `views` are APPLICATION, `adapters` are OUTBOUND_ADAPTER, `entrypoints` are INBOUND_ADAPTER, and `bootstrap` and `config` are the COMPOSITION_ROOT. CYCLE-001 is on.
 
 Timing: 20 modules and 71 dependencies in 0.2 s for the whole CLI run.
 
@@ -51,7 +51,7 @@ The baseline, `newOnly` gate and injected violation behaved as intended:
 
 This project uses FastAPI, SQLModel, Alembic and JWT authentication. Its backend requires Python 3.14 and uses PEP 758 syntax (`except A, B:`). Under Python 3.11 the analyzer stopped with exit 2: `Cannot parse backend/app/api/deps.py:36 ... Run ArchGuard with a Python version that supports the project syntax`. That is the intended behavior, because an unparsable file never produces a pass. Under Python 3.14 it analyzed 23 modules and 118 dependencies in 0.04 s (analysis only, excluding interpreter start-up).
 
-The policy is in [full-stack-fastapi-template/architecture.yml](full-stack-fastapi-template/architecture.yml): the `layered` profile with routes and dependencies as presentation, `crud` and `security` as business, `models` as domain, and `core.db`, the email utilities and Alembic as persistence and integration.
+The policy is in [full-stack-fastapi-template/architecture.yml](https://github.com/dmishra2022/archguard/blob/main/docs/pilots/full-stack-fastapi-template/architecture.yml): the `layered` profile with routes and dependencies as presentation, `crud` and `security` as business, `models` as domain, and `core.db`, the email utilities and Alembic as persistence and integration.
 
 The first run modelled `app.core.config` (the settings object) as part of the composition root. Four LAYER-001 findings were lower layers reading settings, which is a policy-modelling mistake, not an architecture problem. Leaving the settings module unclassified, as a shared kernel, removed them.
 
@@ -70,7 +70,7 @@ FW-002 reported nothing, which is correct. Every route returns a `*Public` model
 
 ## Public Django project: [HackSoftware/Django-Styleguide-Example](https://github.com/HackSoftware/Django-Styleguide-Example) (commit a70ef43)
 
-This project uses Django, Django REST Framework, Celery, django-filter, S3 integration and Google OAuth. The policy is in [django-styleguide-example/architecture.yml](django-styleguide-example/architecture.yml). It maps the styleguide's conventions onto the `layered` profile:
+This project uses Django, Django REST Framework, Celery, django-filter, S3 integration and Google OAuth. The policy is in [django-styleguide-example/architecture.yml](https://github.com/dmishra2022/archguard/blob/main/docs/pilots/django-styleguide-example/architecture.yml). It maps the styleguide's conventions onto the `layered` profile:
 - APIs, views, URLs, admin and Celery tasks are presentation, because tasks are triggered by the broker;
 - services, selectors and filters are business;
 - models, enums and shared exceptions are domain;

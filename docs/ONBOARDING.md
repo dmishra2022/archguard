@@ -30,7 +30,7 @@ The analyzer exit codes are the same everywhere: `0` pass, `1` policy violation,
 </plugin>
 ```
 
-For multi-module builds, run `mvn -B compile io.archguard:archguard-maven-plugin:0.1.0:check-reactor` from the reactor root instead (see the [README](../README.md#multi-module-ci)). Gradle and other builds use the CLI jar with the bundled init script; see [CLI.md](CLI.md).
+For multi-module builds, run `mvn -B compile io.archguard:archguard-maven-plugin:0.1.0:check-reactor` from the reactor root instead (see the [README](https://github.com/dmishra2022/archguard/blob/main/README.md#multi-module-ci)). Gradle and other builds use the CLI jar with the bundled init script; see [CLI.md](CLI.md).
 
 **TypeScript / JavaScript** (Node.js 18 or later):
 
@@ -53,16 +53,16 @@ Check the install: `archguard --version` (Python), `npx archguard --version` (Ty
 
 Copy the template for your language to `architecture.yml` at the project root:
 
-- [`skills/archguard/templates/architecture.java.yml`](../skills/archguard/templates/architecture.java.yml)
-- [`skills/archguard/templates/architecture.typescript.yml`](../skills/archguard/templates/architecture.typescript.yml)
-- [`skills/archguard/templates/architecture.python.yml`](../skills/archguard/templates/architecture.python.yml)
+- [`skills/archguard/templates/architecture.java.yml`](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/templates/architecture.java.yml)
+- [`skills/archguard/templates/architecture.typescript.yml`](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/templates/architecture.typescript.yml)
+- [`skills/archguard/templates/architecture.python.yml`](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/templates/architecture.python.yml)
 
 Then fill it in:
 
 1. **`extends`**: if your organisation publishes a preset, extend it (`extends: ["org:acme/base@1.0.0"]`) and install its package next to the analyzer (see [Organisation presets](#organisation-presets)). Otherwise delete the line.
 2. **`roots`**: what to analyze. Java uses packages (`com.acme.orders.**`), TypeScript uses directories relative to the project root (`src/**`), and Python uses dotted module names under the source root (`orders.**`).
 3. **`profiles`**: `hexagonal`, `clean`, `layered`, `ddd` or `modular-monolith`. Combine an architecture style with `ddd` when you have bounded contexts. [RULES.md](RULES.md) lists what each profile enforces.
-4. **`roles`**: map every package or directory to one role: `DOMAIN`, `APPLICATION`, `INBOUND_PORT`, `OUTBOUND_PORT`, `INBOUND_ADAPTER`, `OUTBOUND_ADAPTER` or `COMPOSITION_ROOT`. The placement guides show the usual mapping per framework: [Java](../skills/archguard/reference/java-placement.md), [TypeScript](../skills/archguard/reference/typescript-placement.md), [Python](../skills/archguard/reference/python-placement.md). A selector with `**` covers everything below it. A selector without `**` covers exactly that package, directory or module, which is how you classify a package's own `__init__.py`, an `index.ts`, or a `main` module. Selectors of different roles must not overlap: a unit that matches two roles stops the analysis with exit 2 ([troubleshooting](troubleshooting.md)).
+4. **`roles`**: map every package or directory to one role: `DOMAIN`, `APPLICATION`, `INBOUND_PORT`, `OUTBOUND_PORT`, `INBOUND_ADAPTER`, `OUTBOUND_ADAPTER` or `COMPOSITION_ROOT`. The placement guides show the usual mapping per framework: [Java](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/reference/java-placement.md), [TypeScript](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/reference/typescript-placement.md), [Python](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/reference/python-placement.md). A selector with `**` covers everything below it. A selector without `**` covers exactly that package, directory or module, which is how you classify a package's own `__init__.py`, an `index.ts`, or a `main` module. Selectors of different roles must not overlap: a unit that matches two roles stops the analysis with exit 2 ([troubleshooting](troubleshooting.md)).
 5. **`contexts`** (ddd, modular-monolith): each context's `packages` and the `exposedPackages` other contexts may use. `exposedPackages: []` means the context exposes nothing. Code outside every context is not checked by the DDD rules.
 6. **`constraints`** (optional): project-specific forbidden dependencies, for example "views must not import models" ([CONFIGURATION.md](CONFIGURATION.md)).
 
@@ -204,7 +204,7 @@ For teams that use AI coding agents, install the skill so agents place code in t
 mkdir -p .cursor/skills && cp -r <archguard>/skills/archguard .cursor/skills/
 ```
 
-The skill reads `language` from the policy and uses the analyzer you installed in step 1. Optionally add the Cursor `stop` hook from [`skills/archguard/hooks`](../skills/archguard/hooks/README.md), which feeds new findings back to the agent automatically. The skill tells agents never to edit the policy, the baseline or suppressions. CODEOWNERS and CI enforce that.
+The skill reads `language` from the policy and uses the analyzer you installed in step 1. Optionally add the Cursor `stop` hook from [`skills/archguard/hooks`](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/hooks/README.md), which feeds new findings back to the agent automatically. The skill tells agents never to edit the policy, the baseline or suppressions. CODEOWNERS and CI enforce that.
 
 ## Day to day
 
@@ -215,7 +215,7 @@ The skill reads `language` from the policy and uses the analyzer you installed i
 
 ## Organisation presets
 
-An organisation can publish its own baseline policy, for example locked rule severities, required classification and company-wide constraints, as `org:<org>/<name>@<version>`. One set of YAML files is published as a Maven artifact, an npm package and a Python package, so every language resolves the same preset. [`presets/acme`](../presets/acme/README.md) is a complete template to copy, publish and consume.
+An organisation can publish its own baseline policy, for example locked rule severities, required classification and company-wide constraints, as `org:<org>/<name>@<version>`. One set of YAML files is published as a Maven artifact, an npm package and a Python package, so every language resolves the same preset. [`presets/acme`](https://github.com/dmishra2022/archguard/blob/main/presets/acme/README.md) is a complete template to copy, publish and consume.
 
 | Language | Install the preset | Action input |
 |---|---|---|

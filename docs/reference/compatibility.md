@@ -16,7 +16,7 @@ The Python analyzer parses code with the interpreter it runs on, so use a Python
 
 ArchGuard has two version numbers:
 
-- **The spec version** (currently 2.0.0) describes the policy format, rules, fingerprints, report formats and exit codes. It follows semantic versioning; see [spec/VERSIONING.md](../../spec/VERSIONING.md).
+- **The spec version** (currently 2.0.0) describes the policy format, rules, fingerprints, report formats and exit codes. It follows semantic versioning; see [spec/VERSIONING.md](https://github.com/dmishra2022/archguard/blob/main/spec/VERSIONING.md).
 - **The analyzer version** (currently 0.1.0) is shared by the Java, TypeScript and Python analyzers. All three are released together with the same version number.
 
 `archguard --version` prints both: `archguard 0.1.0 (python analyzer, spec 2.0.0)`.

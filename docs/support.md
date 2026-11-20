@@ -22,7 +22,7 @@
 - The finding or error exactly as printed, including the evidence line, for example
   `Module <orders.web.routes> imports <orders.infrastructure.repo> (routes.py:6)`.
 - What you expected and why.
-- If you can, a minimal project that reproduces it. The [conformance cases](../spec/conformance/README.md) are good templates.
+- If you can, a minimal project that reproduces it. The [conformance cases](https://github.com/dmishra2022/archguard/blob/main/spec/conformance/README.md) are good templates.
 
 Do not attach proprietary source code to a public issue; reduce it to a minimal example.
 

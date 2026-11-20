@@ -2,7 +2,7 @@
 
 The CI contract is generic: run `archguard check`, treat exit code **1** as a policy violation and **2** as a broken pipeline (never a pass), and publish `archguard.sarif` with whatever viewer the platform offers. Only shell commands are needed; the GitHub Action is a convenience wrapper over the same steps.
 
-For Maven projects, the simplest gate is the plugin itself: bind the `check` goal (see the [README](../README.md)) and `mvn verify` fails on violations. Use the CLI when you want the same gate for Gradle or other builds, changed-files scoping, or the agent format.
+For Maven projects, the simplest gate is the plugin itself: bind the `check` goal (see the [README](https://github.com/dmishra2022/archguard/blob/main/README.md)) and `mvn verify` fails on violations. Use the CLI when you want the same gate for Gradle or other builds, changed-files scoping, or the agent format.
 
 ## GitHub Actions
 

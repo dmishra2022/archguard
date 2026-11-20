@@ -37,7 +37,7 @@ npm pkg set scripts.arch:check="archguard check"
 
 ## 3. Write a starter policy
 
-Copy [`architecture.typescript.yml`](../../skills/archguard/templates/architecture.typescript.yml) to `architecture.yml` at the project root. Selectors match **directories relative to the project root**: `src/orders/domain/**` covers that directory and everything below it, and `src/orders` (without `**`) covers only the files directly in it, such as `index.ts`.
+Copy [`architecture.typescript.yml`](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/templates/architecture.typescript.yml) to `architecture.yml` at the project root. Selectors match **directories relative to the project root**: `src/orders/domain/**` covers that directory and everything below it, and `src/orders` (without `**`) covers only the files directly in it, such as `index.ts`.
 
 ```yaml
 schemaVersion: 2
@@ -72,5 +72,5 @@ Adjust the role selectors until no file is reported as unclassified (`MODEL-001`
 
 - Record existing violations as a baseline, add a pre-commit hook and the CI gate: [Onboarding a project](../ONBOARDING.md#4-capture-existing-debt).
 - Understand each rule: [Rules](../RULES.md).
-- Where new code should go for NestJS, Express, Next.js and others: [TypeScript placement guide](../../skills/archguard/reference/typescript-placement.md).
-- Full analyzer reference: [archguard-cli for TypeScript](../../typescript/archguard-ts/README.md).
+- Where new code should go for NestJS, Express, Next.js and others: [TypeScript placement guide](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/reference/typescript-placement.md).
+- Full analyzer reference: [archguard-cli for TypeScript](https://github.com/dmishra2022/archguard/blob/main/typescript/archguard-ts/README.md).

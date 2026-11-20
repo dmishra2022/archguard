@@ -22,7 +22,7 @@ This playbook is for architects, engineering managers and platform teams who rol
 ### Phase 0: Prepare
 
 - Decide where teams get the analyzers: public PyPI and npm (`archguard-cli`), or your internal mirror. Java artifacts come from your internal Maven repository or the GitHub release jar.
-- Draft the organisation preset from [`presets/acme`](../../presets/acme/README.md): which rules are locked at `ERROR`, whether `requireClassification` is mandatory, and organisation-wide constraints (for example "no service imports another service's internal client").
+- Draft the organisation preset from [`presets/acme`](https://github.com/dmishra2022/archguard/blob/main/presets/acme/README.md): which rules are locked at `ERROR`, whether `requireClassification` is mandatory, and organisation-wide constraints (for example "no service imports another service's internal client").
 - Choose the CI integration: the GitHub Action, or the CLI in GitLab, Jenkins or Azure Pipelines ([CI integration](../CI.md)).
 
 ### Phase 1: Pilot

@@ -16,7 +16,7 @@ flowchart LR
   N --> V
 ```
 
-Everything is in [`.github/workflows/release.yml`](../../.github/workflows/release.yml). Nothing is published until the repository variables below are set.
+Everything is in [`.github/workflows/release.yml`](https://github.com/dmishra2022/archguard/blob/main/.github/workflows/release.yml). Nothing is published until the repository variables below are set.
 
 ## Phase 1: One-time setup (about one hour)
 
@@ -71,7 +71,7 @@ Under Settings, Secrets and variables, Actions, Variables:
 
 ### Documentation site
 
-Under Settings, Pages, set the source to **GitHub Actions**. The [docs workflow](../../.github/workflows/docs.yml) then publishes the site to `https://dmishra2022.github.io/archguard/` on every push to `main`. The package metadata already links to it.
+Under Settings, Pages, set the source to **GitHub Actions**. The [docs workflow](https://github.com/dmishra2022/archguard/blob/main/.github/workflows/docs.yml) then publishes the site to `https://dmishra2022.github.io/archguard/` on every push to `main`. The package metadata already links to it.
 
 ## Phase 2: Rehearsal on TestPyPI and npm dry run
 

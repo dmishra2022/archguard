@@ -18,7 +18,7 @@ The importer rejects duplicate owned class names, missing outputs, unreadable in
 
 ## Spec-driven rules
 
-`archguard-core` bundles the language-neutral [ArchGuard Spec](../spec/README.md) under `META-INF/archguard/spec/` and loads it through `io.archguard.spec.SpecCatalog`. Rule titles, messages, remediations, default severities and activation come from `spec/rules`. Role-boundary rules are evaluated generically from every profile's role matrix in `spec/profiles`, and HEX-001/003 infrastructure prefixes come from `spec/infrastructure/java.yml`. Bounded-context, cycle and framework detection remain code because they depend on the Java model. `SpecParityTest` checks every role pair against the profile data, and the cross-language conformance suite in `spec/conformance` runs against the built plugin.
+`archguard-core` bundles the language-neutral [ArchGuard Spec](https://github.com/dmishra2022/archguard/blob/main/spec/README.md) under `META-INF/archguard/spec/` and loads it through `io.archguard.spec.SpecCatalog`. Rule titles, messages, remediations, default severities and activation come from `spec/rules`. Role-boundary rules are evaluated generically from every profile's role matrix in `spec/profiles`, and HEX-001/003 infrastructure prefixes come from `spec/infrastructure/java.yml`. Bounded-context, cycle and framework detection remain code because they depend on the Java model. `SpecParityTest` checks every role pair against the profile data, and the cross-language conformance suite in `spec/conformance` runs against the built plugin.
 
 ## Rules and policy
 

@@ -1,6 +1,6 @@
 # Configuration
 
-`architecture.yml` uses schemaVersion 1 (original format) or schemaVersion 2 (the language-neutral ArchGuard Spec 2.0 format, see [spec/README.md](../spec/README.md)). The editor schema `docs/architecture.schema.json` is a copy of [spec/schemas/policy.schema.json](../spec/schemas/policy.schema.json) and covers both versions; the runtime also performs semantic checks that JSON Schema cannot express. Keys and enum values are case-sensitive. Unknown properties, duplicate YAML keys, trailing YAML documents, explicit null values, unknown rule IDs, duplicate IDs, conflicting mappings and invalid selectors fail analysis.
+`architecture.yml` uses schemaVersion 1 (original format) or schemaVersion 2 (the language-neutral ArchGuard Spec 2.0 format, see [spec/README.md](https://github.com/dmishra2022/archguard/blob/main/spec/README.md)). The editor schema `docs/architecture.schema.json` is a copy of [spec/schemas/policy.schema.json](https://github.com/dmishra2022/archguard/blob/main/spec/schemas/policy.schema.json) and covers both versions; the runtime also performs semantic checks that JSON Schema cannot express. Keys and enum values are case-sensitive. Unknown properties, duplicate YAML keys, trailing YAML documents, explicit null values, unknown rule IDs, duplicate IDs, conflicting mappings and invalid selectors fail analysis.
 
 ## schemaVersion 2
 
@@ -13,13 +13,13 @@ schemaVersion 2 is a superset of version 1. Existing version 1 files keep workin
 | `extends: [...]` | Parent presets, applied in order before the local file (see below). |
 | `profiles` | Any spec profile: `hexagonal`, `ddd`, `layered`, `clean`, `modular-monolith`. |
 | `rules.<ID>.locked` | In a preset: children cannot change this rule's settings. |
-| `sourceRoots`, `typeOnlyImports`, `unresolvedImports` | Used by the Python and TypeScript analyzers; ignored by Java. See the [TypeScript](../typescript/archguard-ts/README.md) and [Python](../python/archguard-py/README.md) analyzer READMEs. |
+| `sourceRoots`, `typeOnlyImports`, `unresolvedImports` | Used by the Python and TypeScript analyzers; ignored by Java. See the [TypeScript](https://github.com/dmishra2022/archguard/blob/main/typescript/archguard-ts/README.md) and [Python](https://github.com/dmishra2022/archguard/blob/main/python/archguard-py/README.md) analyzer READMEs. |
 
 Selectors depend on the language: Java selectors match packages, TypeScript selectors match directories relative to the project root, and Python selectors match dotted module names under the source root. The rest of this page uses Java examples; apart from the three keys above, every key works the same in all three languages.
 
 `exposedPackages: []` is valid: the context exposes nothing, so any import of it from another context is a DDD-001 finding. Code outside every context is not checked by the DDD rules.
 
-Selectors accept the neutral glob syntax in both versions: `com.acme.**` equals `com.acme..`, `**.domain.**` equals `..domain..`, `*` is one segment. Prefer globs in policies shared with other languages. See [spec/SELECTORS.md](../spec/SELECTORS.md).
+Selectors accept the neutral glob syntax in both versions: `com.acme.**` equals `com.acme..`, `**.domain.**` equals `..domain..`, `*` is one segment. Prefer globs in policies shared with other languages. See [spec/SELECTORS.md](https://github.com/dmishra2022/archguard/blob/main/spec/SELECTORS.md).
 
 ```yaml
 schemaVersion: 2
@@ -36,7 +36,7 @@ roles:
 
 ### Profiles
 
-Profiles are data in [spec/profiles](../spec/profiles). A profile sets which rules are on by default and contributes a role matrix. All matrices are always loaded, so `rules.<ID>.enabled: true` turns on a rule even without its profile.
+Profiles are data in [spec/profiles](https://github.com/dmishra2022/archguard/blob/main/spec/profiles). A profile sets which rules are on by default and contributes a role matrix. All matrices are always loaded, so `rules.<ID>.enabled: true` turns on a rule even without its profile.
 
 | Profile | Activates | Summary |
 |---|---|---|

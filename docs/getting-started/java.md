@@ -60,11 +60,11 @@ The application service imports a concrete adapter instead of an outbound port. 
       $(for f in $(find . -name archguard.classpath -path '*/build/*'); do echo --classpath-file $f; done)
     ```
 
-    The init script is [`skills/archguard/scripts/archguard.init.gradle`](../../skills/archguard/scripts/archguard.init.gradle). See the [CLI reference](../CLI.md) for other builds.
+    The init script is [`skills/archguard/scripts/archguard.init.gradle`](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/scripts/archguard.init.gradle). See the [CLI reference](../CLI.md) for other builds.
 
 ## 3. Write a starter policy
 
-Copy [`architecture.java.yml`](../../skills/archguard/templates/architecture.java.yml) to `architecture.yml` at the project root and replace the example package `com.acme.orders` with yours. Selectors match **packages**: `com.acme.orders.domain.**` covers the package and everything below it.
+Copy [`architecture.java.yml`](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/templates/architecture.java.yml) to `architecture.yml` at the project root and replace the example package `com.acme.orders` with yours. Selectors match **packages**: `com.acme.orders.domain.**` covers the package and everything below it.
 
 ```yaml
 schemaVersion: 2
@@ -96,4 +96,4 @@ mvn compile io.archguard:archguard-maven-plugin:0.1.0:analyze
 
 - Record existing violations as a baseline and add the CI gate: [Onboarding a project](../ONBOARDING.md#4-capture-existing-debt).
 - Understand each rule: [Rules](../RULES.md).
-- Where new code should go, per framework: [Java placement guide](../../skills/archguard/reference/java-placement.md).
+- Where new code should go, per framework: [Java placement guide](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/reference/java-placement.md).

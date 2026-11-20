@@ -38,7 +38,7 @@ pip install archguard-cli
 
 ## 3. Write a starter policy
 
-Copy [`architecture.python.yml`](../../skills/archguard/templates/architecture.python.yml) to `architecture.yml` at the project root. Selectors match **dotted module names under the source root** (`src/` when it holds Python files, otherwise the project root): `orders.domain.**` covers that package and everything below it, and `orders.ports` (without `**`) covers only `orders/ports/__init__.py`.
+Copy [`architecture.python.yml`](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/templates/architecture.python.yml) to `architecture.yml` at the project root. Selectors match **dotted module names under the source root** (`src/` when it holds Python files, otherwise the project root): `orders.domain.**` covers that package and everything below it, and `orders.ports` (without `**`) covers only `orders/ports/__init__.py`.
 
 ```yaml
 schemaVersion: 2
@@ -58,7 +58,7 @@ newOnly: true
 
 This minimal policy uses only `hexagonal`. The template also enables `ddd` and declares `contexts`; keep that if you have bounded contexts, otherwise remove `ddd` and the `contexts` block.
 
-For a layered Django project, start from [`examples/python-django/architecture.yml`](../../examples/python-django/architecture.yml) instead.
+For a layered Django project, start from [`examples/python-django/architecture.yml`](https://github.com/dmishra2022/archguard/blob/main/examples/python-django/architecture.yml) instead.
 
 ## 4. Run it in report-only mode
 
@@ -73,5 +73,5 @@ Adjust the role selectors until no module is reported as unclassified (`MODEL-00
 
 - Record existing violations as a baseline, add a pre-commit hook and the CI gate: [Onboarding a project](../ONBOARDING.md#4-capture-existing-debt).
 - Understand each rule: [Rules](../RULES.md).
-- Where new code should go for FastAPI, Django and Flask: [Python placement guide](../../skills/archguard/reference/python-placement.md).
-- Full analyzer reference: [archguard-cli for Python](../../python/archguard-py/README.md).
+- Where new code should go for FastAPI, Django and Flask: [Python placement guide](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/reference/python-placement.md).
+- Full analyzer reference: [archguard-cli for Python](https://github.com/dmishra2022/archguard/blob/main/python/archguard-py/README.md).

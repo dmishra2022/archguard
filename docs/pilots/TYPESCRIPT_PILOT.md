@@ -24,7 +24,7 @@ Three cases (`unclassified`, `invalid-policy`, `layered`) have no tsconfig and u
 
 ## Public NestJS project: [Sairyss/domain-driven-hexagon](https://github.com/Sairyss/domain-driven-hexagon)
 
-The project has 82 modules and a tsconfig with five `paths` aliases. It uses NestJS 9, CQRS, GraphQL and Slonik. Dependencies were installed (1,240 packages). The policy is in [domain-driven-hexagon/architecture.yml](domain-driven-hexagon/architecture.yml): `hexagonal` and `modular-monolith`, contexts `user` and `wallet` with only their domain events exposed, `DOMAIN` roles for the domain folders, and one custom constraint (`DDH-001`).
+The project has 82 modules and a tsconfig with five `paths` aliases. It uses NestJS 9, CQRS, GraphQL and Slonik. Dependencies were installed (1,240 packages). The policy is in [domain-driven-hexagon/architecture.yml](https://github.com/dmishra2022/archguard/blob/main/docs/pilots/domain-driven-hexagon/architecture.yml): `hexagonal` and `modular-monolith`, contexts `user` and `wallet` with only their domain events exposed, `DOMAIN` roles for the domain folders, and one custom constraint (`DDH-001`).
 
 Timing: analysis took 1.5 s wall clock for 82 modules and 286 dependencies, including the type checker for FW-002.
 

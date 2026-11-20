@@ -13,7 +13,7 @@ Thank you for helping improve ArchGuard. Bug reports with a minimal reproduction
 | `action/` | GitHub Action |
 | `skills/archguard` | Agent skill |
 | `presets/acme` | Organisation preset template |
-| `docs/` | Documentation site (MkDocs) |
+| `docs/` | Documentation site ([Zensical](https://zensical.org), configured in `zensical.toml`) |
 
 ## Development
 
@@ -23,7 +23,7 @@ mvn -B install                                                    # Java build a
 (cd python/archguard-py && python3 -m unittest discover -s tests) # Python
 python3 scripts/spec_check.py                                     # spec schemas and policies
 python3 scripts/conformance.py                                    # all analyzers against spec/conformance
-pip install -r docs/requirements.txt && mkdocs serve              # documentation preview
+pip install -r docs/requirements.txt && zensical serve            # documentation preview (Python 3.11+)
 ```
 
 ## Rules for changes

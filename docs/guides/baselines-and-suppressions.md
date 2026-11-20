@@ -29,7 +29,7 @@ Review the file in a pull request and commit it. `check` picks it up with `--bas
 
 ### How matching works
 
-Each finding has a **fingerprint** computed from the rule, the module and the symbols involved, not the line number. Moving code within a file does not create a "new" finding; changing which class or module depends on which does. See [spec/FINGERPRINT.md](../../spec/FINGERPRINT.md).
+Each finding has a **fingerprint** computed from the rule, the module and the symbols involved, not the line number. Moving code within a file does not create a "new" finding; changing which class or module depends on which does. See [spec/FINGERPRINT.md](https://github.com/dmishra2022/archguard/blob/main/spec/FINGERPRINT.md).
 
 A baseline is bound to the **policy hash** and the **engine version**. If either changes, the check refuses the baseline instead of silently comparing against the wrong rules.
 

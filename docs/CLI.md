@@ -1,8 +1,8 @@
 # ArchGuard command line (Java)
 
-For TypeScript and JavaScript projects, use [`archguard-cli`](../typescript/archguard-ts/README.md). For Python projects, use the [`archguard-cli`](../python/archguard-py/README.md) distribution. Both implement the same command contract.
+For TypeScript and JavaScript projects, use [`archguard-cli`](https://github.com/dmishra2022/archguard/blob/main/typescript/archguard-ts/README.md). For Python projects, use the [`archguard-cli`](https://github.com/dmishra2022/archguard/blob/main/python/archguard-py/README.md) distribution. Both implement the same command contract.
 
-`archguard-cli-<version>.jar` is a single runnable jar that implements the shared [command contract](../spec/CLI.md). It works with any build tool: Maven, Gradle, Bazel or plain `javac`. It produces the same findings, fingerprints and policy hash as the Maven plugin for the same modules.
+`archguard-cli-<version>.jar` is a single runnable jar that implements the shared [command contract](https://github.com/dmishra2022/archguard/blob/main/spec/CLI.md). It works with any build tool: Maven, Gradle, Bazel or plain `javac`. It produces the same findings, fingerprints and policy hash as the Maven plugin for the same modules.
 
 ```bash
 java -jar archguard-cli-0.1.0.jar check            # analyze ./target/classes with ./architecture.yml
@@ -60,7 +60,7 @@ mvn -q compile io.archguard:archguard-maven-plugin:0.1.0:classpath     # target/
 java -jar archguard-cli.jar check $(for f in $(find . -name archguard.classpath -path '*/target/*'); do echo --classpath-file $f; done)
 ```
 
-**Gradle** needs no build changes: the init script [`skills/archguard/scripts/archguard.init.gradle`](../skills/archguard/scripts/archguard.init.gradle) adds an `archguardClasspath` task to every Java project and writes `build/archguard.classpath`:
+**Gradle** needs no build changes: the init script [`skills/archguard/scripts/archguard.init.gradle`](https://github.com/dmishra2022/archguard/blob/main/skills/archguard/scripts/archguard.init.gradle) adds an `archguardClasspath` task to every Java project and writes `build/archguard.classpath`:
 
 ```bash
 ./gradlew -q -I archguard.init.gradle classes archguardClasspath
