@@ -1,4 +1,4 @@
-# @archguard/cli (TypeScript and JavaScript)
+# archguard-cli (TypeScript and JavaScript)
 
 ArchGuard checks that a codebase follows its declared architecture, such as hexagonal, layered, DDD bounded contexts or a modular monolith. It works the same whether a person or a coding agent wrote the code. This package is the TypeScript/JavaScript analyzer. It reads the same `architecture.yml`, rule catalog, report formats and exit codes as the Java and Python analyzers.
 
@@ -7,7 +7,7 @@ Requires Node.js 18 or later. It analyzes source code statically with the TypeSc
 ## Install
 
 ```bash
-npm install --save-dev @archguard/cli
+npm install --save-dev archguard-cli
 ```
 
 ## Policy

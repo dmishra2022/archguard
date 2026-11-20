@@ -1,6 +1,6 @@
 # TypeScript and JavaScript binding
 
-How the language-neutral spec maps onto TypeScript and JavaScript projects. The reference implementation is `@archguard/cli` in [`typescript/archguard-ts`](../../typescript/archguard-ts).
+How the language-neutral spec maps onto TypeScript and JavaScript projects. The reference implementation is `archguard-cli` in [`typescript/archguard-ts`](../../typescript/archguard-ts).
 
 ## Units, names and containers
 

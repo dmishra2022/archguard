@@ -1,4 +1,4 @@
-# archguard (Python)
+# archguard-cli (Python)
 
 ArchGuard checks that a codebase follows its declared architecture, such as hexagonal, layered, DDD bounded contexts or a modular monolith. It works the same whether a person or a coding agent wrote the code. This distribution is the Python analyzer. It reads the same `architecture.yml`, rule catalog, report formats and exit codes as the Java and TypeScript analyzers.
 
@@ -7,7 +7,7 @@ Requires Python 3.9 or later. It parses source code with the standard-library `a
 ## Install
 
 ```bash
-pip install archguard            # or: uv add --dev archguard / poetry add --group dev archguard
+pip install archguard-cli        # or: uv add --dev archguard-cli / poetry add --group dev archguard-cli
 ```
 
 ## Policy
@@ -80,12 +80,12 @@ repos:
         name: ArchGuard architecture check
         entry: archguard-pre-commit
         language: python
-        additional_dependencies: ["archguard==0.1.0"]
+        additional_dependencies: ["archguard-cli==0.1.0"]
         files: '(\.py|architecture\.yml)$'
         require_serial: true
 ```
 
-If `archguard` is already installed in the development environment, you can instead reference this repository's hook (`id: archguard-check`, `language: system`). Extra options go before the file names, for example `args: [--baseline, architecture-baseline.json]`.
+If `archguard-cli` is already installed in the development environment, you can instead reference this repository's hook (`id: archguard-check`, `language: system`). Extra options go before the file names, for example `args: [--baseline, architecture-baseline.json]`.
 
 ## What it sees
 

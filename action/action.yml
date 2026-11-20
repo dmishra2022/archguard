@@ -8,10 +8,10 @@ branding:
 
 inputs:
   language:
-    description: "java or auto (detected from the working directory). Python and TypeScript arrive with their analyzers."
+    description: "java, typescript, python or auto (the policy's language key, else detected from pom.xml/build.gradle, tsconfig.json/package.json, pyproject.toml/setup.py)"
     default: auto
   working-directory:
-    description: Project directory containing architecture.yml and the build file
+    description: Project directory containing architecture.yml (and, for Java, the build file)
     default: "."
   config:
     description: Policy file, relative to working-directory
@@ -41,16 +41,34 @@ inputs:
     description: Name of the uploaded report artifact (must be unique within a workflow run)
     default: archguard-report
   java-version:
-    description: JDK used for the build and the analyzer
+    description: JDK used for the build and the analyzer (Java)
     default: "17"
   setup-java:
     description: Install the JDK with actions/setup-java (set false if the job already did)
     default: "true"
+  node-version:
+    description: Node.js used for the TypeScript analyzer
+    default: "20"
+  setup-node:
+    description: Install Node.js with actions/setup-node (set false if the job already did)
+    default: "true"
+  python-version:
+    description: Python used for the Python analyzer. It must parse the project's syntax, so use the project's newest supported version
+    default: "3.x"
+  setup-python:
+    description: Install Python with actions/setup-python (set false if the job already did)
+    default: "true"
   archguard-version:
-    description: ArchGuard version. If it is not on Maven Central, the analyzer is built from this action's source
+    description: Java analyzer version. If it is not on Maven Central, the analyzer is built from this action's source
     default: "0.1.0"
   cli-jar:
-    description: Use this archguard-cli jar instead of downloading or building one
+    description: Use this archguard-cli jar instead of downloading or building one (Java)
+    default: ""
+  cli-command:
+    description: >-
+      Run this analyzer command instead of the default (for example `npx archguard` or `.venv/bin/archguard`).
+      By default TypeScript uses the project's node_modules/.bin/archguard and Python an archguard on PATH,
+      when they are the ArchGuard analyzer, otherwise the analyzer is built from this action's source
     default: ""
 
 outputs:
@@ -78,6 +96,7 @@ runs:
       working-directory: ${{ inputs.working-directory }}
       env:
         INPUT_LANGUAGE: ${{ inputs.language }}
+        INPUT_CONFIG: ${{ inputs.config }}
       run: bash "$GITHUB_ACTION_PATH/detect.sh"
 
     - if: steps.detect.outputs.language == 'java' && inputs.setup-java == 'true'
@@ -85,6 +104,16 @@ runs:
       with:
         distribution: temurin
         java-version: ${{ inputs.java-version }}
+
+    - if: steps.detect.outputs.language == 'typescript' && inputs.setup-node == 'true'
+      uses: actions/setup-node@v7
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - if: steps.detect.outputs.language == 'python' && inputs.setup-python == 'true'
+      uses: actions/setup-python@v7
+      with:
+        python-version: ${{ inputs.python-version }}
 
     - id: check
       shell: bash
@@ -99,6 +128,7 @@ runs:
         INPUT_ANNOTATIONS: ${{ inputs.annotations }}
         INPUT_ARCHGUARD_VERSION: ${{ inputs.archguard-version }}
         INPUT_CLI_JAR: ${{ inputs.cli-jar }}
+        INPUT_CLI_COMMAND: ${{ inputs.cli-command }}
       run: bash "$GITHUB_ACTION_PATH/run.sh"
 
     - if: always() && inputs.upload-sarif == 'true' && steps.check.outputs.sarif != ''

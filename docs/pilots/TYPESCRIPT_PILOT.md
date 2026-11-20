@@ -1,6 +1,6 @@
 # TypeScript analyzer pilot (plan step 9)
 
-The analyzer `@archguard/cli` (`typescript/archguard-ts`) was checked in four ways:
+The analyzer `archguard-cli` (`typescript/archguard-ts`) was checked in four ways:
 - the shared conformance suite;
 - two NestJS examples in this repository;
 - a public NestJS DDD/hexagonal project with real dependencies installed;

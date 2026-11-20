@@ -15,4 +15,7 @@ Behaviour:
 - It runs only when the agent completed normally and `architecture.yml` exists.
 - It follows up at most 3 times in a row (`loop_limit`).
 - It fails open. Build errors, a missing CLI or a timeout never block the agent; an analysis error is reported once.
-- It needs `python3`, `bash`, `git`, Java and the build tool on `PATH`, and the ArchGuard CLI jar (see `scripts/check.sh` for `ARCHGUARD_CLI_JAR`).
+- It needs `python3`, `bash` and `git` on `PATH`, plus the analyzer for the policy's `language`:
+  - Java: the JDK, the build tool and the ArchGuard CLI jar (see `ARCHGUARD_CLI_JAR` in `scripts/check.sh`);
+  - TypeScript: `archguard-cli` installed in the project's `node_modules`;
+  - Python: the `archguard-cli` distribution installed in the active environment.

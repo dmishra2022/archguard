@@ -2,12 +2,22 @@
 """Write the ArchGuard job summary, workflow annotations and the new-findings output.
 
 Usage: summary.py <archguard.json> <exit code> <annotations true|false> <summary file> <output file> [error]
+
+ARCHGUARD_PATH_PREFIX (for example "services/orders/") is prepended to finding paths, which the
+TypeScript and Python analyzers report relative to the analyzed project.
 """
 import json
+import os
 import sys
 from pathlib import Path
 
 MAX_ROWS = 50
+PREFIX = os.environ.get('ARCHGUARD_PATH_PREFIX', '')
+UNITS = {'java': 'classes', 'typescript': 'files', 'python': 'modules'}
+
+
+def repo_path(path):
+    return PREFIX + path if path else path
 
 
 def escape(value, prop=False):
@@ -43,14 +53,15 @@ def main():
         headline = ':white_check_mark: **Passed**' if code == 0 else ':x: **Architecture policy violated**'
         lines += [
             f'{headline}: {len(new)} new, {existing} baselined, {suppressed} suppressed; '
-            f'{report.get("analyzedClasses", 0)} classes analyzed (policy {report.get("policyHash", "")[:12]}).',
+            f'{report.get("analyzedClasses", 0)} {UNITS.get(report.get("language"), "units")} analyzed '
+            f'(policy {report.get("policyHash", "")[:12]}).',
             '',
         ]
         if new:
             groups = {}
             for f in new:
                 loc = f['location']
-                key = (f['ruleId'], f['severity'], loc['path'] or loc['symbol'], f['target'])
+                key = (f['ruleId'], f['severity'], repo_path(loc['path']) or loc['symbol'], f['target'])
                 groups.setdefault(key, {'lines': set(), 'count': 0, 'fix': f['remediation']})
                 groups[key]['count'] += 1
                 if loc.get('line'):
@@ -72,7 +83,7 @@ def main():
                 level = 'error' if f['severity'] == 'ERROR' else 'warning'
                 props = [f'title={escape(f["ruleId"] + " " + f["message"], True)}']
                 if loc['path']:
-                    props.insert(0, f'file={escape(loc["path"], True)}')
+                    props.insert(0, f'file={escape(repo_path(loc["path"]), True)}')
                     if loc.get('line'):
                         props.insert(1, f'line={loc["line"]}')
                 text = f'{loc["symbol"]} depends on {f["target"]}. {f["remediation"]}'

@@ -26,20 +26,32 @@ jobs:
           # upload-sarif: "false"                  (private repos without code scanning)
 ```
 
+The same step works for Java, TypeScript/JavaScript and Python projects. For a monorepo, add one step per project with its own `working-directory` and a unique `artifact-name`.
+
 What the action does:
-1. It detects the language from the build file and installs JDK 17.
-2. It gets the analyzer from Maven Central, or builds it from the action's source if that version is not published.
-3. It compiles the project and runs `mvn archguard:classpath` (Gradle projects get the same through the bundled init script, with no build changes).
+1. It picks the language: the `language` input, else the policy's `language:` key, else the build files (`pom.xml`/`build.gradle` for Java, `tsconfig.json`/`package.json` for TypeScript, `pyproject.toml`/`setup.py`/`setup.cfg` for Python).
+2. It installs the runtime: JDK (`java-version`, default 17), Node.js (`node-version`, default 20) or Python (`python-version`, default `3.x`). Set `setup-java`, `setup-node` or `setup-python` to `false` if the job already did.
+3. It gets the analyzer:
+   - Java: from Maven Central, or built from the action's source if that version is not published. It then compiles the project and runs `mvn archguard:classpath` (Gradle projects get the same through the bundled init script, with no build changes).
+   - TypeScript: the project's own `archguard-cli` devDependency when `node_modules` is installed, otherwise built from the action's source. No project build or `npm install` is needed. Run code generators (Prisma, GraphQL codegen) in an earlier step.
+   - Python: an `archguard` already on `PATH` (for example the project's dev environment), otherwise installed from the action's source into a private virtual environment. The project's dependencies are not needed; the Python version must be able to parse the project's syntax.
+   - `cli-command` overrides all of this, for example `npx archguard` or `.venv/bin/archguard`. The action checks with `--version` that the command is the ArchGuard analyzer for the language before trusting its exit code.
 4. It runs `archguard check` with the policy, the baseline and suppressions (when present), and the `fail-on` override.
-5. It writes a job summary and an annotation for each NEW finding. Annotations work without code scanning.
-6. It uploads SARIF to code scanning (`upload-sarif`) and the report directory as an artifact (`upload-artifact`, `artifact-name`).
+5. It writes a job summary and an annotation for each NEW finding, with repository-relative paths. Annotations work without code scanning.
+6. It uploads SARIF to code scanning (`upload-sarif`) and the report directory as an artifact (`upload-artifact`, `artifact-name`). Reports are in `target/archguard` (Maven), `build/archguard` (Gradle) or `reports/archguard` (TypeScript, Python) under the working directory.
 7. It fails the job with exit 1 (violation) or 2 (analysis error).
 
+The TypeScript and Python analyzers are distributed as `archguard-cli` on npm and PyPI. The unrelated packages `@archguard/cli` (npm) and `archguard` (PyPI) belong to other projects. The action never installs either of them.
+
 Outputs: `exit-code`, `status` (`passed`, `failed`, `error`), `new-findings`, `report-dir`, `sarif`. If you want to post-process before failing, use `continue-on-error: true` and read `exit-code`.
+
+To try the action's scripts locally without GitHub, run `action/tests/local_e2e.sh`. It runs the clean and violating examples for every language plus the pull-request scope, in a scratch copy of the repository.
 
 With `changed-files-only`, the whole project is still analyzed, but only findings located in files changed since the merge base are reported and gated. Run the full check on the default branch so nothing escapes.
 
 ## Any other CI: plain shell
+
+Java (Maven):
 
 ```bash
 mvn -B -q -DskipTests compile io.archguard:archguard-maven-plugin:0.1.0:classpath
@@ -50,6 +62,22 @@ exit $status
 ```
 
 Get the jar from Maven Central (`io.archguard:archguard-cli`) or build it with `mvn -pl archguard-cli -am package`.
+
+TypeScript (with `archguard-cli` in `devDependencies`):
+
+```bash
+npm ci
+npx archguard check --format json,sarif,html,console   # reports in reports/archguard
+```
+
+Python (with `archguard-cli` in the dev dependencies, or installed on its own):
+
+```bash
+pip install archguard-cli==0.1.0
+archguard check --format json,sarif,html,console        # reports in reports/archguard
+```
+
+The GitLab, Jenkins and Azure examples below use Java paths. For TypeScript and Python, use a Node or Python image and publish `reports/archguard/` instead of `target/archguard/`.
 
 ### GitLab CI
 

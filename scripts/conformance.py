@@ -148,7 +148,7 @@ def check_agent_output(process):
 
 
 def run_typescript_cli(case, expected, work):
-    """Run the built @archguard/cli on the case sources; the exit code is used as-is."""
+    """Run the built archguard-cli on the case sources; the exit code is used as-is."""
     if not TS_CLI.is_file():
         raise RuntimeError(f'{TS_CLI} missing; run npm ci && npm run build in typescript/archguard-ts')
     command = [

@@ -1,5 +1,5 @@
 {
-  "name": "@archguard/cli",
+  "name": "archguard-cli",
   "version": "0.1.0",
   "description": "ArchGuard architecture conformance analyzer for TypeScript and JavaScript projects",
   "license": "Apache-2.0",

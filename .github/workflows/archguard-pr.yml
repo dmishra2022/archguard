@@ -1,10 +1,11 @@
-# Dogfoods the action as a real pull-request gate on examples/clean: a PR that introduces a
-# violation there (for example OrderService importing SqlOrderStore) fails with an inline
-# annotation and a code-scanning alert; a compliant PR passes.
+# Dogfoods the action as a real pull-request gate on the clean example of each language: a PR that
+# introduces a violation there (for example OrderService importing SqlOrderStore, or place_order.py
+# importing the SQLAlchemy repository) fails with an inline annotation and a code-scanning alert;
+# a compliant PR passes.
 name: archguard-pr
 on:
   pull_request:
-    paths: ["examples/clean/**", "action/**"]
+    paths: ["examples/clean/**", "examples/typescript-clean/**", "examples/python-clean/**", "action/**"]
 
 permissions:
   contents: read
@@ -13,12 +14,17 @@ permissions:
 jobs:
   architecture:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        example: [clean, typescript-clean, python-clean]
     steps:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - uses: ./action
         with:
-          working-directory: examples/clean
+          working-directory: examples/${{ matrix.example }}
           changed-files-only: "true"
+          artifact-name: archguard-${{ matrix.example }}
           upload-sarif: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
