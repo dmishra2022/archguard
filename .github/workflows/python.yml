@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       # uv provides interpreters (python-build-standalone) that the runner image no longer ships, such as 3.9.
-      - uses: astral-sh/setup-uv@v10
+      - uses: astral-sh/setup-uv@v10.3.3
       - run: >-
           uv run --no-project --python "${{ matrix.python }}" --with "PyYAML>=5.4" --with "jsonschema>=4.0"
           python -m unittest discover -s tests -v
