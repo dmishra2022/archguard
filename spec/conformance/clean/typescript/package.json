@@ -1,0 +1,5 @@
+{
+  "name": "conformance-clean",
+  "private": true,
+  "type": "module"
+}

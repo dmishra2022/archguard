@@ -129,6 +129,14 @@ def run_java_cli(case, expected, work):
     if deps:
         command += ['--classpath', os.pathsep.join(deps)]
     process = subprocess.run(command, cwd=work, text=True, capture_output=True)
+    check_agent_output(process)
+    return process.returncode, work / 'target' / 'archguard' / 'archguard.json', process.stderr
+
+
+TS_CLI = ROOT / 'typescript' / 'archguard-ts' / 'dist' / 'cli.js'
+
+
+def check_agent_output(process):
     lines = [json.loads(line) for line in process.stdout.splitlines() if line.strip()]
     for line in lines:
         errors = [e.message for e in AGENT_SCHEMA.iter_errors(line)]
@@ -137,15 +145,33 @@ def run_java_cli(case, expected, work):
     want = {0: 'PASSED', 1: 'FAILED', 2: 'ERROR'}.get(process.returncode)
     if not lines or lines[-1].get('summary') is not True or lines[-1]['status'] != want:
         raise RuntimeError(f'agent summary does not match exit code {process.returncode}')
-    return process.returncode, work / 'target' / 'archguard' / 'archguard.json', process.stderr
 
 
-ENGINES = {('java', 'maven'): run_java_maven, ('java', 'cli'): run_java_cli}
+def run_typescript_cli(case, expected, work):
+    """Run the built @archguard/cli on the case sources; the exit code is used as-is."""
+    if not TS_CLI.is_file():
+        raise RuntimeError(f'{TS_CLI} missing; run npm ci && npm run build in typescript/archguard-ts')
+    command = [
+        'node', str(TS_CLI), 'check', '--project', str(work),
+        '--format', 'json,sarif,html,agent',
+    ]
+    process = subprocess.run(command, cwd=work, text=True, capture_output=True)
+    check_agent_output(process)
+    return process.returncode, work / 'reports' / 'archguard' / 'archguard.json', process.stderr
+
+
+ENGINES = {
+    ('java', 'maven'): run_java_maven,
+    ('java', 'cli'): run_java_cli,
+    ('typescript', 'cli'): run_typescript_cli,
+}
 
 
 def origin(finding):
-    """The origin unit: location.symbol, minus the member part for method-level symbols."""
+    """The origin unit: location.symbol minus the member part (Java `(`, Python/TypeScript `#`)."""
     symbol = finding['location']['symbol']
+    if '#' in symbol:
+        return symbol.split('#')[0]
     if '(' in symbol:
         return symbol.split('(')[0].rsplit('.', 1)[0]
     return symbol

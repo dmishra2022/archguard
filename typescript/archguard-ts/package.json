@@ -1,0 +1,54 @@
+{
+  "name": "@archguard/cli",
+  "version": "0.1.0",
+  "description": "ArchGuard architecture conformance analyzer for TypeScript and JavaScript projects",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bin": {
+    "archguard": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "spec",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepack": "node scripts/copy-spec.mjs && npm run build",
+    "test": "npm run build && node --test test/analyzer.test.mjs",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "typescript": "^5.9.3",
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmishra2022/archguard.git",
+    "directory": "typescript/archguard-ts"
+  },
+  "keywords": [
+    "architecture",
+    "hexagonal",
+    "ddd",
+    "lint",
+    "conformance",
+    "typescript"
+  ]
+}

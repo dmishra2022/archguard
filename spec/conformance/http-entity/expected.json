@@ -7,14 +7,14 @@
     {
       "rule": "FW-002",
       "severity": "ERROR",
-      "origin": { "java": "conf.shop.web.ProductResource" },
-      "target": { "java": "conf.shop.model.ProductEntity" }
+      "origin": { "java": "conf.shop.web.ProductResource", "typescript": "src/shop/web/product-resource" },
+      "target": { "java": "conf.shop.model.ProductEntity", "typescript": "src/shop/model/product-entity" }
     },
     {
       "rule": "FW-001",
       "severity": "ERROR",
-      "origin": { "java": "conf.shop.application.AdminResource" },
-      "target": { "java": "conf.shop.application.AdminResource" }
+      "origin": { "java": "conf.shop.application.AdminResource", "typescript": "src/shop/application/admin-resource" },
+      "target": { "java": "conf.shop.application.AdminResource", "typescript": "src/shop/application/admin-resource" }
     }
   ],
   "java": {

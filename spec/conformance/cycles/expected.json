@@ -7,14 +7,14 @@
     {
       "rule": "DDD-002",
       "severity": "ERROR",
-      "origin": { "java": "conf.billing.api.BillingApi" },
-      "target": { "java": "conf.orders.api.OrderApi" }
+      "origin": { "java": "conf.billing.api.BillingApi", "typescript": "src/billing/api/billing-api" },
+      "target": { "java": "conf.orders.api.OrderApi", "typescript": "src/orders/api/order-api" }
     },
     {
       "rule": "CYCLE-001",
       "severity": "ERROR",
-      "origin": { "java": "conf.billing.api.BillingApi" },
-      "target": { "java": "conf.orders.api.OrderApi" }
+      "origin": { "java": "conf.billing.api.BillingApi", "typescript": "src/billing/api/billing-api" },
+      "target": { "java": "conf.orders.api.OrderApi", "typescript": "src/orders/api/order-api" }
     }
   ]
 }

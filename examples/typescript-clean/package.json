@@ -1,0 +1,12 @@
+{
+  "name": "@examples/orders-nest",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NestJS orders service following hexagonal + DDD rules (ArchGuard example)",
+  "dependencies": {
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/typeorm": "^11.0.0",
+    "typeorm": "^0.3.20"
+  }
+}

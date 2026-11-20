@@ -42,7 +42,13 @@ spec/conformance/<case>/
 ```bash
 mvn -B install                                  # Java engine and plugin
 python3 scripts/conformance.py --language java
+python3 scripts/conformance.py --language java --engine cli
+
+(cd typescript/archguard-ts && npm ci && npm run build)
+python3 scripts/conformance.py --language typescript
 ```
+
+TypeScript origins and targets are module names (project-relative paths without extension). Member symbols use `#` (`src/shop/web/product-resource#ProductResource.get`); the runner compares the part before `#`.
 
 The runner copies each case to a temporary directory, so the suite never writes into `spec/`.
 

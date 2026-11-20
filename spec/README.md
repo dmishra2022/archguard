@@ -23,6 +23,7 @@ Spec version: **2.0.0** (see [VERSIONING.md](VERSIONING.md)).
 | [CLI.md](CLI.md) | Command-line contract, exit codes and report formats |
 | [SARIF_MAPPING.md](SARIF_MAPPING.md) | How findings map to SARIF 2.1.0 |
 | [conformance/](conformance/) | Cross-language conformance cases with expected findings |
+| [languages/typescript.md](languages/typescript.md) | TypeScript/JavaScript binding: units, containers, resolution, framework tags |
 
 ## Core model
 

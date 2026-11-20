@@ -7,14 +7,14 @@
     {
       "rule": "LAYER-001",
       "severity": "ERROR",
-      "origin": { "java": "conf.shop.persistence.OrderDao" },
-      "target": { "java": "conf.shop.service.OrderService" }
+      "origin": { "java": "conf.shop.persistence.OrderDao", "typescript": "src/shop/persistence/order-dao" },
+      "target": { "java": "conf.shop.service.OrderService", "typescript": "src/shop/service/order-service" }
     },
     {
       "rule": "LAYER-002",
       "severity": "ERROR",
-      "origin": { "java": "conf.shop.web.OrderController" },
-      "target": { "java": "conf.shop.persistence.OrderDao" }
+      "origin": { "java": "conf.shop.web.OrderController", "typescript": "src/shop/web/order-controller" },
+      "target": { "java": "conf.shop.persistence.OrderDao", "typescript": "src/shop/persistence/order-dao" }
     }
   ]
 }
