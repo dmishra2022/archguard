@@ -3,6 +3,15 @@
   "version": "0.1.0",
   "description": "ArchGuard architecture conformance analyzer for TypeScript and JavaScript projects",
   "license": "Apache-2.0",
+  "author": "Dharmendra Mishra",
+  "homepage": "https://dmishra2022.github.io/archguard/getting-started/typescript/",
+  "bugs": {
+    "url": "https://github.com/dmishra2022/archguard/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "type": "module",
   "bin": {
     "archguard": "dist/cli.js"
@@ -49,6 +58,9 @@
     "ddd",
     "lint",
     "conformance",
-    "typescript"
+    "typescript",
+    "javascript",
+    "clean-architecture",
+    "static-analysis"
   ]
 }

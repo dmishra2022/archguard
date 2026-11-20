@@ -4,7 +4,7 @@ Offline Java architecture analysis with a Java SDK and Maven plugin. Java 17 byt
 
 ArchGuard reports structural deviations, source locations when available, evidence, and suggested corrections. It **never modifies application source** and makes **no AI/network calls during analysis**. Maven may download build dependencies unless you use an already provisioned offline repository.
 
-**Adopting ArchGuard in a Java, TypeScript or Python project?** Follow [docs/ONBOARDING.md](docs/ONBOARDING.md).
+**Adopting ArchGuard in a Java, TypeScript or Python project?** Read the [documentation site](https://dmishra2022.github.io/archguard/) (source in [docs/](docs/index.md)): 10-minute quickstarts, the [onboarding guide](docs/ONBOARDING.md), an [adoption playbook](docs/guides/adoption-playbook.md) for rolling it out across teams, [troubleshooting](docs/troubleshooting.md) and an [FAQ](docs/faq.md).
 
 ## Build and test
 

@@ -45,7 +45,7 @@ npm pkg set scripts.arch:check="archguard check"
 pip install archguard-cli          # or: uv add --dev archguard-cli / poetry add --group dev archguard-cli
 ```
 
-The npm and PyPI packages are named `archguard-cli`. The packages called `@archguard/cli` (npm) and `archguard` (PyPI) are unrelated projects; do not install them. If your organisation mirrors packages internally, install from the internal registry.
+The npm and PyPI packages are named `archguard-cli`. The packages called `@archguard/cli` (npm) and `archguard` (PyPI) are unrelated projects; do not install them. If your organisation mirrors packages internally, install from the internal registry. Until 0.1.0 is published to the public registries, install from a clone of the repository: `pip install ./python/archguard-py`, or `npm install --save-dev ./typescript/archguard-ts` after `npm ci && npm run build` there.
 
 ## 2. Write the policy
 

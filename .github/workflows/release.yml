@@ -1,10 +1,17 @@
-# Release the analyzers: io.archguard:* to a Maven repository, archguard-cli to an npm registry and
-# archguard-cli to a Python package index. Registries are configured per repository (internal ones in
-# most organisations), so nothing is published until they are set:
-#   variables: MAVEN_REPOSITORY_URL, NPM_REGISTRY_URL, PYPI_REPOSITORY_URL
-#   secrets:   MAVEN_USERNAME, MAVEN_PASSWORD, NPM_TOKEN, PYPI_TOKEN
-# A tag v<version> builds, verifies and publishes to every configured registry and creates a GitHub
-# release. A manual run builds and verifies, and publishes only when `publish` is checked.
+# Release the analyzers. Nothing is published until a target is switched on with repository variables
+# (Settings > Secrets and variables > Actions > Variables); docs/maintainers/releasing.md has the setup.
+#
+#   Public registries, token-free trusted publishing (OIDC) from the GitHub environments `pypi` and `npm`:
+#     PYPI_PUBLIC=true    archguard-cli to pypi.org
+#     NPM_PUBLIC=true     archguard-cli to registry.npmjs.org (the very first version needs secret NPM_TOKEN)
+#   Internal registries, token based:
+#     MAVEN_REPOSITORY_URL + secrets MAVEN_USERNAME, MAVEN_PASSWORD
+#     NPM_REGISTRY_URL     + secret NPM_TOKEN
+#     PYPI_REPOSITORY_URL  + secret PYPI_TOKEN
+#
+# A tag v<version> builds, verifies, publishes to every enabled target and creates a GitHub release.
+# A manual run builds and verifies; it publishes only when `publish` is checked. `testpypi` alone sends
+# the Python package to test.pypi.org and nothing else (a rehearsal; needs the `testpypi` environment).
 name: release
 on:
   push:
@@ -12,7 +19,11 @@ on:
   workflow_dispatch:
     inputs:
       publish:
-        description: Publish to the configured registries (otherwise build and verify only)
+        description: Publish to the enabled registries (otherwise build and verify only)
+        type: boolean
+        default: false
+      testpypi:
+        description: Rehearsal - publish the Python package to test.pypi.org only
         type: boolean
         default: false
 
@@ -53,9 +64,10 @@ jobs:
       - name: Python package
         working-directory: python/archguard-py
         run: |
-          python -m pip install -q build "PyYAML>=5.4" "jsonschema>=4.0"
+          python -m pip install -q build twine "PyYAML>=5.4" "jsonschema>=4.0"
           python -m unittest discover -s tests
-          python scripts/copy_spec.py && python -m build
+          python -m build
+          python -m twine check --strict dist/*
       - uses: actions/upload-artifact@v7
         with:
           name: release-artifacts
@@ -65,9 +77,99 @@ jobs:
             python/archguard-py/dist/*
           if-no-files-found: error
 
+  pypi:
+    needs: build
+    if: vars.PYPI_PUBLIC == 'true' && inputs.testpypi != true && (startsWith(github.ref, 'refs/tags/v') || inputs.publish == true)
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/archguard-cli
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: release-artifacts
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: python/archguard-py/dist/
+
+  testpypi:
+    needs: build
+    if: inputs.testpypi == true
+    runs-on: ubuntu-latest
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/archguard-cli
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: release-artifacts
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: python/archguard-py/dist/
+          repository-url: https://test.pypi.org/legacy/
+
+  npm-public:
+    needs: build
+    if: vars.NPM_PUBLIC == 'true' && inputs.testpypi != true && (startsWith(github.ref, 'refs/tags/v') || inputs.publish == true)
+    runs-on: ubuntu-latest
+    environment:
+      name: npm
+      url: https://www.npmjs.com/package/archguard-cli
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: release-artifacts
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          registry-url: https://registry.npmjs.org
+      - name: npm 11.5.1 or later (trusted publishing)
+        run: npm install -g npm@11
+      - env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish typescript/archguard-ts/archguard-cli-*.tgz --access public --provenance
+
+  verify-published:
+    needs: [build, pypi, npm-public]
+    if: >-
+      always() && needs.build.result == 'success' &&
+      (needs.pypi.result == 'success' || needs.npm-public.result == 'success')
+    runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.build.outputs.version }}
+      PYPI_DONE: ${{ needs.pypi.result == 'success' }}
+      NPM_DONE: ${{ needs.npm-public.result == 'success' }}
+    steps:
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+      - name: Install the published packages (registries take a few minutes to propagate)
+        run: |
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            ok=true
+            if [ "$PYPI_DONE" = true ]; then
+              python -m pip install -q --no-cache-dir "archguard-cli==$VERSION" && archguard --version | grep -q "archguard $VERSION (python analyzer" || ok=false
+            fi
+            if [ "$NPM_DONE" = true ]; then
+              npx -y "archguard-cli@$VERSION" --version | grep -q "archguard $VERSION (typescript analyzer" || ok=false
+            fi
+            $ok && exit 0
+            echo "Attempt $attempt: not available yet"; sleep 30
+          done
+          exit 1
+
   maven:
     needs: build
-    if: vars.MAVEN_REPOSITORY_URL != ''
+    if: vars.MAVEN_REPOSITORY_URL != '' && inputs.testpypi != true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -86,9 +188,9 @@ jobs:
           REPOSITORY: ${{ vars.MAVEN_REPOSITORY_URL }}
         run: mvn -B -ntp deploy -DskipTests -DaltDeploymentRepository="archguard-release::$REPOSITORY"
 
-  npm:
+  npm-internal:
     needs: build
-    if: vars.NPM_REGISTRY_URL != ''
+    if: vars.NPM_REGISTRY_URL != '' && inputs.testpypi != true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v8
@@ -101,11 +203,11 @@ jobs:
       - if: env.PUBLISH == 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish typescript/archguard-ts/archguard-cli-*.tgz
+        run: npm publish typescript/archguard-ts/archguard-cli-*.tgz --provenance=false
 
-  pypi:
+  pypi-internal:
     needs: build
-    if: vars.PYPI_REPOSITORY_URL != ''
+    if: vars.PYPI_REPOSITORY_URL != '' && inputs.testpypi != true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v8

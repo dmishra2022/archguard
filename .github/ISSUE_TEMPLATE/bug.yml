@@ -1,0 +1,46 @@
+name: Bug, false positive or false negative
+description: The analyzer reports something wrong, misses a violation, or fails unexpectedly
+labels: [bug]
+body:
+  - type: dropdown
+    id: analyzer
+    attributes:
+      label: Analyzer
+      options: [Java (Maven plugin), Java (CLI jar), TypeScript / JavaScript, Python, GitHub Action, Agent skill]
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `archguard --version` (or the plugin version), plus JDK / Node.js / Python version and OS
+    validations: { required: true }
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options: [False positive (reported but allowed), False negative (violation not reported), Unexpected analysis error (exit 2), Crash or other bug]
+    validations: { required: true }
+  - type: textarea
+    id: policy
+    attributes:
+      label: Policy excerpt
+      description: The relevant part of architecture.yml (roots, profiles, roles)
+      render: yaml
+    validations: { required: true }
+  - type: textarea
+    id: output
+    attributes:
+      label: Finding or error as printed
+      description: Include the evidence line, for example `Module <a.b> imports <c.d> (file.py:6)`
+      render: text
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect, and why?
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: A small project or files that reproduce it. Do not paste proprietary code.
