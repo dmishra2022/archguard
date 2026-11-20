@@ -78,7 +78,8 @@ case "$LANGUAGE" in
         url="https://repo1.maven.org/maven2/io/archguard/archguard-cli/$VERSION/archguard-cli-$VERSION.jar"
         if ! curl -fsSL -o "$jar" "$url" 2>/dev/null; then
           group "Build ArchGuard $VERSION from source (not on Maven Central)"
-          retry mvn -B -q -ntp -f "$SOURCE_DIR/pom.xml" install -DskipTests \
+          # -U: Maven caches a failed download as "absent"; without it a retry repeats the failure.
+          retry mvn -B -q -ntp -U -f "$SOURCE_DIR/pom.xml" install -DskipTests \
             || { endgroup; finish 2 "Could not download or build archguard-cli $VERSION."; }
           endgroup
           built=$(ls "$SOURCE_DIR"/archguard-cli/target/archguard-cli-*.jar 2>/dev/null | grep -v original- | head -1)
