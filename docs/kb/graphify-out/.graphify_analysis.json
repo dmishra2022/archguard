@@ -1,6 +1,85 @@
 {
   "communities": {
     "0": [
+      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles",
+      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles_changedfiles",
+      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles_normalize",
+      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles_restrict",
+      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_java_analysisresult",
+      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs",
+      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_dependency",
+      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_module",
+      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_name",
+      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_read",
+      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_real",
+      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_resolve",
+      "archguard_cli_src_main_java_io_archguard_cli_main_java_architecturerule",
+      "archguard_cli_src_main_java_io_archguard_cli_main_java_classloader",
+      "archguard_cli_src_main_java_io_archguard_cli_main_java_severity",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_analyze",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_changedfiles",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_customrules",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_execute",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_extensions",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_main_62bce9",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_main_b28b7a",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_options",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_baselineoutput",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_config",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_formats",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_out",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_parse",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_path",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_severity",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_value",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_rules",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_run",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_usageexception",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_usageexception_usageexception",
+      "archguard_cli_src_main_java_io_archguard_cli_main_main_validate",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_agentformatprintsfindingsandsummary",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_analysis",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_analyzenevergates",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_baselineacceptsexistingdebtandrefusessilentoverwrite",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_changedfilesscopereportsonlylistedfiles",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_checkfailswithexitoneandwritesallreports",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_classpathfiledefinesmodules",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_failonoverridechangesthegate",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_findfirst",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_invalidpolicyisananalysiserrorwithfailurereports",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_missingclassesisananalysiserror",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_policy",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_report",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_run",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_run_a1fffa",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_symlinkedprojectstillmapssourcefiles",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_usageerrorsexitsixtyfour",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_validateandrules",
+      "archguard_core_src_main_java_io_archguard_engine_moduleinput_moduleinput",
+      "archguard_core_src_main_java_io_archguard_report_reports_java_analysisresult",
+      "archguard_core_src_main_java_io_archguard_report_reports_java_objectmapper",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_agent",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_agenterror",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_atomic",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_compact",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_console",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_escape",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_html",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_reports",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_sarif",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_uri",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_write",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_write_b67bbe",
+      "archguard_core_src_main_java_io_archguard_report_reports_reports_writefailure",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_specversion",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_classpathmojo_execute",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_java_override",
+      "org_junit_jupiter_api_test"
+    ],
+    "1": [
       "archguard_core_src_main_java_io_archguard_config_policies_java_classloader",
       "archguard_core_src_main_java_io_archguard_config_policies_java_jsonnode",
       "archguard_core_src_main_java_io_archguard_config_policies_java_objectmapper",
@@ -63,125 +142,57 @@
       "arraynode",
       "objectnode"
     ],
-    "1": [
-      "argparse",
-      "atexit",
-      "glob",
-      "jsonschema",
-      "python_archguard_py_scripts_copy_spec",
-      "python_archguard_py_scripts_copy_spec_rationale_1",
-      "scripts_benchmark",
-      "scripts_benchmark_rationale_2",
-      "scripts_benchmark_run",
-      "scripts_conformance",
-      "scripts_conformance_check_agent_output",
-      "scripts_conformance_check_case",
-      "scripts_conformance_expected_tuples",
-      "scripts_conformance_java_dependencies",
-      "scripts_conformance_main",
-      "scripts_conformance_maven_artifact",
-      "scripts_conformance_origin",
-      "scripts_conformance_rationale_114",
-      "scripts_conformance_rationale_151",
-      "scripts_conformance_rationale_167",
-      "scripts_conformance_rationale_188",
-      "scripts_conformance_rationale_2",
-      "scripts_conformance_run_java_cli",
-      "scripts_conformance_run_java_maven",
-      "scripts_conformance_run_python_cli",
-      "scripts_conformance_run_typescript_cli",
-      "scripts_conformance_tuples",
-      "scripts_integration_test",
-      "scripts_integration_test_fixture",
-      "scripts_integration_test_rationale_2",
-      "scripts_integration_test_record",
-      "scripts_integration_test_report",
-      "scripts_integration_test_source_hash",
-      "scripts_kb_check",
-      "scripts_kb_check_build",
-      "scripts_kb_check_comparable",
-      "scripts_kb_check_export_sources",
-      "scripts_kb_check_graphify",
-      "scripts_kb_check_installed_version",
-      "scripts_kb_check_main",
-      "scripts_kb_check_rationale_2",
-      "scripts_kb_check_rationale_63",
-      "scripts_preset_check",
-      "scripts_preset_check_analyzer",
-      "scripts_preset_check_analyzer_init",
-      "scripts_preset_check_analyzer_install_java",
-      "scripts_preset_check_analyzer_install_python",
-      "scripts_preset_check_analyzer_install_typescript",
-      "scripts_preset_check_analyzer_run",
-      "scripts_preset_check_analyzer_validate",
-      "scripts_preset_check_check",
-      "scripts_preset_check_main",
-      "scripts_preset_check_policy",
-      "scripts_preset_check_rationale_2",
-      "scripts_preset_check_rationale_49",
-      "scripts_preset_check_run",
-      "shutil",
-      "subprocess",
-      "tempfile",
-      "time"
-    ],
     "2": [
-      "django_core_management",
-      "django_core_wsgi",
-      "examples_python_django_library_wsgi",
-      "examples_python_django_manage",
-      "html",
-      "os",
-      "python_archguard_py_src_archguard_changed",
-      "python_archguard_py_src_archguard_changed_normalize_path",
-      "python_archguard_py_src_archguard_changed_py_path",
-      "python_archguard_py_src_archguard_changed_rationale_18",
-      "python_archguard_py_src_archguard_changed_restrict_to_changed_files",
-      "python_archguard_py_src_archguard_cli",
-      "python_archguard_py_src_archguard_cli_io",
-      "python_archguard_py_src_archguard_cli_main",
-      "python_archguard_py_src_archguard_cli_options",
-      "python_archguard_py_src_archguard_cli_parse_options",
-      "python_archguard_py_src_archguard_cli_parse_options_path",
-      "python_archguard_py_src_archguard_cli_parse_options_value",
-      "python_archguard_py_src_archguard_cli_py_exception",
-      "python_archguard_py_src_archguard_cli_py_path",
-      "python_archguard_py_src_archguard_cli_rationale_1",
-      "python_archguard_py_src_archguard_cli_run",
-      "python_archguard_py_src_archguard_cli_usageerror",
-      "python_archguard_py_src_archguard_debt_write_baseline",
+      "hashlib",
+      "python_archguard_py_src_archguard_engine",
       "python_archguard_py_src_archguard_engine_analyze",
+      "python_archguard_py_src_archguard_engine_evaluate_model",
       "python_archguard_py_src_archguard_engine_py_path",
-      "python_archguard_py_src_archguard_main",
-      "python_archguard_py_src_archguard_model_analysisresult",
-      "python_archguard_py_src_archguard_model_analysisresult_fails",
-      "python_archguard_py_src_archguard_model_analysisresult_to_json",
-      "python_archguard_py_src_archguard_model_analysisresult_with_findings",
-      "python_archguard_py_src_archguard_model_at_least",
-      "python_archguard_py_src_archguard_precommit",
-      "python_archguard_py_src_archguard_precommit_main",
-      "python_archguard_py_src_archguard_precommit_rationale_1",
-      "python_archguard_py_src_archguard_precommit_split",
-      "python_archguard_py_src_archguard_reports",
-      "python_archguard_py_src_archguard_reports_agent",
-      "python_archguard_py_src_archguard_reports_agent_error",
-      "python_archguard_py_src_archguard_reports_atomic",
-      "python_archguard_py_src_archguard_reports_console_report",
-      "python_archguard_py_src_archguard_reports_e",
-      "python_archguard_py_src_archguard_reports_html",
-      "python_archguard_py_src_archguard_reports_line",
-      "python_archguard_py_src_archguard_reports_pretty",
-      "python_archguard_py_src_archguard_reports_py_path",
-      "python_archguard_py_src_archguard_reports_rationale_1",
-      "python_archguard_py_src_archguard_reports_rationale_55",
-      "python_archguard_py_src_archguard_reports_rationale_81",
-      "python_archguard_py_src_archguard_reports_sarif",
-      "python_archguard_py_src_archguard_reports_spec_version",
-      "python_archguard_py_src_archguard_reports_write_failure",
-      "python_archguard_py_src_archguard_reports_write_reports",
-      "python_archguard_py_tests_test_analyzer_project_cli",
-      "secrets",
-      "sys"
+      "python_archguard_py_src_archguard_importer",
+      "python_archguard_py_src_archguard_importer_context_of",
+      "python_archguard_py_src_archguard_importer_http_entity_exposures",
+      "python_archguard_py_src_archguard_importer_rationale_1",
+      "python_archguard_py_src_archguard_importer_rationale_247",
+      "python_archguard_py_src_archguard_importer_read_model",
+      "python_archguard_py_src_archguard_importer_require_match",
+      "python_archguard_py_src_archguard_importer_role_of",
+      "python_archguard_py_src_archguard_importer_single",
+      "python_archguard_py_src_archguard_init",
+      "python_archguard_py_src_archguard_init_rationale_1",
+      "python_archguard_py_src_archguard_model",
+      "python_archguard_py_src_archguard_model_dependency",
+      "python_archguard_py_src_archguard_model_dependency_target_containers",
+      "python_archguard_py_src_archguard_model_finding",
+      "python_archguard_py_src_archguard_model_finding_to_json",
+      "python_archguard_py_src_archguard_model_location",
+      "python_archguard_py_src_archguard_model_location_to_json",
+      "python_archguard_py_src_archguard_model_model",
+      "python_archguard_py_src_archguard_model_unit",
+      "python_archguard_py_src_archguard_model_unit_containers",
+      "python_archguard_py_src_archguard_policy_policy",
+      "python_archguard_py_src_archguard_policy_policy_context",
+      "python_archguard_py_src_archguard_policy_policy_hash",
+      "python_archguard_py_src_archguard_policy_rationale_321",
+      "python_archguard_py_src_archguard_rules",
+      "python_archguard_py_src_archguard_rules_active",
+      "python_archguard_py_src_archguard_rules_check_rule_ids",
+      "python_archguard_py_src_archguard_rules_components",
+      "python_archguard_py_src_archguard_rules_cycle_findings",
+      "python_archguard_py_src_archguard_rules_evaluate",
+      "python_archguard_py_src_archguard_rules_evaluate_add",
+      "python_archguard_py_src_archguard_rules_evaluate_add_rule",
+      "python_archguard_py_src_archguard_rules_evaluate_self_dep",
+      "python_archguard_py_src_archguard_rules_fingerprint",
+      "python_archguard_py_src_archguard_rules_is_infrastructure",
+      "python_archguard_py_src_archguard_rules_module_matches",
+      "python_archguard_py_src_archguard_rules_rationale_1",
+      "python_archguard_py_src_archguard_rules_rationale_40",
+      "python_archguard_py_src_archguard_rules_rationale_49",
+      "python_archguard_py_src_archguard_rules_render",
+      "python_archguard_py_src_archguard_selectors_matches",
+      "python_archguard_py_src_archguard_spec_catalog_41daba",
+      "python_archguard_py_src_archguard_spec_fill",
+      "typing"
     ],
     "3": [
       "typescript_archguard_ts_src_debt_writebaseline",
@@ -287,106 +298,6 @@
       "spec_conformance_unclassified_java_src_main_java_conf_orders_domain_order_order"
     ],
     "5": [
-      "hashlib",
-      "python_archguard_py_src_archguard_engine",
-      "python_archguard_py_src_archguard_engine_evaluate_model",
-      "python_archguard_py_src_archguard_frameworks_annotation_leaves",
-      "python_archguard_py_src_archguard_frameworks_rationale_286",
-      "python_archguard_py_src_archguard_importer",
-      "python_archguard_py_src_archguard_importer_context_of",
-      "python_archguard_py_src_archguard_importer_http_entity_exposures",
-      "python_archguard_py_src_archguard_importer_rationale_1",
-      "python_archguard_py_src_archguard_importer_rationale_247",
-      "python_archguard_py_src_archguard_importer_read_model",
-      "python_archguard_py_src_archguard_importer_require_match",
-      "python_archguard_py_src_archguard_importer_role_of",
-      "python_archguard_py_src_archguard_importer_single",
-      "python_archguard_py_src_archguard_init",
-      "python_archguard_py_src_archguard_init_rationale_1",
-      "python_archguard_py_src_archguard_model",
-      "python_archguard_py_src_archguard_model_dependency",
-      "python_archguard_py_src_archguard_model_dependency_target_containers",
-      "python_archguard_py_src_archguard_model_finding",
-      "python_archguard_py_src_archguard_model_finding_to_json",
-      "python_archguard_py_src_archguard_model_location",
-      "python_archguard_py_src_archguard_model_location_to_json",
-      "python_archguard_py_src_archguard_model_model",
-      "python_archguard_py_src_archguard_model_unit",
-      "python_archguard_py_src_archguard_model_unit_containers",
-      "python_archguard_py_src_archguard_policy_policy",
-      "python_archguard_py_src_archguard_policy_policy_context",
-      "python_archguard_py_src_archguard_policy_policy_hash",
-      "python_archguard_py_src_archguard_policy_rationale_321",
-      "python_archguard_py_src_archguard_rules",
-      "python_archguard_py_src_archguard_rules_active",
-      "python_archguard_py_src_archguard_rules_check_rule_ids",
-      "python_archguard_py_src_archguard_rules_components",
-      "python_archguard_py_src_archguard_rules_cycle_findings",
-      "python_archguard_py_src_archguard_rules_evaluate",
-      "python_archguard_py_src_archguard_rules_evaluate_add",
-      "python_archguard_py_src_archguard_rules_evaluate_add_rule",
-      "python_archguard_py_src_archguard_rules_evaluate_self_dep",
-      "python_archguard_py_src_archguard_rules_fingerprint",
-      "python_archguard_py_src_archguard_rules_is_infrastructure",
-      "python_archguard_py_src_archguard_rules_module_matches",
-      "python_archguard_py_src_archguard_rules_rationale_1",
-      "python_archguard_py_src_archguard_rules_rationale_40",
-      "python_archguard_py_src_archguard_rules_rationale_49",
-      "python_archguard_py_src_archguard_rules_render",
-      "python_archguard_py_src_archguard_selectors_matches",
-      "python_archguard_py_src_archguard_spec_catalog_41daba",
-      "python_archguard_py_src_archguard_spec_fill"
-    ],
-    "6": [
-      "assign",
-      "ast",
-      "call",
-      "classdef",
-      "definition",
-      "python_archguard_py_src_archguard_frameworks",
-      "python_archguard_py_src_archguard_frameworks_abstract",
-      "python_archguard_py_src_archguard_frameworks_annotated_injection",
-      "python_archguard_py_src_archguard_frameworks_assigns",
-      "python_archguard_py_src_archguard_frameworks_callee",
-      "python_archguard_py_src_archguard_frameworks_frameworks",
-      "python_archguard_py_src_archguard_frameworks_frameworks_base_kind",
-      "python_archguard_py_src_archguard_frameworks_frameworks_class_kind",
-      "python_archguard_py_src_archguard_frameworks_frameworks_handlers",
-      "python_archguard_py_src_archguard_frameworks_frameworks_imported_framework",
-      "python_archguard_py_src_archguard_frameworks_frameworks_init",
-      "python_archguard_py_src_archguard_frameworks_frameworks_is_flask_sqlalchemy",
-      "python_archguard_py_src_archguard_frameworks_frameworks_resolve_class",
-      "python_archguard_py_src_archguard_frameworks_frameworks_route_framework",
-      "python_archguard_py_src_archguard_frameworks_frameworks_router_kind",
-      "python_archguard_py_src_archguard_frameworks_frameworks_sqlmodel",
-      "python_archguard_py_src_archguard_frameworks_frameworks_tags",
-      "python_archguard_py_src_archguard_frameworks_injected",
-      "python_archguard_py_src_archguard_frameworks_mapped",
-      "python_archguard_py_src_archguard_frameworks_name",
-      "python_archguard_py_src_archguard_frameworks_py_expr",
-      "python_archguard_py_src_archguard_frameworks_rationale_1",
-      "python_archguard_py_src_archguard_frameworks_rationale_154",
-      "python_archguard_py_src_archguard_frameworks_rationale_179",
-      "python_archguard_py_src_archguard_frameworks_rationale_199",
-      "python_archguard_py_src_archguard_frameworks_rationale_313",
-      "python_archguard_py_src_archguard_frameworks_rationale_325",
-      "python_archguard_py_src_archguard_frameworks_rationale_65",
-      "python_archguard_py_src_archguard_frameworks_rationale_75",
-      "python_archguard_py_src_archguard_frameworks_signature_types",
-      "python_archguard_py_src_archguard_frameworks_true",
-      "python_archguard_py_src_archguard_index_moduleinfo",
-      "python_archguard_py_src_archguard_index_moduleinfo_name",
-      "python_archguard_py_src_archguard_index_py_expr",
-      "python_archguard_py_src_archguard_index_rationale_100",
-      "python_archguard_py_src_archguard_index_rationale_113",
-      "python_archguard_py_src_archguard_index_sourceindex",
-      "python_archguard_py_src_archguard_index_sourceindex_bind",
-      "python_archguard_py_src_archguard_index_sourceindex_lookup",
-      "python_archguard_py_src_archguard_index_sourceindex_parse",
-      "python_archguard_py_src_archguard_index_sourceindex_qualify",
-      "stmt"
-    ],
-    "7": [
       "github_workflows_action_e2e",
       "github_workflows_action_e2e_env_code",
       "github_workflows_action_e2e_env_expect",
@@ -433,7 +344,7 @@
       "github_workflows_action_e2e_with_upload_sarif",
       "github_workflows_action_e2e_with_working_directory"
     ],
-    "8": [
+    "6": [
       "ambiguous_python_import_94bb0705a71e",
       "ambiguous_python_import_baf815ec18e0",
       "examples_python_clean_src_orders_domain_init",
@@ -479,53 +390,53 @@
       "pydantic",
       "uuid"
     ],
-    "9": [
-      "archguard_cli_src_main_java_io_archguard_cli_main_java_architecturerule",
-      "archguard_cli_src_main_java_io_archguard_cli_main_java_classloader",
-      "archguard_cli_src_main_java_io_archguard_cli_main_java_severity",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_analyze",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_changedfiles",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_customrules",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_execute",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_extensions",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_main_62bce9",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_main_b28b7a",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_options",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_baselineoutput",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_config",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_formats",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_out",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_parse",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_path",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_severity",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_options_value",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_rules",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_run",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_usageexception",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_usageexception_usageexception",
-      "archguard_cli_src_main_java_io_archguard_cli_main_main_validate",
-      "archguard_core_src_main_java_io_archguard_report_reports_java_analysisresult",
-      "archguard_core_src_main_java_io_archguard_report_reports_java_objectmapper",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_agent",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_agenterror",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_atomic",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_compact",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_console",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_escape",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_html",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_reports",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_sarif",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_uri",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_write",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_write_b67bbe",
-      "archguard_core_src_main_java_io_archguard_report_reports_reports_writefailure",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_specversion",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_classpathmojo_execute",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_java_override"
+    "7": [
+      "assign",
+      "ast",
+      "call",
+      "classdef",
+      "definition",
+      "python_archguard_py_src_archguard_frameworks",
+      "python_archguard_py_src_archguard_frameworks_abstract",
+      "python_archguard_py_src_archguard_frameworks_annotated_injection",
+      "python_archguard_py_src_archguard_frameworks_annotation_leaves",
+      "python_archguard_py_src_archguard_frameworks_assigns",
+      "python_archguard_py_src_archguard_frameworks_callee",
+      "python_archguard_py_src_archguard_frameworks_frameworks",
+      "python_archguard_py_src_archguard_frameworks_frameworks_base_kind",
+      "python_archguard_py_src_archguard_frameworks_frameworks_class_kind",
+      "python_archguard_py_src_archguard_frameworks_frameworks_handlers",
+      "python_archguard_py_src_archguard_frameworks_frameworks_imported_framework",
+      "python_archguard_py_src_archguard_frameworks_frameworks_is_flask_sqlalchemy",
+      "python_archguard_py_src_archguard_frameworks_frameworks_resolve_class",
+      "python_archguard_py_src_archguard_frameworks_frameworks_route_framework",
+      "python_archguard_py_src_archguard_frameworks_frameworks_router_kind",
+      "python_archguard_py_src_archguard_frameworks_frameworks_sqlmodel",
+      "python_archguard_py_src_archguard_frameworks_frameworks_tags",
+      "python_archguard_py_src_archguard_frameworks_injected",
+      "python_archguard_py_src_archguard_frameworks_mapped",
+      "python_archguard_py_src_archguard_frameworks_name",
+      "python_archguard_py_src_archguard_frameworks_py_expr",
+      "python_archguard_py_src_archguard_frameworks_rationale_1",
+      "python_archguard_py_src_archguard_frameworks_rationale_154",
+      "python_archguard_py_src_archguard_frameworks_rationale_179",
+      "python_archguard_py_src_archguard_frameworks_rationale_199",
+      "python_archguard_py_src_archguard_frameworks_rationale_286",
+      "python_archguard_py_src_archguard_frameworks_rationale_313",
+      "python_archguard_py_src_archguard_frameworks_rationale_325",
+      "python_archguard_py_src_archguard_frameworks_rationale_65",
+      "python_archguard_py_src_archguard_frameworks_rationale_75",
+      "python_archguard_py_src_archguard_frameworks_signature_types",
+      "python_archguard_py_src_archguard_frameworks_true",
+      "python_archguard_py_src_archguard_index_moduleinfo",
+      "python_archguard_py_src_archguard_index_moduleinfo_name",
+      "python_archguard_py_src_archguard_index_py_expr",
+      "python_archguard_py_src_archguard_index_rationale_100",
+      "python_archguard_py_src_archguard_index_rationale_113",
+      "python_archguard_py_src_archguard_index_sourceindex_lookup",
+      "python_archguard_py_src_archguard_index_sourceindex_qualify"
     ],
-    "10": [
+    "8": [
       "apiview",
       "atomic",
       "django_db",
@@ -568,7 +479,7 @@
       "rest_framework_views",
       "urllib_request"
     ],
-    "11": [
+    "9": [
       "archguard_core_src_main_java_io_archguard_engine_modelimporter_java_architecturemodel",
       "archguard_core_src_main_java_io_archguard_engine_modelimporter_java_javaclass",
       "archguard_core_src_main_java_io_archguard_engine_modelimporter_java_policy",
@@ -608,85 +519,7 @@
       "beforeall",
       "javamethod"
     ],
-    "12": [
-      "any",
-      "copy",
-      "importlib_util",
-      "mappingnode",
-      "python_archguard_py_src_archguard_policy",
-      "python_archguard_py_src_archguard_policy_by_id",
-      "python_archguard_py_src_archguard_policy_canonical",
-      "python_archguard_py_src_archguard_policy_constraint",
-      "python_archguard_py_src_archguard_policy_construct_mapping",
-      "python_archguard_py_src_archguard_policy_context",
-      "python_archguard_py_src_archguard_policy_identifier",
-      "python_archguard_py_src_archguard_policy_merge",
-      "python_archguard_py_src_archguard_policy_parent_file",
-      "python_archguard_py_src_archguard_policy_policyerror",
-      "python_archguard_py_src_archguard_policy_preset_file",
-      "python_archguard_py_src_archguard_policy_py_path",
-      "python_archguard_py_src_archguard_policy_py_valueerror",
-      "python_archguard_py_src_archguard_policy_rationale_1",
-      "python_archguard_py_src_archguard_policy_rationale_116",
-      "python_archguard_py_src_archguard_policy_rationale_152",
-      "python_archguard_py_src_archguard_policy_read_policy",
-      "python_archguard_py_src_archguard_policy_read_tree",
-      "python_archguard_py_src_archguard_policy_reject_locked_changes",
-      "python_archguard_py_src_archguard_policy_reject_nulls",
-      "python_archguard_py_src_archguard_policy_resolve_tree",
-      "python_archguard_py_src_archguard_policy_schema_error",
-      "python_archguard_py_src_archguard_policy_selectors",
-      "python_archguard_py_src_archguard_policy_semantic_validate",
-      "python_archguard_py_src_archguard_policy_uniquekeyloader",
-      "python_archguard_py_src_archguard_selectors",
-      "python_archguard_py_src_archguard_selectors_match",
-      "python_archguard_py_src_archguard_selectors_matches_one",
-      "python_archguard_py_src_archguard_selectors_rationale_1",
-      "python_archguard_py_src_archguard_selectors_segments",
-      "python_archguard_py_src_archguard_selectors_validate_selector",
-      "python_archguard_py_tests_test_analyzer_analyzertest_test_selectors",
-      "safeloader"
-    ],
-    "13": [
-      "api",
-      "archguard_api_src_main_java_io_archguard_api_finding",
-      "archguard_cli_src_main_java_io_archguard_cli_changedfiles",
-      "archguard_cli_src_main_java_io_archguard_cli_inputs",
-      "archguard_cli_src_main_java_io_archguard_cli_main",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest",
-      "archguard_core_src_main_java_io_archguard_config_policies",
-      "archguard_core_src_main_java_io_archguard_config_policy",
-      "archguard_core_src_main_java_io_archguard_engine_architectureengine",
-      "archguard_core_src_main_java_io_archguard_engine_builtinrules",
-      "archguard_core_src_main_java_io_archguard_engine_debt",
-      "archguard_core_src_main_java_io_archguard_report_reports",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog",
-      "archguard_core_src_test_java_io_archguard_config_policytest",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest",
-      "archguard_core_src_test_java_io_archguard_engine_importertest",
-      "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest",
-      "assertions",
-      "com_fasterxml_jackson_databind_node_objectnode",
-      "com_fasterxml_jackson_dataformat_yaml_yamlmapper",
-      "config",
-      "core",
-      "databind",
-      "debt",
-      "file",
-      "io",
-      "ioexception",
-      "jsonproperty",
-      "messagedigest",
-      "node",
-      "packagematcher",
-      "security",
-      "standardcharsets",
-      "tempdir",
-      "uri",
-      "util"
-    ],
-    "14": [
+    "10": [
       "archguard_core_src_main_java_io_archguard_engine_architectureengine_architectureengine",
       "archguard_core_src_main_java_io_archguard_engine_architectureengine_architectureengine_analyze",
       "archguard_core_src_main_java_io_archguard_engine_architectureengine_architectureengine_describe",
@@ -699,10 +532,11 @@
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulecannotshadowbuiltin_object_architecturerule_l411",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulecannotshadowbuiltin_object_architecturerule_l411_id",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses_object_architecturerule_l389",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses_object_architecturerule_l389_id",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulesrun",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulesrun_object_architecturerule_l362",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulesrun_object_architecturerule_l362_id",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_disabledruledoesnotemit",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_policy",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_type",
       "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_unknownrulefails",
@@ -724,7 +558,120 @@
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_v2",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_v2hashincludesv2settings"
     ],
-    "15": [
+    "11": [
+      "api",
+      "archguard_api_src_main_java_io_archguard_api_finding",
+      "archguard_cli_src_main_java_io_archguard_cli_inputs",
+      "archguard_cli_src_test_java_io_archguard_cli_maintest",
+      "archguard_core_src_main_java_io_archguard_config_policies",
+      "archguard_core_src_main_java_io_archguard_config_policy",
+      "archguard_core_src_main_java_io_archguard_engine_architectureengine",
+      "archguard_core_src_main_java_io_archguard_engine_builtinrules",
+      "archguard_core_src_main_java_io_archguard_engine_debt",
+      "archguard_core_src_main_java_io_archguard_engine_debt_debt",
+      "archguard_core_src_main_java_io_archguard_engine_debt_debt_debt",
+      "archguard_core_src_main_java_io_archguard_engine_debt_java_objectmapper",
+      "archguard_core_src_main_java_io_archguard_report_reports",
+      "archguard_core_src_test_java_io_archguard_config_policytest",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest",
+      "archguard_core_src_test_java_io_archguard_engine_importertest",
+      "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest",
+      "assertions",
+      "com_fasterxml_jackson_databind_node_objectnode",
+      "config",
+      "core",
+      "databind",
+      "debt",
+      "file",
+      "io",
+      "ioexception",
+      "jsonproperty",
+      "messagedigest",
+      "node",
+      "packagematcher",
+      "security",
+      "standardcharsets",
+      "tempdir",
+      "uri",
+      "util"
+    ],
+    "12": [
+      "django_core_management",
+      "examples_python_django_manage",
+      "json",
+      "scripts_conformance",
+      "scripts_conformance_check_agent_output",
+      "scripts_conformance_check_case",
+      "scripts_conformance_expected_tuples",
+      "scripts_conformance_java_dependencies",
+      "scripts_conformance_main",
+      "scripts_conformance_maven_artifact",
+      "scripts_conformance_origin",
+      "scripts_conformance_rationale_114",
+      "scripts_conformance_rationale_151",
+      "scripts_conformance_rationale_167",
+      "scripts_conformance_rationale_188",
+      "scripts_conformance_rationale_2",
+      "scripts_conformance_run_java_cli",
+      "scripts_conformance_run_java_maven",
+      "scripts_conformance_run_python_cli",
+      "scripts_conformance_run_typescript_cli",
+      "scripts_conformance_tuples",
+      "scripts_kb_check",
+      "scripts_kb_check_build",
+      "scripts_kb_check_comparable",
+      "scripts_kb_check_export_sources",
+      "scripts_kb_check_graphify",
+      "scripts_kb_check_installed_version",
+      "scripts_kb_check_main",
+      "scripts_kb_check_rationale_2",
+      "scripts_kb_check_rationale_63",
+      "shutil",
+      "skills_archguard_hooks_archguard_stop",
+      "skills_archguard_hooks_archguard_stop_main",
+      "skills_archguard_hooks_archguard_stop_rationale_2",
+      "subprocess",
+      "sys"
+    ],
+    "13": [
+      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult_fails",
+      "archguard_core_src_main_java_io_archguard_engine_cycles_cycles_components",
+      "archguard_core_src_main_java_io_archguard_engine_debt_debt_apply",
+      "archguard_core_src_main_java_io_archguard_engine_debt_debt_suppression",
+      "archguard_core_src_main_java_io_archguard_engine_debt_debt_suppressions",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_acycliccontextspass",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_adapterbypassfails",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_applicationtoadapterfails",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_applicationtoportpasses",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_baselineallowsexistingbutnotnew",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_baselinepolicymismatchfails",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_configurabledependencyrule",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_contextcycleshowsalledges",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_crosscontextexposedapipasses",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_crosscontextinternalsfail",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_deterministicoutput",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_disabledruledoesnotemit",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_domaintoadapterfails",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_domaintoapplicationfails",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_domaintomicronautinfrastructurefails",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_expiredsuppressionfails",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_has",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_largegraphdoesnotoverflowstack",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_model",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_outboundadaptertoportpasses",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_portleaksmicronauttype",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_portleakspersistencetype",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_result",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_separatecyclesremainseparate",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_severitygateworks",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_unclassifiedfailswhenrequired",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_validsuppressionrecordsowneranddoesnotgate",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_java_analysisresult",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_java_test"
+    ],
+    "14": [
       "typescript_archguard_ts_src_importer",
       "typescript_archguard_ts_src_importer_alltypeonly",
       "typescript_archguard_ts_src_importer_cmp",
@@ -760,41 +707,7 @@
       "typescript_archguard_ts_src_project_rel",
       "typescript_archguard_ts_src_project_workspacepackage"
     ],
-    "16": [
-      "archguard_api_src_main_java_io_archguard_api_analysisresult",
-      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult",
-      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult_analysisresult",
-      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult_withfindingsanddiagnostics",
-      "archguard_api_src_main_java_io_archguard_api_dependency",
-      "archguard_api_src_main_java_io_archguard_api_dependency_dependency",
-      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_dependency",
-      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_kind",
-      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_kind_http_entity_exposure",
-      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_kind_static",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_create",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_status",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_status_existing",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_status_new",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_status_suppressed",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_withseverity",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_withstatus",
-      "archguard_api_src_main_java_io_archguard_api_finding_finding_withstatus_3df63b",
-      "archguard_api_src_main_java_io_archguard_api_location",
-      "archguard_api_src_main_java_io_archguard_api_location_location",
-      "archguard_api_src_main_java_io_archguard_api_severity",
-      "archguard_api_src_main_java_io_archguard_api_severity_severity",
-      "archguard_api_src_main_java_io_archguard_api_severity_severity_atleast",
-      "archguard_api_src_main_java_io_archguard_api_severity_severity_error",
-      "archguard_api_src_main_java_io_archguard_api_severity_severity_info",
-      "archguard_api_src_main_java_io_archguard_api_severity_severity_warning",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_edge",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_fingerprintsurviveslinemovement",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_reportsescapeuntrustedcontentandhavesariflocations",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_java_dependency",
-      "deprecated"
-    ],
-    "17": [
+    "15": [
       "github_workflows_typescript",
       "github_workflows_typescript_defaults_run",
       "github_workflows_typescript_jobs",
@@ -828,7 +741,7 @@
       "github_workflows_typescript_with_node_version",
       "github_workflows_typescript_with_path"
     ],
-    "18": [
+    "16": [
       "ajv",
       "ref_node_crypto",
       "ref_node_module",
@@ -861,7 +774,40 @@
       "typescript_archguard_ts_src_selectors_validateselector",
       "typescript_archguard_ts_src_spec_rulespec"
     ],
-    "19": [
+    "17": [
+      "any",
+      "copy",
+      "importlib_util",
+      "mappingnode",
+      "python_archguard_py_src_archguard_policy",
+      "python_archguard_py_src_archguard_policy_by_id",
+      "python_archguard_py_src_archguard_policy_canonical",
+      "python_archguard_py_src_archguard_policy_constraint",
+      "python_archguard_py_src_archguard_policy_construct_mapping",
+      "python_archguard_py_src_archguard_policy_context",
+      "python_archguard_py_src_archguard_policy_identifier",
+      "python_archguard_py_src_archguard_policy_merge",
+      "python_archguard_py_src_archguard_policy_parent_file",
+      "python_archguard_py_src_archguard_policy_policyerror",
+      "python_archguard_py_src_archguard_policy_preset_file",
+      "python_archguard_py_src_archguard_policy_py_path",
+      "python_archguard_py_src_archguard_policy_py_valueerror",
+      "python_archguard_py_src_archguard_policy_rationale_1",
+      "python_archguard_py_src_archguard_policy_rationale_116",
+      "python_archguard_py_src_archguard_policy_rationale_152",
+      "python_archguard_py_src_archguard_policy_read_policy",
+      "python_archguard_py_src_archguard_policy_read_tree",
+      "python_archguard_py_src_archguard_policy_reject_locked_changes",
+      "python_archguard_py_src_archguard_policy_reject_nulls",
+      "python_archguard_py_src_archguard_policy_resolve_tree",
+      "python_archguard_py_src_archguard_policy_schema_error",
+      "python_archguard_py_src_archguard_policy_selectors",
+      "python_archguard_py_src_archguard_policy_semantic_validate",
+      "python_archguard_py_src_archguard_policy_uniquekeyloader",
+      "re",
+      "safeloader"
+    ],
+    "18": [
       "github_workflows_python",
       "github_workflows_python_defaults_run",
       "github_workflows_python_jobs",
@@ -893,68 +839,67 @@
       "github_workflows_python_with_path",
       "github_workflows_python_with_python_version"
     ],
+    "19": [
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_java_classloader",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_java_role",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_java_severity",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_activatedby",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_descriptors",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_expand",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_get",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_infrastructure",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_load",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_profile",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_profiles",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_read",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rolerule",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rolerule_forbids",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rolerules",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_roles",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_ruleids",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rules",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_evidence",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_fill",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_message",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_remediation",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_speccatalog",
+      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_strings",
+      "com_fasterxml_jackson_databind_jsonnode"
+    ],
     "20": [
-      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult_fails",
-      "archguard_core_src_main_java_io_archguard_engine_cycles_cycles_components",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_acycliccontextspass",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_adapterbypassfails",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_applicationtoadapterfails",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_applicationtoportpasses",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_baselineallowsexistingbutnotnew",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_baselinepolicymismatchfails",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_configurabledependencyrule",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_contextcycleshowsalledges",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_crosscontextexposedapipasses",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_crosscontextinternalsfail",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_deterministicoutput",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_domaintoadapterfails",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_domaintoapplicationfails",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_domaintomicronautinfrastructurefails",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_has",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_largegraphdoesnotoverflowstack",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_model",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_outboundadaptertoportpasses",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_portleaksmicronauttype",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_portleakspersistencetype",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_result",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_separatecyclesremainseparate",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_severitygateworks",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_unclassifiedfailswhenrequired",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_java_analysisresult",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_java_test"
+      "dataclasses",
+      "django_core_wsgi",
+      "examples_python_django_library_wsgi",
+      "os",
+      "python_archguard_py_src_archguard_frameworks_frameworks_init",
+      "python_archguard_py_src_archguard_index",
+      "python_archguard_py_src_archguard_index_rationale_1",
+      "python_archguard_py_src_archguard_index_sourceindex",
+      "python_archguard_py_src_archguard_index_sourceindex_init",
+      "python_archguard_py_src_archguard_project",
+      "python_archguard_py_src_archguard_project_default_source_roots",
+      "python_archguard_py_src_archguard_project_distribution_name",
+      "python_archguard_py_src_archguard_project_load_project",
+      "python_archguard_py_src_archguard_project_module_name",
+      "python_archguard_py_src_archguard_project_project",
+      "python_archguard_py_src_archguard_project_project_module_id",
+      "python_archguard_py_src_archguard_project_project_module_id_diagnostics",
+      "python_archguard_py_src_archguard_project_project_rel",
+      "python_archguard_py_src_archguard_project_py_path",
+      "python_archguard_py_src_archguard_project_rationale_1",
+      "python_archguard_py_src_archguard_project_rationale_119",
+      "python_archguard_py_src_archguard_project_rationale_75",
+      "python_archguard_py_src_archguard_project_section_name",
+      "python_archguard_py_src_archguard_project_skip_dir",
+      "python_archguard_py_src_archguard_project_sourcefile",
+      "spec_conformance_ddd_001_python_src_conf_orders_domain_order",
+      "spec_conformance_ddd_001_python_src_conf_orders_domain_order_order",
+      "tomllib"
     ],
     "21": [
-      "action_rebase_sarif",
-      "action_rebase_sarif_main",
-      "action_rebase_sarif_rationale_2",
-      "action_rebase_sarif_rebase",
-      "action_summary",
-      "action_summary_cell",
-      "action_summary_escape",
-      "action_summary_main",
-      "action_summary_rationale_2",
-      "action_summary_repo_path",
-      "examples_python_django_library_settings",
-      "json",
-      "pathlib",
-      "re",
-      "scripts_package",
-      "scripts_package_rationale_2",
-      "scripts_release_check",
-      "scripts_release_check_declared",
-      "scripts_release_check_main",
-      "scripts_release_check_pom_version",
-      "scripts_release_check_rationale_2",
-      "scripts_release_check_search",
-      "skills_archguard_hooks_archguard_stop",
-      "skills_archguard_hooks_archguard_stop_main",
-      "skills_archguard_hooks_archguard_stop_rationale_2",
-      "urllib_parse",
-      "xml_etree_elementtree",
-      "zipfile"
-    ],
-    "22": [
       "presets_acme_presets_base_1_0_0",
       "presets_acme_presets_base_1_0_0_cycle_001_enabled",
       "presets_acme_presets_base_1_0_0_cycle_001_severity",
@@ -984,7 +929,7 @@
       "presets_acme_presets_base_1_0_0_rules_layer_001",
       "presets_acme_presets_base_1_0_0_schemaversion"
     ],
-    "23": [
+    "22": [
       "ref_types_node",
       "typescript_archguard_ts_package",
       "typescript_archguard_ts_package_bin",
@@ -1014,65 +959,64 @@
       "typescript_archguard_ts_package_types",
       "typescript_archguard_ts_package_version"
     ],
+    "23": [
+      "datetime",
+      "python_archguard_py_src_archguard_cli",
+      "python_archguard_py_src_archguard_cli_io",
+      "python_archguard_py_src_archguard_cli_main",
+      "python_archguard_py_src_archguard_cli_options",
+      "python_archguard_py_src_archguard_cli_parse_options",
+      "python_archguard_py_src_archguard_cli_parse_options_path",
+      "python_archguard_py_src_archguard_cli_parse_options_value",
+      "python_archguard_py_src_archguard_cli_py_exception",
+      "python_archguard_py_src_archguard_cli_py_path",
+      "python_archguard_py_src_archguard_cli_rationale_1",
+      "python_archguard_py_src_archguard_cli_run",
+      "python_archguard_py_src_archguard_cli_usageerror",
+      "python_archguard_py_src_archguard_main",
+      "python_archguard_py_src_archguard_precommit",
+      "python_archguard_py_src_archguard_precommit_main",
+      "python_archguard_py_src_archguard_precommit_rationale_1",
+      "python_archguard_py_src_archguard_precommit_split",
+      "python_archguard_py_tests_test_analyzer",
+      "python_archguard_py_tests_test_analyzer_project",
+      "python_archguard_py_tests_test_analyzer_project_analyze",
+      "python_archguard_py_tests_test_analyzer_project_cli",
+      "python_archguard_py_tests_test_analyzer_project_close",
+      "python_archguard_py_tests_test_analyzer_project_init",
+      "python_archguard_py_tests_test_analyzer_project_write",
+      "textwrap",
+      "unittest"
+    ],
     "24": [
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_java_classloader",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_java_role",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_java_severity",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_activatedby",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_descriptors",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_expand",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_get",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_infrastructure",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_load",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_profile",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_profiles",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_read",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rolerule",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rolerule_forbids",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rolerules",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_roles",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_ruleids",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rules",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_evidence",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_fill",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_message",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_remediation",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_speccatalog",
-      "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_strings",
-      "com_fasterxml_jackson_databind_jsonnode"
+      "abstractmojo",
+      "archguard_cli_src_main_java_io_archguard_cli_main",
+      "archguard_core_src_main_java_io_archguard_engine_debt_debt_baseline",
+      "archguard_core_src_main_java_io_archguard_engine_debt_debt_writebaseline",
+      "archguard_core_src_main_java_io_archguard_engine_debt_java_analysisresult",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_capturebaseline",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_enforce",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_excluded",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_execute",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_reactor",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_java_override",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_classpathmojo",
+      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_java_mojo",
+      "clock",
+      "engine",
+      "mojoexecutionexception",
+      "org_apache_maven_execution_mavensession",
+      "org_apache_maven_plugin_abstractmojo",
+      "org_apache_maven_plugin_mojoexecution",
+      "org_apache_maven_project_mavenproject",
+      "parameter",
+      "plugin",
+      "reports"
     ],
     "25": [
-      "dataclasses",
-      "python_archguard_py_src_archguard_index",
-      "python_archguard_py_src_archguard_index_rationale_1",
-      "python_archguard_py_src_archguard_index_sourceindex_init",
-      "python_archguard_py_src_archguard_project",
-      "python_archguard_py_src_archguard_project_default_source_roots",
-      "python_archguard_py_src_archguard_project_distribution_name",
-      "python_archguard_py_src_archguard_project_load_project",
-      "python_archguard_py_src_archguard_project_module_name",
-      "python_archguard_py_src_archguard_project_project",
-      "python_archguard_py_src_archguard_project_project_module_id",
-      "python_archguard_py_src_archguard_project_project_module_id_diagnostics",
-      "python_archguard_py_src_archguard_project_project_rel",
-      "python_archguard_py_src_archguard_project_py_path",
-      "python_archguard_py_src_archguard_project_rationale_1",
-      "python_archguard_py_src_archguard_project_rationale_119",
-      "python_archguard_py_src_archguard_project_rationale_75",
-      "python_archguard_py_src_archguard_project_section_name",
-      "python_archguard_py_src_archguard_project_skip_dir",
-      "python_archguard_py_src_archguard_project_sourcefile",
-      "spec_conformance_ddd_001_python_src_conf_orders_api_order_summary",
-      "spec_conformance_ddd_001_python_src_conf_orders_api_order_summary_ordersummary",
-      "spec_conformance_ddd_001_python_src_conf_orders_domain_order",
-      "spec_conformance_ddd_001_python_src_conf_orders_domain_order_order",
-      "tomllib",
-      "typeddict",
-      "typing"
-    ],
-    "26": [
       "annotations",
       "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo",
       "archguard_maven_plugin_src_main_java_io_archguard_maven_analyzemojo_analyzemojo",
@@ -1100,7 +1044,7 @@
       "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo_reactormojo_enforce",
       "archguard_maven_plugin_src_main_java_io_archguard_maven_reactormojo_reactormojo_reactor"
     ],
-    "27": [
+    "26": [
       "typescript_archguard_ts_src_frameworks_modulematches",
       "typescript_archguard_ts_src_importer_contextof",
       "typescript_archguard_ts_src_importer_roleof",
@@ -1128,7 +1072,7 @@
       "typescript_archguard_ts_src_spec_specdirectory",
       "typescript_archguard_ts_src_spec_yaml"
     ],
-    "28": [
+    "27": [
       "examples_typescript_clean_src_orders_application_place_order",
       "examples_typescript_clean_src_orders_application_place_order_placeorder_execute",
       "examples_typescript_clean_src_orders_application_ports_order_repository",
@@ -1155,7 +1099,7 @@
       "examples_typescript_clean_src_orders_orders_module",
       "ref_nestjs_typeorm"
     ],
-    "29": [
+    "28": [
       "archguard_core_src_test_java_io_archguard_fixtures_domain_jpaentity",
       "archguard_core_src_test_java_io_archguard_fixtures_domain_jpaentity_jpaentity",
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_webendpoint",
@@ -1181,7 +1125,7 @@
       "spec_conformance_http_entity_java_src_main_java_conf_shop_web_productresource_productresource",
       "spec_conformance_http_entity_java_src_main_java_conf_shop_web_productresource_productresource_get"
     ],
-    "30": [
+    "29": [
       "examples_typescript_clean_package",
       "examples_typescript_clean_package_dependencies",
       "examples_typescript_clean_package_dependencies_nestjs_common",
@@ -1206,6 +1150,32 @@
       "examples_typescript_violating_package_name",
       "examples_typescript_violating_package_private",
       "examples_typescript_violating_package_version"
+    ],
+    "30": [
+      "html",
+      "python_archguard_py_src_archguard_debt_write_baseline",
+      "python_archguard_py_src_archguard_model_analysisresult",
+      "python_archguard_py_src_archguard_model_analysisresult_fails",
+      "python_archguard_py_src_archguard_model_analysisresult_to_json",
+      "python_archguard_py_src_archguard_model_at_least",
+      "python_archguard_py_src_archguard_reports",
+      "python_archguard_py_src_archguard_reports_agent",
+      "python_archguard_py_src_archguard_reports_agent_error",
+      "python_archguard_py_src_archguard_reports_atomic",
+      "python_archguard_py_src_archguard_reports_console_report",
+      "python_archguard_py_src_archguard_reports_e",
+      "python_archguard_py_src_archguard_reports_html",
+      "python_archguard_py_src_archguard_reports_line",
+      "python_archguard_py_src_archguard_reports_pretty",
+      "python_archguard_py_src_archguard_reports_py_path",
+      "python_archguard_py_src_archguard_reports_rationale_1",
+      "python_archguard_py_src_archguard_reports_rationale_55",
+      "python_archguard_py_src_archguard_reports_rationale_81",
+      "python_archguard_py_src_archguard_reports_sarif",
+      "python_archguard_py_src_archguard_reports_spec_version",
+      "python_archguard_py_src_archguard_reports_write_failure",
+      "python_archguard_py_src_archguard_reports_write_reports",
+      "secrets"
     ],
     "31": [
       "python_archguard_py_tests_test_analyzer_analyzertest",
@@ -1509,28 +1479,6 @@
       "ref_nestjs_common"
     ],
     "43": [
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_agentformatprintsfindingsandsummary",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_analysis",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_analyzenevergates",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_baselineacceptsexistingdebtandrefusessilentoverwrite",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_changedfilesscopereportsonlylistedfiles",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_checkfailswithexitoneandwritesallreports",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_classpathfiledefinesmodules",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_failonoverridechangesthegate",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_findfirst",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_invalidpolicyisananalysiserrorwithfailurereports",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_missingclassesisananalysiserror",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_policy",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_report",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_run",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_run_a1fffa",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_symlinkedprojectstillmapssourcefiles",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_usageerrorsexitsixtyfour",
-      "archguard_cli_src_test_java_io_archguard_cli_maintest_maintest_validateandrules",
-      "org_junit_jupiter_api_test"
-    ],
-    "44": [
       "github_workflows_verify",
       "github_workflows_verify_jobs",
       "github_workflows_verify_jobs_test",
@@ -1552,7 +1500,7 @@
       "github_workflows_verify_with_name",
       "github_workflows_verify_with_path"
     ],
-    "45": [
+    "44": [
       "skills_archguard_templates_architecture_java",
       "skills_archguard_templates_architecture_java_contexts",
       "skills_archguard_templates_architecture_java_contexts_exposedpackages",
@@ -1574,7 +1522,7 @@
       "skills_archguard_templates_architecture_java_roots",
       "skills_archguard_templates_architecture_java_schemaversion"
     ],
-    "46": [
+    "45": [
       "skills_archguard_templates_architecture_python",
       "skills_archguard_templates_architecture_python_contexts",
       "skills_archguard_templates_architecture_python_contexts_exposedpackages",
@@ -1596,7 +1544,7 @@
       "skills_archguard_templates_architecture_python_roots",
       "skills_archguard_templates_architecture_python_schemaversion"
     ],
-    "47": [
+    "46": [
       "skills_archguard_templates_architecture_typescript",
       "skills_archguard_templates_architecture_typescript_contexts",
       "skills_archguard_templates_architecture_typescript_contexts_exposedpackages",
@@ -1618,7 +1566,7 @@
       "skills_archguard_templates_architecture_typescript_roots",
       "skills_archguard_templates_architecture_typescript_schemaversion"
     ],
-    "48": [
+    "47": [
       "spec_rules_hex_001",
       "spec_rules_hex_001_activation",
       "spec_rules_hex_001_category",
@@ -1640,7 +1588,7 @@
       "spec_rules_hex_001_typescript_bad",
       "spec_rules_hex_001_typescript_good"
     ],
-    "49": [
+    "48": [
       "spec_rules_hex_002",
       "spec_rules_hex_002_activation",
       "spec_rules_hex_002_category",
@@ -1662,7 +1610,7 @@
       "spec_rules_hex_002_typescript_bad",
       "spec_rules_hex_002_typescript_good"
     ],
-    "50": [
+    "49": [
       "spec_rules_hex_003",
       "spec_rules_hex_003_activation",
       "spec_rules_hex_003_category",
@@ -1684,7 +1632,7 @@
       "spec_rules_hex_003_typescript_bad",
       "spec_rules_hex_003_typescript_good"
     ],
-    "51": [
+    "50": [
       "spec_rules_hex_004",
       "spec_rules_hex_004_activation",
       "spec_rules_hex_004_category",
@@ -1706,7 +1654,7 @@
       "spec_rules_hex_004_typescript_bad",
       "spec_rules_hex_004_typescript_good"
     ],
-    "52": [
+    "51": [
       "spec_rules_layer_001",
       "spec_rules_layer_001_activation",
       "spec_rules_layer_001_category",
@@ -1728,7 +1676,7 @@
       "spec_rules_layer_001_typescript_bad",
       "spec_rules_layer_001_typescript_good"
     ],
-    "53": [
+    "52": [
       "spec_rules_layer_002",
       "spec_rules_layer_002_activation",
       "spec_rules_layer_002_category",
@@ -1750,7 +1698,7 @@
       "spec_rules_layer_002_typescript_bad",
       "spec_rules_layer_002_typescript_good"
     ],
-    "54": [
+    "53": [
       "typescript_archguard_ts_src_frameworks",
       "typescript_archguard_ts_src_frameworks_binding",
       "typescript_archguard_ts_src_frameworks_bindingcache",
@@ -1772,28 +1720,28 @@
       "typescript_archguard_ts_src_frameworks_route_methods",
       "typescript_archguard_ts_src_frameworks_router_frameworks"
     ],
-    "55": [
-      "abstractmojo",
-      "archguard_core_src_main_java_io_archguard_engine_debt_debt",
-      "archguard_core_src_main_java_io_archguard_engine_debt_debt_apply",
-      "archguard_core_src_main_java_io_archguard_engine_debt_debt_baseline",
-      "archguard_core_src_main_java_io_archguard_engine_debt_debt_debt",
-      "archguard_core_src_main_java_io_archguard_engine_debt_debt_suppression",
-      "archguard_core_src_main_java_io_archguard_engine_debt_debt_suppressions",
-      "archguard_core_src_main_java_io_archguard_engine_debt_debt_writebaseline",
-      "archguard_core_src_main_java_io_archguard_engine_debt_java_analysisresult",
-      "archguard_core_src_main_java_io_archguard_engine_debt_java_objectmapper",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_expiredsuppressionfails",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_validsuppressionrecordsowneranddoesnotgate",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_capturebaseline",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_enforce",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_excluded",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_execute",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_abstractarchitecturemojo_reactor",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo_java_override"
+    "54": [
+      "archguard_api_src_main_java_io_archguard_api_analysisresult",
+      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult",
+      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult_analysisresult",
+      "archguard_api_src_main_java_io_archguard_api_analysisresult_analysisresult_withfindingsanddiagnostics",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_status",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_status_existing",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_status_new",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_status_suppressed",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_withseverity",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_withstatus",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_withstatus_3df63b",
+      "archguard_api_src_main_java_io_archguard_api_severity",
+      "archguard_api_src_main_java_io_archguard_api_severity_severity",
+      "archguard_api_src_main_java_io_archguard_api_severity_severity_atleast",
+      "archguard_api_src_main_java_io_archguard_api_severity_severity_error",
+      "archguard_api_src_main_java_io_archguard_api_severity_severity_info",
+      "archguard_api_src_main_java_io_archguard_api_severity_severity_warning",
+      "deprecated"
     ],
-    "56": [
+    "55": [
       "archguard_core_src_main_java_io_archguard_config_policies_policies_matches",
       "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules",
       "archguard_core_src_main_java_io_archguard_engine_builtinrules_builtinrules_active",
@@ -1814,7 +1762,7 @@
       "archguard_core_src_main_java_io_archguard_engine_builtinrules_java_severity",
       "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rule"
     ],
-    "57": [
+    "56": [
       "examples_python_django_architecture",
       "examples_python_django_architecture_constraints",
       "examples_python_django_architecture_constraints_forbidden",
@@ -1835,7 +1783,7 @@
       "examples_python_django_architecture_schemaversion",
       "examples_python_django_architecture_sourceroots"
     ],
-    "58": [
+    "57": [
       "github_workflows_conformance",
       "github_workflows_conformance_conformance_runs_on",
       "github_workflows_conformance_conformance_steps",
@@ -1856,7 +1804,7 @@
       "github_workflows_conformance_with_node_version",
       "github_workflows_conformance_with_python_version"
     ],
-    "59": [
+    "58": [
       "docs_pilots_domain_driven_hexagon_architecture",
       "docs_pilots_domain_driven_hexagon_architecture_constraints",
       "docs_pilots_domain_driven_hexagon_architecture_constraints_forbidden",
@@ -1876,7 +1824,7 @@
       "docs_pilots_domain_driven_hexagon_architecture_roots",
       "docs_pilots_domain_driven_hexagon_architecture_schemaversion"
     ],
-    "60": [
+    "59": [
       "examples_python_clean_architecture",
       "examples_python_clean_architecture_contexts",
       "examples_python_clean_architecture_contexts_exposedpackages",
@@ -1896,7 +1844,7 @@
       "examples_python_clean_architecture_roots",
       "examples_python_clean_architecture_schemaversion"
     ],
-    "61": [
+    "60": [
       "examples_python_violating_architecture",
       "examples_python_violating_architecture_contexts",
       "examples_python_violating_architecture_contexts_exposedpackages",
@@ -1916,7 +1864,7 @@
       "examples_python_violating_architecture_roots",
       "examples_python_violating_architecture_schemaversion"
     ],
-    "62": [
+    "61": [
       "examples_typescript_clean_architecture",
       "examples_typescript_clean_architecture_contexts",
       "examples_typescript_clean_architecture_contexts_exposedpackages",
@@ -1936,7 +1884,7 @@
       "examples_typescript_clean_architecture_roots",
       "examples_typescript_clean_architecture_schemaversion"
     ],
-    "63": [
+    "62": [
       "examples_typescript_violating_architecture",
       "examples_typescript_violating_architecture_contexts",
       "examples_typescript_violating_architecture_contexts_exposedpackages",
@@ -1955,6 +1903,26 @@
       "examples_typescript_violating_architecture_roles_outbound_port",
       "examples_typescript_violating_architecture_roots",
       "examples_typescript_violating_architecture_schemaversion"
+    ],
+    "63": [
+      "python_archguard_py_src_archguard_importer_collect_imports",
+      "python_archguard_py_src_archguard_importer_collect_imports_visit",
+      "python_archguard_py_src_archguard_importer_dotted",
+      "python_archguard_py_src_archguard_importer_py_expr",
+      "python_archguard_py_src_archguard_importer_rationale_104",
+      "python_archguard_py_src_archguard_importer_rationale_53",
+      "python_archguard_py_src_archguard_importer_rawimport",
+      "python_archguard_py_src_archguard_importer_resolver",
+      "python_archguard_py_src_archguard_importer_resolver_init",
+      "python_archguard_py_src_archguard_importer_resolver_resolve",
+      "python_archguard_py_src_archguard_importer_resolver_targets",
+      "python_archguard_py_src_archguard_importer_type_checking",
+      "python_archguard_py_src_archguard_index_absolute",
+      "python_archguard_py_src_archguard_index_rationale_28",
+      "python_archguard_py_src_archguard_index_sourceindex_bind",
+      "python_archguard_py_src_archguard_index_sourceindex_parse",
+      "python_archguard_py_tests_test_analyzer_analyzertest_test_relative_import_resolution",
+      "stmt"
     ],
     "64": [
       "ref_dist_main_js",
@@ -1997,114 +1965,26 @@
       "typescript_archguard_ts_src_project_walk"
     ],
     "66": [
-      "docs_pilots_buckpal_architecture",
-      "docs_pilots_buckpal_architecture_failon",
-      "docs_pilots_buckpal_architecture_language",
-      "docs_pilots_buckpal_architecture_newonly",
-      "docs_pilots_buckpal_architecture_profiles",
-      "docs_pilots_buckpal_architecture_requireclassification",
-      "docs_pilots_buckpal_architecture_roles",
-      "docs_pilots_buckpal_architecture_roles_application",
-      "docs_pilots_buckpal_architecture_roles_composition_root",
-      "docs_pilots_buckpal_architecture_roles_domain",
-      "docs_pilots_buckpal_architecture_roles_inbound_adapter",
-      "docs_pilots_buckpal_architecture_roles_inbound_port",
-      "docs_pilots_buckpal_architecture_roles_outbound_adapter",
-      "docs_pilots_buckpal_architecture_roles_outbound_port",
-      "docs_pilots_buckpal_architecture_roots",
-      "docs_pilots_buckpal_architecture_schemaversion"
+      "argparse",
+      "glob",
+      "scripts_preset_check",
+      "scripts_preset_check_analyzer",
+      "scripts_preset_check_analyzer_init",
+      "scripts_preset_check_analyzer_install_java",
+      "scripts_preset_check_analyzer_install_python",
+      "scripts_preset_check_analyzer_install_typescript",
+      "scripts_preset_check_analyzer_run",
+      "scripts_preset_check_analyzer_validate",
+      "scripts_preset_check_check",
+      "scripts_preset_check_main",
+      "scripts_preset_check_policy",
+      "scripts_preset_check_rationale_2",
+      "scripts_preset_check_rationale_49",
+      "scripts_preset_check_run",
+      "tempfile"
     ],
     "67": [
-      "docs_pilots_cosmicpython_architecture",
-      "docs_pilots_cosmicpython_architecture_cycle_001_enabled",
-      "docs_pilots_cosmicpython_architecture_language",
-      "docs_pilots_cosmicpython_architecture_newonly",
-      "docs_pilots_cosmicpython_architecture_profiles",
-      "docs_pilots_cosmicpython_architecture_requireclassification",
-      "docs_pilots_cosmicpython_architecture_roles",
-      "docs_pilots_cosmicpython_architecture_roles_application",
-      "docs_pilots_cosmicpython_architecture_roles_composition_root",
-      "docs_pilots_cosmicpython_architecture_roles_domain",
-      "docs_pilots_cosmicpython_architecture_roles_inbound_adapter",
-      "docs_pilots_cosmicpython_architecture_roles_outbound_adapter",
-      "docs_pilots_cosmicpython_architecture_roots",
-      "docs_pilots_cosmicpython_architecture_rules",
-      "docs_pilots_cosmicpython_architecture_rules_cycle_001",
-      "docs_pilots_cosmicpython_architecture_schemaversion"
-    ],
-    "68": [
-      "docs_pilots_django_styleguide_example_architecture",
-      "docs_pilots_django_styleguide_example_architecture_cycle_001_enabled",
-      "docs_pilots_django_styleguide_example_architecture_language",
-      "docs_pilots_django_styleguide_example_architecture_newonly",
-      "docs_pilots_django_styleguide_example_architecture_profiles",
-      "docs_pilots_django_styleguide_example_architecture_roles",
-      "docs_pilots_django_styleguide_example_architecture_roles_application",
-      "docs_pilots_django_styleguide_example_architecture_roles_composition_root",
-      "docs_pilots_django_styleguide_example_architecture_roles_domain",
-      "docs_pilots_django_styleguide_example_architecture_roles_inbound_adapter",
-      "docs_pilots_django_styleguide_example_architecture_roles_outbound_adapter",
-      "docs_pilots_django_styleguide_example_architecture_roots",
-      "docs_pilots_django_styleguide_example_architecture_rules",
-      "docs_pilots_django_styleguide_example_architecture_rules_cycle_001",
-      "docs_pilots_django_styleguide_example_architecture_schemaversion",
-      "docs_pilots_django_styleguide_example_architecture_sourceroots"
-    ],
-    "69": [
-      "examples_clean_architecture",
-      "examples_clean_architecture_contexts",
-      "examples_clean_architecture_contexts_exposedpackages",
-      "examples_clean_architecture_contexts_id",
-      "examples_clean_architecture_contexts_packages",
-      "examples_clean_architecture_failon",
-      "examples_clean_architecture_newonly",
-      "examples_clean_architecture_profiles",
-      "examples_clean_architecture_requireclassification",
-      "examples_clean_architecture_roles",
-      "examples_clean_architecture_roles_application",
-      "examples_clean_architecture_roles_domain",
-      "examples_clean_architecture_roles_outbound_adapter",
-      "examples_clean_architecture_roles_outbound_port",
-      "examples_clean_architecture_roots",
-      "examples_clean_architecture_schemaversion"
-    ],
-    "70": [
-      "examples_violating_architecture",
-      "examples_violating_architecture_contexts",
-      "examples_violating_architecture_contexts_exposedpackages",
-      "examples_violating_architecture_contexts_id",
-      "examples_violating_architecture_contexts_packages",
-      "examples_violating_architecture_failon",
-      "examples_violating_architecture_newonly",
-      "examples_violating_architecture_profiles",
-      "examples_violating_architecture_requireclassification",
-      "examples_violating_architecture_roles",
-      "examples_violating_architecture_roles_application",
-      "examples_violating_architecture_roles_domain",
-      "examples_violating_architecture_roles_outbound_adapter",
-      "examples_violating_architecture_roles_outbound_port",
-      "examples_violating_architecture_roots",
-      "examples_violating_architecture_schemaversion"
-    ],
-    "71": [
-      "functools",
-      "python_archguard_py_src_archguard_spec",
-      "python_archguard_py_src_archguard_spec_catalog_4a88d2",
-      "python_archguard_py_src_archguard_spec_catalog_4a88d2_activated_by",
-      "python_archguard_py_src_archguard_spec_catalog_4a88d2_expand",
-      "python_archguard_py_src_archguard_spec_catalog_4a88d2_init",
-      "python_archguard_py_src_archguard_spec_catalog_4a88d2_init_load",
-      "python_archguard_py_src_archguard_spec_catalog_4a88d2_rule",
-      "python_archguard_py_src_archguard_spec_profile",
-      "python_archguard_py_src_archguard_spec_py_path",
-      "python_archguard_py_src_archguard_spec_rationale_1",
-      "python_archguard_py_src_archguard_spec_rolerule",
-      "python_archguard_py_src_archguard_spec_rolerule_forbids",
-      "python_archguard_py_src_archguard_spec_roles",
-      "python_archguard_py_src_archguard_spec_rulespec",
-      "python_archguard_py_src_archguard_spec_spec_directory"
-    ],
-    "72": [
+      "jsonschema",
       "scripts_gen_skill_reference",
       "scripts_gen_skill_reference_generate",
       "scripts_gen_skill_reference_load",
@@ -2122,7 +2002,115 @@
       "scripts_spec_check_validator",
       "yaml"
     ],
+    "68": [
+      "archguard_api_src_main_java_io_archguard_api_dependency",
+      "archguard_api_src_main_java_io_archguard_api_dependency_dependency",
+      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_dependency",
+      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_kind",
+      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_kind_http_entity_exposure",
+      "archguard_api_src_main_java_io_archguard_api_dependency_dependency_kind_static",
+      "archguard_api_src_main_java_io_archguard_api_finding_finding_create",
+      "archguard_api_src_main_java_io_archguard_api_location",
+      "archguard_api_src_main_java_io_archguard_api_location_location",
+      "archguard_api_src_main_java_io_archguard_api_typeinfo",
+      "archguard_api_src_main_java_io_archguard_api_typeinfo_typeinfo",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_edge",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_fingerprintsurviveslinemovement",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_reportsescapeuntrustedcontentandhavesariflocations",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_java_dependency",
+      "set"
+    ],
+    "69": [
+      "docs_pilots_buckpal_architecture",
+      "docs_pilots_buckpal_architecture_failon",
+      "docs_pilots_buckpal_architecture_language",
+      "docs_pilots_buckpal_architecture_newonly",
+      "docs_pilots_buckpal_architecture_profiles",
+      "docs_pilots_buckpal_architecture_requireclassification",
+      "docs_pilots_buckpal_architecture_roles",
+      "docs_pilots_buckpal_architecture_roles_application",
+      "docs_pilots_buckpal_architecture_roles_composition_root",
+      "docs_pilots_buckpal_architecture_roles_domain",
+      "docs_pilots_buckpal_architecture_roles_inbound_adapter",
+      "docs_pilots_buckpal_architecture_roles_inbound_port",
+      "docs_pilots_buckpal_architecture_roles_outbound_adapter",
+      "docs_pilots_buckpal_architecture_roles_outbound_port",
+      "docs_pilots_buckpal_architecture_roots",
+      "docs_pilots_buckpal_architecture_schemaversion"
+    ],
+    "70": [
+      "docs_pilots_cosmicpython_architecture",
+      "docs_pilots_cosmicpython_architecture_cycle_001_enabled",
+      "docs_pilots_cosmicpython_architecture_language",
+      "docs_pilots_cosmicpython_architecture_newonly",
+      "docs_pilots_cosmicpython_architecture_profiles",
+      "docs_pilots_cosmicpython_architecture_requireclassification",
+      "docs_pilots_cosmicpython_architecture_roles",
+      "docs_pilots_cosmicpython_architecture_roles_application",
+      "docs_pilots_cosmicpython_architecture_roles_composition_root",
+      "docs_pilots_cosmicpython_architecture_roles_domain",
+      "docs_pilots_cosmicpython_architecture_roles_inbound_adapter",
+      "docs_pilots_cosmicpython_architecture_roles_outbound_adapter",
+      "docs_pilots_cosmicpython_architecture_roots",
+      "docs_pilots_cosmicpython_architecture_rules",
+      "docs_pilots_cosmicpython_architecture_rules_cycle_001",
+      "docs_pilots_cosmicpython_architecture_schemaversion"
+    ],
+    "71": [
+      "docs_pilots_django_styleguide_example_architecture",
+      "docs_pilots_django_styleguide_example_architecture_cycle_001_enabled",
+      "docs_pilots_django_styleguide_example_architecture_language",
+      "docs_pilots_django_styleguide_example_architecture_newonly",
+      "docs_pilots_django_styleguide_example_architecture_profiles",
+      "docs_pilots_django_styleguide_example_architecture_roles",
+      "docs_pilots_django_styleguide_example_architecture_roles_application",
+      "docs_pilots_django_styleguide_example_architecture_roles_composition_root",
+      "docs_pilots_django_styleguide_example_architecture_roles_domain",
+      "docs_pilots_django_styleguide_example_architecture_roles_inbound_adapter",
+      "docs_pilots_django_styleguide_example_architecture_roles_outbound_adapter",
+      "docs_pilots_django_styleguide_example_architecture_roots",
+      "docs_pilots_django_styleguide_example_architecture_rules",
+      "docs_pilots_django_styleguide_example_architecture_rules_cycle_001",
+      "docs_pilots_django_styleguide_example_architecture_schemaversion",
+      "docs_pilots_django_styleguide_example_architecture_sourceroots"
+    ],
+    "72": [
+      "examples_clean_architecture",
+      "examples_clean_architecture_contexts",
+      "examples_clean_architecture_contexts_exposedpackages",
+      "examples_clean_architecture_contexts_id",
+      "examples_clean_architecture_contexts_packages",
+      "examples_clean_architecture_failon",
+      "examples_clean_architecture_newonly",
+      "examples_clean_architecture_profiles",
+      "examples_clean_architecture_requireclassification",
+      "examples_clean_architecture_roles",
+      "examples_clean_architecture_roles_application",
+      "examples_clean_architecture_roles_domain",
+      "examples_clean_architecture_roles_outbound_adapter",
+      "examples_clean_architecture_roles_outbound_port",
+      "examples_clean_architecture_roots",
+      "examples_clean_architecture_schemaversion"
+    ],
     "73": [
+      "examples_violating_architecture",
+      "examples_violating_architecture_contexts",
+      "examples_violating_architecture_contexts_exposedpackages",
+      "examples_violating_architecture_contexts_id",
+      "examples_violating_architecture_contexts_packages",
+      "examples_violating_architecture_failon",
+      "examples_violating_architecture_newonly",
+      "examples_violating_architecture_profiles",
+      "examples_violating_architecture_requireclassification",
+      "examples_violating_architecture_roles",
+      "examples_violating_architecture_roles_application",
+      "examples_violating_architecture_roles_domain",
+      "examples_violating_architecture_roles_outbound_adapter",
+      "examples_violating_architecture_roles_outbound_port",
+      "examples_violating_architecture_roots",
+      "examples_violating_architecture_schemaversion"
+    ],
+    "74": [
       "typescript_archguard_ts_tsconfig",
       "typescript_archguard_ts_tsconfig_compileroptions",
       "typescript_archguard_ts_tsconfig_compileroptions_declaration",
@@ -2140,7 +2128,7 @@
       "typescript_archguard_ts_tsconfig_compileroptions_target",
       "typescript_archguard_ts_tsconfig_include"
     ],
-    "74": [
+    "75": [
       "ambiguous_python_import_0d601586fe2b",
       "ambiguous_python_import_5fac4d7d2a69",
       "ambiguous_python_import_83c0a317e5cd",
@@ -2157,7 +2145,24 @@
       "spec_conformance_http_entity_python_src_conf_shop_application_admin_resource_status",
       "spec_conformance_http_entity_python_src_conf_shop_http_routing"
     ],
-    "75": [
+    "76": [
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_java_policy",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_java_role",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_java_test",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_catalogactivationmatchesengine",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_catalogdefaultseveritiesmatchengine",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_fired",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_hexagonalrolematrixmatchesengineforeveryrolepair",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_javainfrastructurelistmatchesengine",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_layeredrolematrixmatchesengineforeveryrolepair",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_policy",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_predicted",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_profilerulesareinactivewithouttheprofile",
+      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_yaml",
+      "com_fasterxml_jackson_dataformat_yaml_yamlmapper"
+    ],
+    "77": [
       "docs_pilots_full_stack_fastapi_template_architecture",
       "docs_pilots_full_stack_fastapi_template_architecture_cycle_001_enabled",
       "docs_pilots_full_stack_fastapi_template_architecture_language",
@@ -2174,7 +2179,7 @@
       "docs_pilots_full_stack_fastapi_template_architecture_schemaversion",
       "docs_pilots_full_stack_fastapi_template_architecture_sourceroots"
     ],
-    "76": [
+    "78": [
       "examples_typescript_clean_src_app_module",
       "examples_typescript_clean_src_app_module_appmodule",
       "examples_typescript_clean_src_app_module_ts_module",
@@ -2191,7 +2196,7 @@
       "examples_typescript_violating_src_orders_orders_module_ts_module",
       "ref_nestjs_core"
     ],
-    "77": [
+    "79": [
       "examples_typescript_clean_src_orders_application_place_order_placeorder",
       "examples_typescript_clean_src_orders_application_place_order_placeorder_constructor",
       "examples_typescript_clean_src_orders_application_place_order_ts_injectable",
@@ -2208,7 +2213,7 @@
       "examples_typescript_clean_src_orders_web_orders_controller_ts_post",
       "inject"
     ],
-    "78": [
+    "80": [
       "github_workflows_kb",
       "github_workflows_kb_freshness_runs_on",
       "github_workflows_kb_freshness_steps",
@@ -2225,24 +2230,24 @@
       "github_workflows_kb_steps_with",
       "github_workflows_kb_with_python_version"
     ],
-    "79": [
-      "python_archguard_py_src_archguard_importer_collect_imports",
-      "python_archguard_py_src_archguard_importer_collect_imports_visit",
-      "python_archguard_py_src_archguard_importer_dotted",
-      "python_archguard_py_src_archguard_importer_py_expr",
-      "python_archguard_py_src_archguard_importer_rationale_104",
-      "python_archguard_py_src_archguard_importer_rationale_53",
-      "python_archguard_py_src_archguard_importer_rawimport",
-      "python_archguard_py_src_archguard_importer_resolver",
-      "python_archguard_py_src_archguard_importer_resolver_init",
-      "python_archguard_py_src_archguard_importer_resolver_resolve",
-      "python_archguard_py_src_archguard_importer_resolver_targets",
-      "python_archguard_py_src_archguard_importer_type_checking",
-      "python_archguard_py_src_archguard_index_absolute",
-      "python_archguard_py_src_archguard_index_rationale_28",
-      "python_archguard_py_tests_test_analyzer_analyzertest_test_relative_import_resolution"
+    "81": [
+      "python_archguard_py_src_archguard_spec",
+      "python_archguard_py_src_archguard_spec_catalog_4a88d2",
+      "python_archguard_py_src_archguard_spec_catalog_4a88d2_activated_by",
+      "python_archguard_py_src_archguard_spec_catalog_4a88d2_expand",
+      "python_archguard_py_src_archguard_spec_catalog_4a88d2_init",
+      "python_archguard_py_src_archguard_spec_catalog_4a88d2_init_load",
+      "python_archguard_py_src_archguard_spec_catalog_4a88d2_rule",
+      "python_archguard_py_src_archguard_spec_profile",
+      "python_archguard_py_src_archguard_spec_py_path",
+      "python_archguard_py_src_archguard_spec_rationale_1",
+      "python_archguard_py_src_archguard_spec_rolerule",
+      "python_archguard_py_src_archguard_spec_rolerule_forbids",
+      "python_archguard_py_src_archguard_spec_roles",
+      "python_archguard_py_src_archguard_spec_rulespec",
+      "python_archguard_py_src_archguard_spec_spec_directory"
     ],
-    "80": [
+    "82": [
       "spec_conformance_clean_python_architecture",
       "spec_conformance_clean_python_architecture_contexts",
       "spec_conformance_clean_python_architecture_contexts_exposedpackages",
@@ -2259,7 +2264,7 @@
       "spec_conformance_clean_python_architecture_roots",
       "spec_conformance_clean_python_architecture_schemaversion"
     ],
-    "81": [
+    "83": [
       "spec_conformance_clean_typescript_architecture",
       "spec_conformance_clean_typescript_architecture_contexts",
       "spec_conformance_clean_typescript_architecture_contexts_exposedpackages",
@@ -2276,7 +2281,7 @@
       "spec_conformance_clean_typescript_architecture_roots",
       "spec_conformance_clean_typescript_architecture_schemaversion"
     ],
-    "82": [
+    "84": [
       "spec_conformance_hex_002_python_architecture",
       "spec_conformance_hex_002_python_architecture_contexts",
       "spec_conformance_hex_002_python_architecture_contexts_exposedpackages",
@@ -2293,7 +2298,7 @@
       "spec_conformance_hex_002_python_architecture_roots",
       "spec_conformance_hex_002_python_architecture_schemaversion"
     ],
-    "83": [
+    "85": [
       "spec_conformance_hex_002_typescript_architecture",
       "spec_conformance_hex_002_typescript_architecture_contexts",
       "spec_conformance_hex_002_typescript_architecture_contexts_exposedpackages",
@@ -2310,7 +2315,7 @@
       "spec_conformance_hex_002_typescript_architecture_roots",
       "spec_conformance_hex_002_typescript_architecture_schemaversion"
     ],
-    "84": [
+    "86": [
       "action_action_env_archguard_language",
       "action_action_env_code",
       "action_action_env_input_annotations",
@@ -2326,23 +2331,7 @@
       "action_action_env_input_suppressions",
       "action_action_steps_env"
     ],
-    "85": [
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_java_policy",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_java_role",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_java_test",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_catalogactivationmatchesengine",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_catalogdefaultseveritiesmatchengine",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_fired",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_hexagonalrolematrixmatchesengineforeveryrolepair",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_javainfrastructurelistmatchesengine",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_layeredrolematrixmatchesengineforeveryrolepair",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_policy",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_predicted",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_profilerulesareinactivewithouttheprofile",
-      "archguard_core_src_test_java_io_archguard_engine_specparitytest_specparitytest_yaml"
-    ],
-    "86": [
+    "87": [
       "archguard_core_src_test_java_io_archguard_fixtures_domain_micronautentity",
       "archguard_core_src_test_java_io_archguard_fixtures_domain_micronautentity_micronautentity",
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_micronautendpoint",
@@ -2357,22 +2346,6 @@
       "crudrepository",
       "io_micronaut_data_annotation_mappedentity",
       "io_micronaut_http_annotation_post"
-    ],
-    "87": [
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_abstractarchitecturemojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_classpathmojo",
-      "archguard_maven_plugin_src_main_java_io_archguard_maven_classpathmojo_java_mojo",
-      "clock",
-      "engine",
-      "mojoexecutionexception",
-      "org_apache_maven_execution_mavensession",
-      "org_apache_maven_plugin_abstractmojo",
-      "org_apache_maven_plugin_mojoexecution",
-      "org_apache_maven_project_mavenproject",
-      "parameter",
-      "plugin",
-      "reports"
     ],
     "88": [
       "spec_conformance_clean_java_architecture",
@@ -2422,36 +2395,21 @@
       "action_action_sarif_value"
     ],
     "91": [
-      "archguard_api_src_main_java_io_archguard_api_role",
-      "archguard_api_src_main_java_io_archguard_api_role_role",
-      "archguard_api_src_main_java_io_archguard_api_role_role_application",
-      "archguard_api_src_main_java_io_archguard_api_role_role_composition_root",
-      "archguard_api_src_main_java_io_archguard_api_role_role_domain",
-      "archguard_api_src_main_java_io_archguard_api_role_role_inbound_adapter",
-      "archguard_api_src_main_java_io_archguard_api_role_role_inbound_port",
-      "archguard_api_src_main_java_io_archguard_api_role_role_outbound_adapter",
-      "archguard_api_src_main_java_io_archguard_api_role_role_outbound_port",
-      "archguard_api_src_main_java_io_archguard_api_role_role_unclassified",
-      "archguard_api_src_main_java_io_archguard_api_typeinfo",
-      "archguard_api_src_main_java_io_archguard_api_typeinfo_typeinfo",
-      "set"
+      "examples_python_django_library_settings",
+      "pathlib",
+      "python_archguard_py_scripts_copy_spec",
+      "python_archguard_py_scripts_copy_spec_rationale_1",
+      "python_archguard_py_src_archguard_changed",
+      "python_archguard_py_src_archguard_changed_normalize_path",
+      "python_archguard_py_src_archguard_changed_py_path",
+      "python_archguard_py_src_archguard_changed_rationale_18",
+      "python_archguard_py_src_archguard_changed_restrict_to_changed_files",
+      "python_archguard_py_src_archguard_model_analysisresult_with_findings",
+      "scripts_package",
+      "scripts_package_rationale_2",
+      "zipfile"
     ],
     "92": [
-      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles",
-      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles_changedfiles",
-      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles_normalize",
-      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_changedfiles_restrict",
-      "archguard_cli_src_main_java_io_archguard_cli_changedfiles_java_analysisresult",
-      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs",
-      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_dependency",
-      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_module",
-      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_name",
-      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_read",
-      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_real",
-      "archguard_cli_src_main_java_io_archguard_cli_inputs_inputs_resolve",
-      "archguard_core_src_main_java_io_archguard_engine_moduleinput_moduleinput"
-    ],
-    "93": [
       "github_workflows_release_steps_with",
       "github_workflows_release_with_cache",
       "github_workflows_release_with_distribution",
@@ -2466,7 +2424,7 @@
       "github_workflows_release_with_server_password",
       "github_workflows_release_with_server_username"
     ],
-    "94": [
+    "93": [
       "spec_conformance_clean_typescript_src_orders_adapter_sql_order_store",
       "spec_conformance_clean_typescript_src_orders_adapter_sql_order_store_sqlorderstore",
       "spec_conformance_clean_typescript_src_orders_adapter_sql_order_store_sqlorderstore_save",
@@ -2481,7 +2439,7 @@
       "spec_conformance_clean_typescript_src_orders_port_order_store_orderstore",
       "spec_conformance_clean_typescript_src_orders_port_order_store_orderstore_save"
     ],
-    "95": [
+    "94": [
       "ambiguous_python_import_c6dea4f83d4a",
       "spec_conformance_clean_python_src_conf_orders_application_place_order",
       "spec_conformance_clean_python_src_conf_orders_application_place_order_placeorder",
@@ -2495,7 +2453,7 @@
       "spec_conformance_clean_python_src_conf_orders_port_order_store_py_order",
       "spec_conformance_clean_python_src_conf_orders_port_order_store_py_protocol"
     ],
-    "96": [
+    "95": [
       "archguard_api_src_main_java_io_archguard_api_architecturemodel",
       "archguard_api_src_main_java_io_archguard_api_architecturemodel_architecturemodel",
       "archguard_api_src_main_java_io_archguard_api_architecturerule",
@@ -2509,7 +2467,7 @@
       "archguard_core_src_main_java_io_archguard_spec_speccatalog_speccatalog_rulespec_descriptor",
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_specdrivenenginetest_customdescriptormustmatchid_object_architecturerule_l117_descriptor"
     ],
-    "97": [
+    "96": [
       "docs_pilots_spring_petclinic_architecture",
       "docs_pilots_spring_petclinic_architecture_contexts",
       "docs_pilots_spring_petclinic_architecture_contexts_exposedpackages",
@@ -2523,7 +2481,7 @@
       "docs_pilots_spring_petclinic_architecture_roots",
       "docs_pilots_spring_petclinic_architecture_schemaversion"
     ],
-    "98": [
+    "97": [
       "spec_conformance_cycles_python_architecture",
       "spec_conformance_cycles_python_architecture_contexts",
       "spec_conformance_cycles_python_architecture_contexts_exposedpackages",
@@ -2537,7 +2495,7 @@
       "spec_conformance_cycles_python_architecture_rules_cycle_001",
       "spec_conformance_cycles_python_architecture_schemaversion"
     ],
-    "99": [
+    "98": [
       "spec_conformance_cycles_typescript_architecture",
       "spec_conformance_cycles_typescript_architecture_contexts",
       "spec_conformance_cycles_typescript_architecture_contexts_exposedpackages",
@@ -2551,7 +2509,7 @@
       "spec_conformance_cycles_typescript_architecture_rules_cycle_001",
       "spec_conformance_cycles_typescript_architecture_schemaversion"
     ],
-    "100": [
+    "99": [
       "spec_conformance_hex_002_typescript_src_orders_adapter_sql_order_store",
       "spec_conformance_hex_002_typescript_src_orders_adapter_sql_order_store_sqlorderstore",
       "spec_conformance_hex_002_typescript_src_orders_adapter_sql_order_store_sqlorderstore_save",
@@ -2565,7 +2523,7 @@
       "spec_conformance_hex_002_typescript_src_orders_port_order_store_orderstore",
       "spec_conformance_hex_002_typescript_src_orders_port_order_store_orderstore_save"
     ],
-    "101": [
+    "100": [
       "ambiguous_python_import_16ce349b879a",
       "ambiguous_python_import_aa43cda1065d",
       "examples_python_violating_src_orders_infrastructure_sqlalchemy_order_repository",
@@ -2578,7 +2536,7 @@
       "examples_python_violating_src_orders_infrastructure_sqlalchemy_order_repository_sqlalchemyorderrepository_get",
       "examples_python_violating_src_orders_infrastructure_sqlalchemy_order_repository_sqlalchemyorderrepository_init"
     ],
-    "102": [
+    "101": [
       "ambiguous_python_import_98ce1405c7b2",
       "ambiguous_python_import_c016f256660a",
       "examples_python_clean_src_orders_infrastructure_sqlalchemy_order_repository",
@@ -2591,7 +2549,33 @@
       "examples_python_clean_src_orders_infrastructure_sqlalchemy_order_repository_sqlalchemyorderrepository_get",
       "examples_python_clean_src_orders_infrastructure_sqlalchemy_order_repository_sqlalchemyorderrepository_init"
     ],
+    "102": [
+      "archguard_cli_src_main_java_io_archguard_cli_changedfiles",
+      "archguard_core_src_main_java_io_archguard_engine_moduleinput",
+      "architecturerule",
+      "examples_custom_rule_src_main_java_example_rules_nosystemexit",
+      "examples_custom_rule_src_main_java_example_rules_nosystemexit_java_architecturemodel",
+      "examples_custom_rule_src_main_java_example_rules_nosystemexit_java_finding",
+      "examples_custom_rule_src_main_java_example_rules_nosystemexit_nosystemexit",
+      "examples_custom_rule_src_main_java_example_rules_nosystemexit_nosystemexit_evaluate",
+      "examples_custom_rule_src_main_java_example_rules_nosystemexit_nosystemexit_id",
+      "list",
+      "path"
+    ],
     "103": [
+      "atexit",
+      "scripts_benchmark",
+      "scripts_benchmark_rationale_2",
+      "scripts_benchmark_run",
+      "scripts_integration_test",
+      "scripts_integration_test_fixture",
+      "scripts_integration_test_rationale_2",
+      "scripts_integration_test_record",
+      "scripts_integration_test_report",
+      "scripts_integration_test_source_hash",
+      "time"
+    ],
+    "104": [
       "date",
       "python_archguard_py_src_archguard_debt",
       "python_archguard_py_src_archguard_debt_apply_debt",
@@ -2604,7 +2588,7 @@
       "python_archguard_py_src_archguard_model_py_exception",
       "python_archguard_py_src_archguard_model_rationale_22"
     ],
-    "104": [
+    "105": [
       "github_workflows_release",
       "github_workflows_release_env",
       "github_workflows_release_env_publish",
@@ -2617,7 +2601,7 @@
       "github_workflows_release_permissions",
       "github_workflows_release_permissions_contents"
     ],
-    "105": [
+    "106": [
       "github_workflows_release_github_release_steps",
       "github_workflows_release_jobs_pypi",
       "github_workflows_release_maven_steps",
@@ -2630,7 +2614,7 @@
       "github_workflows_release_steps_run",
       "github_workflows_release_steps_uses"
     ],
-    "106": [
+    "107": [
       "spec_conformance_cycles_java_architecture",
       "spec_conformance_cycles_java_architecture_contexts",
       "spec_conformance_cycles_java_architecture_contexts_exposedpackages",
@@ -2643,7 +2627,7 @@
       "spec_conformance_cycles_java_architecture_rules_cycle_001",
       "spec_conformance_cycles_java_architecture_schemaversion"
     ],
-    "107": [
+    "108": [
       "spec_conformance_layered_python_src_conf_shop_persistence_order_dao",
       "spec_conformance_layered_python_src_conf_shop_persistence_order_dao_orderdao",
       "spec_conformance_layered_python_src_conf_shop_persistence_order_dao_orderdao_owner",
@@ -2656,7 +2640,7 @@
       "spec_conformance_layered_python_src_conf_shop_web_order_controller_ordercontroller_count",
       "spec_conformance_layered_python_src_conf_shop_web_order_controller_ordercontroller_init"
     ],
-    "108": [
+    "109": [
       "spec_profiles_hexagonal",
       "spec_profiles_hexagonal_activates",
       "spec_profiles_hexagonal_description",
@@ -2669,7 +2653,7 @@
       "spec_profiles_hexagonal_rolerules_rule",
       "spec_profiles_hexagonal_title"
     ],
-    "109": [
+    "110": [
       "action_action_steps_with",
       "action_action_with_category",
       "action_action_with_distribution",
@@ -2681,7 +2665,7 @@
       "action_action_with_python_version",
       "action_action_with_sarif_file"
     ],
-    "110": [
+    "111": [
       "ambiguous_python_import_0cfb2ff3e281",
       "ambiguous_python_import_7d33b2f57c0c",
       "ambiguous_python_import_bd4949ed1699",
@@ -2693,7 +2677,7 @@
       "examples_python_violating_src_orders_application_place_order_py_order",
       "examples_python_violating_src_orders_application_place_order_py_orderrepository"
     ],
-    "111": [
+    "112": [
       "ambiguous_python_import_85dcdaac6e88",
       "ambiguous_python_import_f834e77f22a7",
       "decimal",
@@ -2705,7 +2689,7 @@
       "examples_python_clean_src_orders_application_place_order_py_order",
       "examples_python_clean_src_orders_application_place_order_py_orderrepository"
     ],
-    "112": [
+    "113": [
       "ambiguous_python_import_967be0d609e3",
       "ambiguous_python_import_d3a54d734b4d",
       "ambiguous_python_import_d707131eece7",
@@ -2717,19 +2701,19 @@
       "examples_python_clean_src_orders_web_routes_py_placeorderrequest",
       "examples_python_clean_src_orders_web_routes_py_post"
     ],
-    "113": [
-      "archguard_core_src_main_java_io_archguard_engine_moduleinput",
-      "architecturerule",
-      "examples_custom_rule_src_main_java_example_rules_nosystemexit",
-      "examples_custom_rule_src_main_java_example_rules_nosystemexit_java_architecturemodel",
-      "examples_custom_rule_src_main_java_example_rules_nosystemexit_java_finding",
-      "examples_custom_rule_src_main_java_example_rules_nosystemexit_nosystemexit",
-      "examples_custom_rule_src_main_java_example_rules_nosystemexit_nosystemexit_evaluate",
-      "examples_custom_rule_src_main_java_example_rules_nosystemexit_nosystemexit_id",
-      "list",
-      "path"
-    ],
     "114": [
+      "archguard_api_src_main_java_io_archguard_api_role",
+      "archguard_api_src_main_java_io_archguard_api_role_role",
+      "archguard_api_src_main_java_io_archguard_api_role_role_application",
+      "archguard_api_src_main_java_io_archguard_api_role_role_composition_root",
+      "archguard_api_src_main_java_io_archguard_api_role_role_domain",
+      "archguard_api_src_main_java_io_archguard_api_role_role_inbound_adapter",
+      "archguard_api_src_main_java_io_archguard_api_role_role_inbound_port",
+      "archguard_api_src_main_java_io_archguard_api_role_role_outbound_adapter",
+      "archguard_api_src_main_java_io_archguard_api_role_role_outbound_port",
+      "archguard_api_src_main_java_io_archguard_api_role_role_unclassified"
+    ],
+    "115": [
       "examples_typescript_clean_tsconfig",
       "examples_typescript_clean_tsconfig_compileroptions",
       "examples_typescript_clean_tsconfig_compileroptions_emitdecoratormetadata",
@@ -2741,7 +2725,7 @@
       "examples_typescript_clean_tsconfig_compileroptions_target",
       "examples_typescript_clean_tsconfig_include"
     ],
-    "115": [
+    "116": [
       "examples_typescript_violating_tsconfig",
       "examples_typescript_violating_tsconfig_compileroptions",
       "examples_typescript_violating_tsconfig_compileroptions_emitdecoratormetadata",
@@ -2753,7 +2737,7 @@
       "examples_typescript_violating_tsconfig_compileroptions_target",
       "examples_typescript_violating_tsconfig_include"
     ],
-    "116": [
+    "117": [
       "github_workflows_release_env_gh_token",
       "github_workflows_release_env_maven_password",
       "github_workflows_release_env_maven_username",
@@ -2765,7 +2749,7 @@
       "github_workflows_release_env_twine_username",
       "github_workflows_release_steps_env"
     ],
-    "117": [
+    "118": [
       "spec_conformance_hex_002_typescript_tsconfig",
       "spec_conformance_hex_002_typescript_tsconfig_compileroptions",
       "spec_conformance_hex_002_typescript_tsconfig_compileroptions_module",
@@ -2777,7 +2761,7 @@
       "spec_conformance_hex_002_typescript_tsconfig_include",
       "spec_conformance_hex_002_typescript_tsconfig_paths_orders"
     ],
-    "118": [
+    "119": [
       "spec_conformance_http_entity_typescript_tsconfig",
       "spec_conformance_http_entity_typescript_tsconfig_compileroptions",
       "spec_conformance_http_entity_typescript_tsconfig_compileroptions_emitdecoratormetadata",
@@ -2789,7 +2773,7 @@
       "spec_conformance_http_entity_typescript_tsconfig_compileroptions_target",
       "spec_conformance_http_entity_typescript_tsconfig_include"
     ],
-    "119": [
+    "120": [
       "spec_conformance_layered_java_architecture",
       "spec_conformance_layered_java_architecture_language",
       "spec_conformance_layered_java_architecture_profiles",
@@ -2801,7 +2785,7 @@
       "spec_conformance_layered_java_architecture_roots",
       "spec_conformance_layered_java_architecture_schemaversion"
     ],
-    "120": [
+    "121": [
       "spec_conformance_layered_java_src_main_java_conf_shop_persistence_orderdao",
       "spec_conformance_layered_java_src_main_java_conf_shop_persistence_orderdao_orderdao",
       "spec_conformance_layered_java_src_main_java_conf_shop_persistence_orderdao_orderdao_owner",
@@ -2813,7 +2797,7 @@
       "spec_conformance_layered_java_src_main_java_conf_shop_web_ordercontroller_ordercontroller",
       "spec_conformance_layered_java_src_main_java_conf_shop_web_ordercontroller_ordercontroller_count"
     ],
-    "121": [
+    "122": [
       "spec_conformance_layered_python_architecture",
       "spec_conformance_layered_python_architecture_language",
       "spec_conformance_layered_python_architecture_profiles",
@@ -2825,7 +2809,7 @@
       "spec_conformance_layered_python_architecture_roots",
       "spec_conformance_layered_python_architecture_schemaversion"
     ],
-    "122": [
+    "123": [
       "spec_conformance_layered_typescript_architecture",
       "spec_conformance_layered_typescript_architecture_language",
       "spec_conformance_layered_typescript_architecture_profiles",
@@ -2837,7 +2821,7 @@
       "spec_conformance_layered_typescript_architecture_roots",
       "spec_conformance_layered_typescript_architecture_schemaversion"
     ],
-    "123": [
+    "124": [
       "spec_conformance_layered_typescript_src_shop_persistence_order_dao",
       "spec_conformance_layered_typescript_src_shop_persistence_order_dao_orderdao",
       "spec_conformance_layered_typescript_src_shop_persistence_order_dao_orderdao_owner",
@@ -2849,7 +2833,7 @@
       "spec_conformance_layered_typescript_src_shop_web_order_controller_ordercontroller",
       "spec_conformance_layered_typescript_src_shop_web_order_controller_ordercontroller_count"
     ],
-    "124": [
+    "125": [
       "typescript_archguard_ts_src_debt",
       "typescript_archguard_ts_src_debt_applydebt",
       "typescript_archguard_ts_src_debt_onlykeys",
@@ -2861,7 +2845,7 @@
       "typescript_archguard_ts_src_model_analysiserror",
       "typescript_archguard_ts_src_model_finding"
     ],
-    "125": [
+    "126": [
       "ambiguous_python_import_03602dbc095f",
       "ambiguous_python_import_a2566d6c0fa3",
       "ambiguous_python_import_bf6bb9e654df",
@@ -2871,17 +2855,6 @@
       "examples_python_clean_src_orders_main_create_app",
       "examples_python_clean_src_orders_main_py_fastapi",
       "sqlalchemy_pool"
-    ],
-    "126": [
-      "datetime",
-      "python_archguard_py_tests_test_analyzer",
-      "python_archguard_py_tests_test_analyzer_project",
-      "python_archguard_py_tests_test_analyzer_project_analyze",
-      "python_archguard_py_tests_test_analyzer_project_close",
-      "python_archguard_py_tests_test_analyzer_project_init",
-      "python_archguard_py_tests_test_analyzer_project_write",
-      "textwrap",
-      "unittest"
     ],
     "127": [
       "examples_clean_src_main_java_example_orders_adapter_sqlorderstore",
@@ -3052,6 +3025,16 @@
       "examples_spring_boot_legacy_architecture_schemaversion"
     ],
     "143": [
+      "functools",
+      "python_archguard_py_src_archguard_selectors",
+      "python_archguard_py_src_archguard_selectors_match",
+      "python_archguard_py_src_archguard_selectors_matches_one",
+      "python_archguard_py_src_archguard_selectors_rationale_1",
+      "python_archguard_py_src_archguard_selectors_segments",
+      "python_archguard_py_src_archguard_selectors_validate_selector",
+      "python_archguard_py_tests_test_analyzer_analyzertest_test_selectors"
+    ],
+    "144": [
       "ref_ajv",
       "ref_typescript",
       "ref_yaml",
@@ -3061,7 +3044,7 @@
       "typescript_archguard_ts_package_dependencies_yaml",
       "typescript_archguard_ts_src_policy_schemavalidator"
     ],
-    "144": [
+    "145": [
       "spec_conformance_clean_typescript_tsconfig",
       "spec_conformance_clean_typescript_tsconfig_compileroptions",
       "spec_conformance_clean_typescript_tsconfig_compileroptions_module",
@@ -3071,7 +3054,7 @@
       "spec_conformance_clean_typescript_tsconfig_compileroptions_target",
       "spec_conformance_clean_typescript_tsconfig_include"
     ],
-    "145": [
+    "146": [
       "spec_conformance_cycles_typescript_tsconfig",
       "spec_conformance_cycles_typescript_tsconfig_compileroptions",
       "spec_conformance_cycles_typescript_tsconfig_compileroptions_module",
@@ -3081,7 +3064,7 @@
       "spec_conformance_cycles_typescript_tsconfig_compileroptions_target",
       "spec_conformance_cycles_typescript_tsconfig_include"
     ],
-    "146": [
+    "147": [
       "spec_conformance_ddd_001_java_architecture",
       "spec_conformance_ddd_001_java_architecture_contexts",
       "spec_conformance_ddd_001_java_architecture_contexts_exposedpackages",
@@ -3091,7 +3074,7 @@
       "spec_conformance_ddd_001_java_architecture_roots",
       "spec_conformance_ddd_001_java_architecture_schemaversion"
     ],
-    "147": [
+    "148": [
       "spec_conformance_ddd_001_typescript_tsconfig",
       "spec_conformance_ddd_001_typescript_tsconfig_compileroptions",
       "spec_conformance_ddd_001_typescript_tsconfig_compileroptions_module",
@@ -3101,7 +3084,7 @@
       "spec_conformance_ddd_001_typescript_tsconfig_compileroptions_target",
       "spec_conformance_ddd_001_typescript_tsconfig_include"
     ],
-    "148": [
+    "149": [
       "spec_conformance_http_entity_python_architecture",
       "spec_conformance_http_entity_python_architecture_language",
       "spec_conformance_http_entity_python_architecture_profiles",
@@ -3111,7 +3094,7 @@
       "spec_conformance_http_entity_python_architecture_roots",
       "spec_conformance_http_entity_python_architecture_schemaversion"
     ],
-    "149": [
+    "150": [
       "spec_conformance_http_entity_typescript_architecture",
       "spec_conformance_http_entity_typescript_architecture_language",
       "spec_conformance_http_entity_typescript_architecture_profiles",
@@ -3121,7 +3104,7 @@
       "spec_conformance_http_entity_typescript_architecture_roots",
       "spec_conformance_http_entity_typescript_architecture_schemaversion"
     ],
-    "150": [
+    "151": [
       "spec_conformance_invalid_policy_python_architecture",
       "spec_conformance_invalid_policy_python_architecture_language",
       "spec_conformance_invalid_policy_python_architecture_profiles",
@@ -3131,7 +3114,7 @@
       "spec_conformance_invalid_policy_python_architecture_schemaversion",
       "spec_conformance_invalid_policy_python_architecture_unknownkey"
     ],
-    "151": [
+    "152": [
       "spec_conformance_invalid_policy_typescript_architecture",
       "spec_conformance_invalid_policy_typescript_architecture_language",
       "spec_conformance_invalid_policy_typescript_architecture_profiles",
@@ -3141,7 +3124,7 @@
       "spec_conformance_invalid_policy_typescript_architecture_schemaversion",
       "spec_conformance_invalid_policy_typescript_architecture_unknownkey"
     ],
-    "152": [
+    "153": [
       "spec_conformance_unclassified_python_architecture",
       "spec_conformance_unclassified_python_architecture_language",
       "spec_conformance_unclassified_python_architecture_profiles",
@@ -3151,7 +3134,7 @@
       "spec_conformance_unclassified_python_architecture_roots",
       "spec_conformance_unclassified_python_architecture_schemaversion"
     ],
-    "153": [
+    "154": [
       "spec_conformance_unclassified_typescript_architecture",
       "spec_conformance_unclassified_typescript_architecture_language",
       "spec_conformance_unclassified_typescript_architecture_profiles",
@@ -3161,7 +3144,7 @@
       "spec_conformance_unclassified_typescript_architecture_roots",
       "spec_conformance_unclassified_typescript_architecture_schemaversion"
     ],
-    "154": [
+    "155": [
       "action_action_runs_steps",
       "action_action_steps_id",
       "action_action_steps_if",
@@ -3170,7 +3153,7 @@
       "action_action_steps_uses",
       "action_action_steps_working_directory"
     ],
-    "155": [
+    "156": [
       "action_run",
       "action_run_endgroup",
       "action_run_finish",
@@ -3179,7 +3162,7 @@
       "action_run_retry",
       "action_run_sh__entry"
     ],
-    "156": [
+    "157": [
       "ambiguous_python_import_34817b59184c",
       "ambiguous_python_import_f94f3de46d05",
       "spec_conformance_hex_002_python_src_conf_orders_adapter_sql_order_store",
@@ -3188,7 +3171,7 @@
       "spec_conformance_hex_002_python_src_conf_orders_adapter_sql_order_store_sqlorderstore",
       "spec_conformance_hex_002_python_src_conf_orders_adapter_sql_order_store_sqlorderstore_save"
     ],
-    "157": [
+    "158": [
       "ambiguous_python_import_48dd9135d156",
       "spec_conformance_clean_python_src_conf_orders_adapter_sql_order_store",
       "spec_conformance_clean_python_src_conf_orders_adapter_sql_order_store_py_order",
@@ -3197,7 +3180,7 @@
       "spec_conformance_clean_python_src_conf_orders_adapter_sql_order_store_sqlorderstore_save",
       "spec_conformance_clean_python_src_conf_orders_domain_init"
     ],
-    "158": [
+    "159": [
       "ambiguous_python_import_c11636d8f415",
       "examples_python_violating_src_orders_web_dependencies",
       "examples_python_violating_src_orders_web_dependencies_get_place_order",
@@ -3205,15 +3188,6 @@
       "examples_python_violating_src_orders_web_dependencies_py_placeorder",
       "examples_python_violating_src_orders_web_dependencies_py_session",
       "sqlalchemy_orm"
-    ],
-    "159": [
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulecannotshadowbuiltin_object_architecturerule_l411_evaluate",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses_object_architecturerule_l389",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses_object_architecturerule_l389_evaluate",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses_object_architecturerule_l389_id",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulesrun_object_architecturerule_l362_evaluate",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_java_architecturemodel",
-      "archguard_core_src_test_java_io_archguard_engine_enginetest_java_finding"
     ],
     "160": [
       "archguard_core_src_test_java_io_archguard_engine_specdrivenenginetest_java_architecturemodel",
@@ -3252,6 +3226,15 @@
       "presets_acme_package_version"
     ],
     "164": [
+      "scripts_release_check",
+      "scripts_release_check_declared",
+      "scripts_release_check_main",
+      "scripts_release_check_pom_version",
+      "scripts_release_check_rationale_2",
+      "scripts_release_check_search",
+      "xml_etree_elementtree"
+    ],
+    "165": [
       "spec_conformance_http_entity_java_architecture",
       "spec_conformance_http_entity_java_architecture_profiles",
       "spec_conformance_http_entity_java_architecture_roles",
@@ -3260,7 +3243,7 @@
       "spec_conformance_http_entity_java_architecture_roots",
       "spec_conformance_http_entity_java_architecture_schemaversion"
     ],
-    "165": [
+    "166": [
       "spec_conformance_http_entity_python_src_conf_shop_model_product_entity",
       "spec_conformance_http_entity_python_src_conf_shop_model_product_entity_base",
       "spec_conformance_http_entity_python_src_conf_shop_model_product_entity_productentity",
@@ -3269,7 +3252,7 @@
       "spec_conformance_http_entity_python_src_conf_shop_web_product_resource_get_product",
       "spec_conformance_http_entity_python_src_conf_shop_web_product_resource_py_get"
     ],
-    "166": [
+    "167": [
       "spec_conformance_invalid_policy_java_architecture",
       "spec_conformance_invalid_policy_java_architecture_profiles",
       "spec_conformance_invalid_policy_java_architecture_roles",
@@ -3278,7 +3261,7 @@
       "spec_conformance_invalid_policy_java_architecture_schemaversion",
       "spec_conformance_invalid_policy_java_architecture_unknownkey"
     ],
-    "167": [
+    "168": [
       "spec_conformance_unclassified_java_architecture",
       "spec_conformance_unclassified_java_architecture_profiles",
       "spec_conformance_unclassified_java_architecture_requireclassification",
@@ -3287,7 +3270,7 @@
       "spec_conformance_unclassified_java_architecture_roots",
       "spec_conformance_unclassified_java_architecture_schemaversion"
     ],
-    "168": [
+    "169": [
       "verification_benchmark",
       "verification_benchmark_analysisprocessseconds",
       "verification_benchmark_classes",
@@ -3296,7 +3279,15 @@
       "verification_benchmark_maxrsskib",
       "verification_benchmark_note"
     ],
-    "169": [
+    "170": [
+      "action_summary",
+      "action_summary_cell",
+      "action_summary_escape",
+      "action_summary_main",
+      "action_summary_rationale_2",
+      "action_summary_repo_path"
+    ],
+    "171": [
       "ambiguous_python_import_93ea732e7b5b",
       "spec_conformance_hex_002_python_src_conf_orders_port_order_store",
       "spec_conformance_hex_002_python_src_conf_orders_port_order_store_orderstore",
@@ -3304,7 +3295,7 @@
       "spec_conformance_hex_002_python_src_conf_orders_port_order_store_py_order",
       "spec_conformance_hex_002_python_src_conf_orders_port_order_store_py_protocol"
     ],
-    "170": [
+    "172": [
       "ambiguous_python_import_e16d3a89763d",
       "ambiguous_python_import_f89aad9f946e",
       "spec_conformance_hex_002_python_src_conf_orders_application_place_order",
@@ -3312,7 +3303,7 @@
       "spec_conformance_hex_002_python_src_conf_orders_application_place_order_placeorder_init",
       "spec_conformance_hex_002_python_src_conf_orders_application_place_order_placeorder_place"
     ],
-    "171": [
+    "173": [
       "apitestcase",
       "examples_python_django_catalog_tests",
       "examples_python_django_catalog_tests_bookapitest",
@@ -3320,7 +3311,7 @@
       "examples_python_django_catalog_tests_bookapitest_test_register_list_and_lend",
       "rest_framework_test"
     ],
-    "172": [
+    "174": [
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_composedendpoint",
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_composedendpoint_composedendpoint",
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_customendpoint",
@@ -3328,7 +3319,7 @@
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_customendpoint_java_org_springframework_web_bind_annotation_restcontroller",
       "java_lang_annotation_retention"
     ],
-    "173": [
+    "175": [
       "examples_clean_src_main_java_example_orders_application_orderservice",
       "examples_clean_src_main_java_example_orders_application_orderservice_java_order",
       "examples_clean_src_main_java_example_orders_application_orderservice_java_orderstore",
@@ -3336,7 +3327,7 @@
       "examples_clean_src_main_java_example_orders_application_orderservice_orderservice_load",
       "examples_clean_src_main_java_example_orders_application_orderservice_orderservice_orderservice"
     ],
-    "174": [
+    "176": [
       "examples_python_violating_src_orders_infrastructure_models",
       "examples_python_violating_src_orders_infrastructure_models_base",
       "examples_python_violating_src_orders_infrastructure_models_orderlinerecord",
@@ -3344,7 +3335,7 @@
       "examples_python_violating_src_orders_infrastructure_models_py_declarativebase",
       "sqlalchemy"
     ],
-    "175": [
+    "177": [
       "examples_violating_src_main_java_example_orders_application_orderservice",
       "examples_violating_src_main_java_example_orders_application_orderservice_java_order",
       "examples_violating_src_main_java_example_orders_application_orderservice_java_sqlorderstore",
@@ -3352,7 +3343,7 @@
       "examples_violating_src_main_java_example_orders_application_orderservice_orderservice_load",
       "examples_violating_src_main_java_example_orders_application_orderservice_orderservice_orderservice"
     ],
-    "176": [
+    "178": [
       "spec_conformance_cycles_java_src_main_java_conf_billing_api_billingapi",
       "spec_conformance_cycles_java_src_main_java_conf_billing_api_billingapi_billingapi",
       "spec_conformance_cycles_java_src_main_java_conf_billing_api_billingapi_billingapi_invoice",
@@ -3360,7 +3351,7 @@
       "spec_conformance_cycles_java_src_main_java_conf_orders_api_orderapi_orderapi",
       "spec_conformance_cycles_java_src_main_java_conf_orders_api_orderapi_orderapi_markpaid"
     ],
-    "177": [
+    "179": [
       "spec_conformance_cycles_typescript_src_billing_api_billing_api",
       "spec_conformance_cycles_typescript_src_billing_api_billing_api_billingapi",
       "spec_conformance_cycles_typescript_src_billing_api_billing_api_billingapi_billedorder",
@@ -3368,7 +3359,7 @@
       "spec_conformance_cycles_typescript_src_orders_api_order_api_orderapi",
       "spec_conformance_cycles_typescript_src_orders_api_order_api_orderapi_billing"
     ],
-    "178": [
+    "180": [
       "spec_profiles_clean",
       "spec_profiles_clean_activates",
       "spec_profiles_clean_description",
@@ -3376,7 +3367,7 @@
       "spec_profiles_clean_includes",
       "spec_profiles_clean_title"
     ],
-    "179": [
+    "181": [
       "spec_profiles_modular_monolith",
       "spec_profiles_modular_monolith_activates",
       "spec_profiles_modular_monolith_description",
@@ -3384,535 +3375,554 @@
       "spec_profiles_modular_monolith_includes",
       "spec_profiles_modular_monolith_title"
     ],
-    "180": [
+    "182": [
+      "action_rebase_sarif",
+      "action_rebase_sarif_main",
+      "action_rebase_sarif_rationale_2",
+      "action_rebase_sarif_rebase",
+      "urllib_parse"
+    ],
+    "183": [
       "ambiguous_python_import_fb908b962894",
       "examples_python_clean_tests_test_orders",
       "examples_python_clean_tests_test_orders_test_business_rule_violation_is_a_422",
       "examples_python_clean_tests_test_orders_test_place_order_returns_a_transport_dto",
       "fastapi_testclient"
     ],
-    "181": [
+    "184": [
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulecannotshadowbuiltin_object_architecturerule_l411_evaluate",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customruleexceptionsarenotpasses_object_architecturerule_l389_evaluate",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_enginetest_customrulesrun_object_architecturerule_l362_evaluate",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_java_architecturemodel",
+      "archguard_core_src_test_java_io_archguard_engine_enginetest_java_finding"
+    ],
+    "185": [
       "examples_micronaut_src_main_java_example_micronaut_web_ordercontroller",
       "examples_micronaut_src_main_java_example_micronaut_web_ordercontroller_java_io_micronaut_http_annotation_controller",
       "examples_micronaut_src_main_java_example_micronaut_web_ordercontroller_java_io_micronaut_http_annotation_get",
       "examples_micronaut_src_main_java_example_micronaut_web_ordercontroller_ordercontroller",
       "examples_micronaut_src_main_java_example_micronaut_web_ordercontroller_ordercontroller_orders"
     ],
-    "182": [
+    "186": [
       "examples_python_clean_src_orders_infrastructure_models",
       "examples_python_clean_src_orders_infrastructure_models_base",
       "examples_python_clean_src_orders_infrastructure_models_orderlinerecord",
       "examples_python_clean_src_orders_infrastructure_models_orderrecord",
       "examples_python_clean_src_orders_infrastructure_models_py_declarativebase"
     ],
-    "183": [
+    "187": [
       "examples_python_violating_src_orders_web_routes_place_order",
       "examples_python_violating_src_orders_web_routes_py_orderresponse",
       "examples_python_violating_src_orders_web_routes_py_placeorder",
       "examples_python_violating_src_orders_web_routes_py_placeorderrequest",
       "examples_python_violating_src_orders_web_routes_py_post"
     ],
-    "184": [
+    "188": [
       "examples_quarkus_legacy_src_main_java_example_quarkus_web_orderresource",
       "examples_quarkus_legacy_src_main_java_example_quarkus_web_orderresource_orderresource",
       "examples_quarkus_legacy_src_main_java_example_quarkus_web_orderresource_orderresource_orders",
       "javax_ws_rs_get",
       "javax_ws_rs_path"
     ],
-    "185": [
+    "189": [
       "examples_spring_boot_legacy_src_main_java_example_boot_web_ordercontroller",
       "examples_spring_boot_legacy_src_main_java_example_boot_web_ordercontroller_java_org_springframework_web_bind_annotation_getmapping",
       "examples_spring_boot_legacy_src_main_java_example_boot_web_ordercontroller_java_org_springframework_web_bind_annotation_restcontroller",
       "examples_spring_boot_legacy_src_main_java_example_boot_web_ordercontroller_ordercontroller",
       "examples_spring_boot_legacy_src_main_java_example_boot_web_ordercontroller_ordercontroller_orders"
     ],
-    "186": [
+    "190": [
       "examples_spring_boot_src_main_java_example_boot_web_ordercontroller",
       "examples_spring_boot_src_main_java_example_boot_web_ordercontroller_java_org_springframework_web_bind_annotation_getmapping",
       "examples_spring_boot_src_main_java_example_boot_web_ordercontroller_java_org_springframework_web_bind_annotation_restcontroller",
       "examples_spring_boot_src_main_java_example_boot_web_ordercontroller_ordercontroller",
       "examples_spring_boot_src_main_java_example_boot_web_ordercontroller_ordercontroller_orders"
     ],
-    "187": [
+    "191": [
       "pkg_example_company_rules",
       "pkg_io_archguard_archguard_api",
       "pkg_io_archguard_archguard_cli",
       "pkg_io_archguard_archguard_core",
       "pkg_io_archguard_archguard_maven_plugin"
     ],
-    "188": [
+    "192": [
       "spec_conformance_http_entity_typescript_src_shop_application_admin_resource",
       "spec_conformance_http_entity_typescript_src_shop_application_admin_resource_adminresource",
       "spec_conformance_http_entity_typescript_src_shop_application_admin_resource_adminresource_status",
       "spec_conformance_http_entity_typescript_src_shop_application_admin_resource_ts_controller",
       "spec_conformance_http_entity_typescript_src_shop_application_admin_resource_ts_get"
     ],
-    "189": [
+    "193": [
       "spec_index",
       "spec_index_infrastructure",
       "spec_index_profiles",
       "spec_index_rules",
       "spec_index_specversion"
     ],
-    "190": [
+    "194": [
       "spec_infrastructure_java",
       "spec_infrastructure_java_description",
       "spec_infrastructure_java_entries",
       "spec_infrastructure_java_language",
       "spec_infrastructure_java_matching"
     ],
-    "191": [
+    "195": [
       "spec_infrastructure_python",
       "spec_infrastructure_python_description",
       "spec_infrastructure_python_entries",
       "spec_infrastructure_python_language",
       "spec_infrastructure_python_matching"
     ],
-    "192": [
+    "196": [
       "spec_infrastructure_typescript",
       "spec_infrastructure_typescript_description",
       "spec_infrastructure_typescript_entries",
       "spec_infrastructure_typescript_language",
       "spec_infrastructure_typescript_matching"
     ],
-    "193": [
+    "197": [
       "spec_profiles_ddd",
       "spec_profiles_ddd_activates",
       "spec_profiles_ddd_description",
       "spec_profiles_ddd_id",
       "spec_profiles_ddd_title"
     ],
-    "194": [
+    "198": [
       "action_action_inputs",
       "action_action_inputs_suppressions",
       "action_action_suppressions_default",
       "action_action_suppressions_description"
     ],
-    "195": [
+    "199": [
       "action_tests_local_e2e",
       "action_tests_local_e2e_extend_policy",
       "action_tests_local_e2e_preset_case",
       "action_tests_local_e2e_sh__entry"
     ],
-    "196": [
+    "200": [
       "ambiguous_python_import_45b07486ba15",
       "examples_python_clean_src_orders_web_dependencies",
       "examples_python_clean_src_orders_web_dependencies_get_place_order",
       "examples_python_clean_src_orders_web_dependencies_py_placeorder"
     ],
-    "197": [
+    "201": [
       "ambiguous_python_import_ffea47c8a450",
       "spec_conformance_ddd_001_python_src_conf_billing_application_invoicing",
       "spec_conformance_ddd_001_python_src_conf_billing_application_invoicing_invoice_for",
       "spec_conformance_ddd_001_python_src_conf_billing_application_invoicing_py_order"
     ],
-    "198": [
+    "202": [
       "appconfig",
       "django_apps",
       "examples_python_django_catalog_apps",
       "examples_python_django_catalog_apps_catalogconfig"
     ],
-    "199": [
+    "203": [
       "archguard_core_src_test_java_io_archguard_fixtures_domain_order",
       "archguard_core_src_test_java_io_archguard_fixtures_domain_order_order",
       "archguard_core_src_test_java_io_archguard_fixtures_out_jpaadapter",
       "archguard_core_src_test_java_io_archguard_fixtures_out_jpaadapter_jpaadapter"
     ],
-    "200": [
+    "204": [
       "archguard_core_src_test_java_io_archguard_fixtures_port_leakyport",
       "archguard_core_src_test_java_io_archguard_fixtures_port_leakyport_leakyport",
       "archguard_core_src_test_java_io_archguard_fixtures_port_leakyport_leakyport_load",
       "entitymanager"
     ],
-    "201": [
+    "205": [
       "examples_clean_src_main_java_example_orders_port_orderstore",
       "examples_clean_src_main_java_example_orders_port_orderstore_java_order",
       "examples_clean_src_main_java_example_orders_port_orderstore_orderstore",
       "examples_clean_src_main_java_example_orders_port_orderstore_orderstore_load"
     ],
-    "202": [
+    "206": [
       "examples_reactor_application_src_main_java_example_orders_application_orderservice",
       "examples_reactor_application_src_main_java_example_orders_application_orderservice_java_order",
       "examples_reactor_application_src_main_java_example_orders_application_orderservice_orderservice",
       "examples_reactor_application_src_main_java_example_orders_application_orderservice_orderservice_load"
     ],
-    "203": [
+    "207": [
       "examples_spring_boot_legacy_src_main_java_example_boot_bootstrap_application",
       "examples_spring_boot_legacy_src_main_java_example_boot_bootstrap_application_application",
       "examples_spring_boot_legacy_src_main_java_example_boot_bootstrap_application_application_main",
       "examples_spring_boot_legacy_src_main_java_example_boot_bootstrap_application_java_org_springframework_boot_autoconfigure_springbootapplication"
     ],
-    "204": [
+    "208": [
       "examples_spring_boot_src_main_java_example_boot_bootstrap_application",
       "examples_spring_boot_src_main_java_example_boot_bootstrap_application_application",
       "examples_spring_boot_src_main_java_example_boot_bootstrap_application_application_main",
       "examples_spring_boot_src_main_java_example_boot_bootstrap_application_java_org_springframework_boot_autoconfigure_springbootapplication"
     ],
-    "205": [
+    "209": [
       "examples_violating_src_main_java_example_orders_port_orderstore",
       "examples_violating_src_main_java_example_orders_port_orderstore_java_order",
       "examples_violating_src_main_java_example_orders_port_orderstore_orderstore",
       "examples_violating_src_main_java_example_orders_port_orderstore_orderstore_load"
     ],
-    "206": [
+    "210": [
       "github_workflows_release_jobs_maven",
       "github_workflows_release_maven_if",
       "github_workflows_release_maven_needs",
       "github_workflows_release_maven_runs_on"
     ],
-    "207": [
+    "211": [
       "github_workflows_release_jobs_npm",
       "github_workflows_release_npm_if",
       "github_workflows_release_npm_needs",
       "github_workflows_release_npm_runs_on"
     ],
-    "208": [
+    "212": [
       "spec_conformance_clean_typescript_package",
       "spec_conformance_clean_typescript_package_name",
       "spec_conformance_clean_typescript_package_private",
       "spec_conformance_clean_typescript_package_type"
     ],
-    "209": [
+    "213": [
       "spec_conformance_ddd_001_typescript_src_billing_application_invoicing",
       "spec_conformance_ddd_001_typescript_src_billing_application_invoicing_invoicefor",
       "spec_conformance_ddd_001_typescript_src_orders_domain_order",
       "spec_conformance_ddd_001_typescript_src_orders_domain_order_order"
     ],
-    "210": [
+    "214": [
       "spec_conformance_unclassified_java_src_main_java_conf_orders_util_helper",
       "spec_conformance_unclassified_java_src_main_java_conf_orders_util_helper_helper",
       "spec_conformance_unclassified_java_src_main_java_conf_orders_util_helper_helper_helper",
       "spec_conformance_unclassified_java_src_main_java_conf_orders_util_helper_helper_normalize"
     ],
-    "211": [
+    "215": [
       "action_action_annotations_default",
       "action_action_annotations_description",
       "action_action_inputs_annotations"
     ],
-    "212": [
+    "216": [
       "action_action_archguard_version_default",
       "action_action_archguard_version_description",
       "action_action_inputs_archguard_version"
     ],
-    "213": [
+    "217": [
       "action_action_artifact_name_default",
       "action_action_artifact_name_description",
       "action_action_inputs_artifact_name"
     ],
-    "214": [
+    "218": [
       "action_action_baseline_default",
       "action_action_baseline_description",
       "action_action_inputs_baseline"
     ],
-    "215": [
+    "219": [
       "action_action_changed_files_only_default",
       "action_action_changed_files_only_description",
       "action_action_inputs_changed_files_only"
     ],
-    "216": [
+    "220": [
       "action_action_cli_command_default",
       "action_action_cli_command_description",
       "action_action_inputs_cli_command"
     ],
-    "217": [
+    "221": [
       "action_action_cli_jar_default",
       "action_action_cli_jar_description",
       "action_action_inputs_cli_jar"
     ],
-    "218": [
+    "222": [
       "action_action_config_default",
       "action_action_config_description",
       "action_action_inputs_config"
     ],
-    "219": [
+    "223": [
       "action_action_extensions_default",
       "action_action_extensions_description",
       "action_action_inputs_extensions"
     ],
-    "220": [
+    "224": [
       "action_action_fail_on_default",
       "action_action_fail_on_description",
       "action_action_inputs_fail_on"
     ],
-    "221": [
+    "225": [
       "action_action_inputs_java_version",
       "action_action_java_version_default",
       "action_action_java_version_description"
     ],
-    "222": [
+    "226": [
       "action_action_inputs_language",
       "action_action_language_default",
       "action_action_language_description"
     ],
-    "223": [
+    "227": [
       "action_action_inputs_node_version",
       "action_action_node_version_default",
       "action_action_node_version_description"
     ],
-    "224": [
+    "228": [
       "action_action_inputs_python_version",
       "action_action_python_version_default",
       "action_action_python_version_description"
     ],
-    "225": [
+    "229": [
       "action_action_inputs_setup_java",
       "action_action_setup_java_default",
       "action_action_setup_java_description"
     ],
-    "226": [
+    "230": [
       "action_action_inputs_setup_node",
       "action_action_setup_node_default",
       "action_action_setup_node_description"
     ],
-    "227": [
+    "231": [
       "action_action_inputs_setup_python",
       "action_action_setup_python_default",
       "action_action_setup_python_description"
     ],
-    "228": [
+    "232": [
       "action_action_inputs_upload_artifact",
       "action_action_upload_artifact_default",
       "action_action_upload_artifact_description"
     ],
-    "229": [
+    "233": [
       "action_action_inputs_upload_sarif",
       "action_action_upload_sarif_default",
       "action_action_upload_sarif_description"
     ],
-    "230": [
+    "234": [
       "action_action_inputs_working_directory",
       "action_action_working_directory_default",
       "action_action_working_directory_description"
     ],
-    "231": [
+    "235": [
       "action_action_outputs_status",
       "action_action_status_description",
       "action_action_status_value"
     ],
-    "232": [
+    "236": [
       "archguard_core_src_main_java_io_archguard_engine_cycles",
       "archguard_core_src_main_java_io_archguard_engine_cycles_cycles",
       "archguard_core_src_main_java_io_archguard_engine_cycles_cycles_cycles"
     ],
-    "233": [
+    "237": [
       "archguard_core_src_test_java_io_archguard_fixtures_domain_legacyentity",
       "archguard_core_src_test_java_io_archguard_fixtures_domain_legacyentity_legacyentity",
       "javax_persistence_entity"
     ],
-    "234": [
+    "238": [
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_restresource",
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_restresource_java_jakarta_ws_rs_path",
       "archguard_core_src_test_java_io_archguard_fixtures_inbound_restresource_restresource"
     ],
-    "235": [
+    "239": [
       "examples_micronaut_src_main_java_example_micronaut_bootstrap_application",
       "examples_micronaut_src_main_java_example_micronaut_bootstrap_application_application",
       "examples_micronaut_src_main_java_example_micronaut_bootstrap_application_application_main"
     ],
-    "236": [
+    "240": [
       "skills_archguard_scripts_check",
       "skills_archguard_scripts_check_error",
       "skills_archguard_scripts_check_sh__entry"
     ],
-    "237": [
+    "241": [
+      "spec_conformance_ddd_001_python_src_conf_orders_api_order_summary",
+      "spec_conformance_ddd_001_python_src_conf_orders_api_order_summary_ordersummary",
+      "typeddict"
+    ],
+    "242": [
       "spec_conformance_hex_002_python_src_conf_orders_domain_order",
       "spec_conformance_hex_002_python_src_conf_orders_domain_order_order",
       "spec_conformance_hex_002_python_src_conf_orders_domain_order_order_init"
     ],
-    "238": [
+    "243": [
       "spec_conformance_invalid_policy_python_src_conf_orders_domain_order",
       "spec_conformance_invalid_policy_python_src_conf_orders_domain_order_order",
       "spec_conformance_invalid_policy_python_src_conf_orders_domain_order_order_init"
     ],
-    "239": [
+    "244": [
       "spec_conformance_invalid_policy_typescript_src_orders_domain_order",
       "spec_conformance_invalid_policy_typescript_src_orders_domain_order_order",
       "spec_conformance_invalid_policy_typescript_src_orders_domain_order_order_constructor"
     ],
-    "240": [
+    "245": [
       "spec_conformance_unclassified_python_src_conf_orders_domain_order",
       "spec_conformance_unclassified_python_src_conf_orders_domain_order_order",
       "spec_conformance_unclassified_python_src_conf_orders_domain_order_order_init"
     ],
-    "241": [
+    "246": [
       "spec_conformance_unclassified_typescript_src_orders_domain_order",
       "spec_conformance_unclassified_typescript_src_orders_domain_order_order",
       "spec_conformance_unclassified_typescript_src_orders_domain_order_order_constructor"
     ],
-    "242": [
+    "247": [
       "action_detect",
       "action_detect_sh__entry"
     ],
-    "243": [
+    "248": [
       "examples_clean_src_main_java_example_orders_domain_order",
       "examples_clean_src_main_java_example_orders_domain_order_order"
     ],
-    "244": [
+    "249": [
       "examples_python_clean_src_orders_init",
       "examples_python_clean_src_orders_init_rationale_1"
     ],
-    "245": [
+    "250": [
       "examples_python_violating_src_orders_init",
       "examples_python_violating_src_orders_init_rationale_1"
     ],
-    "246": [
+    "251": [
       "examples_reactor_domain_src_main_java_example_orders_domain_order",
       "examples_reactor_domain_src_main_java_example_orders_domain_order_order"
     ],
-    "247": [
+    "252": [
       "examples_violating_src_main_java_example_orders_domain_order",
       "examples_violating_src_main_java_example_orders_domain_order_order"
     ],
-    "248": [
+    "253": [
       "pkg_example_application",
       "pkg_example_domain"
     ],
-    "249": [
+    "254": [
       "presets_acme_init",
       "presets_acme_init_rationale_1"
     ],
-    "250": [
+    "255": [
       "spec_conformance_ddd_001_java_src_main_java_conf_orders_api_ordersummary",
       "spec_conformance_ddd_001_java_src_main_java_conf_orders_api_ordersummary_ordersummary"
     ],
-    "251": [
+    "256": [
       "spec_conformance_ddd_001_typescript_src_orders_api_order_summary",
       "spec_conformance_ddd_001_typescript_src_orders_api_order_summary_ordersummary"
     ],
-    "252": [
+    "257": [
       "spec_conformance_unclassified_python_src_conf_orders_util_helper",
       "spec_conformance_unclassified_python_src_conf_orders_util_helper_normalize_id"
     ],
-    "253": [
+    "258": [
       "spec_conformance_unclassified_typescript_src_orders_util_helper",
       "spec_conformance_unclassified_typescript_src_orders_util_helper_normalizeid"
     ],
-    "254": [
+    "259": [
       "examples_python_clean_src_orders_application_init"
     ],
-    "255": [
+    "260": [
       "examples_python_clean_src_orders_infrastructure_init"
     ],
-    "256": [
+    "261": [
       "examples_python_clean_src_orders_ports_init"
     ],
-    "257": [
+    "262": [
       "examples_python_clean_src_orders_web_init"
     ],
-    "258": [
+    "263": [
       "examples_python_django_catalog_integrations_init"
     ],
-    "259": [
+    "264": [
       "examples_python_django_catalog_migrations_init"
     ],
-    "260": [
+    "265": [
       "examples_python_django_library_init"
     ],
-    "261": [
+    "266": [
       "examples_python_violating_src_orders_application_init"
     ],
-    "262": [
+    "267": [
       "examples_python_violating_src_orders_infrastructure_init"
     ],
-    "263": [
+    "268": [
       "examples_python_violating_src_orders_ports_init"
     ],
-    "264": [
+    "269": [
       "examples_python_violating_src_orders_web_init"
     ],
-    "265": [
+    "270": [
       "pkg_acme_archguard_presets"
     ],
-    "266": [
+    "271": [
       "pkg_archguard_cli"
     ],
-    "267": [
+    "272": [
       "pkg_com_acme_architecture_archguard_presets"
     ],
-    "268": [
+    "273": [
       "pkg_conformance_clean"
     ],
-    "269": [
+    "274": [
       "pkg_example_clean"
     ],
-    "270": [
+    "275": [
       "pkg_example_micronaut_example"
     ],
-    "271": [
+    "276": [
       "pkg_example_quarkus_example"
     ],
-    "272": [
+    "277": [
       "pkg_example_quarkus_legacy_example"
     ],
-    "273": [
+    "278": [
       "pkg_example_reactor"
     ],
-    "274": [
+    "279": [
       "pkg_example_spring_example"
     ],
-    "275": [
+    "280": [
       "pkg_example_spring_legacy_example"
     ],
-    "276": [
+    "281": [
       "pkg_example_violating"
     ],
-    "277": [
+    "282": [
       "pkg_io_archguard_archguard_parent"
     ],
-    "278": [
+    "283": [
       "pkg_library_django"
     ],
-    "279": [
+    "284": [
       "pkg_orders_fastapi"
     ],
-    "280": [
+    "285": [
       "pkg_orders_fastapi_violating"
     ],
-    "281": [
+    "286": [
       "skills_archguard_scripts_archguard_init"
     ],
-    "282": [
+    "287": [
       "spec_conformance_clean_python_src_conf_orders_adapter_init"
     ],
-    "283": [
+    "288": [
       "spec_conformance_clean_python_src_conf_orders_application_init"
     ],
-    "284": [
+    "289": [
       "spec_conformance_clean_python_src_conf_orders_port_init"
     ]
   },
   "cohesion": {
-    "0": 0.07868852459016394,
-    "1": 0.06327683615819209,
-    "2": 0.07597402597402597,
+    "0": 0.06527682843472317,
+    "1": 0.07868852459016394,
+    "2": 0.11673469387755102,
     "3": 0.09061224489795919,
     "4": 0.0858843537414966,
-    "5": 0.11649659863945579,
-    "6": 0.10823311748381129,
-    "7": 0.048484848484848485,
-    "8": 0.06553911205073996,
-    "9": 0.1014799154334038,
-    "10": 0.08902439024390243,
-    "11": 0.13086770981507823,
-    "12": 0.1111111111111111,
-    "13": 0.13213213213213212,
-    "14": 0.12380952380952381,
-    "15": 0.12834224598930483,
-    "16": 0.08669354838709678,
-    "17": 0.07056451612903226,
-    "18": 0.11182795698924732,
-    "19": 0.07586206896551724,
-    "20": 0.2438423645320197,
-    "21": 0.1111111111111111,
-    "22": 0.07142857142857142,
-    "23": 0.07407407407407407,
-    "24": 0.14245014245014245,
-    "25": 0.11965811965811966,
-    "26": 0.09230769230769231,
-    "27": 0.17846153846153845,
-    "28": 0.16,
-    "29": 0.11231884057971014,
-    "30": 0.12318840579710146,
+    "5": 0.048484848484848485,
+    "6": 0.06553911205073996,
+    "7": 0.11205073995771671,
+    "8": 0.08902439024390243,
+    "9": 0.13086770981507823,
+    "10": 0.11561561561561562,
+    "11": 0.12698412698412698,
+    "12": 0.11904761904761904,
+    "13": 0.20168067226890757,
+    "14": 0.12834224598930483,
+    "15": 0.07056451612903226,
+    "16": 0.11182795698924732,
+    "17": 0.13548387096774195,
+    "18": 0.0735632183908046,
+    "19": 0.13756613756613756,
+    "20": 0.11904761904761904,
+    "21": 0.07142857142857142,
+    "22": 0.07407407407407407,
+    "23": 0.12535612535612536,
+    "24": 0.11692307692307692,
+    "25": 0.09230769230769231,
+    "26": 0.17846153846153845,
+    "27": 0.16,
+    "28": 0.11231884057971014,
+    "29": 0.12318840579710146,
+    "30": 0.16666666666666666,
     "31": 0.16666666666666666,
     "32": 0.08333333333333333,
     "33": 0.08333333333333333,
@@ -3925,7 +3935,7 @@
     "40": 0.08695652173913043,
     "41": 0.09090909090909091,
     "42": 0.21428571428571427,
-    "43": 0.35789473684210527,
+    "43": 0.1,
     "44": 0.1,
     "45": 0.1,
     "46": 0.1,
@@ -3935,66 +3945,66 @@
     "50": 0.1,
     "51": 0.1,
     "52": 0.1,
-    "53": 0.1,
-    "54": 0.15263157894736842,
-    "55": 0.17543859649122806,
-    "56": 0.27485380116959063,
+    "53": 0.15263157894736842,
+    "54": 0.14035087719298245,
+    "55": 0.27485380116959063,
+    "56": 0.10526315789473684,
     "57": 0.10526315789473684,
-    "58": 0.10526315789473684,
+    "58": 0.1111111111111111,
     "59": 0.1111111111111111,
     "60": 0.1111111111111111,
     "61": 0.1111111111111111,
     "62": 0.1111111111111111,
-    "63": 0.1111111111111111,
+    "63": 0.1437908496732026,
     "64": 0.11764705882352941,
     "65": 0.19607843137254902,
-    "66": 0.125,
-    "67": 0.125,
-    "68": 0.125,
+    "66": 0.20588235294117646,
+    "67": 0.18382352941176472,
+    "68": 0.15833333333333333,
     "69": 0.125,
     "70": 0.125,
-    "71": 0.18333333333333332,
-    "72": 0.2,
+    "71": 0.125,
+    "72": 0.125,
     "73": 0.125,
-    "74": 0.13333333333333333,
+    "74": 0.125,
     "75": 0.13333333333333333,
-    "76": 0.1523809523809524,
-    "77": 0.18095238095238095,
-    "78": 0.13333333333333333,
-    "79": 0.17142857142857143,
+    "76": 0.3238095238095238,
+    "77": 0.13333333333333333,
+    "78": 0.1523809523809524,
+    "79": 0.18095238095238095,
     "80": 0.13333333333333333,
-    "81": 0.13333333333333333,
+    "81": 0.2,
     "82": 0.13333333333333333,
     "83": 0.13333333333333333,
-    "84": 0.14285714285714285,
-    "85": 0.3626373626373626,
-    "86": 0.15384615384615385,
-    "87": 0.17582417582417584,
+    "84": 0.13333333333333333,
+    "85": 0.13333333333333333,
+    "86": 0.14285714285714285,
+    "87": 0.15384615384615385,
     "88": 0.14285714285714285,
     "89": 0.14285714285714285,
     "90": 0.15384615384615385,
-    "91": 0.15384615384615385,
-    "92": 0.2948717948717949,
-    "93": 0.15384615384615385,
-    "94": 0.32051282051282054,
-    "95": 0.25757575757575757,
-    "96": 0.19696969696969696,
+    "91": 0.1794871794871795,
+    "92": 0.15384615384615385,
+    "93": 0.32051282051282054,
+    "94": 0.25757575757575757,
+    "95": 0.19696969696969696,
+    "96": 0.16666666666666666,
     "97": 0.16666666666666666,
     "98": 0.16666666666666666,
-    "99": 0.16666666666666666,
-    "100": 0.3484848484848485,
+    "99": 0.3484848484848485,
+    "100": 0.21818181818181817,
     "101": 0.21818181818181817,
-    "102": 0.21818181818181817,
-    "103": 0.3090909090909091,
-    "104": 0.18181818181818182,
-    "105": 0.2727272727272727,
-    "106": 0.18181818181818182,
-    "107": 0.43636363636363634,
-    "108": 0.18181818181818182,
-    "109": 0.2,
-    "110": 0.2222222222222222,
+    "102": 0.18181818181818182,
+    "103": 0.2,
+    "104": 0.3090909090909091,
+    "105": 0.18181818181818182,
+    "106": 0.2727272727272727,
+    "107": 0.18181818181818182,
+    "108": 0.43636363636363634,
+    "109": 0.18181818181818182,
+    "110": 0.2,
     "111": 0.2222222222222222,
-    "112": 0.2,
+    "112": 0.2222222222222222,
     "113": 0.2,
     "114": 0.2,
     "115": 0.2,
@@ -4002,12 +4012,12 @@
     "117": 0.2,
     "118": 0.2,
     "119": 0.2,
-    "120": 0.4,
-    "121": 0.2,
+    "120": 0.2,
+    "121": 0.4,
     "122": 0.2,
-    "123": 0.4,
-    "124": 0.35555555555555557,
-    "125": 0.25,
+    "123": 0.2,
+    "124": 0.4,
+    "125": 0.35555555555555557,
     "126": 0.25,
     "127": 0.2222222222222222,
     "128": 0.2222222222222222,
@@ -4025,7 +4035,7 @@
     "140": 0.25,
     "141": 0.25,
     "142": 0.25,
-    "143": 0.25,
+    "143": 0.39285714285714285,
     "144": 0.25,
     "145": 0.25,
     "146": 0.25,
@@ -4036,39 +4046,39 @@
     "151": 0.25,
     "152": 0.25,
     "153": 0.25,
-    "154": 0.2857142857142857,
-    "155": 0.5238095238095238,
-    "156": 0.2857142857142857,
+    "154": 0.25,
+    "155": 0.2857142857142857,
+    "156": 0.5238095238095238,
     "157": 0.2857142857142857,
     "158": 0.2857142857142857,
-    "159": 0.38095238095238093,
+    "159": 0.2857142857142857,
     "160": 0.3333333333333333,
     "161": 0.2857142857142857,
     "162": 0.2857142857142857,
     "163": 0.2857142857142857,
-    "164": 0.2857142857142857,
-    "165": 0.42857142857142855,
-    "166": 0.2857142857142857,
+    "164": 0.47619047619047616,
+    "165": 0.2857142857142857,
+    "166": 0.42857142857142855,
     "167": 0.2857142857142857,
     "168": 0.2857142857142857,
-    "169": 0.3333333333333333,
-    "170": 0.3333333333333333,
+    "169": 0.2857142857142857,
+    "170": 0.5333333333333333,
     "171": 0.3333333333333333,
     "172": 0.3333333333333333,
-    "173": 0.4,
-    "174": 0.4666666666666667,
+    "173": 0.3333333333333333,
+    "174": 0.3333333333333333,
     "175": 0.4,
-    "176": 0.5333333333333333,
-    "177": 0.6,
-    "178": 0.3333333333333333,
-    "179": 0.3333333333333333,
-    "180": 0.4,
-    "181": 0.4,
-    "182": 0.6,
+    "176": 0.4666666666666667,
+    "177": 0.4,
+    "178": 0.5333333333333333,
+    "179": 0.6,
+    "180": 0.3333333333333333,
+    "181": 0.3333333333333333,
+    "182": 0.5,
     "183": 0.4,
-    "184": 0.4,
+    "184": 0.6,
     "185": 0.4,
-    "186": 0.4,
+    "186": 0.6,
     "187": 0.4,
     "188": 0.4,
     "189": 0.4,
@@ -4076,12 +4086,12 @@
     "191": 0.4,
     "192": 0.4,
     "193": 0.4,
-    "194": 0.5,
-    "195": 0.8333333333333334,
-    "196": 0.5,
-    "197": 0.5,
+    "194": 0.4,
+    "195": 0.4,
+    "196": 0.4,
+    "197": 0.4,
     "198": 0.5,
-    "199": 0.5,
+    "199": 0.8333333333333334,
     "200": 0.5,
     "201": 0.5,
     "202": 0.5,
@@ -4091,12 +4101,12 @@
     "206": 0.5,
     "207": 0.5,
     "208": 0.5,
-    "209": 0.6666666666666666,
+    "209": 0.5,
     "210": 0.5,
-    "211": 0.6666666666666666,
-    "212": 0.6666666666666666,
+    "211": 0.5,
+    "212": 0.5,
     "213": 0.6666666666666666,
-    "214": 0.6666666666666666,
+    "214": 0.5,
     "215": 0.6666666666666666,
     "216": 0.6666666666666666,
     "217": 0.6666666666666666,
@@ -4118,17 +4128,17 @@
     "233": 0.6666666666666666,
     "234": 0.6666666666666666,
     "235": 0.6666666666666666,
-    "236": 1.0,
+    "236": 0.6666666666666666,
     "237": 0.6666666666666666,
     "238": 0.6666666666666666,
     "239": 0.6666666666666666,
-    "240": 0.6666666666666666,
+    "240": 1.0,
     "241": 0.6666666666666666,
-    "242": 1.0,
-    "243": 1.0,
-    "244": 1.0,
-    "245": 1.0,
-    "246": 1.0,
+    "242": 0.6666666666666666,
+    "243": 0.6666666666666666,
+    "244": 0.6666666666666666,
+    "245": 0.6666666666666666,
+    "246": 0.6666666666666666,
     "247": 1.0,
     "248": 1.0,
     "249": 1.0,
@@ -4166,7 +4176,12 @@
     "281": 1.0,
     "282": 1.0,
     "283": 1.0,
-    "284": 1.0
+    "284": 1.0,
+    "285": 1.0,
+    "286": 1.0,
+    "287": 1.0,
+    "288": 1.0,
+    "289": 1.0
   },
   "gods": [
     {
@@ -4233,17 +4248,6 @@
       "why": "connects across different repos/directories"
     },
     {
-      "source": "book_by_isbn()",
-      "target": "Book",
-      "source_files": [
-        "examples/python-django/catalog/selectors.py",
-        "examples/python-django/catalog/models.py"
-      ],
-      "confidence": "INFERRED",
-      "relation": "uses",
-      "why": "inferred connection - not explicitly stated in source; peripheral node `book_by_isbn()` unexpectedly reaches hub `Book`"
-    },
-    {
       "source": "SourceIndex",
       "target": "AnalysisError",
       "source_files": [
@@ -4266,11 +4270,22 @@
       "why": "inferred connection - not explicitly stated in source; bridges separate communities"
     },
     {
-      "source": "Project",
-      "target": "Io",
+      "source": "Frameworks",
+      "target": "SourceIndex",
       "source_files": [
-        "python/archguard-py/tests/test_analyzer.py",
-        "python/archguard-py/src/archguard/cli.py"
+        "python/archguard-py/src/archguard/frameworks.py",
+        "python/archguard-py/src/archguard/index.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "read_model()",
+      "target": "Project",
+      "source_files": [
+        "python/archguard-py/src/archguard/importer.py",
+        "python/archguard-py/src/archguard/project.py"
       ],
       "confidence": "INFERRED",
       "relation": "uses",
@@ -4280,38 +4295,38 @@
   "questions": [
     {
       "type": "bridge_node",
-      "question": "Why does `EngineTest` connect `Community 20` to `Community 16`, `Community 13`, `Community 14`, `Community 55`?",
-      "why": "High betweenness centrality (0.011) - this node is a cross-community bridge."
+      "question": "Why does `SpecCatalog` connect `Community 19` to `Community 24`, `Community 0`, `Community 11`, `Community 55`?",
+      "why": "High betweenness centrality (0.012) - this node is a cross-community bridge."
     },
     {
       "type": "isolated_nodes",
-      "question": "What connects `HTTP_ENTITY_EXPOSURE`, `STATIC`, `EXISTING` to the rest of the system?",
+      "question": "What connects `APPLICATION`, `COMPOSITION_ROOT`, `DOMAIN` to the rest of the system?",
       "why": "37 weakly-connected nodes found - possible missing edges."
     },
     {
       "type": "low_cohesion",
       "question": "Should `Community 0` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.07868852459016394 - nodes in this community are weakly interconnected."
+      "why": "Cohesion score 0.06527682843472317 - nodes in this community are weakly interconnected."
     },
     {
       "type": "bridge_node",
-      "question": "Why does `Options` connect `Community 9` to `Community 92`?",
-      "why": "High betweenness centrality (0.007) - this node is a cross-community bridge."
+      "question": "Why does `ModelImporter` connect `Community 9` to `Community 10`, `Community 35`?",
+      "why": "High betweenness centrality (0.006) - this node is a cross-community bridge."
     },
     {
       "type": "low_cohesion",
       "question": "Should `Community 1` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.06327683615819209 - nodes in this community are weakly interconnected."
+      "why": "Cohesion score 0.07868852459016394 - nodes in this community are weakly interconnected."
     },
     {
       "type": "bridge_node",
-      "question": "Why does `SpecCatalog` connect `Community 24` to `Community 56`, `Community 9`, `Community 13`?",
-      "why": "High betweenness centrality (0.007) - this node is a cross-community bridge."
+      "question": "Why does `MainTest` connect `Community 0` to `Community 11`?",
+      "why": "High betweenness centrality (0.006) - this node is a cross-community bridge."
     },
     {
       "type": "low_cohesion",
       "question": "Should `Community 2` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.07597402597402597 - nodes in this community are weakly interconnected."
+      "why": "Cohesion score 0.11673469387755102 - nodes in this community are weakly interconnected."
     }
   ]
 }

@@ -61,11 +61,12 @@ def build(work):
 
 def comparable(path):
     """The graph's structure: nodes and links in a stable order, without the build commit and the
-    derived community numbering, which can vary with file-system walk order."""
+    derived community ids and names, which differ between platforms."""
     graph = json.loads(path.read_text(encoding='utf-8'))
     graph.pop('built_at_commit', None)
     for node in graph.get('nodes', []):
-        node.pop('community', None)
+        for key in [k for k in node if k.startswith('community')]:
+            del node[key]
     key = lambda item: json.dumps(item, sort_keys=True)
     for name in ('nodes', 'links', 'hyperedges'):
         if isinstance(graph.get(name), list):
