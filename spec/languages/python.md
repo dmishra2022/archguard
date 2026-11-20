@@ -24,6 +24,7 @@ How the language-neutral spec maps onto Python projects. The reference implement
 - Files whose path is not a valid dotted module name (for example `my-script.py`, or Django migrations such as `0001_initial.py`) are not units.
 - Two source roots that define the same module name are an analysis error.
 - Namespace packages (directories without `__init__.py`) are supported. Importing a namespace package itself is not a dependency because it has no code; a diagnostic counts such imports.
+- A top-level namespace package with no module inside `roots` (for example a local `alembic/` migrations folder) does not claim its name: imports under it that match no source file are external, because an installed regular package of the same name takes precedence (PEP 420). A diagnostic lists such packages. Under any other top-level package, an import that matches no source file is unresolved.
 - A file that does not parse is an analysis error (exit 2). Run ArchGuard with a Python version that supports the project's syntax.
 
 ## Dependencies

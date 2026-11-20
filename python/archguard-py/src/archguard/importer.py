@@ -96,9 +96,21 @@ def _dotted(expr: ast.expr) -> Optional[str]:
 
 
 class Resolver:
-    def __init__(self, project: Project, infrastructure: FrozenSet[str] = frozenset()):
+    def __init__(self, project: Project, infrastructure: FrozenSet[str] = frozenset(),
+                 analyzed: FrozenSet[str] = frozenset()):
         self.project = project
         self.infrastructure = infrastructure
+        self.analyzed_tops = frozenset(m.split('.')[0] for m in analyzed)
+        self.shadowed: set = set()
+
+    def _namespace_top(self, module: str) -> bool:
+        """A top-level namespace package (no __init__.py) outside roots, e.g. a local alembic/ migrations
+        folder: an installed regular package of the same name takes precedence (PEP 420)."""
+        top = module.split('.')[0]
+        if top in self.project.namespaces and top not in self.analyzed_tops:
+            self.shadowed.add(top)
+            return True
+        return False
 
     def resolve(self, module: str) -> Tuple[str, str]:
         """('internal'|'namespace'|'test'|'external'|'unresolved', name)."""
@@ -109,8 +121,8 @@ class Resolver:
         parts = module.split('.')
         if any('.'.join(parts[:i]) in self.project.test_modules for i in range(1, len(parts) + 1)):
             return 'test', module
-        if module.split('.')[0] in self.project.owned_tops:
-            return 'unresolved', module
+        if parts[0] in self.project.owned_tops:
+            return ('external', module) if self._namespace_top(module) else ('unresolved', module)
         return 'external', module
 
     def targets(self, imp: RawImport) -> Iterator[Tuple[str, str]]:
@@ -133,7 +145,9 @@ class Resolver:
                 rest = True
         if rest:
             kind, target = self.resolve(imp.module)
-            yield ('unresolved', imp.module) if kind == 'namespace' else (kind, target)
+            if kind == 'namespace':
+                kind = 'external' if self._namespace_top(imp.module) else 'unresolved'
+            yield kind, target
 
 
 def _require_match(units: Dict[str, Unit], patterns: List[str], label: str) -> None:
@@ -174,7 +188,7 @@ def read_model(project: Project, policy: Policy) -> Model:
         for c in policy.constraints:
             _require_match(units, c.from_, f'constraint {c.id}')
 
-    resolver = Resolver(project, frozenset(catalog().infrastructure))
+    resolver = Resolver(project, frozenset(catalog().infrastructure), frozenset(units))
     dependencies: List[Dependency] = []
     unresolved: List[str] = []
     computed = 0
@@ -230,6 +244,12 @@ def read_model(project: Project, policy: Policy) -> Model:
         diagnostics.append(f'Computed dynamic imports not analyzed: {computed}')
     if test_imports:
         diagnostics.append(f'Imports of excluded test modules not treated as dependencies: {test_imports}')
+    if resolver.shadowed:
+        diagnostics.append(
+            f"Top-level namespace packages outside roots: {', '.join(sorted(resolver.shadowed))}; "
+            'imports under them that match no source file are treated as external '
+            '(an installed package of the same name takes precedence).'
+        )
     if namespace_imports:
         diagnostics.append(f'Imports of namespace packages (no module code) not treated as dependencies: {namespace_imports}')
     if unresolved:

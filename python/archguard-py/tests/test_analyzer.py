@@ -158,6 +158,14 @@ class AnalyzerTest(unittest.TestCase):
         result = self.project(files, HEX + 'unresolvedImports: warn\n').analyze()
         self.assertIn('Unresolved imports ignored (unresolvedImports: warn): 2', result.diagnostics)
 
+    def test_namespace_folder_outside_roots_does_not_shadow_installed_package(self):
+        result = self.project({
+            'src/alembic/env.py': 'from alembic import context\n',
+            'src/shop/persistence/migrate.py': 'from alembic import command\nimport alembic.config\n',
+        }).analyze()
+        self.assertEqual(result.dependencies, 2)
+        self.assertTrue(any(d.startswith('Top-level namespace packages outside roots: alembic;') for d in result.diagnostics))
+
     def test_namespace_package_imports_are_not_dependencies(self):
         result = self.project({
             'src/shop/domain/model/order.py': '',
