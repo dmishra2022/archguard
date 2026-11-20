@@ -1,9 +1,9 @@
 package example.orders.application;
 
 public class OrderService {
-  private final example.orders.port.OrderStore store;
+  private final example.orders.adapter.SqlOrderStore store;
 
-  public OrderService(example.orders.port.OrderStore store) {
+  public OrderService(example.orders.adapter.SqlOrderStore store) {
     this.store = store;
   }
 
