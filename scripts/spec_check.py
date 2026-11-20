@@ -114,6 +114,7 @@ for language in ('java', 'python', 'typescript'):
 policy_files = sorted(ROOT.glob('examples/*/architecture.yml'))
 policy_files += sorted(ROOT.glob('spec/conformance/*/*/architecture.yml'))
 policy_files += sorted(ROOT.glob('skills/archguard/templates/*.yml'))
+policy_files += sorted(ROOT.glob('docs/pilots/*/architecture.yml'))
 for path in policy_files:
     if 'invalid' in path.parts[-3:-1] or 'invalid-policy' in str(path):
         continue

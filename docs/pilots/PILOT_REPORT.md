@@ -26,9 +26,23 @@ Both were baselined. Injecting a real shortcut (the web controller injecting the
 
 **False positives: 0** of the 12 non-INFO findings under the final policies. MODEL-002 INFO findings (framework classification notes) were all accurate and never gate.
 
-## Agent loop
+## Agent run on buckpal
 
-See the "Agent run on buckpal" section below.
+A separate coding agent got a copy of buckpal with the skill installed in `.cursor/skills/archguard`, the pilot policy and the baseline. Its task was: "add `GET /accounts/{accountId}/balance`". It received no architecture hints beyond the skill.
+
+What the agent did:
+- Ran the gate first. It passed with the 2 existing findings.
+- Created `adapter/in/web/GetAccountBalanceController` (INBOUND_ADAPTER). It depends only on the inbound port `GetAccountBalanceUseCase` and domain value types.
+- Wired the existing `GetAccountBalanceService` as a bean in the composition root (`BuckPalConfiguration`). It deliberately did not annotate the service with `@UseCase`. The baseline run had shown that `@UseCase` on `SendMoneyService` is a HEX-002 finding, so copying that pattern would have added a NEW violation.
+- Added a `@WebMvcTest` in the style of the existing controller tests.
+- Did not edit `architecture.yml`, the baseline or suppressions, and did not commit.
+
+Independent verification after the run:
+- The policy and the baseline are byte-identical to the originals.
+- `check.sh --baseline architecture-baseline.json` exits 0 with summary `{"status":"PASSED","new":0,"existing":2,"suppressed":0}`.
+- `./gradlew test` passes.
+
+The changed-files gate (`--changed`) took 2.5 s and the full gate 1.4–2.6 s.
 
 ## Issues found and what was done
 
@@ -48,6 +62,6 @@ See the "Agent run on buckpal" section below.
 The exit criteria hold:
 - False positives are acceptable (none found).
 - The gate is well within a 2-minute budget.
-- The agent loop works (see below).
+- The agent loop works: the agent placed new code in the right roles, avoided a known violating pattern, and left the policy alone.
 
 TypeScript and Python can start on the same contract.
