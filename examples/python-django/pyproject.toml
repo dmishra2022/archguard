@@ -1,0 +1,6 @@
+[project]
+name = "library-django"
+version = "1.0.0"
+description = "Layered Django REST Framework service used as an ArchGuard example"
+requires-python = ">=3.9"
+dependencies = ["django>=4.2", "djangorestframework>=3.14"]

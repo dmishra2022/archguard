@@ -27,7 +27,7 @@ Every analyzer ships an `archguard` command with the same commands, options, exi
 | `--overwrite-baseline` | false | Allow replacing an existing baseline |
 | `--fail-on <severity>` | policy `failOn` | Override the gate severity |
 
-Java adds `--classes <dir>` (repeatable), `--source-root <dir>` (repeatable), `--classpath <path-list>` and `--classpath-file <file>`. Python and TypeScript read source roots from the policy (`sourceRoots`) or their project configuration. TypeScript adds `--tsconfig <file>` (default `<project>/tsconfig.json`).
+Java adds `--classes <dir>` (repeatable), `--source-root <dir>` (repeatable), `--classpath <path-list>` and `--classpath-file <file>`. Python and TypeScript read source roots from the policy (`sourceRoots`) or their project configuration. TypeScript adds `--tsconfig <file>` (default `<project>/tsconfig.json`). Python adds no options; it also installs `archguard-pre-commit`, which runs `check` with the file names it receives as the changed-files scope (for the pre-commit framework).
 
 ## Exit codes
 

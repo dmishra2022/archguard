@@ -7,8 +7,8 @@
     {
       "rule": "MODEL-001",
       "severity": "ERROR",
-      "origin": { "java": "conf.orders.util.Helper", "typescript": "src/orders/util/helper" },
-      "target": { "java": "conf.orders.util.Helper", "typescript": "src/orders/util/helper" }
+      "origin": { "java": "conf.orders.util.Helper", "typescript": "src/orders/util/helper", "python": "conf.orders.util.helper" },
+      "target": { "java": "conf.orders.util.Helper", "typescript": "src/orders/util/helper", "python": "conf.orders.util.helper" }
     }
   ]
 }

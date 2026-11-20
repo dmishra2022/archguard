@@ -160,9 +160,26 @@ def run_typescript_cli(case, expected, work):
     return process.returncode, work / 'reports' / 'archguard' / 'archguard.json', process.stderr
 
 
+PY_SRC = ROOT / 'python' / 'archguard-py' / 'src'
+
+
+def run_python_cli(case, expected, work):
+    """Run the archguard Python package from python/archguard-py/src; the exit code is used as-is."""
+    env = dict(os.environ)
+    env['PYTHONPATH'] = os.pathsep.join(filter(None, [str(PY_SRC), env.get('PYTHONPATH')]))
+    command = [
+        sys.executable, '-m', 'archguard', 'check', '--project', str(work),
+        '--format', 'json,sarif,html,agent',
+    ]
+    process = subprocess.run(command, cwd=work, text=True, capture_output=True, env=env)
+    check_agent_output(process)
+    return process.returncode, work / 'reports' / 'archguard' / 'archguard.json', process.stderr
+
+
 ENGINES = {
     ('java', 'maven'): run_java_maven,
     ('java', 'cli'): run_java_cli,
+    ('python', 'cli'): run_python_cli,
     ('typescript', 'cli'): run_typescript_cli,
 }
 

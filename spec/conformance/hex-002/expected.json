@@ -7,8 +7,8 @@
     {
       "rule": "HEX-002",
       "severity": "ERROR",
-      "origin": { "java": "conf.orders.application.PlaceOrder", "typescript": "src/orders/application/place-order" },
-      "target": { "java": "conf.orders.adapter.SqlOrderStore", "typescript": "src/orders/adapter/sql-order-store" }
+      "origin": { "java": "conf.orders.application.PlaceOrder", "typescript": "src/orders/application/place-order", "python": "conf.orders.application.place_order" },
+      "target": { "java": "conf.orders.adapter.SqlOrderStore", "typescript": "src/orders/adapter/sql-order-store", "python": "conf.orders.adapter.sql_order_store" }
     }
   ]
 }

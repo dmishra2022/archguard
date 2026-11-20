@@ -7,8 +7,8 @@
     {
       "rule": "DDD-001",
       "severity": "ERROR",
-      "origin": { "java": "conf.billing.application.Invoicing", "typescript": "src/billing/application/invoicing" },
-      "target": { "java": "conf.orders.domain.Order", "typescript": "src/orders/domain/order" }
+      "origin": { "java": "conf.billing.application.Invoicing", "typescript": "src/billing/application/invoicing", "python": "conf.billing.application.invoicing" },
+      "target": { "java": "conf.orders.domain.Order", "typescript": "src/orders/domain/order", "python": "conf.orders.domain.order" }
     }
   ]
 }

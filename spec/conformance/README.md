@@ -6,8 +6,8 @@ Every analyzer must pass every case for its language. A case is the same archite
 spec/conformance/<case>/
   expected.json            exit code, status and expected findings
   java/                    architecture.yml + src/main/java/...
-  python/                  architecture.yml + src/...           (added with the Python analyzer)
-  typescript/              architecture.yml + src/... + tsconfig (added with the TypeScript analyzer)
+  python/                  architecture.yml + src/... (+ pyproject.toml)
+  typescript/              architecture.yml + src/... (+ tsconfig.json, package.json)
 ```
 
 ## expected.json
@@ -46,9 +46,13 @@ python3 scripts/conformance.py --language java --engine cli
 
 (cd typescript/archguard-ts && npm ci && npm run build)
 python3 scripts/conformance.py --language typescript
+
+python3 scripts/conformance.py --language python   # runs python/archguard-py/src directly (PyYAML, jsonschema)
 ```
 
-TypeScript origins and targets are module names (project-relative paths without extension). Member symbols use `#` (`src/shop/web/product-resource#ProductResource.get`); the runner compares the part before `#`.
+TypeScript origins and targets are module names (project-relative paths without extension). Python origins and targets are dotted module names (`conf.shop.web.product_resource`). Member symbols use `#` (`src/shop/web/product-resource#ProductResource.get`, `conf.shop.web.product_resource#get_product`); the runner compares the part before `#`.
+
+The Python variants exercise both regular packages (`clean` has `__init__.py` files) and namespace packages (the other cases), relative imports, `if TYPE_CHECKING:` imports, and a FastAPI router imported from another module (`http-entity`).
 
 The runner copies each case to a temporary directory, so the suite never writes into `spec/`.
 

@@ -7,14 +7,14 @@
     {
       "rule": "DDD-002",
       "severity": "ERROR",
-      "origin": { "java": "conf.billing.api.BillingApi", "typescript": "src/billing/api/billing-api" },
-      "target": { "java": "conf.orders.api.OrderApi", "typescript": "src/orders/api/order-api" }
+      "origin": { "java": "conf.billing.api.BillingApi", "typescript": "src/billing/api/billing-api", "python": "conf.billing.api.billing_api" },
+      "target": { "java": "conf.orders.api.OrderApi", "typescript": "src/orders/api/order-api", "python": "conf.orders.api.order_api" }
     },
     {
       "rule": "CYCLE-001",
       "severity": "ERROR",
-      "origin": { "java": "conf.billing.api.BillingApi", "typescript": "src/billing/api/billing-api" },
-      "target": { "java": "conf.orders.api.OrderApi", "typescript": "src/orders/api/order-api" }
+      "origin": { "java": "conf.billing.api.BillingApi", "typescript": "src/billing/api/billing-api", "python": "conf.billing.api.billing_api" },
+      "target": { "java": "conf.orders.api.OrderApi", "typescript": "src/orders/api/order-api", "python": "conf.orders.api.order_api" }
     }
   ]
 }

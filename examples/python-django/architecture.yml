@@ -1,0 +1,18 @@
+schemaVersion: 2
+language: python
+sourceRoots: ["."]
+roots: ["library.**", "catalog.**"]
+profiles: [layered]
+roles:
+  COMPOSITION_ROOT: ["library.**", "catalog", "catalog.apps"]
+  INBOUND_ADAPTER: ["catalog.api", "catalog.serializers", "catalog.urls"]
+  APPLICATION: ["catalog.services", "catalog.selectors"]
+  DOMAIN: ["catalog.models", "catalog.migrations"]
+  OUTBOUND_ADAPTER: ["catalog.integrations.**"]
+constraints:
+  - id: CATALOG-001
+    from: ["catalog.api"]
+    forbidden: ["catalog.models"]
+    rationale: Views must not query or write models directly; reads go through selectors and writes through services.
+    remediation: Add or reuse a function in catalog.selectors (reads) or catalog.services (writes) and call it from the view.
+requireClassification: true

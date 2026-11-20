@@ -24,6 +24,7 @@ Spec version: **2.0.0** (see [VERSIONING.md](VERSIONING.md)).
 | [SARIF_MAPPING.md](SARIF_MAPPING.md) | How findings map to SARIF 2.1.0 |
 | [conformance/](conformance/) | Cross-language conformance cases with expected findings |
 | [languages/typescript.md](languages/typescript.md) | TypeScript/JavaScript binding: units, containers, resolution, framework tags |
+| [languages/python.md](languages/python.md) | Python binding: modules, containers, import resolution, framework tags |
 
 ## Core model
 

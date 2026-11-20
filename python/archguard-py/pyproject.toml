@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "archguard"
+version = "0.1.0"
+description = "ArchGuard architecture conformance analyzer for Python projects"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.9"
+dependencies = ["PyYAML>=5.4", "jsonschema>=4.0"]
+keywords = ["architecture", "hexagonal", "ddd", "lint", "conformance"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.urls]
+Source = "https://github.com/dmishra2022/archguard"
+
+[project.scripts]
+archguard = "archguard.cli:main"
+archguard-pre-commit = "archguard.precommit:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+archguard = ["spec/**/*"]

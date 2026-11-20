@@ -7,14 +7,14 @@
     {
       "rule": "FW-002",
       "severity": "ERROR",
-      "origin": { "java": "conf.shop.web.ProductResource", "typescript": "src/shop/web/product-resource" },
-      "target": { "java": "conf.shop.model.ProductEntity", "typescript": "src/shop/model/product-entity" }
+      "origin": { "java": "conf.shop.web.ProductResource", "typescript": "src/shop/web/product-resource", "python": "conf.shop.web.product_resource" },
+      "target": { "java": "conf.shop.model.ProductEntity", "typescript": "src/shop/model/product-entity", "python": "conf.shop.model.product_entity" }
     },
     {
       "rule": "FW-001",
       "severity": "ERROR",
-      "origin": { "java": "conf.shop.application.AdminResource", "typescript": "src/shop/application/admin-resource" },
-      "target": { "java": "conf.shop.application.AdminResource", "typescript": "src/shop/application/admin-resource" }
+      "origin": { "java": "conf.shop.application.AdminResource", "typescript": "src/shop/application/admin-resource", "python": "conf.shop.application.admin_resource" },
+      "target": { "java": "conf.shop.application.AdminResource", "typescript": "src/shop/application/admin-resource", "python": "conf.shop.application.admin_resource" }
     }
   ],
   "java": {

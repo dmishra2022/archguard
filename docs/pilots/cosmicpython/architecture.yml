@@ -1,0 +1,15 @@
+schemaVersion: 2
+language: python
+roots: ["allocation.**"]
+profiles: [hexagonal]
+roles:
+  DOMAIN: ["allocation.domain.**"]
+  APPLICATION: ["allocation.service_layer.**", "allocation.views"]
+  OUTBOUND_ADAPTER: ["allocation.adapters.**"]
+  INBOUND_ADAPTER: ["allocation.entrypoints.**"]
+  COMPOSITION_ROOT: ["allocation", "allocation.bootstrap", "allocation.config"]
+rules:
+  CYCLE-001:
+    enabled: true
+requireClassification: true
+newOnly: true

@@ -1,6 +1,6 @@
 # ArchGuard command line (Java)
 
-For TypeScript and JavaScript projects, use [`@archguard/cli`](../typescript/archguard-ts/README.md). It implements the same command contract.
+For TypeScript and JavaScript projects, use [`@archguard/cli`](../typescript/archguard-ts/README.md). For Python projects, use the [`archguard`](../python/archguard-py/README.md) distribution. Both implement the same command contract.
 
 `archguard-cli-<version>.jar` is a single runnable jar that implements the shared [command contract](../spec/CLI.md). It works with any build tool: Maven, Gradle, Bazel or plain `javac`. It produces the same findings, fingerprints and policy hash as the Maven plugin for the same modules.
 
