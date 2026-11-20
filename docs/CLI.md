@@ -58,25 +58,11 @@ mvn -q compile io.archguard:archguard-maven-plugin:0.1.0:classpath     # target/
 java -jar archguard-cli.jar check $(for f in $(find . -name archguard.classpath -path '*/target/*'); do echo --classpath-file $f; done)
 ```
 
-**Gradle** (Kotlin DSL, Java projects with one classes directory) can write the same file:
+**Gradle** needs no build changes: the init script [`skills/archguard/scripts/archguard.init.gradle`](../skills/archguard/scripts/archguard.init.gradle) adds an `archguardClasspath` task to every Java project and writes `build/archguard.classpath`:
 
-```kotlin
-tasks.register("archguardClasspath") {
-    dependsOn("classes")
-    val main = sourceSets["main"]
-    val out = layout.buildDirectory.file("archguard.classpath")
-    doLast {
-        out.get().asFile.writeText(buildString {
-            appendLine("module=${project.group}:${project.name}")
-            appendLine("classes=${main.java.destinationDirectory.get().asFile}")
-            main.java.srcDirs.forEach { appendLine("source=$it") }
-            main.runtimeClasspath.files
-                .filter { it.isDirectory || it.name.endsWith(".jar") }
-                .filter { it != main.java.destinationDirectory.get().asFile }
-                .forEach { appendLine("classpath=$it") }
-        })
-    }
-}
+```bash
+./gradlew -q -I archguard.init.gradle classes archguardClasspath
+java -jar archguard-cli.jar check $(for f in $(find . -name archguard.classpath -path '*/build/*'); do echo --classpath-file $f; done)
 ```
 
 ## Reports and formats

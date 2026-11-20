@@ -16,7 +16,7 @@ jobs:
           - { example: reactor, config: architecture.yml, expect: "0" }
           - { example: clean, config: missing.yml, expect: "2" }
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: archguard
         uses: ./action
         continue-on-error: true

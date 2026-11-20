@@ -15,7 +15,7 @@ jobs:
   architecture:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0        # precise merge base for changed-files-only
       - uses: dmishra2022/archguard/action@main   # pin a release tag once published
@@ -29,7 +29,7 @@ jobs:
 What the action does:
 1. It detects the language from the build file and installs JDK 17.
 2. It gets the analyzer from Maven Central, or builds it from the action's source if that version is not published.
-3. It compiles the project and runs `mvn archguard:classpath` (or the Gradle task from [CLI.md](CLI.md)).
+3. It compiles the project and runs `mvn archguard:classpath` (Gradle projects get the same through the bundled init script, with no build changes).
 4. It runs `archguard check` with the policy, the baseline and suppressions (when present), and the `fail-on` override.
 5. It writes a job summary and an annotation for each NEW finding. Annotations work without code scanning.
 6. It uploads SARIF to code scanning (`upload-sarif`) and the report directory as an artifact (`upload-artifact`, `artifact-name`).

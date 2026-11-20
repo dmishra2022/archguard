@@ -24,7 +24,7 @@ Adapters never call each other: an inbound adapter reaches an outbound adapter o
 3. APPLICATION: the use case receives `XRepository` through its constructor.
 4. COMPOSITION_ROOT: wire the adapter (or rely on framework scanning of the adapter package).
 
-**New HTTP endpoint**: controller in INBOUND_ADAPTER, request/response DTOs next to it, call an APPLICATION use case. Never return or accept `@Entity` types from endpoint methods (FW-002).
+**New HTTP endpoint**: controller in INBOUND_ADAPTER, request/response DTOs next to it, call an APPLICATION use case. Never return or accept `@Entity` types from endpoint methods (FW-002). This includes server-side MVC form binding (`@ModelAttribute Owner owner`); use a form object and map it.
 
 **New external API call**: an OUTBOUND_PORT interface in the core plus an OUTBOUND_ADAPTER client implementing it.
 

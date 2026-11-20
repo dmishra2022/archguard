@@ -47,17 +47,23 @@ def main():
             '',
         ]
         if new:
-            lines += ['| Rule | Severity | Location | Depends on | Fix |', '|---|---|---|---|---|']
-            for f in new[:MAX_ROWS]:
+            groups = {}
+            for f in new:
                 loc = f['location']
-                where = loc['path'] or loc['symbol']
+                key = (f['ruleId'], f['severity'], loc['path'] or loc['symbol'], f['target'])
+                groups.setdefault(key, {'lines': set(), 'count': 0, 'fix': f['remediation']})
+                groups[key]['count'] += 1
                 if loc.get('line'):
-                    where += f':{loc["line"]}'
+                    groups[key]['lines'].add(loc['line'])
+            lines += ['| Rule | Severity | Location | Depends on | Sites | Fix |', '|---|---|---|---|---|---|']
+            for (rule, severity, where, target), g in list(groups.items())[:MAX_ROWS]:
+                if g['lines']:
+                    where += ':' + ','.join(str(n) for n in sorted(g['lines']))
                 lines.append(
-                    f'| {f["ruleId"]} | {f["severity"]} | `{cell(where)}` | `{cell(f["target"])}` | {cell(f["remediation"])} |'
+                    f'| {rule} | {severity} | `{cell(where)}` | `{cell(target)}` | {g["count"]} | {cell(g["fix"])} |'
                 )
-            if len(new) > MAX_ROWS:
-                lines.append(f'\n{len(new) - MAX_ROWS} more in the report artifact.')
+            if len(groups) > MAX_ROWS:
+                lines.append(f'\n{len(groups) - MAX_ROWS} more in the report artifact.')
         for d in report.get('diagnostics', []):
             lines.append(f'\n> {cell(d)}')
         if annotate == 'true':

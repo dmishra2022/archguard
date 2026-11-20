@@ -1,0 +1,20 @@
+schemaVersion: 2
+language: java
+roots: ["org.springframework.samples.petclinic.**"]
+profiles: [modular-monolith]
+contexts:
+  - id: owner
+    packages: ["org.springframework.samples.petclinic.owner.**"]
+    exposedPackages: []
+  - id: vet
+    packages: ["org.springframework.samples.petclinic.vet.**"]
+    exposedPackages: []
+  - id: system
+    packages: ["org.springframework.samples.petclinic.system.**"]
+    exposedPackages: []
+  - id: model
+    packages: ["org.springframework.samples.petclinic.model.**"]
+    exposedPackages: ["org.springframework.samples.petclinic.model.**"]
+requireClassification: false
+failOn: ERROR
+newOnly: true

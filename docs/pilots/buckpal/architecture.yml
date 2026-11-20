@@ -1,0 +1,15 @@
+schemaVersion: 2
+language: java
+roots: ["io.reflectoring.buckpal.**"]
+profiles: [hexagonal]
+roles:
+  DOMAIN: ["io.reflectoring.buckpal.application.domain.model.**"]
+  APPLICATION: ["io.reflectoring.buckpal.application.domain.service.**"]
+  INBOUND_PORT: ["io.reflectoring.buckpal.application.port.in.**"]
+  OUTBOUND_PORT: ["io.reflectoring.buckpal.application.port.out.**"]
+  INBOUND_ADAPTER: ["io.reflectoring.buckpal.adapter.in.**"]
+  OUTBOUND_ADAPTER: ["io.reflectoring.buckpal.adapter.out.**"]
+  COMPOSITION_ROOT: ["io.reflectoring.buckpal", "io.reflectoring.buckpal.common.**"]
+requireClassification: true
+failOn: ERROR
+newOnly: true

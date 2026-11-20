@@ -39,7 +39,13 @@ if [ -z "$jar" ]; then
   url="https://repo1.maven.org/maven2/io/archguard/archguard-cli/$VERSION/archguard-cli-$VERSION.jar"
   if ! curl -fsSL -o "$jar" "$url" 2>/dev/null; then
     group "Build ArchGuard $VERSION from source (not on Maven Central)"
-    if ! mvn -B -q -ntp -f "$ACTION_DIR/../pom.xml" install -DskipTests; then
+    built_ok=false
+    for attempt in 1 2 3; do
+      if mvn -B -q -ntp -f "$ACTION_DIR/../pom.xml" install -DskipTests; then built_ok=true; break; fi
+      echo "Source build attempt $attempt failed; retrying (transient repository errors are common)."
+      sleep $((attempt * 10))
+    done
+    if ! $built_ok; then
       endgroup
       finish 2 "Could not download or build archguard-cli $VERSION."
     fi
@@ -59,10 +65,11 @@ if [ -f pom.xml ]; then
   mvn -B -q -ntp -DskipTests compile "io.archguard:archguard-maven-plugin:$VERSION:classpath" \
     || { endgroup; finish 2 "Maven compile failed."; }
 else
+  OUT="$WORKDIR/build/archguard"
   gradle_cmd=gradle
   [ -x ./gradlew ] && gradle_cmd=./gradlew
-  "$gradle_cmd" -q classes archguardClasspath \
-    || { endgroup; finish 2 "Gradle build failed (it needs the archguardClasspath task from docs/CLI.md)."; }
+  "$gradle_cmd" -q -I "$ACTION_DIR/../skills/archguard/scripts/archguard.init.gradle" classes archguardClasspath \
+    || { endgroup; finish 2 "Gradle build failed."; }
 fi
 endgroup
 

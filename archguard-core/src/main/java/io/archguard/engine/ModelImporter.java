@@ -196,6 +196,15 @@ public final class ModelImporter {
             + " root-matched classes are evaluated.");
     long unclassified = types.values().stream().filter(t -> t.role() == Role.UNCLASSIFIED).count();
     diagnostics.add("Unclassified application classes: " + unclassified + " / " + types.size());
+    long outsideRoots =
+        ownership.keySet().stream()
+            .filter(n -> !n.endsWith("package-info") && !n.endsWith("module-info"))
+            .filter(n -> !types.containsKey(n))
+            .count();
+    if (outsideRoots > 0)
+      diagnostics.add(
+          "Compiled classes outside roots (not checked, and dependencies on them are ignored): "
+              + outsideRoots);
     if (types.values().stream().anyMatch(t -> t.location().path().isEmpty()))
       diagnostics.add(
           "Some source files are unavailable; those findings have symbol-only locations.");

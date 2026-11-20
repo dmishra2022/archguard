@@ -88,6 +88,9 @@ class MainTest {
         findFirst(report().get("findings"), "HEX-002");
     assertEquals(VIOLATING, hex.get("location").get("path").asText());
     assertEquals("java", report().get("language").asText());
+    assertTrue(
+        report().get("diagnostics").toString().contains("Compiled classes outside roots"),
+        "test classes outside the fixture roots must be reported");
     assertTrue(r.err().contains("Architecture policy violated"));
   }
 

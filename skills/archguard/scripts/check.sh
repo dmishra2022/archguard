@@ -29,15 +29,17 @@ error() {
 
 [ -f "$CONFIG" ] || error "$CONFIG not found in $(pwd). Ask the user for the architecture policy; do not invent one."
 
+OUT=target/archguard
 if [ -f pom.xml ]; then
   if ! mvn -q -B -DskipTests compile "io.archguard:archguard-maven-plugin:${VERSION}:classpath" >&2; then
     error "Maven compile failed; fix the compilation errors above, then re-run the check."
   fi
 elif [ -f build.gradle ] || [ -f build.gradle.kts ]; then
+  OUT=build/archguard
   gradle_cmd=gradle
   [ -x ./gradlew ] && gradle_cmd=./gradlew
-  if ! "$gradle_cmd" -q classes archguardClasspath >&2; then
-    error "Gradle build failed (it needs the archguardClasspath task from docs/CLI.md)."
+  if ! "$gradle_cmd" -q -I "$(dirname "$0")/archguard.init.gradle" classes archguardClasspath >&2; then
+    error "Gradle build failed; fix the errors above, then re-run the check."
   fi
 else
   error "No pom.xml or build.gradle found; this skill version supports Java projects only."
@@ -57,7 +59,7 @@ else
   cli=(java -jar "$jar")
 fi
 
-args=(check --config "$CONFIG" --format agent "${classpath_args[@]}")
+args=(check --config "$CONFIG" --out "$OUT" --format agent "${classpath_args[@]}")
 if $changed && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   { git diff --name-only --relative HEAD; git ls-files --others --exclude-standard; } | sort -u \
     | "${cli[@]}" "${args[@]}" --changed-files - ${extra[@]+"${extra[@]}"}
