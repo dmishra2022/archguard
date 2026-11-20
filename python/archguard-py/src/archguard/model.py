@@ -45,6 +45,7 @@ class Unit:
     context: str
     tags: List[str]
     location: Location
+    endpoint_line: int = 0
 
     @property
     def containers(self) -> List[str]:

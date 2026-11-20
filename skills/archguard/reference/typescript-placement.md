@@ -12,7 +12,10 @@ Roles attach to directories, not files. Put files with different roles in differ
 | Use case / application service | APPLICATION | `src/<ctx>/application` | DOMAIN, ports. Never a concrete adapter |
 | Use-case interface called by the outside (optional) | INBOUND_PORT | `src/<ctx>/application/ports/inbound` | DOMAIN, APPLICATION types. No framework imports |
 | Interface the core needs (repository, gateway, clock, publisher), plus its DI token | OUTBOUND_PORT | `src/<ctx>/application/ports` | DOMAIN. No framework imports |
-| NestJS controller or resolver, Express/Fastify/Hono routes, Next.js route handler, queue consumer | INBOUND_ADAPTER | `src/<ctx>/web` (or `http`, `graphql`) | APPLICATION, ports, DOMAIN, frameworks |
+| NestJS controller or resolver, Express/Fastify/Hono routes, Next.js route handler, queue consumer, domain-event subscriber that calls a use case | INBOUND_ADAPTER | `src/<ctx>/web` (or `http`, `graphql`, `subscribers`) | APPLICATION, ports, DOMAIN, frameworks |
+| Request/response DTOs | INBOUND_ADAPTER, next to the controller | `src/<ctx>/web/dto` | As the controller |
+| Use-case input/output types | APPLICATION | `src/<ctx>/application` | As the use case |
+| Mappers between ORM entities and domain objects | OUTBOUND_ADAPTER, next to the repository | `src/<ctx>/infrastructure` | As the repository |
 | TypeORM/MikroORM entity and repository, Prisma or Mongoose access, HTTP client | OUTBOUND_ADAPTER | `src/<ctx>/infrastructure` | Ports (it implements them), DOMAIN, frameworks |
 | `main.ts`, Nest `AppModule` and feature modules, DI container setup | COMPOSITION_ROOT | `src`, `src/<ctx>` | Everything; binds ports to adapters |
 
@@ -32,7 +35,7 @@ Adapters never import each other: a controller reaches a repository only through
 
 **Type-only imports count**: `import type { X } from '...'` is still a dependency (unless the policy sets `typeOnlyImports: ignore`). Path aliases from `tsconfig.json` `paths` resolve to the real directory, so an alias does not hide a dependency.
 
-**Framework imports**: keep `@nestjs/*`, `typeorm`, `@prisma/client`, `mongoose`, `express` and similar out of DOMAIN and ports (HEX-001, HEX-003).
+**Framework imports**: keep `@nestjs/*`, `typeorm`, `sequelize`, `@prisma/client`, `mongoose`, `express`, `axios` and similar out of DOMAIN and ports (HEX-001, HEX-003). The full default list is [`spec/infrastructure/typescript.yml`](../../../spec/infrastructure/typescript.yml); libraries not on it (validation libraries, vendor SDKs) are forbidden only if the policy adds a `constraints` entry for them.
 
 ## Layered profile
 
@@ -46,9 +49,18 @@ Adapters never import each other: a controller reaches a repository only through
 
 A file in context A may import context B only through B's `exposedPackages` (DDD-001), and context dependencies must stay acyclic (DDD-002). In a monorepo, import the other workspace package's public entry that the policy exposes, never deep paths into its domain or infrastructure. If nothing suitable is exposed, stop and ask: exposing a package is a policy change.
 
+Files outside every context (for example `src/config` or `src/shared`) are not checked by DDD-001 or DDD-002; the role rules still apply to them. A shared kernel used by every context can be a context whose `exposedPackages` is `["src/shared/**"]` (everything), or stay outside the contexts.
+
 ## Unclassified code (MODEL-001)
 
-With `requireClassification: true`, every analyzed file under `roots` must sit in a directory that matches a role, including `index.ts` barrels. Put new files in a directory that already maps to a role. If none fits, ask the user rather than creating a directory the policy does not cover. Tests (`*.test.*`, `*.spec.*`, `__tests__`, `__mocks__`) and `.d.ts` files are not analyzed.
+With `requireClassification: true`, every analyzed file under `roots` must sit in a directory that matches a role, including `index.ts` barrels. Put new files in a directory that already maps to a role. If none fits, ask the user rather than creating a directory the policy does not cover. A directory holding only barrels or module wiring is usually COMPOSITION_ROOT.
+
+Excluded from analysis: `*.test.*` and `*.spec.*` files, `__tests__` and `__mocks__` directories, `node_modules` and `.d.ts` files. Other test directories under `roots` (`tests/`, `test/`, `fixtures/`) are analyzed: give them a role (fakes of a port are usually OUTBOUND_ADAPTER) or keep them outside `roots`.
+
+## Existing code that mixes roles
+
+- **Interface and implementation in one file or directory**: classify the directory by its concrete part (OUTBOUND_ADAPTER); importers in the core then show up as HEX-002. Baseline them, and move the interface into a ports directory when you touch the code.
+- **Vertical slices** (one directory per feature holding the controller, the use case and the repository): roles attach to directories, so a slice cannot be split by the policy. Either give each slice subdirectories (`features/orders/web`, `features/orders/application`) or classify the slice by its dominant role and baseline the rest.
 
 ## What the analyzer cannot see
 

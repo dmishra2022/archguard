@@ -103,8 +103,25 @@ export function agentError(message: string): string {
   return JSON.stringify({ summary: true, status: 'ERROR', error: message }) + '\n';
 }
 
+export function summary(r: AnalysisResult): string {
+  const counts: Record<string, number> = { NEW: 0, EXISTING: 0, SUPPRESSED: 0 };
+  let info = 0;
+  for (const f of r.findings) {
+    if (f.severity === 'INFO') info++;
+    else counts[f.status]++;
+  }
+  let s =
+    `ArchGuard ${r.engineVersion}: ${r.analyzedClasses} modules, ${r.dependencies} dependencies, ${r.findings.length} findings ` +
+    `(${counts.NEW} new, ${counts.EXISTING} existing, ${counts.SUPPRESSED} suppressed, ${info} info)`;
+  for (const d of r.diagnostics) {
+    const value = d.split(': ').slice(1).join(': ');
+    if (d.startsWith('Unclassified application') && !value.startsWith('0 ')) s += `; unclassified ${value}`;
+  }
+  return s;
+}
+
 export function consoleReport(r: AnalysisResult): string {
-  let s = `ArchGuard ${r.engineVersion}: ${r.analyzedClasses} modules, ${r.dependencies} dependencies, ${r.findings.length} findings\n`;
+  let s = summary(r) + '\n';
   for (const f of r.findings) {
     if (f.severity === 'INFO') continue;
     s += `${f.severity} ${f.ruleId} [${f.status}] ${f.location.symbol}:${f.location.line} — ${f.message}\n  ${f.remediation}\n`;

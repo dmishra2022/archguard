@@ -4,7 +4,7 @@
 
 | Analyzer | Package | Runtime | Tested in CI |
 |---|---|---|---|
-| Java | `io.archguard:archguard-maven-plugin`, `archguard-cli-<version>.jar` | JDK 17 or later; Maven 3.9; Gradle through the init script | JDK 17, 21 and 25 |
+| Java | `io.archguard:archguard-maven-plugin`, `archguard-cli-<version>.jar` | JDK 17 to 27 (both to run the analyzer and for the analyzed class files); Maven 3.9; Gradle through the init script | JDK 17, 21, 25 and 27 |
 | TypeScript / JavaScript | `archguard-cli` (npm) | Node.js 18 or later | Node.js 18, 20, 22 and 24 |
 | Python | `archguard-cli` (PyPI) | Python 3.9 or later | Python 3.9 to 3.14 |
 

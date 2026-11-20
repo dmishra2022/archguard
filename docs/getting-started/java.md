@@ -82,6 +82,8 @@ requireClassification: true
 newOnly: true
 ```
 
+This minimal policy uses only `hexagonal`. The template also enables `ddd` and declares `contexts`; keep that if you have bounded contexts, otherwise remove `ddd` and the `contexts` block.
+
 ## 4. Run it in report-only mode
 
 ```bash

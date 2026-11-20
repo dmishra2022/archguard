@@ -47,6 +47,8 @@ pip install archguard-cli          # or: uv add --dev archguard-cli / poetry add
 
 The npm and PyPI packages are named `archguard-cli`. The packages called `@archguard/cli` (npm) and `archguard` (PyPI) are unrelated projects; do not install them. If your organisation mirrors packages internally, install from the internal registry. Until 0.1.0 is published to the public registries, install from a clone of the repository: `pip install ./python/archguard-py`, or `npm install --save-dev ./typescript/archguard-ts` after `npm ci && npm run build` there.
 
+Check the install: `archguard --version` (Python), `npx archguard --version` (TypeScript) or `java -jar archguard-cli-0.1.0.jar --version` prints the analyzer and spec versions.
+
 ## 2. Write the policy
 
 Copy the template for your language to `architecture.yml` at the project root:
@@ -60,8 +62,8 @@ Then fill it in:
 1. **`extends`**: if your organisation publishes a preset, extend it (`extends: ["org:acme/base@1.0.0"]`) and install its package next to the analyzer (see [Organisation presets](#organisation-presets)). Otherwise delete the line.
 2. **`roots`**: what to analyze. Java uses packages (`com.acme.orders.**`), TypeScript uses directories relative to the project root (`src/**`), and Python uses dotted module names under the source root (`orders.**`).
 3. **`profiles`**: `hexagonal`, `clean`, `layered`, `ddd` or `modular-monolith`. Combine an architecture style with `ddd` when you have bounded contexts. [RULES.md](RULES.md) lists what each profile enforces.
-4. **`roles`**: map every package or directory to one role: `DOMAIN`, `APPLICATION`, `INBOUND_PORT`, `OUTBOUND_PORT`, `INBOUND_ADAPTER`, `OUTBOUND_ADAPTER` or `COMPOSITION_ROOT`. The placement guides show the usual mapping per framework: [Java](../skills/archguard/reference/java-placement.md), [TypeScript](../skills/archguard/reference/typescript-placement.md), [Python](../skills/archguard/reference/python-placement.md). A selector with `**` covers everything below it. A selector without `**` covers exactly that package, directory or module, which is how you classify a package's own `__init__.py`, an `index.ts`, or a `main` module.
-5. **`contexts`** (ddd, modular-monolith): each context's `packages` and the `exposedPackages` other contexts may use.
+4. **`roles`**: map every package or directory to one role: `DOMAIN`, `APPLICATION`, `INBOUND_PORT`, `OUTBOUND_PORT`, `INBOUND_ADAPTER`, `OUTBOUND_ADAPTER` or `COMPOSITION_ROOT`. The placement guides show the usual mapping per framework: [Java](../skills/archguard/reference/java-placement.md), [TypeScript](../skills/archguard/reference/typescript-placement.md), [Python](../skills/archguard/reference/python-placement.md). A selector with `**` covers everything below it. A selector without `**` covers exactly that package, directory or module, which is how you classify a package's own `__init__.py`, an `index.ts`, or a `main` module. Selectors of different roles must not overlap: a unit that matches two roles stops the analysis with exit 2 ([troubleshooting](troubleshooting.md)).
+5. **`contexts`** (ddd, modular-monolith): each context's `packages` and the `exposedPackages` other contexts may use. `exposedPackages: []` means the context exposes nothing. Code outside every context is not checked by the DDD rules.
 6. **`constraints`** (optional): project-specific forbidden dependencies, for example "views must not import models" ([CONFIGURATION.md](CONFIGURATION.md)).
 
 Check the file before analyzing:
@@ -73,6 +75,21 @@ java -jar archguard-cli-0.1.0.jar validate --config architecture.yml     # Java
 
 Every key is validated: typos, unknown rule IDs and invalid selectors are errors, not silently ignored.
 
+### Common layouts
+
+| Your code looks like | Policy |
+|---|---|
+| Modular monolith with one package per module (`modules/orders/domain`, `modules/billing/domain`) | Wildcard selectors per role (`modules.*.domain.**`, or `src/modules/*/domain/**` in TypeScript) plus one context per module |
+| Several top-level packages (`orders`, `billing`, `shared`) | List each in `roots`; roles can use `**.domain.**` |
+| Vertical slices (route, handler and repository side by side per feature) | Python and Java classify per module or class, so map each file by its role (`orders.features.*.routes`). TypeScript classifies directories, so give each slice subdirectories or classify it by its dominant role and baseline the rest |
+| A port interface and its implementation in one file | Classify the file as the adapter, baseline the resulting findings, and split the interface out when you next touch it |
+| Domain-event subscribers or message handlers | `INBOUND_ADAPTER` (they are entry points like controllers) |
+| Mappers between ORM and domain objects | The role of the adapter they serve, usually `OUTBOUND_ADAPTER` |
+| Request/response DTOs; use-case input/output types | `INBOUND_ADAPTER` next to the controller; `APPLICATION` |
+| Shared kernel used by every context | Leave it outside the contexts, or declare a context whose `exposedPackages` covers all of it |
+| Empty glue packages, `index.ts` barrels, module wiring | `COMPOSITION_ROOT` |
+| TypeScript test helpers in `tests/` or `test/` | These are analyzed (only `*.test.*`, `*.spec.*`, `__tests__` and `__mocks__` are excluded). Give them a role or keep them outside `roots` |
+
 ## 3. Report-only run
 
 Run the analysis without failing the build and open `index.html`:
@@ -83,10 +100,16 @@ npx archguard analyze                                                # TypeScrip
 archguard analyze                                                    # Python
 ```
 
-Iterate on the policy until the findings make sense:
+The analyzer prints a summary line such as:
 
-- **MODEL-001 (unclassified)**: a unit matched no role. Add a selector for it, or narrow `roots` if it should not be analyzed. The report's diagnostics line "Unclassified application modules: N / M" ("classes" for Java) should reach 0.
-- **Exit 2**: the analysis could not run. Read the error. Common causes are a selector that matches nothing (`allowEmptySelectors` is off on purpose), a Python file the interpreter cannot parse, an unresolved project import (run code generators first, or set `unresolvedImports: warn` while you investigate), or a missing preset package.
+```
+ArchGuard 0.1.0: 104 modules, 381 dependencies, 31 findings (16 new, 0 existing, 0 suppressed, 15 info); unclassified 2 / 104
+```
+
+`--format console` lists ERROR and WARNING findings; INFO findings (MODEL-002 framework evidence) appear only in the JSON, SARIF and HTML reports. Iterate on the policy until the findings make sense:
+
+- **MODEL-001 (unclassified)**: a unit matched no role. Add a selector for it, or narrow `roots` if it should not be analyzed. The unclassified count in the summary (and the report's diagnostics line "Unclassified application modules: N / M", "classes" for Java) should reach 0.
+- **Exit 2**: the analysis could not run. Read the error. Common causes are a selector that matches nothing (`allowEmptySelectors` is off on purpose), a Python file the interpreter cannot parse, an unresolved project import (run code generators first, or set `unresolvedImports: warn` while you investigate; in Python, a local folder named like an installed package, such as an `alembic/` migrations folder, must not have an `__init__.py` and must stay outside `roots`, otherwise imports of the real package resolve to it), or a missing preset package.
 - **Findings that look wrong**: check the role mapping first. Most false positives are a package or directory in the wrong role. If the analyzer really is wrong, open an issue with the evidence line from the report.
 
 ## 4. Capture existing debt
@@ -99,12 +122,12 @@ npx archguard baseline                                              # TypeScript
 archguard baseline                                                  # Python
 ```
 
-Set `newOnly: true` in the policy (the templates already do), review `architecture-baseline.json`, and commit both. The baseline is bound to the policy hash: changing the policy or upgrading a preset means regenerating it (`--overwrite-baseline`, or `-Darchguard.overwriteBaseline=true` for Maven) in a reviewed pull request.
+Set `newOnly: true` in the policy (the templates already do), review the baseline, and commit both. `architecture-baseline.json` holds only fingerprints, so review it through the report: run `check --baseline architecture-baseline.json` and read the findings marked EXISTING in `index.html` or the console output. The baseline is bound to the policy hash: changing the policy or upgrading a preset means regenerating it (`--overwrite-baseline`, or `-Darchguard.overwriteBaseline=true` for Maven) in a reviewed pull request.
 
 ## 5. Gate locally
 
 - **Java**: `mvn verify` runs `check`. Pass the baseline with `-Darchguard.baseline=architecture-baseline.json` or configure the property in the plugin.
-- **TypeScript**: `npm run arch:check -- --baseline architecture-baseline.json`. For pre-commit with lint-staged, put this in `package.json`. Only findings in the staged files are reported, but the whole import graph is still analyzed:
+- **TypeScript**: put the baseline in the script once (`npm pkg set scripts.arch:check="archguard check --baseline architecture-baseline.json"`) and run `npm run arch:check`. For pre-commit, install [husky](https://typicode.github.io/husky/) and [lint-staged](https://github.com/lint-staged/lint-staged) (`npm install --save-dev husky lint-staged && npx husky init && echo "npx lint-staged" > .husky/pre-commit`) and add this to `package.json`, merging it into an existing `lint-staged` block. Only findings in the staged files are reported, but the whole import graph is still analyzed:
 
   ```json
   "lint-staged": {
@@ -112,7 +135,7 @@ Set `newOnly: true` in the policy (the templates already do), review `architectu
   }
   ```
 
-- **Python**: `archguard check --baseline architecture-baseline.json`. For pre-commit:
+- **Python**: `archguard check --baseline architecture-baseline.json`. For [pre-commit](https://pre-commit.com), add this hook (merge the `local` repo entry into an existing `.pre-commit-config.yaml`):
 
   ```yaml
   # .pre-commit-config.yaml
@@ -154,9 +177,10 @@ jobs:
           # extensions: |                         # org presets: Java jar paths, or Python pip requirements
           #   acme-archguard-presets==1.0.0
           # upload-sarif: "false"                 # private repositories without code scanning
+          # python-version: "3.12"                # or node-version / java-version: match the project
 ```
 
-You get a job summary, an annotation on each new finding, SARIF in code scanning, and the reports as an artifact. All inputs are described in [CI.md](CI.md). For a monorepo, add one step per project with its own `working-directory` and `artifact-name`.
+Pin the action to a release tag (`@v0.1.0`) rather than `@main` once one is published, so the gate does not change under you. You get a job summary, an annotation on each new finding, SARIF in code scanning, and the reports as an artifact. All inputs are described in [CI.md](CI.md). For a monorepo, add one step per project with its own `working-directory` and `artifact-name`.
 
 **Other CI** (GitLab, Jenkins, Azure): run the same `archguard check` command. Treat exit 1 as a policy failure and exit 2 as a broken pipeline, and publish the SARIF or HTML report ([CI.md](CI.md) has snippets).
 

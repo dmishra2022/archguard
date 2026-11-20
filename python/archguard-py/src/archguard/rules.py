@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import re
+from dataclasses import replace
 from typing import Callable, Dict, List, Optional, Set
 
 from .frameworks import ENDPOINT_TAGS
@@ -132,7 +133,8 @@ def evaluate(model: Model, p: Policy) -> List[Finding]:
             tags = {'tags': _render(sorted(u.tags))}
             add_rule('MODEL-002', tags, self_dep(u.name, fill(c.rule('MODEL-002').evidence, tags), u.location))
         if any(t in ENDPOINT_TAGS for t in u.tags) and u.role not in ('INBOUND_ADAPTER', UNCLASSIFIED):
-            add_rule('FW-001', {}, self_dep(u.name, fill(c.rule('FW-001').evidence, role_values), u.location))
+            add_rule('FW-001', {}, self_dep(u.name, fill(c.rule('FW-001').evidence, role_values),
+                                            replace(u.location, line=u.endpoint_line)))
 
     for d in model.dependencies:
         if d.kind == 'HTTP_ENTITY_EXPOSURE':

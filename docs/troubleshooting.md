@@ -57,6 +57,9 @@ A local folder named like a third-party package (for example a `src/alembic/` mi
 **`Policy preset not found` for `@acme/archguard-presets`**
 : Presets resolve from the project's `node_modules`; run `npm ci` before the check (also in CI).
 
+**Test helpers reported as unclassified (MODEL-001) or as violations**
+: Only `*.test.*` and `*.spec.*` files and `__tests__` and `__mocks__` directories are excluded. Folders such as `tests/`, `test/` or `fixtures/` under `roots` are analyzed like production code. Give them a role (in-memory fakes of a port are usually `OUTBOUND_ADAPTER`), or narrow `roots` so they are outside it.
+
 ### Java
 
 **Missing classes or `target/classes` not found**
@@ -64,6 +67,9 @@ A local folder named like a third-party package (for example a `src/alembic/` mi
 
 **Unresolved dependencies**
 : Pass the full compile classpath (`--classpath-file` written by `mvn archguard:classpath` or the Gradle init script).
+
+**`Unresolved direct application dependency: ... -> java.lang.Object`**
+: The analyzer cannot read the JDK's own classes, because the JDK running it is newer than the bytecode reader supports. 0.1.0 supports up to JDK 27. Run the analyzer on a supported JDK (set `JAVA_HOME`, or `java-version` in the GitHub Action).
 
 ## Findings that look wrong
 

@@ -136,7 +136,17 @@ public final class Reports {
     }
   }
 
-  public static String console(AnalysisResult r) {
+  public static String summary(AnalysisResult r) {
+    int fresh = 0, existing = 0, suppressed = 0, info = 0;
+    for (var f : r.findings()) {
+      if (f.severity() == Severity.INFO) info++;
+      else
+        switch (f.status()) {
+          case NEW -> fresh++;
+          case EXISTING -> existing++;
+          case SUPPRESSED -> suppressed++;
+        }
+    }
     StringBuilder s =
         new StringBuilder(
             "ArchGuard "
@@ -147,7 +157,25 @@ public final class Reports {
                 + r.dependencies()
                 + " dependencies, "
                 + r.findings().size()
-                + " findings\n");
+                + " findings ("
+                + fresh
+                + " new, "
+                + existing
+                + " existing, "
+                + suppressed
+                + " suppressed, "
+                + info
+                + " info)");
+    for (String d : r.diagnostics()) {
+      String value = d.contains(": ") ? d.substring(d.indexOf(": ") + 2) : "";
+      if (d.startsWith("Unclassified application") && !value.startsWith("0 "))
+        s.append("; unclassified ").append(value);
+    }
+    return s.toString();
+  }
+
+  public static String console(AnalysisResult r) {
+    StringBuilder s = new StringBuilder(summary(r)).append('\n');
     for (var f : r.findings()) {
       if (f.severity() == Severity.INFO) continue;
       s.append(f.severity())

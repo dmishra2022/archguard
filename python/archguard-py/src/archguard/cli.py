@@ -189,7 +189,7 @@ def run(args: List[str], io: Io) -> int:
     from .changed import restrict_to_changed_files
     from .debt import apply_debt, write_baseline
     from .engine import analyze
-    from .reports import agent, agent_error, console_report, write_failure, write_reports
+    from .reports import agent, agent_error, console_report, summary, write_failure, write_reports
 
     out = o.out or o.project / 'reports' / 'archguard'
     try:
@@ -212,6 +212,8 @@ def run(args: List[str], io: Io) -> int:
             io.stdout(console_report(result) + '\n')
         if 'agent' in o.formats:
             io.stdout(agent(result, failed))
+        if 'console' not in o.formats:
+            io.stderr(summary(result) + '\n')
         io.stderr(f'Reports: {out}\n')
         if o.command == 'check' and failed:
             io.stderr(f"Architecture policy violated. See {out / 'index.html'}\n")

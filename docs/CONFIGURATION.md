@@ -8,12 +8,16 @@ schemaVersion 2 is a superset of version 1. Existing version 1 files keep workin
 
 | Key | Meaning |
 |---|---|
-| `language: java` | Required. The Java analyzer rejects other languages. |
+| `language: java \| typescript \| python` | Required. Each analyzer rejects a policy written for another language. |
 | `kind: project \| preset` | `preset` files are reusable parents for `extends` and cannot be analyzed directly. |
 | `extends: [...]` | Parent presets, applied in order before the local file (see below). |
 | `profiles` | Any spec profile: `hexagonal`, `ddd`, `layered`, `clean`, `modular-monolith`. |
 | `rules.<ID>.locked` | In a preset: children cannot change this rule's settings. |
-| `sourceRoots`, `typeOnlyImports`, `unresolvedImports` | Used by the Python and TypeScript analyzers; ignored by Java. |
+| `sourceRoots`, `typeOnlyImports`, `unresolvedImports` | Used by the Python and TypeScript analyzers; ignored by Java. See the [TypeScript](../typescript/archguard-ts/README.md) and [Python](../python/archguard-py/README.md) analyzer READMEs. |
+
+Selectors depend on the language: Java selectors match packages, TypeScript selectors match directories relative to the project root, and Python selectors match dotted module names under the source root. The rest of this page uses Java examples; apart from the three keys above, every key works the same in all three languages.
+
+`exposedPackages: []` is valid: the context exposes nothing, so any import of it from another context is a DDD-001 finding. Code outside every context is not checked by the DDD rules.
 
 Selectors accept the neutral glob syntax in both versions: `com.acme.**` equals `com.acme..`, `**.domain.**` equals `..domain..`, `*` is one segment. Prefer globs in policies shared with other languages. See [spec/SELECTORS.md](../spec/SELECTORS.md).
 

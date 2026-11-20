@@ -329,6 +329,13 @@ class AnalyzerTest(unittest.TestCase):
         fw1 = sorted(f.location.symbol for f in result.findings if f.rule_id == 'FW-001')
         self.assertEqual(fw1, ['shop.application.api', 'shop.application.base', 'shop.application.pages', 'shop.application.views'])
 
+    def test_fw001_points_at_the_route_decorator(self):
+        result = self.project({
+            'src/shop/application/main.py': 'from fastapi import FastAPI\napp = FastAPI()\n\n\n@app.get("/")\nasync def root():\n    return {}\n',
+        }).analyze()
+        [f] = [f for f in result.findings if f.rule_id == 'FW-001']
+        self.assertEqual(f.location.line, 5)
+
     # ---- policy --------------------------------------------------------------------------
 
     def test_policy_validation(self):

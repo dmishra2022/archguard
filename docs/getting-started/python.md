@@ -17,14 +17,14 @@ archguard check --format console
 Expected output (abridged), exit code `1`:
 
 ```text
-ArchGuard 0.1.0: 15 modules, 50 dependencies, 7 findings
+ArchGuard 0.1.0: 15 modules, 50 dependencies, 7 findings (4 new, 0 existing, 0 suppressed, 3 info)
 ERROR FW-002 [NEW] orders.web.routes#get_order:24 — HTTP contract exposes a persistence entity
 ERROR HEX-001 [NEW] orders.domain.order:8 — Domain depends on an outer layer or framework
 ERROR HEX-002 [NEW] orders.application.place_order:8 — Application depends on a concrete outer component
 ERROR HEX-004 [NEW] orders.web.routes:6 — Inbound and outbound adapters depend directly on each other
 ```
 
-Each finding is followed by a suggested fix. The HTML report is at `reports/archguard/index.html`. Run the same command in `examples/python-clean` (hexagonal FastAPI) or `examples/python-django` (layered Django) to see a pass.
+Each finding is followed by a suggested fix. INFO findings (framework evidence) are counted in the summary but listed only in the reports. The HTML report is at `reports/archguard/index.html`. Run the same command in `examples/python-clean` (hexagonal FastAPI) or `examples/python-django` (layered Django) to see a pass.
 
 ## 2. Install in your project
 
@@ -55,6 +55,8 @@ roles:
 requireClassification: true
 newOnly: true
 ```
+
+This minimal policy uses only `hexagonal`. The template also enables `ddd` and declares `contexts`; keep that if you have bounded contexts, otherwise remove `ddd` and the `contexts` block.
 
 For a layered Django project, start from [`examples/python-django/architecture.yml`](../../examples/python-django/architecture.yml) instead.
 

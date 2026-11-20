@@ -136,6 +136,7 @@ public final class Main {
       Reports.write(output, result, o.formats, failed);
       if (o.formats.contains("console")) out.println(Reports.console(result));
       if (o.formats.contains("agent")) out.print(Reports.agent(result, failed));
+      if (!o.formats.contains("console")) err.println(Reports.summary(result));
       err.println("Reports: " + output.toAbsolutePath());
       if (o.command.equals("check") && failed) {
         err.println("Architecture policy violated. See " + output.resolve("index.html"));

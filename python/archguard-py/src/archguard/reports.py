@@ -100,9 +100,25 @@ def agent_error(message: str) -> str:
     return _line({'summary': True, 'status': 'ERROR', 'error': message})
 
 
-def console_report(r: AnalysisResult) -> str:
+def summary(r: AnalysisResult) -> str:
+    counts = {'NEW': 0, 'EXISTING': 0, 'SUPPRESSED': 0}
+    info = 0
+    for f in r.findings:
+        if f.severity == 'INFO':
+            info += 1
+        else:
+            counts[f.status] += 1
     out = (f'ArchGuard {r.engine_version}: {r.analyzed} modules, {r.dependencies} dependencies, '
-           f'{len(r.findings)} findings\n')
+           f"{len(r.findings)} findings ({counts['NEW']} new, {counts['EXISTING']} existing, "
+           f"{counts['SUPPRESSED']} suppressed, {info} info)")
+    for d in r.diagnostics:
+        if d.startswith('Unclassified application') and not d.split(': ', 1)[-1].startswith('0 '):
+            out += f"; unclassified {d.split(': ', 1)[-1]}"
+    return out
+
+
+def console_report(r: AnalysisResult) -> str:
+    out = summary(r) + '\n'
     for f in r.findings:
         if f.severity == 'INFO':
             continue

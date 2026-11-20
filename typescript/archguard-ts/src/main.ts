@@ -5,7 +5,7 @@ import { policyHash, readPolicy } from './policy.js';
 import { analyze } from './engine.js';
 import { applyDebt, writeBaseline } from './debt.js';
 import { restrictToChangedFiles } from './changed.js';
-import { FORMATS, agent, agentError, consoleReport, writeFailure, writeReports } from './reports.js';
+import { FORMATS, agent, agentError, consoleReport, summary, writeFailure, writeReports } from './reports.js';
 import { catalog } from './spec.js';
 
 export const OK = 0;
@@ -222,6 +222,7 @@ export async function run(args: string[], io: Io): Promise<number> {
     writeReports(out, result, o.formats, failed);
     if (o.formats.has('console')) io.stdout(consoleReport(result) + '\n');
     if (o.formats.has('agent')) io.stdout(agent(result, failed));
+    if (!o.formats.has('console')) io.stderr(summary(result) + '\n');
     io.stderr(`Reports: ${out}\n`);
     if (o.command === 'check' && failed) {
       io.stderr(`Architecture policy violated. See ${resolve(out, 'index.html')}\n`);

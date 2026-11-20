@@ -176,6 +176,7 @@ def read_model(project: Project, policy: Policy) -> Model:
             context=context_of(policy, [sf.module], sf.module),
             tags=frameworks.tags(info),
             location=Location(project.module_id(sf.path), path, sf.module, 0),
+            endpoint_line=next((decorator.lineno for _, _, _, decorator in frameworks.handlers(info)), 0),
         )
     if not units and not policy.allowEmptyAnalysis:
         raise AnalysisError('No application modules matched roots; refusing a vacuous pass')
